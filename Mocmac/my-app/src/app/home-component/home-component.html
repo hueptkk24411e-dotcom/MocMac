@@ -1,0 +1,55 @@
+<!-- HERO: thay background bằng ảnh thật trong src/assets -->
+<section class="hero"><div class="wrap">
+  <h1>Mộc Mạc</h1>
+  <p class="sl">ĐẶC SẢN VIỆT – TINH HOA BẢN ĐỊA</p>
+  <p class="it">Từ bao miền đất nước, đến gần hơn với cuộc sống của bạn</p>
+  <a class="btn" href="#sp">KHÁM PHÁ NGAY →</a>
+  <span class="dots"><i class="on"></i><i></i><i></i><i></i></span>
+</div></section>
+
+<div class="wrap feat">
+  @for (f of features(); track f.title) {<div><span>{{ f.icon }}</span><div><b>{{ f.title }}</b><small>{{ f.desc }}</small></div></div>}
+</div>
+
+<section class="wrap story">
+  <div class="st-text">
+    <h2>Câu chuyện <em>Mộc Mạc</em></h2>
+    <p>Chúng tôi tin rằng mỗi sản phẩm đều mang trong mình một câu chuyện văn hoá, một vùng đất và những con người tận tâm gìn giữ tinh hoa Việt. Mộc Mạc kết nối bạn với đặc sản, làng nghề và sản phẩm truyền thống từ khắp các vùng miền Việt Nam.</p>
+    <a class="btn dark" href="#">Tìm hiểu câu chuyện Mộc Mạc →</a>
+  </div>
+  <div class="polaroids">@for (p of polaroids(); track p.title) {<figure><div [style.background]="p.color"></div><figcaption>{{ p.title }}</figcaption></figure>}</div>
+</section>
+
+<section class="wrap">
+  <div class="sh"><h2>Khám phá theo vùng miền <small>Mỗi vùng đất một sắc màu, một hương vị riêng</small></h2><a href="#">Xem tất cả vùng miền →</a></div>
+  <div class="regions">@for (r of regions(); track r.name) {<a href="#" [style.background]="r.color"><span>{{ r.name }}</span></a>}</div>
+</section>
+
+<section class="wrap" id="sp">
+  <div class="sh"><h2>Sản phẩm nổi bật <small>Tinh hoa từ khắp mọi miền Việt Nam</small></h2>
+    <div class="tabs">@for (t of tabs(); track t) {<button [class.on]="tab() === t" (click)="tab.set(t)">{{ t }}</button>}</div>
+  </div>
+  <div class="grid">
+    @for (p of shown(); track p.name) {
+      <article class="card">
+        <div class="img">{{ p.icon }}<span class="heart">♡</span></div>
+        <h3>{{ p.name }}</h3>
+        <div class="stars">★★★★★ <small>({{ p.reviews }})</small></div>
+        <small class="loc">📍 {{ p.place }}</small>
+        <div class="row"><b>{{ p.price }}</b><button class="add" (click)="cart.add()" aria-label="Thêm vào giỏ">🛒</button></div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="commit">
+    <div><small>Mộc Mạc cam kết</small><h2>NÂNG TẦM ĐẶC SẢN VIỆT<br>LAN TOẢ GIÁ TRỊ BẢN ĐỊA</h2><a class="btn" href="#">Khám phá thêm →</a></div>
+    <ul>@for (c of commits(); track c.title) {<li><span>{{ c.icon }}</span><b>{{ c.title }}</b><small>{{ c.desc }}</small></li>}</ul>
+  </div>
+</section>
+
+<section class="news"><div class="wrap">
+  <div><b>Nhận tin mới từ Mộc Mạc</b><small>Cập nhật sản phẩm mới, câu chuyện vùng miền và ưu đãi đặc biệt.</small></div>
+  <form (submit)="$event.preventDefault()"><input type="email" placeholder="Nhập email của bạn..." /><button class="btn">Đăng ký</button></form>
+</div></section>

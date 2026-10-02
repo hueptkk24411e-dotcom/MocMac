@@ -1,0 +1,249 @@
+{
+  "header": {
+    "left": [
+      "Giới thiệu",
+      "Quà tặng theo nhu cầu",
+      "Quà tặng doanh nghiệp"
+    ],
+    "right": [
+      "Thông báo",
+      "Hỗ trợ",
+      "Tiếng Việt",
+      "Đăng ký",
+      "Đăng nhập"
+    ],
+    "menu": [
+      "Trang chủ",
+      "Sản phẩm",
+      "Quà tặng",
+      "Vùng miền",
+      "Làng nghề",
+      "Liên hệ"
+    ]
+  },
+  "home": {
+    "features": [
+      {
+        "title": "Sản phẩm chính gốc",
+        "desc": "Gắn với vùng miền, làng nghề cụ thể",
+        "icon": "🌿"
+      },
+      {
+        "title": "Heritage Score minh bạch",
+        "desc": "Đánh giá nguồn gốc & giá trị văn hoá",
+        "icon": "🛡️"
+      },
+      {
+        "title": "Truy xuất QR dễ dàng",
+        "desc": "Xem nguồn gốc, câu chuyện sản phẩm",
+        "icon": "▦"
+      },
+      {
+        "title": "Giao hàng toàn quốc",
+        "desc": "Hỗ trợ đổi trả linh hoạt",
+        "icon": "🚚"
+      }
+    ],
+    "polaroids": [
+      {
+        "title": "Con người",
+        "color": "#8FA67C"
+      },
+      {
+        "title": "Làng nghề",
+        "color": "#B88A5E"
+      },
+      {
+        "title": "Vùng miền",
+        "color": "#9B4A32"
+      },
+      {
+        "title": "Giá trị bền vững",
+        "color": "#C9A36F"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tây Bắc",
+        "color": "#7F9A62"
+      },
+      {
+        "name": "Đông Bắc",
+        "color": "#7FA7A0"
+      },
+      {
+        "name": "Đồng bằng sông Hồng",
+        "color": "#B8623E"
+      },
+      {
+        "name": "Bắc Trung Bộ",
+        "color": "#C9A36F"
+      },
+      {
+        "name": "Duyên hải Nam Trung Bộ",
+        "color": "#6FA3B5"
+      },
+      {
+        "name": "Tây Nguyên",
+        "color": "#5E8A4E"
+      },
+      {
+        "name": "Đông Nam Bộ",
+        "color": "#7E88A8"
+      },
+      {
+        "name": "Tây Nam Bộ",
+        "color": "#8FA06A"
+      }
+    ],
+    "tabs": [
+      "Tất cả",
+      "Đặc sản",
+      "Thủ công mỹ nghệ",
+      "Cà phê - Trà",
+      "Sản phẩm OCOP"
+    ],
+    "products": [
+      {
+        "name": "Cà phê Buôn Ma Thuột",
+        "place": "Đắk Lắk",
+        "price": "120.000đ",
+        "cat": "Cà phê - Trà",
+        "rate": 5,
+        "reviews": 128,
+        "icon": "☕"
+      },
+      {
+        "name": "Túi mây tre đan Phú Vinh",
+        "place": "Hà Nội",
+        "price": "250.000đ",
+        "cat": "Thủ công mỹ nghệ",
+        "rate": 5,
+        "reviews": 86,
+        "icon": "👜"
+      },
+      {
+        "name": "Bộ ấm trà Bát Tràng",
+        "place": "Hà Nội",
+        "price": "690.000đ",
+        "cat": "Thủ công mỹ nghệ",
+        "rate": 5,
+        "reviews": 64,
+        "icon": "🍵"
+      },
+      {
+        "name": "Mật ong Tây Bắc",
+        "place": "Sơn La",
+        "price": "180.000đ",
+        "cat": "Đặc sản",
+        "rate": 5,
+        "reviews": 92,
+        "icon": "🍯"
+      },
+      {
+        "name": "Bát sơn mài truyền thống",
+        "place": "Hà Nội",
+        "price": "320.000đ",
+        "cat": "Thủ công mỹ nghệ",
+        "rate": 5,
+        "reviews": 45,
+        "icon": "🥣"
+      },
+      {
+        "name": "Trà Thái Nguyên",
+        "place": "Thái Nguyên",
+        "price": "150.000đ",
+        "cat": "Cà phê - Trà",
+        "rate": 5,
+        "reviews": 73,
+        "icon": "🍃"
+      }
+    ],
+    "commits": [
+      {
+        "title": "Ủng hộ",
+        "desc": "làng nghề truyền thống",
+        "icon": "🤝"
+      },
+      {
+        "title": "Thúc đẩy",
+        "desc": "phát triển bền vững",
+        "icon": "🌱"
+      },
+      {
+        "title": "Đồng hành",
+        "desc": "cùng người dân địa phương",
+        "icon": "👥"
+      }
+    ]
+  },
+  "footer": {
+"social": [
+  {
+    "name": "Facebook",
+    "url": "https://www.facebook.com/",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
+  },
+  {
+    "name": "Instagram",
+    "url": "https://www.instagram.com/",
+    "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh3r1sD_lI93eni7h_FdFw0rJ8-qyYWZYk3yoiHgfumpZITkpEBJD2JZqJ&s=10"
+  },
+  {
+    "name": "TikTok",
+    "url": "https://www.tiktok.com/",
+    "icon": "https://inkythuatso.com/uploads/thumbnails/800/2021/11/logo-tiktok-inkythuatso-2-mesa-de-trabajo-1-27-09-13-05.jpg"
+  },
+  {
+    "name": "YouTube",
+    "url": "https://www.youtube.com/",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"
+  },
+  {
+    "name": "Zalo",
+    "url": "https://zalo.me/0365507533",
+    "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Vh1AK6unGTtQDKK6YcD-5vMps5dlbKk6G-wGE9IxyRGZQJItQcMmSCCT&s=10"
+  }
+],
+    "pays": [
+      "VISA",
+      "Mastercard",
+      "MoMo",
+      "ZaloPay",
+      "VNPAY"
+    ],
+    "cols": [
+      {
+        "title": "Về Mộc Mạc",
+        "links": [
+          "Giới thiệu",
+          "Câu chuyện thương hiệu",
+          "Cam kết chất lượng",
+          "Tin tức",
+          "Tuyển dụng"
+        ]
+      },
+      {
+        "title": "Hỗ trợ khách hàng",
+        "links": [
+          "Hướng dẫn mua hàng",
+          "Phương thức thanh toán",
+          "Chính sách vận chuyển",
+          "Chính sách đổi trả",
+          "Câu hỏi thường gặp (FAQ)",
+          "Liên hệ"
+        ]
+      },
+      {
+        "title": "Danh mục",
+        "links": [
+          "Sản phẩm",
+          "Quà tặng",
+          "Vùng miền",
+          "Làng nghề",
+          "Dịch vụ"
+        ]
+      }
+    ]
+  }
+}
