@@ -1,0 +1,17 @@
+<p>homepagecomponent works!</p>
+<div class="top"><div class="wrap">
+  <div>@for (l of left; track l) {<a href="#">{{ l }}</a>}</div>
+  <div>@for (l of right; track l) {<a href="#">{{ l }}</a>}</div>
+</div></div>
+<div class="brand"><div class="wrap">
+  <a class="logo" href="#">Mộc Mạc<small>Đặc sản & sản phẩm truyền thống Việt</small></a>
+  <form class="search" (submit)="$event.preventDefault()">
+    <input type="search" placeholder="Tìm đặc sản, làng nghề, vùng miền..." />
+    <button type="submit" aria-label="Tìm">&#128269;</button>
+  </form>
+  <a class="cart" href="#">&#128722; Giỏ hàng <b>{{ cart.count() }}</b></a>
+</div></div>
+<div class="nav"><div class="wrap">
+  <nav>@for (m of menu; track m; let i = $index) {<a href="#" [class.on]="i === 0">{{ m }}</a>}</nav>
+  <button class="filter">&#9660; Bộ lọc</button>
+</div></div>

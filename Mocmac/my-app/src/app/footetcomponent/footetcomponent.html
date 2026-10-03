@@ -1,0 +1,25 @@
+<p>footetcomponent works!</p>
+<footer>
+  <div class="wrap cols">
+    <div class="about">
+      <div class="logo">🌿<br>Mộc Mạc</div>
+      <p class="slogan">Tinh hoa Việt – Giá trị thật</p>
+      <p>Mộc Mạc mang đến những sản phẩm đặc sản và làng nghề Việt Nam, gìn giữ giá trị truyền thống và lan tỏa nét đẹp văn hóa Việt.</p>
+      <div class="soc">@for (s of social; track s) {<a href="#">{{ s }}</a>}</div>
+    </div>
+    @for (c of cols; track c.title) {
+      <div><h4>{{ c.title }}</h4><i></i>@for (l of c.links; track l) {<a href="#">{{ l }}</a>}</div>
+    }
+    <div class="sub">
+      <h4>Đăng ký nhận tin</h4><i></i>
+      <p>Nhận thông tin sản phẩm mới, ưu đãi và những câu chuyện văn hóa Việt từ Mộc Mạc.</p>
+      <form (submit)="$event.preventDefault()"><input type="email" placeholder="✉ Nhập email của bạn" /><button>Đăng ký →</button></form>
+      <h4 class="pay">Phương thức thanh toán</h4>
+      <div class="pays">@for (p of pays; track p) {<span>{{ p }}</span>}</div>
+    </div>
+  </div>
+  <div class="bar"><div class="wrap">
+    <span>🍃 © 2024 Mộc Mạc. Tất cả quyền được bảo lưu.</span>
+    <span class="legal"><a href="#">Điều khoản sử dụng</a><a href="#">Chính sách bảo mật</a><a href="#">Sơ đồ trang web</a></span>
+  </div></div>
+</footer>
