@@ -3,7 +3,7 @@ footer{background:linear-gradient(#F7F2E4,#ECE5D1);margin-top:0;padding-top:50px
 .logo{font-family:'Lora',serif;font-size:32px;color:var(--moss-d);line-height:1.1}
 .slogan{font-family:'Lora',serif;font-style:italic;font-size:22px;color:var(--clay);margin:8px 0}
 .about p{color:var(--ink2);font-size:14px}
-
+.soc{display:flex;gap:10px}.soc a{width:38px;height:38px;border-radius:50%;background:var(--moss-d);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
 h4{font:700 17px 'Lora',serif;color:var(--moss-d);margin:0}
 i{display:block;width:34px;height:3px;background:var(--clay);border-radius:2px;margin:6px 0 14px}
 .cols>div>a{display:block;padding:5px 0;color:var(--ink2);font-size:14px}.cols>div>a:hover{color:var(--moss)}
@@ -17,18 +17,3 @@ i{display:block;width:34px;height:3px;background:var(--clay);border-radius:2px;m
 .legal{display:flex}.legal a{padding:0 16px;border-left:1px solid #fff5}.legal a:first-child{border:0}
 @media(max-width:1000px){.cols{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.cols{grid-template-columns:1fr}}
-.social-icon {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-
-.soc {
-  display: flex;
-  gap: 12px;
-}
-
-.soc a {
-  display: flex;
-  align-items: center;
-}

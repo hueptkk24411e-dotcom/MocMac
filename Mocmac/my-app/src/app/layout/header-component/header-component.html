@@ -1,0 +1,33 @@
+<div class="top"><div class="wrap">
+  <div>
+    <a routerLink="/gioi-thieu">Giới thiệu</a>
+    <a routerLink="/qua-tang-theo-nhu-cau">Quà tặng theo nhu cầu</a>
+    <a routerLink="/qua-tang-doanh-nghiep">Quà tặng doanh nghiệp</a>
+  </div>
+  <div>
+    <a routerLink="/thong-bao">Thông báo</a>
+    <a routerLink="/ho-tro">Hỗ trợ</a>
+    <a href="#">Tiếng Việt</a>
+    <a routerLink="/dang-ky">Đăng ký</a>
+    <a routerLink="/dang-nhap">Đăng nhập</a>
+  </div>
+</div></div>
+<div class="brand"><div class="wrap">
+  <a class="logo" routerLink="/">Mộc Mạc<small>Đặc sản & sản phẩm truyền thống Việt</small></a>
+  <form class="search" (submit)="$event.preventDefault()">
+    <input type="search" placeholder="Tìm đặc sản, làng nghề, vùng miền..." />
+    <button type="submit" aria-label="Tìm">&#128269;</button>
+  </form>
+  <a class="cart" href="#">&#128722; Giỏ hàng <b>{{ cart.count() }}</b></a>
+</div></div>
+<div class="nav"><div class="wrap">
+  <nav>
+      <a routerLink="/" routerLinkActive="on" [routerLinkActiveOptions]="{ exact: true }">Trang chủ</a>
+      <a routerLink="/san-pham" routerLinkActive="on">Sản phẩm</a>
+      <a routerLink="/qua-tang" routerLinkActive="on">Quà tặng</a>
+      <a routerLink="/vung-mien" routerLinkActive="on">Vùng miền</a>
+      <a routerLink="/lang-nghe" routerLinkActive="on">Làng nghề</a>
+      <a routerLink="/lien-he" routerLinkActive="on">Liên hệ</a>
+    </nav>
+  <button class="filter">&#9660; Bộ lọc</button>
+</div></div>
