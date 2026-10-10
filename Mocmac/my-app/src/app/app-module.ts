@@ -7,9 +7,17 @@ import { HeaderComponent } from './layout/header-component/header-component';
 import { HomeComponent } from './pages/home-component/home-component';
 import { PageComponent } from './pages/page-component/page-component';
 import { FooterComponent } from './layout/footer-component/footer-component';
+import { ProductsComponent } from './products-component/products-component';
 
 @NgModule({
-  declarations: [App, HeaderComponent, HomeComponent, FooterComponent, PageComponent],
+  declarations: [
+    App,
+    HeaderComponent,
+    HomeComponent,
+    FooterComponent,
+    PageComponent,
+    ProductsComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],
   bootstrap: [App],

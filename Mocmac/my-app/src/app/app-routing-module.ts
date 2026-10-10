@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { HomeComponent } from './pages/home-component/home-component';
 import { PageComponent } from './pages/page-component/page-component';
+import { ProductsComponent } from './products-component/products-component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'san-pham', component: PageComponent, data: { title: 'Sản phẩm' } },
+
+  { 
+    path: 'san-pham', 
+    component: ProductsComponent, 
+    title: 'Sản phẩm | Mộc Mạc' 
+  },
+
   { path: 'qua-tang', component: PageComponent, data: { title: 'Quà tặng' } },
   { path: 'vung-mien', component: PageComponent, data: { title: 'Vùng miền' } },
   { path: 'lang-nghe', component: PageComponent, data: { title: 'Làng nghề' } },
@@ -17,6 +25,8 @@ const routes: Routes = [
   { path: 'ho-tro', component: PageComponent, data: { title: 'Hỗ trợ' } },
   { path: 'dang-ky', component: PageComponent, data: { title: 'Đăng ký' } },
   { path: 'dang-nhap', component: PageComponent, data: { title: 'Đăng nhập' } },
+
+  // LUÔN ĐỂ CUỐI
   { path: '**', redirectTo: '' },
 ];
 
