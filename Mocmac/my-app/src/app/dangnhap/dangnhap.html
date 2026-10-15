@@ -127,7 +127,7 @@
 
             <label class="checkbox">
               <input type="checkbox" formControlName="remember" />
-              <span>Ghi nhớ phiên đăng nhập (30 ngày)</span>
+              <span>Ghi nhớ phiên đăng nhập trên thiết bị này</span>
             </label>
 
             <button type="submit" class="submit-btn" [disabled]="loading()">
@@ -137,6 +137,12 @@
                 Đăng nhập tài khoản &nbsp;→
               }
             </button>
+            @if (feedback(); as result) {
+              <small [class.error]="result.type === 'error'"
+                     [class.info-box]="result.type === 'success'" role="status">
+                {{ result.message }}
+              </small>
+            }
           </form>
         </section>
       }
@@ -258,6 +264,12 @@
                 Hoàn tất đăng ký &nbsp;✓
               }
             </button>
+            @if (feedback(); as result) {
+              <small [class.error]="result.type === 'error'"
+                     [class.info-box]="result.type === 'success'" role="status">
+                {{ result.message }}
+              </small>
+            }
           </form>
         </section>
       }

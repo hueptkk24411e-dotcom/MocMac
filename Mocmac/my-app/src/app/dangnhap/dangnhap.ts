@@ -1,10 +1,12 @@
 import { Component, inject, signal } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import {
   AbstractControl,
   FormBuilder,
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 type AuthMode = 'login' | 'register';
 
@@ -23,11 +25,13 @@ function passwordsMatchValidator(group: AbstractControl): ValidationErrors | nul
 })
 export class DangnhapComponent {
   private fb = inject(FormBuilder);
+  private auth = inject(AuthService);
 
   readonly bars = [0, 1, 2];
 
   mode = signal<AuthMode>('login');
   loading = signal(false);
+  feedback = signal<{ type: 'error' | 'success'; message: string } | null>(null);
   showLoginPassword = signal(false);
   showRegisterPassword = signal(false);
   showConfirmPassword = signal(false);
@@ -52,6 +56,7 @@ export class DangnhapComponent {
 
   switchMode(mode: AuthMode): void {
     this.mode.set(mode);
+    this.feedback.set(null);
   }
 
   /** Điểm mạnh mật khẩu: 0 (chưa nhập) → 3 (mạnh) */
@@ -79,9 +84,19 @@ export class DangnhapComponent {
       return;
     }
     this.loading.set(true);
-    // TODO: thay bằng gọi API đăng nhập thực tế (AuthService)
-    console.log('Đăng nhập:', this.loginForm.getRawValue());
-    setTimeout(() => this.loading.set(false), 800);
+    this.feedback.set(null);
+    const { identifier, password, remember } = this.loginForm.getRawValue();
+    this.auth.login(identifier, password).subscribe({
+      next: (response) => {
+        this.auth.saveSession(response, remember);
+        this.feedback.set({ type: 'success', message: `Xin chào ${response.user.name}!` });
+        this.loading.set(false);
+      },
+      error: (error: unknown) => {
+        this.showRequestError(error);
+        this.loading.set(false);
+      },
+    });
   }
 
   onRegister(): void {
@@ -90,10 +105,27 @@ export class DangnhapComponent {
       return;
     }
     this.loading.set(true);
-    // TODO: thay bằng gọi API đăng ký thực tế (AuthService)
-    const { confirmPassword, ...payload } = this.registerForm.getRawValue();
-    console.log('Đăng ký:', payload);
-    setTimeout(() => this.loading.set(false), 800);
+    this.feedback.set(null);
+    const { fullName, email, phone, password } = this.registerForm.getRawValue();
+    this.auth.register({ name: fullName, email, phone, password }).subscribe({
+      next: (response) => {
+        this.auth.saveSession(response, false);
+        this.feedback.set({ type: 'success', message: 'Tạo tài khoản thành công.' });
+        this.loading.set(false);
+      },
+      error: (error: unknown) => {
+        this.showRequestError(error);
+        this.loading.set(false);
+      },
+    });
+  }
+
+  private showRequestError(error: unknown): void {
+    const message =
+      error instanceof HttpErrorResponse && typeof error.error?.message === 'string'
+        ? error.error.message
+        : 'Không thể kết nối máy chủ. Vui lòng thử lại sau.';
+    this.feedback.set({ type: 'error', message });
   }
 
   loginWithSocial(provider: 'google' | 'facebook'): void {

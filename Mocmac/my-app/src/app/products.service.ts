@@ -353,7 +353,7 @@ export class ProductsService {
 
     this.http
       .get<ProductItem[] | { products: ProductItem[] }>(
-  '/data/product.json'
+        '/api/products'
 )
 
       .pipe(
