@@ -284,7 +284,7 @@
               <small class="loc">📍 {{ p.village || p.province }}{{ p.village ? ', ' + p.province : '' }} · {{ p.region }}</small>
               <div class="rt"><span class="stars">{{ stars(p.rate) }}</span> <small>({{ p.reviews }})</small></div>
               <div class="row"><b>{{ fmt(p.price) }}</b>
-                <button class="add" (click)="addToCart($event)" aria-label="Thêm vào giỏ">🛒</button></div>
+                <button class="add" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button></div>
             </div>
           </article>
         } @empty {
@@ -332,7 +332,7 @@
                   <h3>{{ p.name }}</h3>
                   <small class="loc">📍 {{ p.village || p.province }}{{ p.village ? ', ' + p.province : '' }} · {{ p.region }}</small>
                   <div class="rt"><span class="stars">{{ stars(p.rate) }}</span> <small>({{ p.reviews }})</small></div>
-                  <div class="row"><b>{{ fmt(p.price) }}</b><button class="add" (click)="addToCart($event)" aria-label="Thêm vào giỏ">🛒</button></div>
+                  <div class="row"><b>{{ fmt(p.price) }}</b><button class="add" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button></div>
                 </div>
               </article>
             }

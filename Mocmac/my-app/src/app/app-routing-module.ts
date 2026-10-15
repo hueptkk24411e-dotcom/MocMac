@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home-component/home-component';
 import { PageComponent } from './pages/page-component/page-component';
 import { ProductsComponent } from './products-component/products-component';
 import { DangnhapComponent } from './dangnhap/dangnhap';
+import { GiohangComponent } from './giohang/giohang';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'ho-tro', component: PageComponent, data: { title: 'Hỗ trợ' } },
   { path: 'dang-ky', component: PageComponent, data: { title: 'Đăng ký' } },
   { path: 'dang-nhap', component: DangnhapComponent, title: 'Đăng nhập | Mộc Mạc' },
+  { path: 'giohang', component: GiohangComponent, title: 'Giỏ hàng | Mộc Mạc' },
 
   // LUÔN ĐỂ CUỐI
   { path: '**', redirectTo: '' },

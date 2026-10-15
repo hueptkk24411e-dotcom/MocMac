@@ -1,84 +1,54 @@
-// ===== Bảng màu lấy từ thiết kế =====
-// Xanh rừng đậm (nút chính):  #1d4a2e
-// Xanh panel trái:            #3f7a55 → #2f6544 → #1f4a31
-// Nền trang:                  #eceee6 → #f6f6f2
-// Nền ô nhập:                 #f3f3ee
-// Nền tab / nút mạng xã hội:  #eeeee9
-// Nâu đất (nhãn, link phụ):   #8c3f1c
-// Chữ chính:                  #1c2a20
-// Chữ phụ:                    #5d6b61
-
-$green-btn: #1d4a2e;
-$green-btn-hover: #16392a;
-$green-focus: #2e6b45;
-$green-chip-bg: #e4ebe3;
-$green-chip-text: #2e5a3c;
-$brown-link: #8c3f1c;
-$cream-input: #f3f3ee;
-$cream-tab: #eeeee9;
-$text-main: #1c2a20;
-$text-muted: #5d6b61;
+$green: #1d4a2e;
+$green-hover: #16392a;
+$text: #1c2a20;
+$muted: #5d6b61;
+$brown: #8c3f1c;
+$input-bg: #f8f9f6;
 $error: #b3401f;
 
+:host {
+  display: block;
+}
+
 .auth-page {
-  position: relative;
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 16px;
+  flex-direction: column;
+  padding: 24px clamp(20px, 5vw, 80px) 0;
   box-sizing: border-box;
   font-family: 'Be Vietnam Pro', system-ui, sans-serif;
-  background-color: #e6e9e0;
-  background-image:
-    linear-gradient(135deg, rgba(235, 239, 230, 0.58), rgba(246, 246, 242, 0.5)),
-    url('/data/images/lang-nghe-login.jpg');
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  background:
+    linear-gradient(90deg, rgba(249, 247, 237, .93), rgba(249, 247, 237, .76)),
+    url('/data/images/lang-nghe-login.jpg') center / cover no-repeat;
 }
 
 .auth-card {
+  flex: 1;
   width: 100%;
-  max-width: 900px;
-  min-height: 600px;
+  max-width: 1180px;
+  min-height: calc(100vh - 100px);
   display: grid;
-  grid-template-columns: 5fr 7fr;
-  background: #ffffff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow:
-    0 30px 60px -20px rgba(20, 40, 25, 0.25),
-    0 8px 20px rgba(20, 40, 25, 0.06);
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 410px);
+  align-items: center;
+  gap: clamp(36px, 8vw, 120px);
+  margin: 0 auto;
 }
 
-/* ================= Cột trái ================= */
 .brand-panel {
-  position: relative;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 36px 34px 28px;
-  color: #f3f1e8;
-  background:
-    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.12), transparent 45%),
-    radial-gradient(circle at 85% 92%, rgba(190, 225, 170, 0.12), transparent 40%),
-    linear-gradient(170deg, #3f7a55 0%, #2f6544 45%, #1f4a31 100%);
+  justify-content: space-around;
+  gap: 36px;
+  padding: 36px 0;
+  color: $text;
+}
 
-  // Lớp vân đồi chè nhẹ
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 30% 110%, rgba(255, 255, 255, 0.08) 0 35%, transparent 36%),
-      radial-gradient(ellipse at 90% 105%, rgba(0, 0, 0, 0.12) 0 40%, transparent 41%);
-    pointer-events: none;
-  }
-
-  > * {
-    position: relative;
-  }
+.brand-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .brand {
@@ -90,26 +60,24 @@ $error: #b3401f;
 .brand-logo {
   width: 40px;
   height: 40px;
-  border-radius: 10px;
   display: grid;
   place-items: center;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #f3f1e8;
+  border-radius: 10px;
+  background: $green;
+  color: #fff;
 }
 
 .brand-name {
-  font-family: 'Lora', Georgia, serif;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  color: $green;
+  font: 700 24px 'Lora', Georgia, serif;
+  letter-spacing: .5px;
 }
 
 .brand-sub {
-  font-size: 9px;
-  letter-spacing: 0.6px;
-  opacity: 0.85;
   margin-top: 2px;
+  color: $muted;
+  font-size: 9px;
+  letter-spacing: .6px;
 }
 
 .tag-pill {
@@ -119,105 +87,87 @@ $error: #b3401f;
   margin-top: 18px;
   padding: 5px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, .75);
+  color: #2e5a3c;
   font-size: 11px;
-  font-weight: 500;
+}
 
-  .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #cfe9bf;
-  }
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5b8b4e;
 }
 
 .philo {
-  display: inline-block;
   padding: 4px 10px;
   border-radius: 4px;
-  background: #6a3b1e;
-  color: #f2a86c;
+  background: #e7eddf;
+  color: $green;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.8px;
+  letter-spacing: .8px;
 }
 
 .quote {
-  margin: 18px 0 16px;
-  font-family: 'Lora', Georgia, serif;
-  font-style: italic;
-  font-size: 34px;
-  font-weight: 600;
-  line-height: 1.28;
-  color: #ffffff;
+  max-width: 620px;
+  margin: 16px 0 12px;
+  color: $text;
+  font: 600 clamp(34px, 4.2vw, 52px)/1.2 'Lora', Georgia, serif;
 }
 
 .quote-desc {
+  max-width: 480px;
   margin: 0;
-  font-size: 12.5px;
+  color: $muted;
+  font-size: 15px;
   line-height: 1.6;
-  opacity: 0.92;
-  max-width: 300px;
 }
 
-.stat-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 16px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(6px);
+.feature-list {
+  display: grid;
+  gap: 16px;
 }
 
-.stat-left {
+.brand-feature {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+
+  > span {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff;
+    color: $green;
+    font-size: 18px;
+  }
+
+  strong, small { display: block; }
+  strong { font-size: 13px; }
+  small { margin-top: 2px; color: $muted; font-size: 11px; }
 }
 
-.stat-title {
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.stat-sub {
-  font-size: 10px;
-  opacity: 0.8;
-}
-
-.stat-right {
-  text-align: right;
-}
-
-.stat-rating {
-  font-size: 13px;
-  font-weight: 700;
-  color: #f5c46b;
-}
-
-.brand-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 18px;
-  font-size: 10.5px;
-  opacity: 0.85;
-}
-
-/* ================= Cột phải ================= */
 .form-panel {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 30px 40px 24px;
+  padding: 24px 28px 18px;
   box-sizing: border-box;
-  color: $text-main;
+  border: 1px solid rgba(39, 65, 42, .08);
+  border-radius: 16px;
+  background: #fff;
+  color: $text;
+  box-shadow: 0 18px 48px rgba(44, 54, 38, .16);
 }
 
 .form-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   flex-wrap: wrap;
 }
@@ -226,53 +176,45 @@ $error: #b3401f;
   display: inline-flex;
   padding: 4px;
   border-radius: 10px;
-  background: $cream-tab;
+  background: #eeeee9;
 }
 
 .tab {
-  padding: 8px 18px;
-  border: none;
+  padding: 8px 14px;
+  border: 0;
   border-radius: 8px;
   background: transparent;
-  font: 500 14px 'Be Vietnam Pro', sans-serif;
   color: #3d4a41;
+  font: 500 13px 'Be Vietnam Pro', sans-serif;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
 
   &.active {
-    background: #ffffff;
-    color: $text-main;
+    background: #fff;
+    color: $text;
     font-weight: 600;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
   }
 }
 
-.header-links {
+.header-links, .chip {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
+.header-links { gap: 10px; }
+
 .chip {
-  display: inline-flex;
-  align-items: center;
   gap: 5px;
   padding: 5px 10px;
   border-radius: 999px;
-  background: $green-chip-bg;
-  color: $green-chip-text;
-  font-size: 11.5px;
-  font-weight: 500;
+  background: #e4ebe3;
+  color: #2e5a3c;
+  font-size: 11px;
 }
 
 .link-admin {
-  font-size: 11.5px;
   color: #3d4a41;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  font-size: 11px;
 }
 
 .form-body {
@@ -281,96 +223,32 @@ $error: #b3401f;
   flex-direction: column;
 
   h1 {
-    margin: 28px 0 6px;
-    font-family: 'Lora', Georgia, serif;
-    font-size: 28px;
-    font-weight: 600;
-    color: $text-main;
+    margin: 22px 0 6px;
+    color: $text;
+    font: 700 22px 'Be Vietnam Pro', system-ui, sans-serif;
+    text-align: center;
   }
 
   .subtitle {
     margin: 0;
-    font-size: 13.5px;
-    color: $text-muted;
+    color: $muted;
+    font-size: 12px;
+    text-align: center;
   }
 
   form {
     display: flex;
     flex-direction: column;
-  }
-}
-
-.social-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.social-btn {
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border: none;
-  border-radius: 10px;
-  background: $cream-tab;
-  color: $text-main;
-  font: 500 14px 'Be Vietnam Pro', sans-serif;
-  cursor: pointer;
-  transition: background 0.2s;
-
-  &:hover {
-    background: #e6e7e0;
-  }
-}
-
-.g-logo {
-  font-weight: 700;
-  font-size: 15px;
-  background: linear-gradient(90deg, #4285f4, #34a853, #fbbc05, #ea4335);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.fb-logo {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #1877f2;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  display: inline-grid;
-  place-items: center;
-  line-height: 1;
-}
-
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 20px 0 18px;
-  font-size: 12px;
-  color: #5b7a68;
-
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #e2e6df;
+    margin-top: 22px;
   }
 }
 
 .field-label {
   display: block;
   margin-bottom: 6px;
-  font-size: 13.5px;
+  color: $text;
+  font-size: 12px;
   font-weight: 600;
-  color: $text-main;
 }
 
 .label-row {
@@ -379,127 +257,155 @@ $error: #b3401f;
   align-items: baseline;
 
   .forgot {
-    font-size: 12px;
-    font-weight: 500;
-    color: $brown-link;
-    text-decoration: none;
+    color: $brown;
+    font-size: 11px;
 
-    &:hover {
-      text-decoration: underline;
-    }
+    &:hover { text-decoration: underline; }
   }
 }
 
 .input-wrap {
+  height: 44px;
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 46px;
-  padding: 0 14px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+  padding: 0 12px;
   box-sizing: border-box;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  background: $cream-input;
+  border: 1px solid #e7e9e3;
+  border-radius: 8px;
+  background: $input-bg;
   color: #7a847c;
-  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 
   input {
     flex: 1;
     min-width: 0;
-    border: none;
-    outline: none;
+    border: 0;
+    outline: 0;
     background: transparent;
-    font: 400 14px 'Be Vietnam Pro', sans-serif;
-    color: $text-main;
+    color: $text;
+    font: 400 13px 'Be Vietnam Pro', sans-serif;
 
-    &::placeholder {
-      color: #9aa39c;
-    }
+    &::placeholder { color: #9aa39c; }
   }
 
   &:focus-within {
-    background: #ffffff;
-    border-color: $green-focus;
-    box-shadow: 0 0 0 3px rgba(46, 107, 69, 0.12);
+    border-color: #2e6b45;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(46, 107, 69, .12);
   }
 
-  &.invalid {
-    border-color: $error;
-  }
+  &.invalid { border-color: $error; }
+}
 
-  .eye {
-    display: grid;
-    place-items: center;
-    border: none;
-    padding: 0;
-    background: transparent;
-    color: #7a847c;
-    cursor: pointer;
-  }
+.eye {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #7a847c;
+  cursor: pointer;
 }
 
 .error {
   display: block;
-  margin: -8px 0 10px;
-  font-size: 12px;
+  margin: -7px 0 10px;
   color: $error;
+  font-size: 11px;
 }
 
 .checkbox {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  margin: 4px 0 22px;
-  font-size: 13px;
+  margin: 4px 0 16px;
   color: #4a5a4f;
+  font-size: 11.5px;
   cursor: pointer;
 
-  input {
-    margin-top: 2px;
-    accent-color: #1e4a2f;
-  }
-
-  a {
-    color: $brown-link;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+  input { margin-top: 2px; accent-color: $green; }
+  a { color: $brown; }
 }
 
 .submit-btn {
-  height: 50px;
   width: 100%;
-  border: none;
-  border-radius: 10px;
-  background: $green-btn;
-  color: #ffffff;
-  font: 600 15px 'Be Vietnam Pro', sans-serif;
+  height: 46px;
+  border: 0;
+  border-radius: 8px;
+  background: #c96a15;
+  color: #fff;
+  font: 600 14px 'Be Vietnam Pro', sans-serif;
   cursor: pointer;
-  transition: background 0.2s, opacity 0.2s;
 
-  &:hover:not(:disabled) {
-    background: $green-btn-hover;
-  }
+  &:hover:not(:disabled) { background: #ad5810; }
+  &:disabled { opacity: .6; cursor: not-allowed; }
+}
 
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 12px;
+  color: #5b7a68;
+  font-size: 11px;
+
+  &::before, &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e2e6df;
   }
 }
 
-/* Đăng ký */
+.social-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.social-btn {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #e7e9e3;
+  border-radius: 8px;
+  background: #fff;
+  color: $text;
+  font: 500 12px 'Be Vietnam Pro', sans-serif;
+  cursor: pointer;
+
+  &:hover { background: #f5f6f2; }
+}
+
+.g-logo {
+  background: linear-gradient(90deg, #4285f4, #34a853, #fbbc05, #ea4335);
+  background-clip: text;
+  color: transparent;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.fb-logo {
+  width: 18px;
+  height: 18px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #1877f2;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 14px;
 
-  .input-wrap {
-    margin-bottom: 14px;
-  }
+  > div { min-width: 0; }
 }
 
 .strength {
@@ -508,54 +414,36 @@ $error: #b3401f;
   &-head {
     display: flex;
     justify-content: space-between;
-    font-size: 11.5px;
-    color: $text-muted;
     margin-bottom: 6px;
+    color: $muted;
+    font-size: 11px;
   }
 
-  &-bars {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
-  }
+  &-bars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
 }
 
 .bar {
   height: 4px;
   border-radius: 4px;
   background: #e1e5de;
-  transition: background 0.25s;
 
-  &.on {
-    background: #3f7d55;
-  }
+  &.on { background: #3f7d55; }
 }
 
-.terms {
-  margin-bottom: 12px;
-}
+.terms { margin-bottom: 12px; }
 
 .info-box {
   display: flex;
-  gap: 10px;
   align-items: flex-start;
-  padding: 12px 14px;
+  gap: 10px;
   margin-bottom: 16px;
+  padding: 12px 14px;
   border-radius: 10px;
   background: #eef3ee;
   color: #3d4f43;
 
-  p {
-    margin: 0;
-    font-size: 12px;
-    line-height: 1.5;
-  }
-
-  svg {
-    flex-shrink: 0;
-    margin-top: 1px;
-    color: $green-focus;
-  }
+  p { margin: 0; font-size: 11px; line-height: 1.5; }
+  svg { flex-shrink: 0; margin-top: 1px; color: #2e6b45; }
 }
 
 .form-footer {
@@ -564,38 +452,69 @@ $error: #b3401f;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: auto;
-  padding-top: 22px;
-  font-size: 11.5px;
-  color: $text-muted;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #edf0eb;
+  color: $muted;
+  font-size: 10px;
 
-  .assure {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: $green-focus;
-  }
-
-  .sep {
-    margin: 0 6px;
-  }
+  .assure { display: inline-flex; align-items: center; gap: 6px; color: #2e6b45; }
+  .sep { margin: 0 6px; }
 }
 
-/* ================= Responsive ================= */
+.trust-bar {
+  display: grid;
+  width: calc(100% + 2 * clamp(20px, 5vw, 80px));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-inline: calc(-1 * clamp(20px, 5vw, 80px));
+  padding: 14px clamp(20px, 5vw, 80px);
+  background: #393630;
+  color: #fff;
+
+  > div { display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 0; }
+  > div > span {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .14);
+    color: #f3c07b;
+    font-weight: 700;
+  }
+  p { min-width: 0; margin: 0; }
+  strong, small { display: block; }
+  strong { font-size: 11px; }
+  small { color: rgba(255, 255, 255, .68); font-size: 9px; }
+}
+
 @media (max-width: 860px) {
-  .auth-card {
-    grid-template-columns: 1fr;
-  }
+  .auth-page { padding-inline: 24px; }
+  .auth-card { grid-template-columns: minmax(0, 1fr) minmax(320px, 390px); gap: 28px; }
+  .brand-panel { min-height: 0; padding-right: 0; }
+  .form-panel { padding-inline: 22px; }
+}
 
-  .brand-panel {
-    display: none;
-  }
+@media (max-width: 680px) {
+  .auth-page { padding: 18px 16px 0; }
+  .auth-card { min-height: auto; grid-template-columns: 1fr; gap: 18px; padding-block: 8px 22px; }
+  .brand-panel { gap: 12px; padding: 0; }
+  .brand-top { flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; }
+  .brand-name { font-size: 19px; }
+  .brand-sub { font-size: 8px; }
+  .tag-pill { max-width: 140px; margin-top: 0; padding: 5px 9px; font-size: 9px; }
+  .brand-middle, .feature-list, .header-links { display: none; }
+  .form-panel { max-width: 440px; justify-self: center; padding: 20px; }
+  .form-header { align-items: center; }
+  .trust-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 8px; padding-block: 12px; }
+  .trust-bar > div { justify-content: flex-start; }
+}
 
-  .form-panel {
-    padding: 28px 22px 20px;
-  }
-
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 380px) {
+  .brand-top { align-items: flex-start; }
+  .tag-pill { max-width: 120px; white-space: normal; }
+  .form-panel { padding-inline: 16px; }
+  .grid-2 { grid-template-columns: 1fr; }
 }

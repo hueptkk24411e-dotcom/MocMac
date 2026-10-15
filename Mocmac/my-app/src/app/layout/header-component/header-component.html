@@ -8,7 +8,6 @@
     <a routerLink="/thong-bao">Thông báo</a>
     <a routerLink="/ho-tro">Hỗ trợ</a>
     <a href="#">Tiếng Việt</a>
-    <a routerLink="/dang-ky">Đăng ký</a>
     <a routerLink="/dang-nhap">Đăng nhập</a>
   </div>
 </div></div>
@@ -18,7 +17,7 @@
     <input type="search" placeholder="Tìm đặc sản, làng nghề, vùng miền..." />
     <button type="submit" aria-label="Tìm">&#128269;</button>
   </form>
-  <a class="cart" href="#">&#128722; Giỏ hàng <b>{{ cart.count() }}</b></a>
+  <a class="cart" routerLink="/giohang">&#128722; Giỏ hàng <b>{{ cart.count() }}</b></a>
 </div></div>
 <div class="nav"><div class="wrap">
   <nav>

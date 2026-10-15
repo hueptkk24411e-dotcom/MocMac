@@ -10,6 +10,7 @@ import { PageComponent } from './pages/page-component/page-component';
 import { FooterComponent } from './layout/footer-component/footer-component';
 import { ProductsComponent } from './products-component/products-component';
 import { DangnhapComponent } from './dangnhap/dangnhap';
+import { GiohangComponent } from './giohang/giohang';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { DangnhapComponent } from './dangnhap/dangnhap';
     ProductsComponent,
     DangnhapComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule],
+  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, GiohangComponent],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],
   bootstrap: [App],
 })
