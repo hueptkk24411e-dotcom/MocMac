@@ -44,7 +44,7 @@ export class DataService {
   dataset = toSignal(
     this.http
       .get<SourceProduct[] | { products: SourceProduct[] }>(
-        '/data/product.json'
+        '/api/products'
       )
       .pipe(
         map((data) => {

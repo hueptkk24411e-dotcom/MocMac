@@ -12,6 +12,18 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Backend API
+
+The backend is in `../mocmac-api` and requires Node.js and a running MongoDB instance.
+
+1. In a terminal, run `cd ../mocmac-api`.
+2. Copy `.env.example` to `.env` and set a private `JWT_SECRET` and `ADMIN_PASSWORD`.
+3. Run `npm install`.
+4. Run `npm run seed` to load products from `my-app/public/data/product.json` and create the initial admin account if needed.
+5. Run `npm run dev` to start the API at `http://localhost:3000`.
+
+**Warning:** `npm run seed` deletes all existing product records before loading the JSON file. Start the Angular app separately from `my-app`; `npm start` configures its development proxy for `/api`.
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:

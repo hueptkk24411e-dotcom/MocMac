@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&family=Lora:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Lora:wght@600;700&display=swap');
 :root{--moss:#435731;--moss-d:#35472A;--sage:#7C9468;--cream:#FBFAF3;--beige:#EBE5D4;--earth:#AA4D2D;--clay:#C77A4A;--ink:#2B2A22;--ink2:#6B6A5C;--line:#E4DDC8}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:'Be Vietnam Pro',system-ui,sans-serif;line-height:1.55;font-size:15px}

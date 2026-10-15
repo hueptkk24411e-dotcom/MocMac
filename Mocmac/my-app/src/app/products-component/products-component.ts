@@ -248,5 +248,8 @@ export class ProductsComponent {
   fmt(n: number) { return n.toLocaleString('vi-VN') + 'đ'; }
   stars(r: number) { const n = Math.round(r); return '★'.repeat(n) + '☆'.repeat(5 - n); }
   toggleFav(id: number) { this.favs.update(s => { const t = new Set(s); t.has(id) ? t.delete(id) : t.add(id); return t; }); }
-  addToCart(e: Event) { e.stopPropagation(); this.cart.add(); }
+  addToCart(e: Event, productId: number, productName: string) {
+    e.stopPropagation();
+    this.cart.add(productId, productName);
+  }
 }

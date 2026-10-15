@@ -13,6 +13,7 @@
       <a routerLink="/dang-nhap">Đăng nhập</a>
     </div>
   </div>
+<<<<<<< HEAD
 </div>
 
 <div class="brand">
@@ -29,6 +30,25 @@
 <div class="nav">
   <div class="wrap">
     <nav>
+=======
+  <div>
+    <a routerLink="/thong-bao">Thông báo</a>
+    <a routerLink="/ho-tro">Hỗ trợ</a>
+    <a href="#">Tiếng Việt</a>
+    <a routerLink="/dang-nhap">Đăng nhập</a>
+  </div>
+</div></div>
+<div class="brand"><div class="wrap">
+  <a class="logo" routerLink="/">Mộc Mạc<small>Đặc sản & sản phẩm truyền thống Việt</small></a>
+  <form class="search" (submit)="$event.preventDefault()">
+    <input type="search" placeholder="Tìm đặc sản, làng nghề, vùng miền..." />
+    <button type="submit" aria-label="Tìm">&#128269;</button>
+  </form>
+  <a class="cart" routerLink="/giohang">&#128722; Giỏ hàng <b>{{ cart.count() }}</b></a>
+</div></div>
+<div class="nav"><div class="wrap">
+  <nav>
+>>>>>>> 7112b17f39e8145216d815e6c257ffbbe0409f8c
       <a routerLink="/" routerLinkActive="on" [routerLinkActiveOptions]="{ exact: true }">Trang chủ</a>
       <a routerLink="/san-pham" routerLinkActive="on">Sản phẩm</a>
       <a routerLink="/qua-tang" routerLinkActive="on">Quà tặng</a>

@@ -1,3 +1,14 @@
-<app-header-component />
+@if (!isStandaloneAuth()) {
+  <app-header-component />
+}
 <router-outlet />
-<app-footer-component />
+@if (!isStandaloneAuth()) {
+  <app-footer-component />
+}
+@if (cart.notification(); as notification) {
+  <div class="cart-notification" role="status" aria-live="polite">
+    <span class="cart-notification-icon" aria-hidden="true">✓</span>
+    <span>{{ notification }}</span>
+    <a routerLink="/giohang">Xem giỏ hàng</a>
+  </div>
+}

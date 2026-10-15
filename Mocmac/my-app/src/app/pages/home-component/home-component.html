@@ -90,7 +90,7 @@
         <h3>{{ p.name }}</h3>
         <div class="stars">★★★★★ <small>({{ p.reviews }})</small></div>
         <small class="loc">📍 {{ p.place }}</small>
-        <div class="row"><b>{{ p.price }}</b><button class="add" (click)="cart.add()" aria-label="Thêm vào giỏ">🛒</button></div>
+        <div class="row"><b>{{ p.price }}</b><button class="add" (click)="cart.add(p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button></div>
       </article>
     }
   </div>
