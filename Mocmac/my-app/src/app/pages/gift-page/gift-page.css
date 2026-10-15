@@ -6,9 +6,9 @@
 }
 
 .site-wrap {
-  max-width: 1260px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 /* ============================================================
@@ -23,27 +23,12 @@
   display: block;
 }
 
-/* Quy tắc cốt lõi: ép tất cả ảnh trong khung co dãn theo đúng tỷ lệ */
 .img-slot img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
-}
-
-.img-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ink2, #555555);
-  font-size: 13px;
-  border: 1px dashed var(--line, #D6CEB9);
-  text-align: center;
-  padding: 10px;
-  box-sizing: border-box;
 }
 
 /* ============================================================
@@ -74,12 +59,6 @@
   font-size: 10px;
 }
 
-.badge-text {
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  color: #EDE8D6;
-}
-
 .hero-title {
   font-family: 'Lora', serif;
   font-size: 38px;
@@ -96,23 +75,6 @@
   margin: 0 0 30px;
   max-width: 520px;
   opacity: 0.9;
-}
-
-.btn-gold-pill {
-  background-color: var(--clay, #a25633);
-  color: #FFFFFF;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 24px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-gold-pill:hover {
-  background-color: #874223;
-  transform: translateY(-2px);
 }
 
 .credentials-row {
@@ -204,16 +166,8 @@
   font-family: 'Lora', serif;
   font-size: 28px;
   letter-spacing: 0.5px;
-  margin: 0;
+  margin: 0 0 10px;
   color: var(--moss-d, #304430);
-}
-
-.sub-lead-text {
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  color: var(--ink2, #555555);
-  display: block;
-  margin-bottom: 6px;
 }
 
 .occasion-tabs-bar {
@@ -305,7 +259,7 @@
 .col-item-card {
   display: flex;
   flex-direction: column;
-  min-width: 0; /* Ngăn flex item bị đẩy toạc khung */
+  min-width: 0;
 }
 
 .collection-img-slot {
@@ -329,284 +283,51 @@
 }
 
 /* ============================================================
-   SOLUTIONS SECTION
+   SOLUTIONS SECTION: BỐ CỤC CHIA 2 BÊN (SẢN PHẨM TRÁI - BỘ LỌC PHẢI)
 ============================================================ */
 .solutions-section {
   padding: 60px 0 80px;
   background-color: #FAF8F2;
 }
 
+.gift-catalog-layout {
+  display: grid;
+  grid-template-columns: 490px 1fr; /* Đổi bộ lọc 490px ra phía trước (bên trái), sản phẩm 1fr ra sau (bên phải) */
+  gap: 32px;
+  align-items: start;
+}
+.catalog-filter-sidebar {
+  order: 1; /* Bộ lọc đứng trước -> nằm bên trái */
+}
+/* CỘT BÊN TRÁI */
+.catalog-main-content {
+  order: 2;
+}
+
+.section-header-left {
+  margin-bottom: 25px;
+}
+
 .divider-green-line {
   width: 100%;
   height: 2px;
   background-color: var(--moss, #4A6349);
-  margin-bottom: 30px;
+  margin: 12px 0 16px;
 }
 
 .category-intro-quote {
-  text-align: center;
-  max-width: 820px;
-  margin: 15px auto 35px;
   font-size: 14px;
   color: var(--ink2, #555555);
   line-height: 1.6;
   font-style: italic;
   font-family: 'Lora', serif;
+  margin: 0 0 24px;
 }
 
-/* ============================================================
-   FILTER CONTROLS & POPOVER
-============================================================ */
-.filter-controls-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin: 0 auto 30px;
-  padding: 12px 18px;
-  background-color: #F1ECE0;
-  border-radius: 10px;
-  border: 1px solid #E5DDCB;
-}
-
-.filter-controls-left {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.filter-dropdown-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.btn-filter-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
-  background-color: var(--moss-d, #304430);
-  color: #FFFFFF;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 13px;
-  transition: all 0.2s ease;
-}
-
-.btn-filter-trigger:hover,
-.btn-filter-trigger.active {
-  background-color: #1e2d1e;
-  transform: translateY(-1px);
-}
-
-.filter-badge {
-  background: var(--clay, #a25633);
-  color: #FFFFFF;
-  font-size: 11px;
-  font-weight: bold;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.filter-popover {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  width: 290px;
-  background: #FFFFFF;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  border: 1px solid #EAE3D2;
-  border-radius: 8px;
-  padding: 16px;
-  z-index: 100;
-}
-
-.filter-popover-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
-  color: var(--moss-d, #304430);
-  font-family: 'Lora', serif;
-}
-
-.btn-popover-close {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  color: #888;
-}
-
-.filter-field-group {
-  margin-bottom: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.filter-field-group label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink, #1f2a37);
-}
-
-.filter-field-group select {
-  padding: 8px 10px;
-  border-radius: 6px;
-  border: 1px solid #D6CEB9;
-  background-color: #FAF8F2;
-  outline: none;
-  font-size: 13px;
-  color: var(--ink, #1f2a37);
-  font-family: inherit;
-}
-
-.filter-field-group select:focus {
-  border-color: var(--moss-d, #304430);
-}
-
-.filter-popover-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 14px;
-  padding-top: 10px;
-  border-top: 1px solid #F1ECE0;
-}
-
-.btn-secondary-link {
-  background: none;
-  border: none;
-  color: #777;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.btn-secondary-link:hover {
-  color: var(--clay, #a25633);
-}
-
-.btn-apply-small {
-  background-color: var(--clay, #a25633);
-  color: #FFFFFF;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
-}
-
-.btn-apply-small:hover {
-  background-color: #874223;
-}
-
-/* Dải Tag đang chọn */
-.active-chips-list {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.filter-chip {
-  background: #E2DAC8;
-  color: var(--moss-d, #304430);
-  font-size: 12px;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.filter-chip button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #666;
-  font-size: 14px;
-  line-height: 1;
-  padding: 0;
-}
-
-.btn-clear-all {
-  background: none;
-  border: none;
-  color: var(--clay, #a25633);
-  font-size: 12px;
-  cursor: pointer;
-  text-decoration: underline;
-  padding: 0 4px;
-}
-
-/* Khung tìm kiếm nhanh */
-.filter-search-box {
-  position: relative;
-  min-width: 250px;
-}
-
-.filter-search-box input {
-  width: 100%;
-  padding: 8px 30px 8px 14px;
-  border-radius: 20px;
-  border: 1px solid #D6CEB9;
-  background-color: #FFFFFF;
-  font-size: 13px;
-  outline: none;
-  color: var(--ink, #1f2a37);
-  box-sizing: border-box;
-  font-family: inherit;
-}
-
-.filter-search-box input:focus {
-  border-color: var(--moss-d, #304430);
-}
-
-.search-clear-icon {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: #999;
-  font-size: 16px;
-}
-
-.filter-empty-state {
-  text-align: center;
-  padding: 50px 20px;
-  color: var(--ink2, #555555);
-}
-
-.filter-empty-state .empty-icon {
-  font-size: 42px;
-  display: block;
-  margin-bottom: 12px;
-}
-
-.filter-empty-state p {
-  font-size: 15px;
-  margin-bottom: 18px;
-}
-
-/* ============================================================
-   DANH SÁCH SẢN PHẨM & CARD
-============================================================ */
+/* LƯỚI SẢN PHẨM TRONG CỘT TRÁI (3 CỘT VỪA ĐẸP MẮT) */
 .product-cards-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
@@ -641,23 +362,11 @@
 
 .product-img-slot {
   width: 100%;
-  height: 140px;
+  height: 155px;
   background-color: #F3EEDF;
   border-radius: 8px;
   margin-bottom: 12px;
   overflow: hidden;
-}
-
-.img-placeholder-card {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.fallback-icon {
-  font-size: 44px;
 }
 
 .card-details {
@@ -744,9 +453,37 @@
   font-size: 12px;
 }
 
+.filter-empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: var(--ink2, #555555);
+}
+
+.filter-empty-state .empty-icon {
+  font-size: 42px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.filter-empty-state p {
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.btn-gold-pill {
+  background-color: var(--clay, #a25633);
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 .cta-center-bar {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .btn-gold-action {
@@ -765,6 +502,206 @@
 .btn-gold-action:hover {
   background-color: #874223;
   transform: translateY(-2px);
+}
+
+/* ============================================================
+   CỘT BÊN PHẢI: BỘ LỌC 2 CỘT (SIDEBAR FILTER)
+============================================================ */
+.catalog-filter-sidebar {
+  position: sticky;
+  top: 20px;
+}
+
+.filter-card-columns {
+  background-color: #FAF6ED;
+  border: 1px solid #EADEC7;
+  border-radius: 16px;
+  padding: 18px 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 cột lọc y hệt ảnh thiết kế */
+  gap: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.filter-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.filter-title-icon {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2F4538;
+}
+
+.search-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filter-input-search {
+  width: 100%;
+  padding: 7px 30px 7px 10px;
+  border: 1px solid #D6CEB9;
+  border-radius: 8px;
+  font-size: 12px;
+  background-color: #FFFFFF;
+  color: var(--ink, #1f2a37);
+  outline: none;
+  font-family: inherit;
+}
+
+.filter-input-search:focus {
+  border-color: #2F4538;
+}
+
+.search-input-wrap .search-icon {
+  position: absolute;
+  right: 8px;
+  font-size: 12px;
+  color: #888;
+}
+
+/* HỘP AI GỢI Ý */
+.ai-recommend-card {
+  background-color: #FDF3E7;
+  border: 1px solid #F3DFCA;
+  border-radius: 10px;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.ai-recommend-card:hover {
+  transform: translateY(-1px);
+}
+
+.ai-bot-icon {
+  font-size: 20px;
+}
+
+.ai-txt {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-txt strong {
+  font-size: 11px;
+  color: #A25633;
+  line-height: 1.25;
+}
+
+.ai-txt small {
+  font-size: 10px;
+  color: #7A6355;
+  margin-top: 2px;
+}
+
+.ai-arrow {
+  color: #A25633;
+  font-weight: bold;
+}
+
+/* TIÊU ĐỀ & MỤC CHỌN CHECKBOX */
+.filter-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2F4538;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.filter-checkbox-item {
+  font-size: 12px;
+  color: #424242;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-checkbox-item input[type="checkbox"] {
+  accent-color: #2F4538;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.filter-checkbox-item .count {
+  margin-left: auto;
+  color: #8E8E8E;
+  font-size: 11px;
+}
+
+/* DROPDOWN SELECT */
+.filter-select {
+  width: 100%;
+  padding: 7px 8px;
+  border-radius: 8px;
+  border: 1px solid #D6CEB9;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  color: #333333;
+  outline: none;
+  font-family: inherit;
+}
+
+.filter-select:focus {
+  border-color: #2F4538;
+}
+
+/* NÚT THAO TÁC BỘ LỌC */
+.filter-action-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.btn-filter-apply {
+  background-color: #2F4538;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-filter-apply:hover {
+  background-color: #1E2D25;
+}
+
+.btn-filter-reset {
+  background-color: #FFFFFF;
+  color: #333333;
+  border: 1px solid #D6CEB9;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-filter-reset:hover {
+  border-color: #999;
 }
 
 /* ============================================================
@@ -850,71 +787,29 @@
 /* ============================================================
    RESPONSIVE DESIGN
 ============================================================ */
-@media (max-width: 1200px) {
-  .product-cards-grid {
-    grid-template-columns: repeat(4, 1fr);
+@media (max-width: 1100px) {
+  .gift-catalog-layout {
+    grid-template-columns: 1fr; /* Màn hình nhỏ thì bộ lọc xuống dưới hoặc xếp dọc */
   }
-}
-
-@media (max-width: 992px) {
-  .hero-layout {
-    grid-template-columns: 1fr;
-  }
-  .hero-img-slot {
-    height: 360px;
-    width: 100%;
-  }
-  .feature-banner-box {
-    grid-template-columns: 1fr;
-  }
-  .collection-triple-grid {
-    grid-template-columns: 1fr;
+  .catalog-filter-sidebar {
+    position: static;
   }
   .product-cards-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+@media (max-width: 768px) {
+  .hero-layout,
+  .feature-banner-box,
+  .collection-triple-grid,
   .story-dual-block {
     grid-template-columns: 1fr;
   }
-  .story-img-slot {
-    width: 100%;
+  .filter-card-columns {
+    grid-template-columns: 1fr;
   }
-}
-.page-top-action-bar {
-  background-color: #273827;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.top-bar-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.page-breadcrumb {
-  font-size: 13px;
-  color: #EDE8D6;
-  opacity: 0.8;
-}
-
-.top-bar-flex .filter-popover {
-  right: 0;
-  left: auto;
-}
-
-@media (max-width: 640px) {
   .product-cards-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .filter-controls-bar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .filter-search-box {
-    min-width: 100%;
-  }
-  .filter-popover {
-    width: calc(100vw - 48px);
   }
 }

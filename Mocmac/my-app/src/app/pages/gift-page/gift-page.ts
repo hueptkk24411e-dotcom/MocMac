@@ -46,8 +46,8 @@ export interface ProductItem {
 export class GiftPageComponent implements OnInit {
   heroData = {
     badge: 'Hơn 55 năm kiến tạo',
-    title: 'GIẢI PHÁP QUÀ TẶNG CHO CÁC DOANH NGHIỆP',
-    subtitle: 'Lựa chọn tôn vinh vị thế doanh nghiệp, vun đắp quan hệ bền vững qua từng tặng phẩm tinh hoa bản địa.',
+    title: 'GIẢI PHÁP QUÀ TẶNG ',
+    subtitle: 'Mỗi set quà từ Mộc Mạc là sự kết tinh giữa tay nghề thủ công tinh xảo của nghệ nhân làng nghề và hơi thở bản địa nguyên bản. Không chỉ tôn vinh gu thẩm mỹ tinh tế cùng vị thế của người trao tặng, từng tặng phẩm mây tre mộc mạc còn là cầu nối gắn kết bền chặt, thay bạn gửi trao lời chúc an khang và sự trân quý dài lâu.',
     imageUrl: ''
   };
 
@@ -257,9 +257,9 @@ export class GiftPageComponent implements OnInit {
   ];
 
   projectStory = {
-    partner: 'DỰ ÁN ĐỐI TÁC',
-    title: ' KHI DI SẢN GẶP GỠ TINH THẦN SÁNG TẠO ĐƯƠNG ĐẠI',
-    description: 'Trong thế giới sáng tạo đương đại, những cuộc gặp gỡ giữa các thương hiệu không chỉ dừng lại ở việc tạo ra một sản phẩm mới. Khi được dẫn dắt bởi chung một khát vọng tôn vinh giá trị Việt, sự kết hợp ấy còn mở ra nhiều cách kể chuyện mới cho di sản - tinh tế, hiện đại và giàu cảm hứng.',
+    partner: 'GỬI GẮM TẤM LÒNG QUA TỪNG MÓN QUÀ TRUYỀN THỐNG',
+    title: ' KHI MÓN QUÀ MỘC MẠC CHỞ NẶNG NÉT ĐẸP QUÊ HƯƠNG',
+    description: 'Mỗi món quà tại Mộc Mạc không chỉ đơn thuần là một tặng phẩm trao tay, mà là sự chắt chiu tinh hoa thổ nhưỡng và tay nghề tài hoa của những nghệ nhân khắp mọi miền đất nước. Từ nét mộc mạc của mây tre đan lát, vẻ đẹp tao nhã của gốm men cổ truyền cho đến hương vị đượm đà của những thức trà cổ thụ hay hạt cà phê đất đỏ cao nguyên, tất cả đều chứa đựng nhịp thở của thời gian và tình yêu thuần khiết dành cho sản vật Việt Nam. Đó là nơi giá trị văn hóa bản địa được gìn giữ vẹn nguyên, đậm đà mà lắng đọng, vượt lên trên những quy chuẩn công nghiệp vô hồn.   Dù là bộ ấm chén gốm mộc nung lửa thủ công, gói trà sen Tây Hồ ướp hương sương sớm, hay chiếc giỏ mây tre nâng niu đặc sản quê hương, mỗi sự kết hợp đều chở che lời chúc bình an và lòng trân quý chân thành nhất. Trao đi một thức quà từ Mộc Mạc chính là gửi gắm một phong vị an yên trọn vẹn, để người nhận cảm nhận được hơi ấm quê nhà, phong vị đất trời và sự gắn kết bền chặt qua từng tinh túy truyền thống trao tay.  ',
     imageUrl: ''
   };
 
