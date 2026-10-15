@@ -16,3 +16,14 @@ nav a{padding:13px 16px;font-weight:600;font-size:14px;white-space:nowrap}
 nav a:hover,nav a.on{background:rgba(255,255,255,.14)}
 .filter{background:none;border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:8px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
 @media(max-width:700px){.top div:first-child{display:none}.brand .wrap{flex-wrap:wrap;gap:12px}.search{order:3;flex-basis:100%}}
+
+.nav-filter-wrapper{position:relative;display:inline-block}
+.filter-popover{position:absolute;top:calc(100% + 10px);right:0;width:280px;background:#fff;color:var(--ink,#1f2a37);border:1px solid #eae3d2;border-radius:8px;padding:16px;box-shadow:0 10px 25px rgba(0,0,0,.2);z-index:1000;text-align:left}
+.filter-popover-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-family:'Lora',serif;color:var(--moss,#4A6349)}
+.btn-popover-close{background:none;border:none;font-size:20px;cursor:pointer;color:#888;line-height:1}
+.filter-field-group{margin-bottom:12px;display:flex;flex-direction:column;gap:6px}
+.filter-field-group label{font-size:12px;font-weight:600;color:var(--ink,#1f2a37)}
+.filter-field-group select{padding:7px 10px;border-radius:6px;border:1px solid #d6ceb9;background:#faf8f2;font:inherit;font-size:13px;outline:none}
+.filter-popover-footer{display:flex;justify-content:flex-end;gap:10px;padding-top:10px;border-top:1px solid #f1ece0}
+.filter-popover-footer button:first-child{background:none;border:none;color:#777;cursor:pointer;font:inherit;font-size:13px}
+.btn-apply-small{background:var(--clay,#a25633);color:#fff;border:none;padding:6px 14px;border-radius:4px;cursor:pointer;font:inherit;font-size:13px;font-weight:600}

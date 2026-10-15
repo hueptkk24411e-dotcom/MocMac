@@ -1,0 +1,192 @@
+<div class="gift-landing">
+
+  <section class="hero-b2b">
+    <div class="site-wrap hero-layout">
+      <div class="hero-text-block">
+        <div class="badge-row">
+          <span class="square-accent">■</span>
+          <span class="square-accent">■</span>
+        </div>
+        <h1 class="hero-title">{{ heroData.title }}</h1>
+        <p class="hero-sub">{{ heroData.subtitle }}</p>
+
+        <div class="hero-btn-row">
+          <button class="btn-gold-pill">Tìm hiểu ngay →</button>
+        </div>
+
+        <div class="credentials-row">
+          <div class="cred-item">
+            <span class="laurel-icon">🪶</span>
+            <div class="cred-txt">
+              <strong>HÀNG VIỆT NAM</strong>
+            </div>
+          </div>
+          <div class="cred-item">
+            <span class="laurel-icon">★</span>
+            <div class="cred-txt">
+              <strong>KOTLER AWARDS</strong>
+              <small>Việt Nam 2024</small>
+            </div>
+          </div>
+          <div class="cred-item">
+            <span class="laurel-icon">🛡️</span>
+            <div class="cred-txt">
+              <strong>REDDOT DESIGN</strong>
+              <small>Award Winner 2019</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media-block">
+        <div class="img-slot hero-img-slot">
+          <img src="/data/images/1.jpg" alt="Hero Banner" class="hero-img" />
+        </div>
+        <div class="slider-pager">01 — 05</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="occasion-collection-section">
+    <div class="site-wrap">
+      <div class="center-head">
+        <span class="section-tag-gold">BỘ SƯU TẬP</span>
+        <h2 class="section-heading-light">QUÀ TẶNG NỔI BẬT</h2>
+      </div>
+
+      <div class="occasion-tabs-bar">
+        <button 
+          *ngFor="let tab of occasions" 
+          type="button" 
+          class="btn-tab-pill" 
+          [class.active]="selectedOccasion === tab.id"
+          (click)="setOccasion(tab.id)">
+          {{ tab.name }}
+        </button>
+      </div>
+
+      <div class="feature-banner-box">
+        <div class="feature-banner-content">
+          <div class="calligraphy-script">Quà tặng</div>
+          <div class="feature-large-text">ĐẲNG CẤP</div>
+          <div class="calligraphy-script sub-script">Gắn kết NIỀM TIN</div>
+          <p class="feature-lead-text">
+            Lựa chọn tôn vinh vị thế doanh nghiệp, vun đắp quan hệ bền vững.
+          </p>
+        </div>
+        <div class="img-slot feature-banner-img-slot">
+          <img src="/data/images/quà tặng đầu tranng.jpg" alt="Bộ sưu tập nổi bật" class="feature-banner-img" />
+        </div>
+      </div>
+
+      <div class="collection-triple-grid">
+        <div class="col-item-card" *ngFor="let col of featuredCollections; let i = index">
+          <div class="img-slot collection-img-slot">
+            <img [src]="col.imageUrl || (i === 0 ? '/data/images/ấm tách xanh trắng.webp' : (i === 1 ? '/data/images/chim lạc.webp' : '/data/images/bình hoa.webp'))" [alt]="col.name" class="collection-img" />
+          </div>
+          <div class="collection-caption">
+            <h3>{{ col.name }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="solutions-section">
+    <div class="site-wrap">
+      <div class="center-head">
+        <span class="section-tag-gold">SẢN PHẨM</span>
+        <h2 class="section-heading-dark">GIẢI PHÁP QUÀ TẶNG</h2>
+      </div>
+
+      <div class="divider-green-line"></div>
+
+      <p class="category-intro-quote">
+        Mộc Mạc khởi tạo mùa đoàn viên ấm áp với đa dạng bộ quà tặng được tinh tuyển từ đất lành của thiên nhiên, mang đến nét đẹp văn hóa truyền thống vẹn tròn gửi gắm người thân và đối tác tâm giao.
+      </p>
+
+      <!-- DANH SÁCH SẢN PHẨM SAU KHI LỌC -->
+      <div class="product-cards-grid" *ngIf="filteredProducts.length > 0; else noProductTemplate">
+        <div class="product-item-card" *ngFor="let item of filteredProducts">
+          <button class="wishlist-btn" type="button">♡</button>
+          <div class="img-slot product-img-slot">
+            <img 
+              [src]="item.imageUrl || (
+                item.name.includes('sen Tây Hồ') ? '/data/images/trà sen tây hồ.jpg' :
+                item.name.includes('Túi mây') ? '/data/images/túi mây tre.jpg' :
+                item.name.includes('Rổ mây') ? '/data/images/rổ mây tre.jpg' :
+                item.name.includes('shan tuyết') ? '/data/images/trà san tuyết.webp' :
+                item.name.includes('hoa cúc') ? '/data/images/trà hoa cúc.jpg' :
+                item.name.includes('Chu Đậu') ? '/data/images/chu đậu.webp' :
+                item.name.includes('Jasmine') ? '/data/images/ấm jasmine.webp' :
+                item.name.includes('men hoả biến') ? '/data/images/ấm chén hoa tiễn.jpg' :
+                item.name.includes('hoa son') ? '/data/images/ấm bát tràg.jpg' :
+                item.name.includes('Bát Tràng') ? '/data/images/ấm bát tràg.jpg' :
+                item.name.includes('chồn') ? '/data/images/cà phê 2.jpg' :
+                item.name.includes('Buôn Ma Thuột') ? '/data/images/cà phê.jpg' :
+                item.name.includes('Thái Nguyên') ? '/data/images/trà xanh.jpg' :
+                '/data/images/3.jpg'
+              )" 
+              [alt]="item.name" 
+              class="product-img" />
+          </div>
+          <div class="card-details">
+            <h3 class="item-title">{{ item.name }}</h3>
+            <div class="item-rating">
+              <span class="stars">★★★★★</span>
+              <span class="count">({{ item.reviewsCount }})</span>
+            </div>
+            <div class="item-origin">
+              <span class="pin">📍</span> {{ item.origin }} · {{ item.region }}
+            </div>
+            <div class="card-action-row">
+              <span class="item-price">{{ formatPrice(item.price) }}</span>
+              <button class="cart-add-btn" type="button"><span class="cart-icon">🛒</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #noProductTemplate>
+        <div class="filter-empty-state">
+          <span class="empty-icon">🍃</span>
+          <p>Không tìm thấy sản phẩm nào phù hợp với bộ lọc hiện tại.</p>
+          <button type="button" class="btn-gold-pill" (click)="resetFilter()">Đặt lại bộ lọc</button>
+        </div>
+      </ng-template>
+
+      <div class="cta-center-bar">
+        <button class="btn-gold-action">YÊU CẦU BÁO GIÁ →</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="partner-story-section">
+    <div class="site-wrap">
+      <div class="center-head">
+        <span class="sub-lead-text">NHỮNG DỰ ÁN TIÊU BIỂU CỦA MOC MAC TRONG HÀNH TRÌNH</span>
+        <h2 class="section-heading-dark">ĐỒNG HÀNH CÙNG ĐỐI TÁC</h2>
+      </div>
+
+      <div class="story-dual-block">
+        <div class="story-info-col">
+          <span class="partner-eyebrow">{{ projectStory.partner }}</span>
+          <h3 class="story-main-title">{{ projectStory.title }}</h3>
+          <p class="story-body">{{ projectStory.description }}</p>
+          <button class="btn-gold-pill">Xem chi tiết →</button>
+        </div>
+
+        <div class="story-image-col">
+          <div class="img-slot story-img-slot">
+            <img src="/data/images/đối tác.jpg" alt="Dự án Đối tác" class="story-img" />
+          </div>
+          <div class="story-nav-circles">
+            <button class="nav-circle">‹</button>
+            <button class="nav-circle">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

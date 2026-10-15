@@ -8,5 +8,13 @@ import { CartService } from '../../cart.service';
   styleUrl: './header-component.css',
 })
 export class HeaderComponent {
-  cart = inject(CartService);
+  cartService = inject(CartService);
+
+  isFilterOpen: boolean = false;
+  filterRegion: string = 'all';
+  filterPriceRange: string = 'all';
+
+  onFilterClick(): void {
+    this.isFilterOpen = !this.isFilterOpen;
+  }
 }
