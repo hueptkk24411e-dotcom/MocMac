@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home-component/home-component';
 import { PageComponent } from './pages/page-component/page-component';
 import { ProductsComponent } from './products-component/products-component';
+import { DangnhapComponent } from './dangnhap/dangnhap';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'thong-bao', component: PageComponent, data: { title: 'Thông báo' } },
   { path: 'ho-tro', component: PageComponent, data: { title: 'Hỗ trợ' } },
   { path: 'dang-ky', component: PageComponent, data: { title: 'Đăng ký' } },
-  { path: 'dang-nhap', component: PageComponent, data: { title: 'Đăng nhập' } },
+  { path: 'dang-nhap', component: DangnhapComponent, title: 'Đăng nhập | Mộc Mạc' },
 
   // LUÔN ĐỂ CUỐI
   { path: '**', redirectTo: '' },
