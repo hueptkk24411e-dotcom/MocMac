@@ -2,7 +2,6 @@ import 'dotenv/config';
 import fs from 'node:fs';
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
-import { connectDatabase } from './database.js';
 import { Product } from './models/Product.js';
 import { User } from './models/User.js';
 
@@ -10,7 +9,7 @@ const raw = JSON.parse(
   fs.readFileSync(new URL('../../my-app/public/data/product.json', import.meta.url), 'utf8')
 );
 
-await connectDatabase();
+await mongoose.connect(process.env.MONGODB_URI);
 
 const products = raw.map((product) => ({
   ...product,
