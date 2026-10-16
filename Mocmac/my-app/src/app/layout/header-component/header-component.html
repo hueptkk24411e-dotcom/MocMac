@@ -15,7 +15,6 @@
   </div>
 </div>
 
-<<<<<<< HEAD
 <div class="brand"><div class="wrap">
   <a class="logo" routerLink="/">
   <img src="data/images/Logo.png" alt="Mộc Mạc Logo">
@@ -24,27 +23,8 @@
     <input type="search" placeholder="Tìm đặc sản, làng nghề, vùng miền..." />
     <button type="submit" aria-label="Tìm">&#128269;</button>
   </form>
-  <a class="cart" routerLink="/giohang">&#128722; Giỏ hàng <b>{{ cart.count() }}</b></a>
+  <a class="cart" routerLink="/giohang">&#128722; Giỏ hàng <b>{{ cartService.count() }}</b></a>
 </div></div>
-<div class="nav"><div class="wrap">
-  <nav>
-      <a routerLink="/" routerLinkActive="on" [routerLinkActiveOptions]="{ exact: true }">Trang chủ</a>
-      <a routerLink="san-pham" routerLinkActive="on">Sản phẩm</a>
-      <a routerLink="/qua-tang" routerLinkActive="on">Quà tặng</a>
-      <a routerLink="/vung-mien" routerLinkActive="on">Vùng miền</a>
-      <a routerLink="/lang-nghe" routerLinkActive="on">Làng nghề</a>
-      <a routerLink="/lien-he" routerLinkActive="on">Liên hệ</a>
-=======
-<div class="brand">
-  <div class="wrap">
-    <a class="logo" routerLink="/">Mộc Mạc<small>Đặc sản & sản phẩm truyền thống Việt</small></a>
-    <form class="search" (submit)="$event.preventDefault()">
-      <input type="search" placeholder="Tìm đặc sản, làng nghề, vùng miền..." />
-      <button type="submit" aria-label="Tìm">&#128269;</button>
-    </form>
-    <a class="cart" routerLink="/giohang">&#128722; Giỏ hàng <b>0</b></a>
-  </div>
->>>>>>> b12a69e1e0768fde17533ffa19bad4a7ef2c62c4
 </div>
 
 <div class="nav">
