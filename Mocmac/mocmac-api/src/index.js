@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import { connectDatabase } from './database.js';
+import mongoose from 'mongoose';
 import authRoutes from './routes/auth.js';
 import productRoutes from './routes/products.js';
 
@@ -19,7 +19,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Lỗi máy chủ' });
 });
 
-await connectDatabase();
+await mongoose.connect(process.env.MONGODB_URI);
 console.log('Đã kết nối MongoDB');
 
 app.listen(PORT, () => console.log(`API chạy tại http://localhost:${PORT}`));
