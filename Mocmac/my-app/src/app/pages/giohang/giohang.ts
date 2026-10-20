@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { CartService } from '../cart.service';
-import { ProductItem, ProductsService } from '../products.service';
+import { CartService } from '../../cart.service';
+import { ProductItem, ProductsService } from '../../products.service';
 
 interface CartDisplayItem {
   id: number;

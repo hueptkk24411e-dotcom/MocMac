@@ -1,6 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { CartService } from '../../cart.service';
-import { DataService, Product } from '../../data.service';
+import { ProductsService } from '../../products.service';
 
 @Component({
   selector: 'app-home-component',
@@ -10,8 +10,17 @@ import { DataService, Product } from '../../data.service';
 })
 export class HomeComponent {
   cart = inject(CartService);
-  private ds = inject(DataService);
-  products = computed<Product[]>(() => this.ds.dataset()?.home.products ?? []);
+  private svc = inject(ProductsService);
+  products = this.svc.products;
   tab = signal('Tất cả');
-  shown = computed(() => this.tab() === 'Tất cả' ? this.products() : this.products().filter(p => p.cat === this.tab() || (this.tab() === 'Sản phẩm OCOP' && p.rate === 5)));
+  shown = computed(() => {
+    const list = this.products();
+    if (this.tab() === 'Tất cả') {
+      return list.slice(0, 12);
+    }
+    if (this.tab() === 'Sản phẩm OCOP') {
+      return list.filter(p => p.ocop > 0).slice(0, 12);
+    }
+    return list.filter(p => p.cat === this.tab()).slice(0, 12);
+  });
 }
