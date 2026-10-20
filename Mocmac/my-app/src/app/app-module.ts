@@ -15,9 +15,11 @@ import { FooterComponent } from './layout/footer-component/footer-component';
 import { HomeComponent } from './pages/home-component/home-component';
 import { PageComponent } from './pages/page-component/page-component';
 import { GiftPageComponent } from './pages/gift-page/gift-page';
-import { ProductsComponent } from './products-component/products-component';
-import { DangnhapComponent } from './dangnhap/dangnhap';
-import { GiohangComponent } from './giohang/giohang';
+import { ProductsComponent } from './pages/products-component/products-component';
+import { DangnhapComponent } from './pages/dangnhap/dangnhap';
+import { GiohangComponent } from './pages/giohang/giohang';
+import { RouterModule } from '@angular/router';
+import { Lienhe } from './pages/lienhe/lienhe';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { GiohangComponent } from './giohang/giohang';
     PageComponent,
     GiftPageComponent,
     ProductsComponent,
-    DangnhapComponent
+    DangnhapComponent,
+    Lienhe,
   ],
   imports: [
     BrowserModule,
@@ -36,11 +39,11 @@ import { GiohangComponent } from './giohang/giohang';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    GiohangComponent
+    RouterModule, // Bắt buộc phải có để chạy <router-outlet> và routerLink
+
+    GiohangComponent,
   ],
-  providers: [
-    provideHttpClient()
-  ],
-  bootstrap: [App]
+  providers: [provideHttpClient()],
+  bootstrap: [App],
 })
-export class AppModule { }
+export class AppModule {}

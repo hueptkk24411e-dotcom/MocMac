@@ -1,11 +1,11 @@
 import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
-import { CartService } from '../cart.service';
+import { CartService } from '../../cart.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   ArrayKey, Filters, PRED, ProductItem, ProductsService, defaultFilters, fromParams, matchFilters, norm, toParams,
-} from '../products.service';
+} from '../../products.service';
 
 interface Opt { v: string; l: string; n: number; icon?: string; }
 const PAGE_SIZE = 12;
@@ -32,8 +32,7 @@ export class ProductsComponent {
   private imgIdx = signal<Record<number, number>>({});
   readonly tabs = ['Tất cả', 'Đặc sản', 'Thủ công mỹ nghệ', 'Cà phê - Trà', 'Sản phẩm OCOP'];
   readonly month = new Date().getMonth() + 1;
-  
-  // ===== KHU VỰC KHÁM PHÁ NHANH =====
+
   readonly quickTags = [
     'Quà Tết',
     'Đặc sản vùng miền',
@@ -43,32 +42,26 @@ export class ProductsComponent {
     'OCOP'
   ];
 
-  // Nhiều sản phẩm gợi ý, xếp hạng theo lượt đánh giá và điểm đánh giá
   topProducts = computed(() =>
     [...this.all()]
-      .sort((a, b) => (b.reviews * 2 + b.rate * 10) - (a.reviews * 2 + a.rate * 10))
+      .sort((a: ProductItem, b: ProductItem) => (b.reviews * 2 + b.rate * 10) - (a.reviews * 2 + a.rate * 10))
       .slice(0, 3)
   );
 
-  // Nhiều sản phẩm nổi bật có điểm đánh giá cao
   featuredProducts = computed(() =>
     [...this.all()]
-      .sort((a, b) => b.rate - a.rate || b.reviews - a.reviews)
+      .sort((a: ProductItem, b: ProductItem) => b.rate - a.rate || b.reviews - a.reviews)
       .slice(0, 3)
   );
 
-  // Danh sách nhiều sản phẩm bán chạy, không chỉ một sản phẩm
   bestSellers = computed(() =>
-    [...this.all()].sort((a, b) => b.reviews - a.reviews).slice(0, 4)
+    [...this.all()].sort((a: ProductItem, b: ProductItem) => b.reviews - a.reviews).slice(0, 4)
   );
 
-  // Danh sách nhiều sản phẩm có giá thấp
   bestPrices = computed(() =>
-    [...this.all()].sort((a, b) => a.price - b.price).slice(0, 4)
+    [...this.all()].sort((a: ProductItem, b: ProductItem) => a.price - b.price).slice(0, 4)
   );
 
-  // Các thẻ khám phá nhanh chuyển thành tiêu chí lọc thực tế.
-  // Tránh tìm nguyên cụm chữ như "Đặc sản vùng miền" trong tên sản phẩm.
   quickSearch(tag: string) {
     const current = this.applied();
     const f = {
@@ -105,12 +98,20 @@ export class ProductsComponent {
     this.go(f);
   }
 
+  go(filters: Filters) {
+    const params = toParams(filters);
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: params,
+      queryParamsHandling: 'merge'
+    });
+  }
 
   constructor() {
     effect(() => { const a = this.applied(); untracked(() => this.draft.set({ ...a })); });
   }
 
-  private count(k: ArrayKey, v: string) { return this.all().filter(p => PRED[k](p, v)).length; }
+  private count(k: ArrayKey, v: string) { return this.all().filter((p: ProductItem) => PRED[k](p, v)).length; }
   private opts(k: ArrayKey, list: [string, string, string?][]): Opt[] {
     return list.map(([v, l, icon]) => ({ v, l, icon, n: this.count(k, v) }));
   }
@@ -124,13 +125,13 @@ export class ProductsComponent {
   occOpts = computed(() => this.opts('occ', ['Quà Tết', 'Quà cưới', 'Quà tân gia', 'Quà biếu đối tác'].map(x => [x, x] as [string, string])));
   statusOpts = computed(() => this.opts('status', [['in', 'Còn hàng'], ['pre', 'Pre-order']]));
   monthOpts = computed(() => this.opts('months', [['1-3', 'Tháng 1-3'], ['4-6', 'Tháng 4-6'], ['7-9', 'Tháng 7-9'], ['10-12', 'Tháng 10-12']]));
-  provinces = computed(() => [...new Set(this.all().map(p => p.province))].sort((a, b) => a.localeCompare(b, 'vi')));
-  villages = computed(() => [...new Set(this.all().map(p => p.village).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'vi')));
 
-  // Danh sách khớp chính xác với từ khóa và toàn bộ bộ lọc đã chọn.
+  provinces = computed(() => [...new Set(this.all().map(p => p.province || ''))].sort((a: string, b: string) => a.localeCompare(b, 'vi')));
+  villages = computed(() => [...new Set(this.all().map(p => p.village || '').filter(Boolean))].sort((a: string, b: string) => a.localeCompare(b, 'vi')));
+
   filtered = computed(() => {
     const f = this.applied(), m = this.month;
-    const list = this.all().filter(p => matchFilters(p, f, m));
+    const list = this.all().filter((p: ProductItem) => matchFilters(p, f, m));
     const sorters: Record<string, (a: ProductItem, b: ProductItem) => number> = {
       popular: (a, b) => b.reviews - a.reviews,
       'price-asc': (a, b) => a.price - b.price,
@@ -141,8 +142,6 @@ export class ProductsComponent {
     return list.sort(sorters[f.sort] ?? sorters['popular']);
   });
 
-  // Gợi ý liên quan xuất hiện SAU kết quả khớp chính xác.
-  // Sản phẩm gợi ý không bị trùng với danh sách chính và được xếp theo độ liên quan.
   relatedProducts = computed<ProductItem[]>(() => {
     const f = this.applied();
     const primary = this.filtered();
@@ -190,66 +189,64 @@ export class ProductsComponent {
         if (p.village && p.village === anchor.village) score += 4;
         if (p.region === anchor.region) score += 2;
         if (p.province === anchor.province) score += 1;
-        if (p.occasion.some(o => anchor.occasion.includes(o))) score += 2;
+        if (p.occasion && anchor.occasion && p.occasion.some((o: string) => anchor.occasion.includes(o))) score += 2;
       }
 
       return score;
     };
 
     return all
-      .filter(p => !primaryIds.has(p.id))
-      .map(p => ({ product: p, score: scoreProduct(p) }))
-      .filter(item => item.score >= 2)
+      .filter((p: ProductItem) => !primaryIds.has(p.id))
+      .map((p: ProductItem) => ({ product: p, score: scoreProduct(p) }))
+      .filter((item: { product: ProductItem; score: number }) => item.score >= 2)
       .sort((a, b) => b.score - a.score || b.product.reviews - a.product.reviews)
-      .slice(0, 8)
-      .map(item => item.product);
+      .map((item: { product: ProductItem; score: number }) => item.product);
   });
-  totalPages = computed(() => Math.max(1, Math.ceil(this.filtered().length / PAGE_SIZE)));
-  page = computed(() => Math.min(this.applied().page, this.totalPages()));
-  paged = computed(() => this.filtered().slice((this.page() - 1) * PAGE_SIZE, this.page() * PAGE_SIZE));
-  pages = computed(() => Array.from({ length: this.totalPages() }, (_, i) => i + 1));
 
-  // ---- bộ lọc nháp (sidebar) ----
-  has(k: ArrayKey, v: string) { return this.draft()[k].includes(v); }
-  toggle(k: ArrayKey, v: string) {
-    this.draft.update(d => ({ ...d, [k]: d[k].includes(v) ? d[k].filter(x => x !== v) : [...d[k], v] }));
+  stars(n: number): string { const m = Math.round(n); return '★'.repeat(m) + '☆'.repeat(5 - m); }
+  fmt(n: number): string { return n.toLocaleString('vi-VN') + 'đ'; }
+
+  imgs(p: ProductItem): string[] { return (p.images ?? []).filter((u: string) => u && !this.brokenImg().has(u)); }
+  idxOf(p: ProductItem): number { const n = this.imgs(p).length; return n ? (this.imgIdx()[p.id] ?? 0) % n : 0; }
+  cur(p: ProductItem): string { return this.imgs(p)[this.idxOf(p)] || ''; }
+  setImg(p: ProductItem, i: number, e: Event): void { e.stopPropagation(); this.imgIdx.update(m => ({ ...m, [p.id]: i })); }
+  step(p: ProductItem, d: number, e: Event): void {
+    e.stopPropagation();
+    const arr = this.imgs(p);
+    if (!arr.length) return;
+    const idx = (this.idxOf(p) + d + arr.length) % arr.length;
+    this.imgIdx.update(m => ({ ...m, [p.id]: idx }));
   }
-  setField<K extends 'province' | 'village' | 'q' | 'rate'>(k: K, v: Filters[K]) { this.draft.update(d => ({ ...d, [k]: v })); }
-  toggleNow() { this.draft.update(d => ({ ...d, now: !d.now })); }
+  imgError(src: string): void { if (!src) return; this.brokenImg.update(s => { const ns = new Set(s); ns.add(src); return ns; }); }
 
-  // ---- đẩy lên URL ----
-  private go(f: Filters) { this.router.navigate([], { relativeTo: this.route, queryParams: toParams(f) }); }
-  apply() { this.go({ ...this.draft(), tab: this.applied().tab, sort: this.applied().sort, view: this.applied().view, page: 1 }); this.showFilters.set(false); }
-  clear() { const a = this.applied(); this.go({ ...defaultFilters(), view: a.view, sort: a.sort }); }
-  setTab(t: string) { this.go({ ...this.applied(), tab: t, page: 1 }); }
-  setSort(s: string) { this.go({ ...this.applied(), sort: s, page: 1 }); }
-  setView(v: 'grid' | 'list') { this.go({ ...this.applied(), view: v }); }
-  setPage(n: number) { this.go({ ...this.applied(), page: n }); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  search() { this.go({ ...this.applied(), q: this.draft().q.trim(), page: 1 }); }
+  has(k: ArrayKey, v: string): boolean { return (this.draft()[k] as string[]).includes(v); }
+  toggle(k: ArrayKey, v: string): void {
+    const cur = this.draft()[k] as string[];
+    this.draft.update(d => ({ ...d, [k]: cur.includes(v) ? cur.filter((x: string) => x !== v) : [...cur, v] }));
+  }
+  setField<K extends keyof Filters>(k: K, v: Filters[K]): void { this.draft.update(d => ({ ...d, [k]: v })); }
+  toggleNow(): void { this.draft.update(d => ({ ...d, now: !d.now })); }
 
+  apply(): void { this.go({ ...this.draft(), tab: this.applied().tab, sort: this.applied().sort, view: this.applied().view, page: 1 }); this.showFilters.set(false); }
+  clear(): void { const a = this.applied(); this.go({ ...defaultFilters(), view: a.view, sort: a.sort }); }
+  search(): void { this.go(this.draft()); }
+
+  setTab(t: string): void { this.draft.update(d => ({ ...d, tab: t, page: 1 })); this.go(this.draft()); }
+  setSort(s: string): void { this.draft.update(d => ({ ...d, sort: s, page: 1 })); this.go(this.draft()); }
+  setView(v: 'grid' | 'list'): void { this.draft.update(d => ({ ...d, view: v, page: 1 })); this.go(this.draft()); }
+  setPage(p: number): void { this.draft.update(d => ({ ...d, page: Math.max(1, p) })); this.go(this.draft()); }
+  toggleFav(id: number): void { this.favs.update(s => { const t = new Set(s); t.has(id) ? t.delete(id) : t.add(id); return t; }); }
+  addToCart(e: Event, productId: number, productName: string): void { e.stopPropagation(); this.cart.add(productId, productName); }
+
+  get page() { return computed(() => this.applied().page); }
+  get totalPages() { return computed(() => Math.max(1, Math.ceil(this.filtered().length / PAGE_SIZE))); }
+  get pages() { return computed(() => Array.from({ length: this.totalPages() }, (_, i) => i + 1)); }
+  paged = computed(() => {
+    const start = (this.applied().page - 1) * PAGE_SIZE;
+    return this.filtered().slice(start, start + PAGE_SIZE);
+  });
   get activeCount() {
     const f = this.applied();
-    return ARR.reduce((n, k) => n + f[k].length, 0) + (f.province ? 1 : 0) + (f.village ? 1 : 0) + (f.now ? 1 : 0) + (f.rate ? 1 : 0) + (f.q ? 1 : 0);
-  }
-
-  // ---- ảnh nhiều link ----
-  imgs(p: ProductItem): string[] { return (p.images ?? []).filter(u => u && !this.brokenImg().has(u)); }
-  idxOf(p: ProductItem) { const n = this.imgs(p).length; return n ? (this.imgIdx()[p.id] ?? 0) % n : 0; }
-  cur(p: ProductItem) { return this.imgs(p)[this.idxOf(p)]; }
-  step(p: ProductItem, d: number, e: Event) {
-    e.stopPropagation();
-    const n = this.imgs(p).length;
-    this.imgIdx.update(m => ({ ...m, [p.id]: (this.idxOf(p) + d + n) % n }));
-  }
-  setImg(p: ProductItem, i: number, e: Event) { e.stopPropagation(); this.imgIdx.update(m => ({ ...m, [p.id]: i })); }
-  imgError(url: string) { this.brokenImg.update(s => new Set(s).add(url)); }
-
-  // ---- hiển thị ----
-  fmt(n: number) { return n.toLocaleString('vi-VN') + 'đ'; }
-  stars(r: number) { const n = Math.round(r); return '★'.repeat(n) + '☆'.repeat(5 - n); }
-  toggleFav(id: number) { this.favs.update(s => { const t = new Set(s); t.has(id) ? t.delete(id) : t.add(id); return t; }); }
-  addToCart(e: Event, productId: number, productName: string) {
-    e.stopPropagation();
-    this.cart.add(productId, productName);
+    return ARR.reduce((n, k) => n + (f[k] as string[]).length, 0) + (f.province ? 1 : 0) + (f.village ? 1 : 0) + (f.now ? 1 : 0) + (f.rate ? 1 : 0) + (f.q ? 1 : 0);
   }
 }

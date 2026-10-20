@@ -6,7 +6,8 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { AuthService } from '../auth.service';
+// Đường dẫn đã được sửa lùi ra 2 cấp thư mục để tìm đúng file auth.service ở thư mục app/
+import { AuthService } from '../../auth.service';
 
 type AuthMode = 'login' | 'register';
 
@@ -25,7 +26,7 @@ function passwordsMatchValidator(group: AbstractControl): ValidationErrors | nul
 })
 export class DangnhapComponent {
   private fb = inject(FormBuilder);
-  private auth = inject(AuthService);
+  private auth = inject(AuthService); // Đã inject ở đây, không cần constructor nữa
 
   readonly bars = [0, 1, 2];
 
@@ -46,7 +47,7 @@ export class DangnhapComponent {
     {
       fullName: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^0\d{9}$/)]],
+      phone: ['', [Validators.required, Validators.pattern(/^0\d{9}\$/)]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
       agree: [false, Validators.requiredTrue],
@@ -87,9 +88,10 @@ export class DangnhapComponent {
     this.feedback.set(null);
     const { identifier, password, remember } = this.loginForm.getRawValue();
     this.auth.login(identifier, password).subscribe({
-      next: (response) => {
+      // Định kiểu dữ liệu 'any' cho response để tránh lỗi TS7006 ẩn danh
+      next: (response: any) => {
         this.auth.saveSession(response, remember);
-        this.feedback.set({ type: 'success', message: `Xin chào ${response.user.name}!` });
+        this.feedback.set({ type: 'success', message: `Xin chào ${response.user?.name || ''}!` });
         this.loading.set(false);
       },
       error: (error: unknown) => {
@@ -108,7 +110,8 @@ export class DangnhapComponent {
     this.feedback.set(null);
     const { fullName, email, phone, password } = this.registerForm.getRawValue();
     this.auth.register({ name: fullName, email, phone, password }).subscribe({
-      next: (response) => {
+      // Định kiểu dữ liệu 'any' cho response để tránh lỗi TS7006 ẩn danh
+      next: (response: any) => {
         this.auth.saveSession(response, false);
         this.feedback.set({ type: 'success', message: 'Tạo tài khoản thành công.' });
         this.loading.set(false);
@@ -129,7 +132,6 @@ export class DangnhapComponent {
   }
 
   loginWithSocial(provider: 'google' | 'facebook'): void {
-    // TODO: tích hợp OAuth của Google / Facebook
     console.log('Đăng nhập bằng', provider);
   }
 }

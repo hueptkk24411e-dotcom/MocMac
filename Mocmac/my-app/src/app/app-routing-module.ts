@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './pages/home-component/home-component';
 import { PageComponent } from './pages/page-component/page-component';
-import { ProductsComponent } from './products-component/products-component';
+import { ProductsComponent } from './pages/products-component/products-component';
 import { GiftPageComponent } from './pages/gift-page/gift-page';
-import { DangnhapComponent } from './dangnhap/dangnhap';
+import { DangnhapComponent } from './pages/dangnhap/dangnhap';
+import { Lienhe } from './pages/lienhe/lienhe';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,14 +27,13 @@ const routes: Routes = [
   },
   { path: 'vung-mien', component: PageComponent, data: { title: 'Vùng miền' } },
   { path: 'lang-nghe', component: PageComponent, data: { title: 'Làng nghề' } },
-  { path: 'lien-he', component: PageComponent, data: { title: 'Liên hệ' } },
+  { path: 'lien-he', component:Lienhe, data: { title: 'Liên hệ' } },
   { path: 'gioi-thieu', component: PageComponent, data: { title: 'Giới thiệu' } },
   { path: 'qua-tang-theo-nhu-cau', component: PageComponent, data: { title: 'Quà tặng theo nhu cầu' } },
   { path: 'qua-tang-doanh-nghiep', component: PageComponent, data: { title: 'Quà tặng doanh nghiệp' } },
   { path: 'thong-bao', component: PageComponent, data: { title: 'Thông báo' } },
   { path: 'ho-tro', component: PageComponent, data: { title: 'Hỗ trợ' } },
-  { path: 'dang-ky', component: PageComponent, data: { title: 'Đăng ký' } },
-  { path: 'san-pham', component: ProductsComponent, data: { title: 'Sản phẩm | Mộc Mạc' } },
+  { path: 'dang-ky', component: DangnhapComponent, data: { title: 'Đăng ký' } },
   { path: '**', redirectTo: '' }
 ];
 
