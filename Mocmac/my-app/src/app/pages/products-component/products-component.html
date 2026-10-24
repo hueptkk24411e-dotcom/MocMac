@@ -30,120 +30,180 @@
 
   <div class="discovery-grid">
 
-    <!-- NHIỀU SẢN PHẨM GỢI Ý -->
+    <!-- GỢI Ý HÀNG ĐẦU: CAROUSEL TỰ CHẠY -->
     <section class="mini-section">
       <div class="mini-title">
         <h3>🔥 Gợi ý hàng đầu</h3>
-        <button type="button" (click)="setSort('popular')">Xem tất cả ›</button>
+        <button type="button" (click)="showMore('popular')">Xem thêm ›</button>
       </div>
 
-      @for (p of topProducts(); track p.id) {
-        <article class="mini-product">
-          <div class="mini-image">
-            @if (imgs(p).length > 0) {
-              <img [src]="cur(p)" [alt]="p.name" loading="lazy" (error)="imgError(cur(p))" />
-            } @else {
-              <span>{{ p.icon }}</span>
-            }
-            <small>GỢI Ý</small>
-          </div>
-          <div class="mini-info">
-            <b>{{ p.name }}</b>
-            <small>{{ p.village || p.province }} · {{ p.region }}</small>
-            <span class="mini-stars">{{ stars(p.rate) }} <small>({{ p.reviews }})</small></span>
-            <strong>{{ fmt(p.price) }}</strong>
-          </div>
-        </article>
-      } @empty {
-        <p class="mini-empty">Đang cập nhật sản phẩm.</p>
-      }
+      <div class="discovery-carousel" #discoveryCarousel tabindex="0"
+           aria-label="Sản phẩm gợi ý hàng đầu"
+           (mouseenter)="pauseDiscoveryCarousel()"
+           (mouseleave)="resumeDiscoveryCarousel()"
+           (focusin)="pauseDiscoveryCarousel()"
+           (focusout)="resumeDiscoveryCarousel()">
+        <div class="discovery-track mini-track">
+          @for (p of topProducts(); track p.id) {
+            <article class="mini-product discovery-card product-clickable" role="link" tabindex="0" [attr.aria-label]="'Xem chi tiết ' + p.name" (click)="viewDetail(p.id)" (keydown.enter)="$event.target === $event.currentTarget && viewDetail(p.id)">
+              <div class="mini-image">
+                @if (imgs(p).length > 0) {
+                  <img [src]="cur(p)" [alt]="p.name" loading="lazy" (error)="imgError(cur(p))" />
+                } @else {
+                  <span>{{ p.icon }}</span>
+                }
+                <small>GỢI Ý</small>
+              </div>
+              <div class="mini-info">
+                <b>{{ p.name }}</b>
+                <small>{{ p.village || p.province }} · {{ p.region }}</small>
+                @if (p.rate > 0) {
+                  <span class="mini-stars">{{ stars(p.rate) }} <small>{{ p.rate.toFixed(1) }} · {{ p.reviews }} đánh giá</small></span>
+                } @else {
+                  <span class="mini-stars no-review">
+                    Chưa có đánh giá sao
+                    @if (p.reviews > 0) {
+                      <small> · {{ p.reviews }} nhận xét</small>
+                    }
+                  </span>
+                }
+                <strong>{{ fmt(p.price) }}</strong>
+              </div>
+            </article>
+          } @empty {
+            <p class="mini-empty">Đang cập nhật sản phẩm.</p>
+          }
+        </div>
+      </div>
     </section>
 
-    <!-- NHIỀU SẢN PHẨM NỔI BẬT -->
+    <!-- SẢN PHẨM NỔI BẬT: CAROUSEL TỰ CHẠY -->
     <section class="mini-section">
       <div class="mini-title">
         <h3>⭐ Sản phẩm nổi bật</h3>
-        <button type="button" (click)="setSort('rating')">Xem tất cả ›</button>
+        <button type="button" (click)="showMore('rating')">Xem thêm ›</button>
       </div>
 
-      @for (p of featuredProducts(); track p.id) {
-        <article class="mini-product">
-          <div class="mini-image">
-            @if (imgs(p).length > 0) {
-              <img [src]="cur(p)" [alt]="p.name" loading="lazy" (error)="imgError(cur(p))" />
-            } @else {
-              <span>{{ p.icon }}</span>
-            }
-            <small>NỔI BẬT</small>
-          </div>
-          <div class="mini-info">
-            <b>{{ p.name }}</b>
-            <small>{{ p.village || p.province }} · {{ p.region }}</small>
-            <span class="mini-stars">{{ stars(p.rate) }} <small>({{ p.reviews }})</small></span>
-            <strong>{{ fmt(p.price) }}</strong>
-          </div>
-        </article>
-      } @empty {
-        <p class="mini-empty">Đang cập nhật sản phẩm.</p>
-      }
+      <div class="discovery-carousel" #discoveryCarousel tabindex="0"
+           aria-label="Sản phẩm nổi bật"
+           (mouseenter)="pauseDiscoveryCarousel()"
+           (mouseleave)="resumeDiscoveryCarousel()"
+           (focusin)="pauseDiscoveryCarousel()"
+           (focusout)="resumeDiscoveryCarousel()">
+        <div class="discovery-track mini-track">
+          @for (p of featuredProducts(); track p.id) {
+            <article class="mini-product discovery-card product-clickable" role="link" tabindex="0" [attr.aria-label]="'Xem chi tiết ' + p.name" (click)="viewDetail(p.id)" (keydown.enter)="$event.target === $event.currentTarget && viewDetail(p.id)">
+              <div class="mini-image">
+                @if (imgs(p).length > 0) {
+                  <img [src]="cur(p)" [alt]="p.name" loading="lazy" (error)="imgError(cur(p))" />
+                } @else {
+                  <span>{{ p.icon }}</span>
+                }
+                <small>NỔI BẬT</small>
+              </div>
+              <div class="mini-info">
+                <b>{{ p.name }}</b>
+                <small>{{ p.village || p.province }} · {{ p.region }}</small>
+                @if (p.rate > 0) {
+                  <span class="mini-stars">{{ stars(p.rate) }} <small>{{ p.rate.toFixed(1) }} · {{ p.reviews }} đánh giá</small></span>
+                } @else {
+                  <span class="mini-stars no-review">
+                    Chưa có đánh giá sao
+                    @if (p.reviews > 0) {
+                      <small> · {{ p.reviews }} nhận xét</small>
+                    }
+                  </span>
+                }
+                <strong>{{ fmt(p.price) }}</strong>
+              </div>
+            </article>
+          } @empty {
+            <p class="mini-empty">Đang cập nhật sản phẩm.</p>
+          }
+        </div>
+      </div>
     </section>
 
   </div>
 
-  <!-- NHIỀU SẢN PHẨM BÁN CHẠY VÀ GIÁ TỐT -->
+  <!-- BÁN CHẠY VÀ GIÁ TỐT: CŨNG CHẠY NGANG TỰ ĐỘNG -->
   <div class="discovery-bottom">
     <section class="rank-section">
-      <h3>🏆 Bán chạy nhất</h3>
-      @for (p of bestSellers(); track p.id) {
-        <div class="rank-product">
-          <div class="rank-image">
-  @if (imgs(p).length > 0) {
-    <img
-      [src]="cur(p)"
-      [alt]="p.name"
-      loading="lazy"
-      (error)="imgError(cur(p))"
-    />
-  } @else {
-    <span>{{ p.icon }}</span>
-  }
-</div>
-          <div>
-            <b>{{ p.name }}</b>
-            <small>{{ p.reviews }} lượt đánh giá</small>
-          </div>
-          <strong>{{ fmt(p.price) }}</strong>
+      <div class="rank-title">
+        <h3>🏆 Bán chạy nhất</h3>
+        <button type="button" (click)="showMore('popular')">Xem thêm ›</button>
+      </div>
+
+      <div class="discovery-carousel rank-carousel" #discoveryCarousel tabindex="0"
+           aria-label="Sản phẩm bán chạy nhất"
+           (mouseenter)="pauseDiscoveryCarousel()"
+           (mouseleave)="resumeDiscoveryCarousel()"
+           (focusin)="pauseDiscoveryCarousel()"
+           (focusout)="resumeDiscoveryCarousel()">
+        <div class="discovery-track rank-track">
+          @for (p of bestSellers(); track p.id) {
+            <div class="rank-product discovery-card product-clickable" role="link" tabindex="0" [attr.aria-label]="'Xem chi tiết ' + p.name" (click)="viewDetail(p.id)" (keydown.enter)="$event.target === $event.currentTarget && viewDetail(p.id)">
+              <div class="rank-image">
+                @if (imgs(p).length > 0) {
+                  <img [src]="cur(p)" [alt]="p.name" loading="lazy" (error)="imgError(cur(p))" />
+                } @else {
+                  <span>{{ p.icon }}</span>
+                }
+              </div>
+              <div>
+                <b>{{ p.name }}</b>
+                <small>
+                    @if (p.rate > 0) {
+                      <span class="stars">{{ stars(p.rate) }}</span> {{ p.rate.toFixed(1) }} · {{ p.reviews }} đánh giá
+                    } @else if (p.reviews > 0) {
+                      {{ p.reviews }} nhận xét · chưa có điểm sao
+                    } @else {
+                      Chưa có đánh giá
+                    }
+                  </small>
+              </div>
+              <strong>{{ fmt(p.price) }}</strong>
+            </div>
+          } @empty {
+            <p class="mini-empty">Đang cập nhật sản phẩm.</p>
+          }
         </div>
-      } @empty {
-        <p class="mini-empty">Đang cập nhật sản phẩm.</p>
-      }
+      </div>
     </section>
 
     <section class="rank-section">
-      <h3>🏷️ Giá tốt nhất hôm nay</h3>
-      @for (p of bestPrices(); track p.id) {
-        <div class="rank-product">
-          <div class="rank-image">
-  @if (imgs(p).length > 0) {
-    <img
-      [src]="cur(p)"
-      [alt]="p.name"
-      loading="lazy"
-      (error)="imgError(cur(p))"
-    />
-  } @else {
-    <span>{{ p.icon }}</span>
-  }
-</div>
-          <div>
-            <b>{{ p.name }}</b>
-            <small>Giá dễ tiếp cận · {{ p.province }}</small>
-          </div>
-          <strong>{{ fmt(p.price) }}</strong>
+      <div class="rank-title">
+        <h3>🏷️ Giá tốt nhất hôm nay</h3>
+        <button type="button" (click)="showMore('price-asc')">Xem thêm ›</button>
+      </div>
+
+      <div class="discovery-carousel rank-carousel" #discoveryCarousel tabindex="0"
+           aria-label="Sản phẩm giá tốt nhất hôm nay"
+           (mouseenter)="pauseDiscoveryCarousel()"
+           (mouseleave)="resumeDiscoveryCarousel()"
+           (focusin)="pauseDiscoveryCarousel()"
+           (focusout)="resumeDiscoveryCarousel()">
+        <div class="discovery-track rank-track">
+          @for (p of bestPrices(); track p.id) {
+            <div class="rank-product discovery-card product-clickable" role="link" tabindex="0" [attr.aria-label]="'Xem chi tiết ' + p.name" (click)="viewDetail(p.id)" (keydown.enter)="$event.target === $event.currentTarget && viewDetail(p.id)">
+              <div class="rank-image">
+                @if (imgs(p).length > 0) {
+                  <img [src]="cur(p)" [alt]="p.name" loading="lazy" (error)="imgError(cur(p))" />
+                } @else {
+                  <span>{{ p.icon }}</span>
+                }
+              </div>
+              <div>
+                <b>{{ p.name }}</b>
+                <small>Giá dễ tiếp cận · {{ p.province }}</small>
+              </div>
+              <strong>{{ fmt(p.price) }}</strong>
+            </div>
+          } @empty {
+            <p class="mini-empty">Đang cập nhật sản phẩm.</p>
+          }
         </div>
-      } @empty {
-        <p class="mini-empty">Đang cập nhật sản phẩm.</p>
-      }
+      </div>
     </section>
   </div>
 </section>
@@ -166,6 +226,21 @@
           <span class="bot">🤖</span>
           <div><b>AI Tìm quà phù hợp theo vùng miền</b><small>Nhập vào câu, dịp tặng...</small></div><span>›</span>
         </div>
+
+        <button
+          type="button"
+          class="favorites-filter"
+          [class.active]="showFavorites()"
+          [attr.aria-pressed]="showFavorites()"
+          [attr.aria-label]="showFavorites() ? 'Tắt lọc sản phẩm yêu thích' : 'Lọc sản phẩm yêu thích'"
+          (click)="toggleFavoritesFilter()">
+          <span class="favorites-filter-icon" aria-hidden="true">{{ showFavorites() ? '♥' : '♡' }}</span>
+          <span class="favorites-filter-copy">
+            <strong>Sản phẩm yêu thích</strong>
+            <small>{{ showFavorites() ? 'Đang xem sản phẩm đã lưu' : 'Xem các sản phẩm bạn đã thích' }}</small>
+          </span>
+          <span class="favorites-filter-count">{{ favoriteCount() }}</span>
+        </button>
 
         <h4>Danh mục sản phẩm</h4>
         <ng-container *ngTemplateOutlet="checks; context: { k: 'cat', opts: catOpts() }" />
@@ -255,7 +330,7 @@
 
       <div class="plist" [class.list]="applied().view === 'list'">
         @for (p of paged(); track p.id) {
-          <article class="pcard">
+          <article class="pcard product-clickable" role="link" tabindex="0" [attr.aria-label]="'Xem chi tiết ' + p.name" (click)="viewDetail(p.id)" (keydown.enter)="$event.target === $event.currentTarget && viewDetail(p.id)">
             <div class="pimg">
               @if (imgs(p).length) {
                 <img class="photo" [src]="cur(p)" [alt]="p.name" loading="lazy" (error)="imgError(cur(p))" />
@@ -277,20 +352,44 @@
                 @if (p.heritage) { <span class="tag her">Di sản {{ p.heritage }}</span> }
                 @if (p.preorder) { <span class="tag pre">Pre-order</span> }
               </div>
-              <button class="fav" [class.on]="favs().has(p.id)" (click)="toggleFav(p.id)" aria-label="Yêu thích">{{ favs().has(p.id) ? '♥' : '♡' }}</button>
+              <button class="fav" [class.on]="favs().has(p.id)" (click)="toggleFav(p.id, $event)" aria-label="Yêu thích">{{ favs().has(p.id) ? '♥' : '♡' }}</button>
             </div>
             <div class="pbody">
               <h3>{{ p.name }}</h3>
               <small class="loc">📍 {{ p.village || p.province }}{{ p.village ? ', ' + p.province : '' }} · {{ p.region }}</small>
-              <div class="rt"><span class="stars">{{ stars(p.rate) }}</span> <small>({{ p.reviews }})</small></div>
+              <div class="rt">
+                  @if (p.rate > 0) {
+                    <span class="stars">{{ stars(p.rate) }}</span>
+                    <strong class="rating-value">{{ p.rate.toFixed(1) }}</strong>
+                    <small>({{ p.reviews }} đánh giá)</small>
+                  } @else if (p.reviews > 0) {
+                    <small class="no-review">{{ p.reviews }} nhận xét · chưa có điểm sao</small>
+                  } @else {
+                    <small class="no-review">Chưa có đánh giá</small>
+                  }
+                </div>
               <div class="row"><b>{{ fmt(p.price) }}</b>
                 <button class="add" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button></div>
             </div>
           </article>
         } @empty {
           <div class="empty">
-            <p>😕 Không tìm thấy sản phẩm phù hợp.</p>
-            <button class="btn" (click)="clear()">Xóa bộ lọc</button>
+            @if (showFavorites() && favoriteCount() === 0) {
+              <p>♡ Bạn chưa có sản phẩm yêu thích.</p>
+              <small>Nhấn biểu tượng trái tim trên sản phẩm để lưu lại tại đây.</small>
+              <div class="empty-actions">
+                <button class="btn" type="button" (click)="toggleFavoritesFilter()">Xem tất cả sản phẩm</button>
+              </div>
+            } @else if (showFavorites()) {
+              <p>♡ Không có sản phẩm yêu thích khớp với bộ lọc hiện tại.</p>
+              <div class="empty-actions">
+                <button class="btn" type="button" (click)="clear()">Xóa bộ lọc khác</button>
+                <button class="btn ghost" type="button" (click)="toggleFavoritesFilter()">Xem tất cả sản phẩm</button>
+              </div>
+            } @else {
+              <p>😕 Không tìm thấy sản phẩm phù hợp.</p>
+              <button class="btn" type="button" (click)="clear()">Xóa bộ lọc</button>
+            }
           </div>
         }
       </div>
@@ -305,37 +404,64 @@
         </div>
       }
 
-      <!-- SẢN PHẨM LIÊN QUAN: hiện sau danh sách khớp bộ lọc -->
+      <!-- CAROUSEL SẢN PHẨM LIÊN QUAN: tự chạy ngang, có nút điều khiển -->
       @if (relatedProducts().length > 0) {
         <section class="related-section">
           <div class="related-heading">
-            <h2>🧺 Sản phẩm liên quan bạn có thể thích</h2>
-            <p>Các lựa chọn gần với sản phẩm hoặc tiêu chí bạn vừa chọn.</p>
+            <div class="related-heading-copy">
+              <span class="related-kicker">SẢN PHẨM</span>
+              <h2>🧺 Sản phẩm liên quan bạn có thể thích</h2>
+              <p>Các lựa chọn gần với sản phẩm hoặc tiêu chí bạn vừa chọn.</p>
+            </div>
+            <div class="related-controls" aria-label="Điều khiển sản phẩm">
+              <button type="button" class="related-nav" (click)="scrollRelated(-1)" aria-label="Sản phẩm trước">‹</button>
+              <button type="button" class="related-nav" (click)="scrollRelated(1)" aria-label="Sản phẩm tiếp theo">›</button>
+            </div>
           </div>
 
-          <div class="plist related-grid">
-            @for (p of relatedProducts(); track p.id) {
-              <article class="pcard">
-                <div class="pimg">
-                  @if (imgs(p).length) {
-                    <img class="photo" [src]="cur(p)" [alt]="p.name" loading="lazy" (error)="imgError(cur(p))" />
-                  } @else {
-                    <span class="ico">{{ p.icon }}</span>
-                  }
-                  <div class="tags">
-                    @for (b of p.badges.slice(0, 1); track b) { <span class="tag">{{ b }}</span> }
-                    @if (p.ocop) { <span class="tag ocop">OCOP {{ p.ocop }}★</span> }
+          <div
+            class="related-carousel"
+            #relatedCarousel
+            tabindex="0"
+            aria-label="Danh sách sản phẩm liên quan"
+            (mouseenter)="pauseRelatedCarousel()"
+            (mouseleave)="resumeRelatedCarousel()"
+            (focusin)="pauseRelatedCarousel()"
+            (focusout)="resumeRelatedCarousel()">
+            <div class="related-track">
+              @for (p of relatedProducts(); track p.id) {
+                <article class="pcard related-card product-clickable" role="link" tabindex="0" [attr.aria-label]="'Xem chi tiết ' + p.name" (click)="viewDetail(p.id)" (keydown.enter)="$event.target === $event.currentTarget && viewDetail(p.id)">
+                  <div class="pimg">
+                    @if (imgs(p).length) {
+                      <img class="photo" [src]="cur(p)" [alt]="p.name" loading="lazy" (error)="imgError(cur(p))" />
+                    } @else {
+                      <span class="ico">{{ p.icon }}</span>
+                    }
+                    <div class="tags">
+                      @for (b of p.badges.slice(0, 1); track b) { <span class="tag">{{ b }}</span> }
+                      @if (p.ocop) { <span class="tag ocop">OCOP {{ p.ocop }}★</span> }
+                    </div>
+                    <button type="button" class="fav" [class.on]="favs().has(p.id)" (click)="toggleFav(p.id, $event)" aria-label="Yêu thích">{{ favs().has(p.id) ? '♥' : '♡' }}</button>
                   </div>
-                  <button class="fav" [class.on]="favs().has(p.id)" (click)="toggleFav(p.id)" aria-label="Yêu thích">{{ favs().has(p.id) ? '♥' : '♡' }}</button>
+                  <div class="pbody">
+                    <h3>{{ p.name }}</h3>
+                    <small class="loc">📍 {{ p.village || p.province }}{{ p.village ? ', ' + p.province : '' }} · {{ p.region }}</small>
+                    <div class="rt">
+                  @if (p.rate > 0) {
+                    <span class="stars">{{ stars(p.rate) }}</span>
+                    <strong class="rating-value">{{ p.rate.toFixed(1) }}</strong>
+                    <small>({{ p.reviews }} đánh giá)</small>
+                  } @else if (p.reviews > 0) {
+                    <small class="no-review">{{ p.reviews }} nhận xét · chưa có điểm sao</small>
+                  } @else {
+                    <small class="no-review">Chưa có đánh giá</small>
+                  }
                 </div>
-                <div class="pbody">
-                  <h3>{{ p.name }}</h3>
-                  <small class="loc">📍 {{ p.village || p.province }}{{ p.village ? ', ' + p.province : '' }} · {{ p.region }}</small>
-                  <div class="rt"><span class="stars">{{ stars(p.rate) }}</span> <small>({{ p.reviews }})</small></div>
-                  <div class="row"><b>{{ fmt(p.price) }}</b><button class="add" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button></div>
-                </div>
-              </article>
-            }
+                    <div class="row"><b>{{ fmt(p.price) }}</b><button type="button" class="add" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button></div>
+                  </div>
+                </article>
+              }
+            </div>
           </div>
         </section>
       }

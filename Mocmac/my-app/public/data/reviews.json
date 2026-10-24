@@ -1,0 +1,786 @@
+[
+  {
+    "productId": 1,
+    "userName": "Nguyễn Minh Anh",
+    "rating": 3,
+    "content": "Sản phẩm ở mức ổn, phù hợp với mức giá.",
+    "createdAt": "2026-10-20T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 1,
+    "userName": "Trần Hoàng Phúc",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-10-18T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 2,
+    "userName": "Lê Thu Hà",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-10-18T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 2,
+    "userName": "Phạm Ngọc Mai",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-10-16T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 3,
+    "userName": "Vũ Thanh Tùng",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-10-16T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 3,
+    "userName": "Đặng Mỹ Linh",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-10-14T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 4,
+    "userName": "Hoàng Bảo Châu",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-10-14T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 4,
+    "userName": "Nguyễn Quốc Bảo",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-10-12T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 5,
+    "userName": "Trương Khánh Vy",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-10-12T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 5,
+    "userName": "Đỗ Phương Thảo",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-10-10T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 6,
+    "userName": "Bùi Đức Anh",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-10-10T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 6,
+    "userName": "Mai Hoài An",
+    "rating": 5,
+    "content": "Mình khá hài lòng, sẽ cân nhắc mua lại lần sau.",
+    "createdAt": "2026-10-08T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 7,
+    "userName": "Nguyễn Ngọc Hân",
+    "rating": 5,
+    "content": "Mình khá hài lòng, sẽ cân nhắc mua lại lần sau.",
+    "createdAt": "2026-10-08T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 7,
+    "userName": "Lâm Gia Huy",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-10-06T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 8,
+    "userName": "Phan Thanh Trúc",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-10-06T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 8,
+    "userName": "Lê Thanh Vân",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-10-04T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 9,
+    "userName": "Nguyễn Nhật Minh",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-10-04T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 9,
+    "userName": "Đinh Thùy Dương",
+    "rating": 4,
+    "content": "Chất lượng tốt, nhìn thực tế đẹp hơn hình.",
+    "createdAt": "2026-10-02T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 10,
+    "userName": "Trần Bảo Ngọc",
+    "rating": 4,
+    "content": "Chất lượng tốt, nhìn thực tế đẹp hơn hình.",
+    "createdAt": "2026-10-02T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 10,
+    "userName": "Phạm Minh Khang",
+    "rating": 5,
+    "content": "Mình khá hài lòng, sẽ cân nhắc mua lại lần sau.",
+    "createdAt": "2026-09-30T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 11,
+    "userName": "Hoàng Yến Nhi",
+    "rating": 5,
+    "content": "Mình khá hài lòng, sẽ cân nhắc mua lại lần sau.",
+    "createdAt": "2026-09-30T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 11,
+    "userName": "Nguyễn Hà My",
+    "rating": 5,
+    "content": "Hàng đẹp, dùng tốt và phù hợp để làm quà.",
+    "createdAt": "2026-09-28T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 12,
+    "userName": "Đỗ Tuấn Kiệt",
+    "rating": 5,
+    "content": "Hàng đẹp, dùng tốt và phù hợp để làm quà.",
+    "createdAt": "2026-09-28T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 12,
+    "userName": "Võ Ngọc Diệp",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-09-26T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 13,
+    "userName": "Trần Mai Phương",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-09-26T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 13,
+    "userName": "Phạm Anh Thư",
+    "rating": 4,
+    "content": "Chất lượng tốt, nhìn thực tế đẹp hơn hình.",
+    "createdAt": "2026-09-24T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 14,
+    "userName": "Nguyễn Thành Đạt",
+    "rating": 4,
+    "content": "Chất lượng tốt, nhìn thực tế đẹp hơn hình.",
+    "createdAt": "2026-09-24T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 14,
+    "userName": "Lưu Ngọc Trâm",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-09-22T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 15,
+    "userName": "Bùi Hoàng Long",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-09-22T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 15,
+    "userName": "Đặng Thảo Nhi",
+    "rating": 5,
+    "content": "Hàng đẹp, dùng tốt và phù hợp để làm quà.",
+    "createdAt": "2026-09-20T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 16,
+    "userName": "Phạm Khánh Linh",
+    "rating": 5,
+    "content": "Hàng đẹp, dùng tốt và phù hợp để làm quà.",
+    "createdAt": "2026-09-20T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 16,
+    "userName": "Nguyễn Đức Mạnh",
+    "rating": 5,
+    "content": "Sản phẩm đẹp, chất lượng tốt và đúng như mình mong đợi.",
+    "createdAt": "2026-09-18T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 17,
+    "userName": "Trần Ngọc Yến",
+    "rating": 5,
+    "content": "Sản phẩm đẹp, chất lượng tốt và đúng như mình mong đợi.",
+    "createdAt": "2026-09-18T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 17,
+    "userName": "Lê Minh Châu",
+    "rating": 3,
+    "content": "Dùng được, hình thức ổn và đúng mô tả cơ bản.",
+    "createdAt": "2026-09-16T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 18,
+    "userName": "Ngô Quang Huy",
+    "rating": 3,
+    "content": "Dùng được, hình thức ổn và đúng mô tả cơ bản.",
+    "createdAt": "2026-09-16T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 18,
+    "userName": "Đỗ Hải Yến",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-09-14T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 19,
+    "userName": "Nguyễn Phương Uyên",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-09-14T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 19,
+    "userName": "Trương Minh Đức",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-09-12T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 20,
+    "userName": "Lê Quỳnh Như",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-09-12T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 20,
+    "userName": "Vũ Thảo Nguyên",
+    "rating": 5,
+    "content": "Sản phẩm đẹp, chất lượng tốt và đúng như mình mong đợi.",
+    "createdAt": "2026-09-10T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 22,
+    "userName": "Phan Gia Bảo",
+    "rating": 5,
+    "content": "Sản phẩm đẹp, chất lượng tốt và đúng như mình mong đợi.",
+    "createdAt": "2026-09-10T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 22,
+    "userName": "Đặng Hồng Nhung",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-09-08T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 23,
+    "userName": "Nguyễn Hoài Nam",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-09-08T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 23,
+    "userName": "Trần Khánh Linh",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-09-06T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 24,
+    "userName": "Phạm Quốc Huy",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-09-06T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 24,
+    "userName": "Lê Ngọc Trâm",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-09-04T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 25,
+    "userName": "Nguyễn Thùy Linh",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-09-04T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 25,
+    "userName": "Võ Minh Khang",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-09-02T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 26,
+    "userName": "Trần Gia Hân",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-09-02T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 26,
+    "userName": "Phạm Tuấn Anh",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-08-31T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 27,
+    "userName": "Nguyễn Bảo Ngọc",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-08-31T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 27,
+    "userName": "Đỗ Minh Châu",
+    "rating": 5,
+    "content": "Mình khá hài lòng, sẽ cân nhắc mua lại lần sau.",
+    "createdAt": "2026-08-29T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 28,
+    "userName": "Lê Hoàng Anh",
+    "rating": 5,
+    "content": "Mình khá hài lòng, sẽ cân nhắc mua lại lần sau.",
+    "createdAt": "2026-08-29T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 28,
+    "userName": "Trương Ngọc Mai",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-08-27T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 29,
+    "userName": "Bùi Khánh An",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-08-27T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 29,
+    "userName": "Nguyễn Thanh Tâm",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-08-25T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 30,
+    "userName": "Phan Minh Quân",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-08-25T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 30,
+    "userName": "Vũ Ngọc Anh",
+    "rating": 4,
+    "content": "Chất lượng tốt, nhìn thực tế đẹp hơn hình.",
+    "createdAt": "2026-08-23T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 31,
+    "userName": "Trần Đức Minh",
+    "rating": 4,
+    "content": "Chất lượng tốt, nhìn thực tế đẹp hơn hình.",
+    "createdAt": "2026-08-23T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 31,
+    "userName": "Hoàng Phương Thảo",
+    "rating": 5,
+    "content": "Mình khá hài lòng, sẽ cân nhắc mua lại lần sau.",
+    "createdAt": "2026-08-21T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 32,
+    "userName": "Đặng Minh Khôi",
+    "rating": 5,
+    "content": "Mình khá hài lòng, sẽ cân nhắc mua lại lần sau.",
+    "createdAt": "2026-08-21T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 32,
+    "userName": "Lê Anh Thư",
+    "rating": 5,
+    "content": "Hàng đẹp, dùng tốt và phù hợp để làm quà.",
+    "createdAt": "2026-08-19T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 33,
+    "userName": "Nguyễn Quốc Khánh",
+    "rating": 5,
+    "content": "Hàng đẹp, dùng tốt và phù hợp để làm quà.",
+    "createdAt": "2026-08-19T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 33,
+    "userName": "Phạm Ngọc Huyền",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-08-17T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 34,
+    "userName": "Trần Minh Khoa",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-08-17T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 34,
+    "userName": "Võ Thanh Hà",
+    "rating": 4,
+    "content": "Chất lượng tốt, nhìn thực tế đẹp hơn hình.",
+    "createdAt": "2026-08-15T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 35,
+    "userName": "Bùi Ngọc Lan",
+    "rating": 4,
+    "content": "Chất lượng tốt, nhìn thực tế đẹp hơn hình.",
+    "createdAt": "2026-08-15T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 35,
+    "userName": "Đỗ Quang Minh",
+    "rating": 3,
+    "content": "Chất lượng khá, nhưng mình mong phần hoàn thiện kỹ hơn một chút.",
+    "createdAt": "2026-08-13T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 36,
+    "userName": "Nguyễn Khánh Vy",
+    "rating": 3,
+    "content": "Chất lượng khá, nhưng mình mong phần hoàn thiện kỹ hơn một chút.",
+    "createdAt": "2026-08-13T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 36,
+    "userName": "Lâm Minh Anh",
+    "rating": 5,
+    "content": "Hàng đẹp, dùng tốt và phù hợp để làm quà.",
+    "createdAt": "2026-08-11T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 37,
+    "userName": "Phan Ngọc Hân",
+    "rating": 5,
+    "content": "Hàng đẹp, dùng tốt và phù hợp để làm quà.",
+    "createdAt": "2026-08-11T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 37,
+    "userName": "Trần Hoàng Nam",
+    "rating": 5,
+    "content": "Sản phẩm đẹp, chất lượng tốt và đúng như mình mong đợi.",
+    "createdAt": "2026-08-09T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 38,
+    "userName": "Vũ Minh Thư",
+    "rating": 5,
+    "content": "Sản phẩm đẹp, chất lượng tốt và đúng như mình mong đợi.",
+    "createdAt": "2026-08-09T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 38,
+    "userName": "Đặng Quốc Bảo",
+    "rating": 4,
+    "content": "Chất lượng tốt, nhìn thực tế đẹp hơn hình.",
+    "createdAt": "2026-08-07T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 39,
+    "userName": "Lê Minh Tuấn",
+    "rating": 4,
+    "content": "Chất lượng tốt, nhìn thực tế đẹp hơn hình.",
+    "createdAt": "2026-08-07T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 39,
+    "userName": "Nguyễn Hà Linh",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-08-05T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 40,
+    "userName": "Phạm Gia Huy",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-08-05T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 40,
+    "userName": "Trương Hoàng Yến",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-08-03T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 41,
+    "userName": "Bùi Thanh Tùng",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-08-03T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 41,
+    "userName": "Đỗ Ngọc Mai",
+    "rating": 5,
+    "content": "Sản phẩm đẹp, chất lượng tốt và đúng như mình mong đợi.",
+    "createdAt": "2026-08-01T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 42,
+    "userName": "Nguyễn Đức Anh",
+    "rating": 5,
+    "content": "Sản phẩm đẹp, chất lượng tốt và đúng như mình mong đợi.",
+    "createdAt": "2026-08-01T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 42,
+    "userName": "Võ Hoàng Long",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-07-30T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 43,
+    "userName": "Trần Thảo Vy",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-07-30T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 43,
+    "userName": "Lê Quốc Việt",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-07-28T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 44,
+    "userName": "Phan Thanh Hà",
+    "rating": 4,
+    "content": "Mình khá hài lòng, giao hàng và đóng gói đều ổn.",
+    "createdAt": "2026-07-28T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 44,
+    "userName": "Nguyễn Minh Khoa",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-07-26T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 45,
+    "userName": "Đặng Thu Trang",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-07-26T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 45,
+    "userName": "Bùi Phương Anh",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-07-24T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 46,
+    "userName": "Trần Ngọc Minh",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-07-24T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 46,
+    "userName": "Hoàng Gia Bảo",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-07-22T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 47,
+    "userName": "Vũ Khánh Linh",
+    "rating": 5,
+    "content": "Đóng gói cẩn thận, sản phẩm nhận được rất ổn.",
+    "createdAt": "2026-07-22T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 47,
+    "userName": "Lê Thanh Bình",
+    "rating": 5,
+    "content": "Mình khá hài lòng, sẽ cân nhắc mua lại lần sau.",
+    "createdAt": "2026-07-20T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 48,
+    "userName": "Nguyễn Phúc An",
+    "rating": 5,
+    "content": "Mình khá hài lòng, sẽ cân nhắc mua lại lần sau.",
+    "createdAt": "2026-07-20T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 48,
+    "userName": "Phạm Thùy Dương",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-07-18T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 49,
+    "userName": "Trương Gia Hân",
+    "rating": 4,
+    "content": "Sản phẩm đẹp, có một vài điểm nhỏ nhưng không ảnh hưởng nhiều.",
+    "createdAt": "2026-07-18T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 49,
+    "userName": "Đỗ Thanh Mai",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-07-16T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 50,
+    "userName": "Bùi Minh Anh",
+    "rating": 4,
+    "content": "Sản phẩm ổn, đúng mô tả và đóng gói khá kỹ.",
+    "createdAt": "2026-07-16T09:15:00Z",
+    "isDemo": true
+  },
+  {
+    "productId": 50,
+    "userName": "Nguyễn Hoàng Phúc",
+    "rating": 4,
+    "content": "Chất lượng tốt, nhìn thực tế đẹp hơn hình.",
+    "createdAt": "2026-07-14T09:15:00Z",
+    "isDemo": true
+  }
+]

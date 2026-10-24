@@ -7,14 +7,24 @@ import { ProductsComponent } from './pages/products-component/products-component
 import { GiftPageComponent } from './pages/gift-page/gift-page';
 import { DangnhapComponent } from './pages/dangnhap/dangnhap';
 import { Lienhe } from './pages/lienhe/lienhe';
+import { ProductDetailComponent } from './product-detail-component/product-detail-component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  // Đặt route chi tiết trước route danh sách để URL /san-pham/:id
+  // luôn được nhận đúng bởi ProductDetailComponent.
+  {
+    path: 'san-pham/:id',
+    component: ProductDetailComponent,
+    data: { title: 'Chi tiết sản phẩm | Mộc Mạc' }
+  },
   {
     path: 'san-pham',
+    pathMatch: 'full',
     component: ProductsComponent,
     data: { title: 'Sản phẩm | Mộc Mạc' }
   },
+  
   {
     path: 'qua-tang',
     component: GiftPageComponent,
@@ -34,6 +44,7 @@ const routes: Routes = [
   { path: 'thong-bao', component: PageComponent, data: { title: 'Thông báo' } },
   { path: 'ho-tro', component: PageComponent, data: { title: 'Hỗ trợ' } },
   { path: 'dang-ky', component: DangnhapComponent, data: { title: 'Đăng ký' } },
+  { path: 'products/:id', component: ProductDetailComponent },
   { path: '**', redirectTo: '' }
 ];
 

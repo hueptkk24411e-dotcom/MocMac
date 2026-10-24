@@ -20,6 +20,7 @@ import { DangnhapComponent } from './pages/dangnhap/dangnhap';
 import { GiohangComponent } from './pages/giohang/giohang';
 import { RouterModule } from '@angular/router';
 import { Lienhe } from './pages/lienhe/lienhe';
+import { ProductDetailComponent } from './product-detail-component/product-detail-component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { Lienhe } from './pages/lienhe/lienhe';
     ProductsComponent,
     DangnhapComponent,
     Lienhe,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
