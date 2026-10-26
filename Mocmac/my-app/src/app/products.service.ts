@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { map } from 'rxjs';
+import { map, tap } from 'rxjs';
 
 export interface ProductItem {
   id: number;
@@ -348,6 +348,7 @@ export function fromParams(
 export class ProductsService {
 
   private http = inject(HttpClient);
+  readonly catalogLoaded = signal(false);
 
   products = toSignal(
 
@@ -387,7 +388,8 @@ export class ProductsService {
 
           }));
 
-        })
+        }),
+        tap(() => this.catalogLoaded.set(true))
 
       ),
 

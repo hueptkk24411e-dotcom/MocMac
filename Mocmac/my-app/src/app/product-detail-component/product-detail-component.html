@@ -1,0 +1,171 @@
+<main class="detail-page">
+  <nav class="breadcrumb" aria-label="Điều hướng">
+    <a routerLink="/">Trang chủ</a>
+    <span>/</span>
+    <a routerLink="/san-pham">Sản phẩm</a>
+    @if (product(); as item) {
+      <span>/</span>
+      <span>{{ item.name }}</span>
+    }
+  </nav>
+
+  @if (product(); as item) {
+    <section class="product-layout">
+      <div class="gallery">
+        <div class="main-image">
+          @if (selectedImage() && !imageBroken()) {
+            <img [src]="selectedImage()" [alt]="item.name" (error)="onImageError()" />
+          } @else {
+            <span class="fallback-icon" aria-hidden="true">{{ item.icon || '🧺' }}</span>
+          }
+
+          @if (productImages().length > 1) {
+            <button class="image-nav previous" type="button" (click)="previousImage()" aria-label="Ảnh trước">‹</button>
+            <button class="image-nav next" type="button" (click)="nextImage()" aria-label="Ảnh tiếp theo">›</button>
+          }
+        </div>
+
+        @if (productImages().length > 1) {
+          <div class="thumbnails" aria-label="Ảnh sản phẩm">
+            @for (image of productImages(); track image; let i = $index) {
+              <button
+                type="button"
+                [class.selected]="i === selectedImageIndex()"
+                [attr.aria-label]="'Xem ảnh ' + (i + 1)"
+                (click)="selectImage(i)"
+              >
+                <img [src]="image" [alt]="item.name + ' ' + (i + 1)" />
+              </button>
+            }
+          </div>
+        }
+      </div>
+
+      <section class="product-info">
+        <div class="badges">
+          @for (badge of item.badges; track badge) {
+            <span class="badge">{{ badge }}</span>
+          }
+          @if (item.ocop > 0) {
+            <span class="badge ocop">OCOP {{ item.ocop }} sao</span>
+          }
+          @if (item.heritage) {
+            <span class="badge">Di sản {{ item.heritage }}</span>
+          }
+        </div>
+
+        <p class="category">{{ item.cat }} · {{ item.type }}</p>
+        <h1>{{ item.name }}</h1>
+        <p class="rating">
+          <span aria-label="Đánh giá">{{ stars(item.rate) }}</span>
+          <span>{{ item.rate | number:'1.1-1' }} ({{ item.reviews }} đánh giá)</span>
+        </p>
+
+        <p class="price">{{ fmt(item.price) }}</p>
+        <p class="availability" [class.unavailable]="!item.inStock && !item.preorder">
+          @if (item.inStock) {
+            Còn hàng
+          } @else if (item.preorder) {
+            Nhận đặt trước
+          } @else {
+            Tạm hết hàng
+          }
+        </p>
+
+        <div class="quantity-control" aria-label="Số lượng">
+          <button type="button" (click)="decreaseQuantity()" aria-label="Giảm số lượng">−</button>
+          <span>{{ quantity() }}</span>
+          <button type="button" (click)="increaseQuantity()" aria-label="Tăng số lượng">+</button>
+        </div>
+
+        <div class="actions">
+          <button class="primary" type="button" [disabled]="!item.inStock && !item.preorder" (click)="addToCart()">
+            Thêm vào giỏ hàng
+          </button>
+          <button class="secondary" type="button" [disabled]="!item.inStock && !item.preorder" (click)="buyNow()">
+            Mua ngay
+          </button>
+        </div>
+        @if (cartMessage()) {
+          <p class="notice" role="status">{{ cartMessage() }}</p>
+        }
+
+        <div class="share-actions">
+          <button type="button" (click)="shareFacebook()">Chia sẻ Facebook</button>
+          <button type="button" (click)="shareZalo()">Chia sẻ Zalo</button>
+          <button type="button" (click)="copyProductLink()">Sao chép liên kết</button>
+        </div>
+        @if (shareMessage()) {
+          <p class="notice" role="status">{{ shareMessage() }}</p>
+        }
+      </section>
+    </section>
+
+    <section class="details" id="product-details-tabs">
+      <div class="tabs" role="tablist" aria-label="Thông tin sản phẩm">
+        <button type="button" role="tab" [attr.aria-selected]="activeTab() === 'description'" [class.active]="activeTab() === 'description'" (click)="setTab('description')">
+          Mô tả
+        </button>
+        <button type="button" role="tab" [attr.aria-selected]="activeTab() === 'information'" [class.active]="activeTab() === 'information'" (click)="setTab('information')">
+          Thông tin sản phẩm
+        </button>
+      </div>
+
+      @if (activeTab() === 'description') {
+        <div class="tab-content">
+          <h2>{{ item.name }}</h2>
+          <p>
+            Sản phẩm {{ item.cat.toLowerCase() }} thuộc {{ item.region }}, được giới thiệu bởi Mộc Mạc.
+            Khám phá thêm đặc sản và sản phẩm thủ công từ các vùng miền Việt Nam.
+          </p>
+          @if (item.occasion.length > 0) {
+            <p>Phù hợp làm quà trong các dịp: {{ item.occasion.join(', ') }}.</p>
+          }
+        </div>
+      } @else {
+        <dl class="specifications">
+          <div><dt>Danh mục</dt><dd>{{ item.cat }}</dd></div>
+          <div><dt>Loại sản phẩm</dt><dd>{{ item.type }}</dd></div>
+          <div><dt>Vùng miền</dt><dd>{{ item.region }}</dd></div>
+          <div><dt>Tỉnh thành</dt><dd>{{ item.province }}</dd></div>
+          @if (item.village) {
+            <div><dt>Làng nghề</dt><dd>{{ item.village }}</dd></div>
+          }
+          @if (item.seasons.length > 0) {
+            <div><dt>Mùa vụ</dt><dd>Tháng {{ item.seasons.join(', ') }}</dd></div>
+          }
+        </dl>
+      }
+    </section>
+
+    @if (relatedProducts().length > 0) {
+      <section class="related">
+        <h2>Sản phẩm liên quan</h2>
+        <div class="related-grid">
+          @for (related of relatedProducts(); track related.id) {
+            <article class="related-card">
+              <button class="related-image" type="button" (click)="openProduct(related)" [attr.aria-label]="'Xem ' + related.name">
+                @if (related.images?.length) {
+                  <img [src]="related.images![0]" [alt]="related.name" />
+                } @else {
+                  <span>{{ related.icon || '🧺' }}</span>
+                }
+              </button>
+              <button class="related-name" type="button" (click)="openProduct(related)">{{ related.name }}</button>
+              <p>{{ stars(relatedRating(related)) }} <small>({{ relatedReviewCount(related) }})</small></p>
+              <strong>{{ fmt(related.price) }}</strong>
+            </article>
+          }
+        </div>
+      </section>
+    }
+  } @else if (!catalogReady()) {
+    <p class="page-state" role="status">Đang tải thông tin sản phẩm...</p>
+  } @else {
+    <section class="page-state">
+      <h1>Không tìm thấy sản phẩm</h1>
+      <p>Sản phẩm không tồn tại hoặc đã được gỡ khỏi danh mục.</p>
+      <button class="primary" type="button" (click)="goBack()">Quay lại danh sách sản phẩm</button>
+    </section>
+  }
+</main>

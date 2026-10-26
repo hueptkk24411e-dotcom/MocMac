@@ -237,6 +237,9 @@ export class ProductsComponent {
   setPage(p: number): void { this.draft.update(d => ({ ...d, page: Math.max(1, p) })); this.go(this.draft()); }
   toggleFav(id: number): void { this.favs.update(s => { const t = new Set(s); t.has(id) ? t.delete(id) : t.add(id); return t; }); }
   addToCart(e: Event, productId: number, productName: string): void { e.stopPropagation(); this.cart.add(productId, productName); }
+  openProduct(product: ProductItem): void {
+    void this.router.navigate(['/san-pham', product.id]);
+  }
 
   get page() { return computed(() => this.applied().page); }
   get totalPages() { return computed(() => Math.max(1, Math.ceil(this.filtered().length / PAGE_SIZE))); }

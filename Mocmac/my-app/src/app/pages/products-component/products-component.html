@@ -280,7 +280,7 @@
               <button class="fav" [class.on]="favs().has(p.id)" (click)="toggleFav(p.id)" aria-label="Yêu thích">{{ favs().has(p.id) ? '♥' : '♡' }}</button>
             </div>
             <div class="pbody">
-              <h3>{{ p.name }}</h3>
+              <h3><button class="product-link" type="button" (click)="openProduct(p)">{{ p.name }}</button></h3>
               <small class="loc">📍 {{ p.village || p.province }}{{ p.village ? ', ' + p.province : '' }} · {{ p.region }}</small>
               <div class="rt"><span class="stars">{{ stars(p.rate) }}</span> <small>({{ p.reviews }})</small></div>
               <div class="row"><b>{{ fmt(p.price) }}</b>
@@ -329,7 +329,7 @@
                   <button class="fav" [class.on]="favs().has(p.id)" (click)="toggleFav(p.id)" aria-label="Yêu thích">{{ favs().has(p.id) ? '♥' : '♡' }}</button>
                 </div>
                 <div class="pbody">
-                  <h3>{{ p.name }}</h3>
+                  <h3><button class="product-link" type="button" (click)="openProduct(p)">{{ p.name }}</button></h3>
                   <small class="loc">📍 {{ p.village || p.province }}{{ p.village ? ', ' + p.province : '' }} · {{ p.region }}</small>
                   <div class="rt"><span class="stars">{{ stars(p.rate) }}</span> <small>({{ p.reviews }})</small></div>
                   <div class="row"><b>{{ fmt(p.price) }}</b><button class="add" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button></div>

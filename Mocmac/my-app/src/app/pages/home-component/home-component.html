@@ -73,28 +73,99 @@
     </div>
 </section>
 
-<section class="wrap" id="sp">
-  <div class="sh"><h2>Sản phẩm nổi bật <small>Tinh hoa từ khắp mọi miền Việt Nam</small></h2>
+ <section class="wrap" id="sp">
+  <div class="sh">
+    <h2>
+      Sản phẩm nổi bật
+      <small>Tinh hoa từ khắp mọi miền Việt Nam</small>
+    </h2>
+
     <div class="tabs">
-      <button [class.on]="tab() === 'Tất cả'" (click)="tab.set('Tất cả')">Tất cả</button>
-      <button [class.on]="tab() === 'Đặc sản'" (click)="tab.set('Đặc sản')">Đặc sản</button>
-      <button [class.on]="tab() === 'Thủ công mỹ nghệ'" (click)="tab.set('Thủ công mỹ nghệ')">Thủ công mỹ nghệ</button>
-      <button [class.on]="tab() === 'Cà phê - Trà'" (click)="tab.set('Cà phê - Trà')">Cà phê - Trà</button>
-      <button [class.on]="tab() === 'Sản phẩm OCOP'" (click)="tab.set('Sản phẩm OCOP')">Sản phẩm OCOP</button>
+      <button [class.on]="tab() === 'Tất cả'" (click)="tab.set('Tất cả')">
+        Tất cả
+      </button>
+
+      <button [class.on]="tab() === 'Đặc sản'" (click)="tab.set('Đặc sản')">
+        Đặc sản
+      </button>
+
+      <button
+        [class.on]="tab() === 'Thủ công mỹ nghệ'"
+        (click)="tab.set('Thủ công mỹ nghệ')"
+      >
+        Thủ công mỹ nghệ
+      </button>
+
+      <button
+        [class.on]="tab() === 'Cà phê - Trà'"
+        (click)="tab.set('Cà phê - Trà')"
+      >
+        Cà phê - Trà
+      </button>
+
+      <button
+        [class.on]="tab() === 'Sản phẩm OCOP'"
+        (click)="tab.set('Sản phẩm OCOP')"
+      >
+        Sản phẩm OCOP
+      </button>
     </div>
   </div>
+
   <div class="grid">
     @for (p of shown(); track p.id) {
       <article class="card">
-        <div class="img">{{ p.icon }}<span class="heart">♡</span></div>
+
+        <div class="img">
+          @if (p.images && p.images.length > 0) {
+            <img
+              [src]="p.images[0]"
+              [alt]="p.name"
+              loading="lazy"
+            >
+          } @else {
+            <span>{{ p.icon }}</span>
+          }
+
+          <span class="heart">♡</span>
+        </div>
+
         <h3>{{ p.name }}</h3>
-        <div class="stars">★★★★★ <small>({{ p.reviews }})</small></div>
-        <small class="loc">📍 {{ p.province }}{{ p.region ? ' · ' + p.region : '' }}{{ p.village ? ' · ' + p.village : '' }}</small>
-        <div class="row"><b>{{ p.price | number }}đ</b><button class="add" (click)="cart.add(p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button></div>
+
+        <div class="stars">
+          ★★★★★
+          <small>({{ p.reviews }})</small>
+        </div>
+
+        <small class="loc">
+          📍 {{ p.province }}
+          {{ p.region ? ' · ' + p.region : '' }}
+          {{ p.village ? ' · ' + p.village : '' }}
+        </small>
+
+        <div class="row">
+          <b>{{ p.price | number }}đ</b>
+
+          <button
+            class="add"
+            (click)="cart.add(p.id, p.name)"
+            aria-label="Thêm vào giỏ"
+          >
+            🛒
+          </button>
+        </div>
+
       </article>
     }
   </div>
+
+  <div style="text-align:center; margin-top:16px;">
+    <a routerLink="/san-pham" class="btn dark">
+      Xem tất cả sản phẩm →
+    </a>
+  </div>
 </section>
+
 
 <section class="wrap">
   <div class="commit">

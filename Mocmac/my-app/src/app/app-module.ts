@@ -39,7 +39,7 @@ import { Lienhe } from './pages/lienhe/lienhe';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    RouterModule, // Bắt buộc phải có để chạy <router-outlet> và routerLink
+    RouterModule,
 
     GiohangComponent,
   ],
