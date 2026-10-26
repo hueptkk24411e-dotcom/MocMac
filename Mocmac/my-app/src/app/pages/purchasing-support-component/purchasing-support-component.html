@@ -1,0 +1,464 @@
+<section class="purchase-support-page">
+
+  <!-- HERO -->
+  <section class="purchase-hero">
+    <div class="container">
+
+      <span class="eyebrow">
+        HỖ TRỢ KHÁCH HÀNG
+      </span>
+
+      <h1>Hướng dẫn mua hàng</h1>
+
+      <p>
+        Mua sắm tại Mộc Mạc thật đơn giản. Chỉ với vài bước,
+        bạn có thể khám phá sản phẩm Việt, hoàn tất đơn hàng
+        và theo dõi hành trình giao hàng.
+      </p>
+
+      <a routerLink="/san-pham" class="primary-btn">
+        Bắt đầu mua sắm →
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- QUICK NAV -->
+  <section class="quick-nav">
+    <div class="container quick-grid">
+
+      <a href="#tim-san-pham">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <b>Tìm sản phẩm</b>
+      </a>
+
+      <a href="#gio-hang">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <b>Giỏ hàng</b>
+      </a>
+
+      <a href="#thanh-toan">
+        <i class="fa-solid fa-credit-card"></i>
+        <b>Thanh toán</b>
+      </a>
+
+      <a href="#theo-doi">
+        <i class="fa-solid fa-truck-fast"></i>
+        <b>Theo dõi đơn</b>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- STEPS -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-heading">
+        <span>QUY TRÌNH MUA HÀNG</span>
+
+        <h2>8 bước mua sắm tại Mộc Mạc</h2>
+
+        <p>
+          Từ tìm kiếm sản phẩm đến khi nhận hàng,
+          Mộc Mạc giúp bạn theo dõi toàn bộ quá trình một cách dễ dàng.
+        </p>
+      </div>
+
+      <div class="steps">
+
+        @for (step of steps; track step.number) {
+
+          <article
+            class="step-card"
+            [id]="
+              step.number === '01' ? 'tim-san-pham' :
+              step.number === '03' ? 'gio-hang' :
+              step.number === '06' ? 'thanh-toan' :
+              step.number === '08' ? 'theo-doi' : ''
+            "
+          >
+
+            <div class="step-left">
+
+              <span class="step-number">
+                {{ step.number }}
+              </span>
+
+              <span class="step-icon">
+                <i [class]="step.icon"></i>
+              </span>
+
+            </div>
+
+            <div class="step-content">
+
+              <h3>{{ step.title }}</h3>
+
+              <p>
+                {{ step.description }}
+              </p>
+
+              @if (step.number === '01') {
+                <a routerLink="/san-pham">
+                  Xem sản phẩm →
+                </a>
+              }
+
+              @if (step.number === '03') {
+                <a routerLink="/gio-hang">
+                  Xem giỏ hàng →
+                </a>
+              }
+
+              @if (step.number === '08') {
+                <a routerLink="/theo-doi-don-hang">
+                  Theo dõi đơn hàng →
+                </a>
+              }
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- INFO -->
+  <section class="section product-info">
+    <div class="container">
+
+      <div class="section-heading">
+        <span>TRƯỚC KHI MUA</span>
+        <h2>Những thông tin nên kiểm tra</h2>
+      </div>
+
+      <div class="info-grid">
+
+        <article class="info-card">
+          <i class="fa-solid fa-location-dot"></i>
+
+          <h3>Nguồn gốc sản phẩm</h3>
+
+          <p>
+            Kiểm tra vùng miền, tỉnh thành hoặc làng nghề
+            gắn với sản phẩm trước khi lựa chọn.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <i class="fa-solid fa-landmark"></i>
+
+          <h3>Heritage Score</h3>
+
+          <p>
+            Tham khảo mức độ gắn kết của sản phẩm với nguồn gốc,
+            kỹ thuật truyền thống và giá trị văn hóa.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <i class="fa-solid fa-star"></i>
+
+          <h3>Chứng nhận OCOP</h3>
+
+          <p>
+            Những sản phẩm thuộc chương trình OCOP
+            sẽ hiển thị số sao tương ứng trên hệ thống.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <i class="fa-solid fa-qrcode"></i>
+
+          <h3>QR truy xuất</h3>
+
+          <p>
+            Với sản phẩm hỗ trợ QR, bạn có thể xem thông tin
+            về nguồn gốc và hành trình sản phẩm.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PAYMENT -->
+  <section class="section payment-section">
+    <div class="container payment-grid">
+
+      <div>
+
+        <span class="eyebrow">
+          THANH TOÁN
+        </span>
+
+        <h2>Phương thức thanh toán</h2>
+
+        <p>
+          Tại bước thanh toán, bạn có thể lựa chọn phương thức
+          phù hợp với nhu cầu.
+        </p>
+
+        <div class="payment-item">
+
+          <span class="circle-icon">
+            <i class="fa-solid fa-money-bill-wave"></i>
+          </span>
+
+          <div>
+            <h3>Thanh toán khi nhận hàng – COD</h3>
+
+            <p>
+              Thanh toán trực tiếp khi đơn hàng được giao đến.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="payment-item">
+
+          <span class="circle-icon">
+            <i class="fa-solid fa-credit-card"></i>
+          </span>
+
+          <div>
+            <h3>Thanh toán trực tuyến</h3>
+
+            <p>
+              Lựa chọn phương thức thanh toán trực tuyến
+              được hỗ trợ trên hệ thống Mộc Mạc.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="voucher-box">
+
+        <div class="voucher-icon">
+          <i class="fa-solid fa-ticket"></i>
+        </div>
+
+        <h3>Sử dụng voucher</h3>
+
+        <p>
+          Bạn có thể nhập hoặc lựa chọn voucher tại bước thanh toán.
+        </p>
+
+        <ul>
+          <li>Kiểm tra giá trị đơn hàng tối thiểu.</li>
+          <li>Kiểm tra sản phẩm được áp dụng.</li>
+          <li>Kiểm tra thời gian sử dụng voucher.</li>
+          <li>Hệ thống sẽ tự tính lại tổng đơn hàng.</li>
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ORDER STATUS -->
+  <section class="section order-section">
+    <div class="container">
+
+      <div class="section-heading">
+        <span>TRẠNG THÁI ĐƠN HÀNG</span>
+        <h2>Theo dõi hành trình đơn hàng</h2>
+      </div>
+
+      <div class="order-flow">
+
+        <div class="order-step">
+          <span>
+            <i class="fa-solid fa-receipt"></i>
+          </span>
+          <b>Đã đặt hàng</b>
+        </div>
+
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="order-step">
+          <span>
+            <i class="fa-solid fa-circle-check"></i>
+          </span>
+          <b>Đang xác nhận</b>
+        </div>
+
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="order-step">
+          <span>
+            <i class="fa-solid fa-box"></i>
+          </span>
+          <b>Đang chuẩn bị</b>
+        </div>
+
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="order-step">
+          <span>
+            <i class="fa-solid fa-truck-fast"></i>
+          </span>
+          <b>Đang vận chuyển</b>
+        </div>
+
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="order-step">
+          <span>
+            <i class="fa-solid fa-house-circle-check"></i>
+          </span>
+          <b>Đã giao</b>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- RECEIVE -->
+  <section class="section receive-section">
+    <div class="container receive-box">
+
+      <div class="receive-icon">
+        <i class="fa-solid fa-box-open"></i>
+      </div>
+
+      <div>
+
+        <span class="eyebrow">
+          KHI NHẬN HÀNG
+        </span>
+
+        <h2>Kiểm tra sản phẩm trước khi sử dụng</h2>
+
+        <p>
+          Khi nhận hàng, bạn nên kiểm tra tình trạng bên ngoài
+          của kiện hàng, số lượng và tên sản phẩm.
+        </p>
+
+        <ul>
+          <li>
+            Kiểm tra bao bì có bị móp, rách hoặc hư hỏng hay không.
+          </li>
+
+          <li>
+            Đối chiếu sản phẩm nhận được với đơn hàng.
+          </li>
+
+          <li>
+            Nếu có vấn đề, hãy chụp hình sản phẩm và bao bì.
+          </li>
+
+          <li>
+            Đối với thực phẩm, kiểm tra hạn sử dụng
+            và hướng dẫn bảo quản trước khi dùng.
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- NOTES -->
+  <section class="section notes-section">
+    <div class="container notes-grid">
+
+      <article>
+
+        <i class="fa-solid fa-clock"></i>
+
+        <h3>Sản phẩm Pre-order</h3>
+
+        <p>
+          Một số sản phẩm thủ công hoặc đặc sản theo mùa
+          có thể cần thêm thời gian chuẩn bị.
+        </p>
+
+      </article>
+
+      <article>
+
+        <i class="fa-solid fa-seedling"></i>
+
+        <h3>Sản phẩm theo mùa</h3>
+
+        <p>
+          Một số đặc sản chỉ có trong thời gian nhất định
+          trong năm và có thể thay đổi tùy theo nguồn cung.
+        </p>
+
+      </article>
+
+      <article>
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <h3>Thông tin minh bạch</h3>
+
+        <p>
+          Mộc Mạc cung cấp thông tin vùng miền, OCOP,
+          Heritage Score và QR đối với sản phẩm phù hợp.
+        </p>
+
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="help-cta">
+    <div class="container">
+
+      <span class="eyebrow light">
+        CẦN HỖ TRỢ?
+      </span>
+
+      <h2>Bạn gặp vấn đề trong quá trình mua hàng?</h2>
+
+      <p>
+        Mộc Mạc luôn sẵn sàng hỗ trợ bạn trong suốt
+        quá trình lựa chọn, đặt hàng và nhận sản phẩm.
+      </p>
+
+      <div class="help-actions">
+
+        <a routerLink="/ho-tro" class="btn-orange">
+          Trung tâm hỗ trợ
+        </a>
+
+        <a routerLink="/lien-he" class="btn-outline">
+          Liên hệ Mộc Mạc
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+</section>

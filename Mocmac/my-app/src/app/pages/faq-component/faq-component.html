@@ -1,0 +1,271 @@
+<section class="faq-page">
+
+  <!-- HERO -->
+  <section class="faq-hero">
+    <div class="container">
+
+      <span class="eyebrow">TRUNG TÂM HỖ TRỢ</span>
+
+      <h1>Câu hỏi thường gặp</h1>
+
+      <p>
+        Tìm nhanh câu trả lời cho những vấn đề thường gặp
+        khi mua sắm và sử dụng các tính năng trên Mộc Mạc.
+      </p>
+
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          type="text"
+          placeholder="Bạn đang cần tìm câu trả lời về vấn đề gì?"
+        >
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CATEGORY -->
+  <section class="category-section">
+    <div class="container">
+
+      <div class="category-list">
+
+        @for (category of categories; track category) {
+
+          <button
+            type="button"
+            [class.active]="activeCategory === category"
+            (click)="setCategory(category)"
+          >
+            {{ category }}
+          </button>
+
+        }
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-heading">
+        <span>GIẢI ĐÁP NHANH</span>
+        <h2>{{ activeCategory }}</h2>
+
+        <p>
+          Chọn câu hỏi để xem nội dung giải đáp chi tiết.
+        </p>
+      </div>
+
+      <div class="faq-layout">
+
+        <main class="faq-list">
+
+          @for (
+            faq of filteredFaqs();
+            track faq.question;
+            let i = $index
+          ) {
+
+            <article
+              class="faq-item"
+              [class.open]="openIndex === i"
+            >
+
+              <button
+                type="button"
+                class="faq-question"
+                (click)="toggleFaq(i)"
+              >
+
+                <div>
+                  <small>
+                    {{ faq.category }}
+                  </small>
+
+                  <span>
+                    {{ faq.question }}
+                  </span>
+                </div>
+
+                <i
+                  class="fa-solid"
+                  [class.fa-minus]="openIndex === i"
+                  [class.fa-plus]="openIndex !== i"
+                ></i>
+
+              </button>
+
+              @if (openIndex === i) {
+
+                <div class="faq-answer">
+                  <p>{{ faq.answer }}</p>
+                </div>
+
+              }
+
+            </article>
+
+          }
+
+        </main>
+
+
+        <!-- SIDE SUPPORT -->
+        <aside class="support-side">
+
+          <div class="support-card">
+
+            <div class="support-icon">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+
+            <h3>Chưa tìm thấy câu trả lời?</h3>
+
+            <p>
+              Nếu vấn đề của bạn chưa được giải đáp,
+              hãy liên hệ với Mộc Mạc để được hỗ trợ.
+            </p>
+
+            <a routerLink="/lien-he">
+              Liên hệ hỗ trợ →
+            </a>
+
+          </div>
+
+
+          <div class="support-card light">
+
+            <div class="support-icon">
+              <i class="fa-solid fa-box"></i>
+            </div>
+
+            <h3>Đang chờ đơn hàng?</h3>
+
+            <p>
+              Kiểm tra trạng thái và hành trình
+              đơn hàng của bạn.
+            </p>
+
+            <a routerLink="/theo-doi-don-hang">
+              Theo dõi đơn →
+            </a>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- POPULAR -->
+  <section class="section popular-section">
+    <div class="container">
+
+      <div class="section-heading">
+        <span>HỖ TRỢ NHANH</span>
+        <h2>Có thể bạn đang quan tâm</h2>
+      </div>
+
+      <div class="popular-grid">
+
+        <a routerLink="/huong-dan-mua-hang">
+          <i class="fa-solid fa-cart-shopping"></i>
+
+          <div>
+            <h3>Hướng dẫn mua hàng</h3>
+            <p>
+              Xem quy trình tìm kiếm, đặt hàng
+              và nhận sản phẩm.
+            </p>
+          </div>
+
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </a>
+
+        <a routerLink="/phuong-thuc-thanh-toan">
+          <i class="fa-solid fa-credit-card"></i>
+
+          <div>
+            <h3>Phương thức thanh toán</h3>
+            <p>
+              Tìm hiểu COD, thanh toán trực tuyến
+              và voucher.
+            </p>
+          </div>
+
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </a>
+
+        <a routerLink="/chinh-sach-van-chuyen">
+          <i class="fa-solid fa-truck-fast"></i>
+
+          <div>
+            <h3>Chính sách vận chuyển</h3>
+            <p>
+              Xem thời gian, phí giao hàng
+              và cách theo dõi đơn.
+            </p>
+          </div>
+
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </a>
+
+        <a routerLink="/chinh-sach-doi-tra">
+          <i class="fa-solid fa-arrow-rotate-left"></i>
+
+          <div>
+            <h3>Chính sách đổi trả</h3>
+            <p>
+              Kiểm tra điều kiện và quy trình
+              yêu cầu đổi trả.
+            </p>
+          </div>
+
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="faq-cta">
+    <div class="container">
+
+      <span>MỘC MẠC LUÔN SẴN SÀNG HỖ TRỢ</span>
+
+      <h2>Bạn vẫn còn câu hỏi?</h2>
+
+      <p>
+        Gửi yêu cầu cho Mộc Mạc để được hỗ trợ
+        về sản phẩm, đơn hàng hoặc các tính năng trên hệ thống.
+      </p>
+
+      <div class="cta-actions">
+
+        <a routerLink="/lien-he" class="btn-orange">
+          Liên hệ Mộc Mạc
+        </a>
+
+        <a routerLink="/ho-tro" class="btn-outline">
+          Trung tâm hỗ trợ
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+</section>

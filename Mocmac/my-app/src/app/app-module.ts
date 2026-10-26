@@ -20,7 +20,6 @@ import { DangnhapComponent } from './pages/dangnhap/dangnhap';
 import { GiohangComponent } from './pages/giohang/giohang';
 import { RouterModule } from '@angular/router';
 import { Lienhe } from './pages/lienhe/lienhe';
-import { ProductDetailComponent } from './product-detail-component/product-detail-component';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { ProductDetailComponent } from './product-detail-component/product-detai
     ProductsComponent,
     DangnhapComponent,
     Lienhe,
-    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +39,7 @@ import { ProductDetailComponent } from './product-detail-component/product-detai
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    RouterModule, // Bắt buộc phải có để chạy <router-outlet> và routerLink
+    RouterModule,
 
     GiohangComponent,
   ],
