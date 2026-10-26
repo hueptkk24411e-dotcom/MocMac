@@ -7,7 +7,7 @@ import { ProductsComponent } from './pages/products-component/products-component
 import { GiftPageComponent } from './pages/gift-page/gift-page';
 import { DangnhapComponent } from './pages/dangnhap/dangnhap';
 import { Lienhe } from './pages/lienhe/lienhe';
-import { ProductDetailComponent } from './product-detail-component/product-detail-component';
+
 import { CraftVillageComponent } from './pages/craft-village-component/craft-village-component';
 import { AboutComponent } from './pages/about-component/about-component';
 import { PageComponent } from './pages/page-component/page-component';
@@ -18,6 +18,7 @@ import { PaymentSupportComponent } from './pages/payment-support-component/payme
 import { FaqComponent } from './pages/faq-component/faq-component';
 import { HoTroComponent } from './pages/ho-tro-component/ho-tro-component';
 import { GiohangComponent } from './pages/giohang/giohang';
+import { ProductDetailComponent } from './product-detail-component/product-detail-component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

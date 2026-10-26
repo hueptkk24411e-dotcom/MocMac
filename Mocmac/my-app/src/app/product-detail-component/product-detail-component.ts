@@ -1,7 +1,5 @@
 import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { catchError, forkJoin, map, of } from 'rxjs';
 
@@ -13,8 +11,7 @@ type DetailTab = 'description' | 'information' | 'reviews';
 
 @Component({
   selector: 'app-product-detail-component',
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  standalone: false,
   templateUrl: './product-detail-component.html',
   styleUrl: './product-detail-component.css'
 })
@@ -27,7 +24,7 @@ export class ProductDetailComponent {
 
   readonly allProducts = this.productsService.products;
   /** Distinguishes an asynchronously loaded catalog from a missing product ID. */
-  readonly catalogReady = computed(() => this.productsService.catalogLoaded());
+  readonly catalogReady = computed(() => (this.allProducts() ?? []).length > 0);
   readonly shareMessage = signal('');
 
   // This component currently uses /san-pham/:id. The MongoDB review API
