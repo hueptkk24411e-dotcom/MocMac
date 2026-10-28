@@ -503,6 +503,9 @@ export class ProductsComponent implements OnDestroy, AfterViewInit {
     });
   }
   addToCart(e: Event, productId: number, productName: string): void { e.stopPropagation(); this.cart.add(productId, productName); }
+  openProduct(product: ProductItem): void {
+    void this.router.navigate(['/san-pham', product.id]);
+  }
 
   get page() { return computed(() => this.applied().page); }
   get totalPages() { return computed(() => Math.max(1, Math.ceil(this.filtered().length / PAGE_SIZE))); }

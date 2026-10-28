@@ -355,7 +355,7 @@
               <button class="fav" [class.on]="favs().has(p.id)" (click)="toggleFav(p.id, $event)" aria-label="Yêu thích">{{ favs().has(p.id) ? '♥' : '♡' }}</button>
             </div>
             <div class="pbody">
-              <h3>{{ p.name }}</h3>
+              <h3><button class="product-link" type="button" (click)="openProduct(p)">{{ p.name }}</button></h3>
               <small class="loc">📍 {{ p.village || p.province }}{{ p.village ? ', ' + p.province : '' }} · {{ p.region }}</small>
               <div class="rt">
                   @if (p.rate > 0) {
@@ -447,20 +447,23 @@
                     <h3>{{ p.name }}</h3>
                     <small class="loc">📍 {{ p.village || p.province }}{{ p.village ? ', ' + p.province : '' }} · {{ p.region }}</small>
                     <div class="rt">
-                  @if (p.rate > 0) {
-                    <span class="stars">{{ stars(p.rate) }}</span>
-                    <strong class="rating-value">{{ p.rate.toFixed(1) }}</strong>
-                    <small>({{ p.reviews }} đánh giá)</small>
-                  } @else if (p.reviews > 0) {
-                    <small class="no-review">{{ p.reviews }} nhận xét · chưa có điểm sao</small>
-                  } @else {
-                    <small class="no-review">Chưa có đánh giá</small>
-                  }
-                </div>
-                    <div class="row"><b>{{ fmt(p.price) }}</b><button type="button" class="add" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button></div>
+                      @if (p.rate > 0) {
+                        <span class="stars">{{ stars(p.rate) }}</span>
+                        <strong class="rating-value">{{ p.rate.toFixed(1) }}</strong>
+                        <small>({{ p.reviews }} đánh giá)</small>
+                      } @else if (p.reviews > 0) {
+                        <small class="no-review">{{ p.reviews }} nhận xét · chưa có điểm sao</small>
+                      } @else {
+                        <small class="no-review">Chưa có đánh giá</small>
+                      }
+                    </div>
+                    <div class="row">
+                      <b>{{ fmt(p.price) }}</b>
+                      <button type="button" class="add" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button>
+                    </div>
                   </div>
                 </article>
-              }
+            }
             </div>
           </div>
         </section>
