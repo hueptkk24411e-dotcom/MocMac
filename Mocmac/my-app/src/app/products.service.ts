@@ -210,7 +210,7 @@ export function matchFilters(
 
   // Tìm kiếm theo tên, tỉnh, làng nghề, loại và vùng.
   if (f.q) {
-    const q = norm(f.q);
+    const q = norm(f.q.trim());
 
     const text = norm(
       `${p.name} ${p.province} ${p.village} ${p.type} ${p.region}`
@@ -370,7 +370,7 @@ export function fromParams(
 
   f.page = Math.max(
     1,
-    Number(params.get('page')) || 1
+    Number.isSafeInteger(Number(params.get('page'))) ? Number(params.get('page')) : 1
   );
 
   return f;
@@ -389,6 +389,7 @@ export class ProductsService {
 
   /** True after the first catalog request finishes, including an error response. */
   readonly catalogLoaded = signal(false);
+  readonly catalogError = signal(false);
 
   // QUAN TRỌNG:
   // Khai báo kiểu trả về của map là ProductItem[].
@@ -413,11 +414,15 @@ export class ProductsService {
             rawProducts.map(
               (p): ProductItem => ({
                 ...p,
+                id: Number(p.id),
+                price: Math.max(0, Number(p.price) || 0),
+                rate: Math.max(0, Math.min(5, Number(p.rate) || 0)),
+                reviews: Math.max(0, Number(p.reviews) || 0),
 
                 // Occasion luôn là mảng.
                 occasion: Array.isArray(p.occasion)
                   ? p.occasion
-                  : [],
+                  : typeof p.occasion === "string" ? [p.occasion] : [],
 
                 // Seasons luôn là mảng.
                 seasons: Array.isArray(p.seasons)
@@ -441,6 +446,7 @@ export class ProductsService {
         tap(() => this.catalogLoaded.set(true)),
         catchError((error: unknown) => {
           console.error('Không thể tải danh sách sản phẩm:', error);
+          this.catalogError.set(true);
           this.catalogLoaded.set(true);
           return of([] as ProductItem[]);
         })

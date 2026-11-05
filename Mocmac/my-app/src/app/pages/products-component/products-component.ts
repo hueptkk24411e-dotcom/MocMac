@@ -27,6 +27,8 @@ export class ProductsComponent implements OnDestroy, AfterViewInit {
   private readonly reviewsService = inject(ReviewsService);
 
   all = this.svc.products;
+  readonly catalogLoaded = this.svc.catalogLoaded;
+  readonly catalogError = this.svc.catalogError;
 
   /** Số sao và số lượt nhận xét được tính từ collection reviews, theo đúng productId. */
   readonly reviewStats = signal<Record<number, ReviewStats>>({});
@@ -257,53 +259,9 @@ export class ProductsComponent implements OnDestroy, AfterViewInit {
   }
 
   private loadReviewStats(products: ProductItem[]): void {
-    const pending = products.filter(product =>
-      !this.loadedReviewProducts.has(product.id) &&
-      !this.reviewRequestsInFlight.has(product.id)
-    );
-
-    if (pending.length === 0) return;
-
-    pending.forEach(product => this.reviewRequestsInFlight.add(product.id));
-
-    const requests = pending.map(product =>
-      this.reviewsService.getForProduct(product.id).pipe(
-        map((reviews: ProductReviewItem[]) => {
-          const rated = reviews.filter(review => {
-            const rating = Number(review.rating);
-            return Number.isFinite(rating) && rating >= 1 && rating <= 5;
-          });
-          const total = rated.reduce((sum, review) => sum + Number(review.rating), 0);
-          return {
-            id: product.id,
-            stats: {
-              average: rated.length ? Math.round((total / rated.length) * 10) / 10 : 0,
-              count: reviews.length,
-              ratedCount: rated.length
-            } satisfies ReviewStats
-          };
-        }),
-        catchError((error: unknown) => {
-          console.error(`Không thể tải review cho sản phẩm ${product.id}:`, error);
-          return of({
-            id: product.id,
-            stats: { average: 0, count: 0, ratedCount: 0 } satisfies ReviewStats
-          });
-        })
-      )
-    );
-
-    forkJoin(requests).subscribe(results => {
-      this.reviewStats.update(current => {
-        const next = { ...current };
-        results.forEach(result => { next[result.id] = result.stats; });
-        return next;
-      });
-
-      results.forEach(result => {
-        this.loadedReviewProducts.add(result.id);
-        this.reviewRequestsInFlight.delete(result.id);
-      });
+    this.reviewsService.getStats().subscribe({
+      next: stats => this.reviewStats.set(stats),
+      error: () => this.reviewStats.set({})
     });
   }
 
@@ -441,8 +399,8 @@ export class ProductsComponent implements OnDestroy, AfterViewInit {
   toggleNow(): void { this.draft.update(d => ({ ...d, now: !d.now })); }
 
   apply(): void { this.go({ ...this.draft(), tab: this.applied().tab, sort: this.applied().sort, view: this.applied().view, page: 1 }); this.showFilters.set(false); }
-  clear(): void { const a = this.applied(); this.go({ ...defaultFilters(), view: a.view, sort: a.sort }); }
-  search(): void { this.go(this.draft()); }
+  clear(): void { const a = this.applied(); this.draft.set({ ...defaultFilters(), view: a.view, sort: a.sort }); this.go(this.draft()); }
+  search(): void { this.go({ ...this.draft(), q: this.draft().q.trim(), page: 1 }); }
 
   setTab(t: string): void { this.draft.update(d => ({ ...d, tab: t, page: 1 })); this.go(this.draft()); }
   setSort(s: string): void { this.draft.update(d => ({ ...d, sort: s, page: 1 })); this.go(this.draft()); }
@@ -502,16 +460,16 @@ export class ProductsComponent implements OnDestroy, AfterViewInit {
       if (navigated) window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-  addToCart(e: Event, productId: number, productName: string): void { e.stopPropagation(); this.cart.add(productId, productName); }
+  addToCart(e: Event, productId: number, productName: string): void { e.stopPropagation(); const product = this.all().find(p => p.id === productId); if (product && (product.inStock || product.preorder)) this.cart.add(productId, productName); }
   openProduct(product: ProductItem): void {
     void this.router.navigate(['/san-pham', product.id]);
   }
 
-  get page() { return computed(() => this.applied().page); }
-  get totalPages() { return computed(() => Math.max(1, Math.ceil(this.filtered().length / PAGE_SIZE))); }
-  get pages() { return computed(() => Array.from({ length: this.totalPages() }, (_, i) => i + 1)); }
+  readonly page = computed(() => Math.min(this.applied().page, this.totalPages()));
+  readonly totalPages = computed(() => Math.max(1, Math.ceil(this.filtered().length / PAGE_SIZE)));
+  readonly pages = computed(() => Array.from({ length: this.totalPages() }, (_, i) => i + 1));
   paged = computed(() => {
-    const start = (this.applied().page - 1) * PAGE_SIZE;
+    const start = (this.page() - 1) * PAGE_SIZE;
     return this.filtered().slice(start, start + PAGE_SIZE);
   });
   get activeCount() {

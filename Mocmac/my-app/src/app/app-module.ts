@@ -6,6 +6,7 @@ import { provideHttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { ChatWidget } from './chat-widget/chat-widget';
 
 // Layout components
 import { HeaderComponent } from './layout/header-component/header-component';
@@ -37,6 +38,7 @@ import { ProductDetailComponent } from './product-detail-component/product-detai
   ],
   imports: [
     BrowserModule,
+    ChatWidget,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

@@ -13,7 +13,7 @@
       [routerLink]="['/san-pham', productId()]"
       aria-current="page"
       title="Mở lại chi tiết sản phẩm hiện tại"
-    >Chi tiết sản phẩm</a>
+    >{{ product()?.name || 'Chi tiết sản phẩm' }}</a>
   </nav>
 
 
@@ -31,383 +31,53 @@
       @if (product(); as p) {
 
       <section class="product-main">
-
-        <!-- =====================
-             LEFT: IMAGE GALLERY
-        ====================== -->
         <div class="gallery">
-
-          <div class="image-stage">
-
-            @if (selectedImage() && !imageBroken()) {
-              <img
-                class="main-product-image"
-                [src]="selectedImage()"
-                [alt]="p.name"
-                (error)="onImageError()"
-              />
-            } @else {
-              <div class="image-placeholder">
-                <span>Không có hình ảnh</span>
-              </div>
-            }
-
-            @if (productImages().length > 1) {
-
-              <button
-                type="button"
-                class="gallery-arrow gallery-prev"
-                (click)="previousImage()"
-                aria-label="Ảnh trước"
-              >
-                ‹
-              </button>
-
-              <button
-                type="button"
-                class="gallery-arrow gallery-next"
-                (click)="nextImage()"
-                aria-label="Ảnh tiếp theo"
-              >
-                ›
-              </button>
-
-              <div class="image-counter">
-                {{ selectedImageIndex() + 1 }}/{{ productImages().length }}
-              </div>
-            }
-
-          </div>
-
-
-          <!-- thumbnails -->
-          @if (productImages().length > 0) {
-
-            <div class="thumbnail-list">
-
+          <div class="gallery-layout">
+            <div class="thumbnail-list" aria-label="Ảnh sản phẩm">
               @for (image of productImages(); track $index) {
-
-                <button
-                  type="button"
-                  class="thumbnail"
-                  [class.active]="selectedImageIndex() === $index"
-                  (click)="selectImage($index)"
-                >
-                  <img
-                    [src]="image"
-                    [alt]="p.name + ' ' + ($index + 1)"
-                  />
+                <button type="button" class="thumbnail" [class.active]="selectedImageIndex() === $index" [attr.aria-label]="'Xem ảnh ' + ($index + 1)" [attr.aria-pressed]="selectedImageIndex() === $index" (click)="selectImage($index)">
+                  <img [src]="image" [alt]="p.name + ' - ảnh ' + ($index + 1)" loading="lazy" (error)="$any($event.target).onerror = null; $any($event.target).src = '/data/product-placeholder.svg'" />
                 </button>
-
               }
-
             </div>
-
-          }
-
-
-          <!-- social -->
-          <div class="share-row">
-
-            <span class="share-label">
-              Chia sẻ
-            </span>
-
-            <button type="button" class="social facebook" (click)="shareFacebook()" aria-label="Chia sẻ Facebook">
-              f
-            </button>
-
-            <button type="button" class="social zalo" (click)="shareZalo()" aria-label="Chia sẻ Zalo">
-              Zalo
-            </button>
-
-            <button type="button" class="social link" (click)="copyProductLink()" aria-label="Sao chép liên kết sản phẩm">
-              🔗
-            </button>
-
-            <span class="share-divider"></span>
-
-            <span class="vietnam-badge">
-              ✦ Sản phẩm Việt
-            </span>
-
-            @if (shareMessage()) {
-              <span class="share-feedback">{{ shareMessage() }}</span>
-            }
-
+            <div class="image-stage">
+              @if (selectedImage() && !imageBroken()) {
+                <img class="main-product-image" [src]="selectedImage()" [alt]="p.name" (error)="onImageError()" />
+              } @else { <img class="main-product-image" src="/data/product-placeholder.svg" alt="Hình ảnh sản phẩm đang cập nhật" /> }
+              @if (productImages().length > 1) {
+                <button type="button" class="gallery-arrow gallery-prev" (click)="previousImage()" aria-label="Ảnh trước">‹</button>
+                <button type="button" class="gallery-arrow gallery-next" (click)="nextImage()" aria-label="Ảnh tiếp theo">›</button>
+                <span class="image-counter">{{ selectedImageIndex() + 1 }} / {{ productImages().length }}</span>
+              }
+            </div>
           </div>
-
+          <div class="share-row"><span>Chia sẻ sản phẩm</span><button type="button" class="social" (click)="shareFacebook()" aria-label="Chia sẻ Facebook">f</button><button type="button" class="social" (click)="shareZalo()" aria-label="Chia sẻ Zalo">Zalo</button><button type="button" class="copy-link" (click)="copyProductLink()">Sao chép liên kết ↗</button>@if (shareMessage()) {<span class="share-feedback" role="status">{{ shareMessage() }}</span>}</div>
         </div>
-
-
-        <!-- =====================
-             RIGHT: PRODUCT INFO
-        ====================== -->
         <div class="product-info">
-
-          <!-- brand -->
-          <div class="brand-line">
-
-            <div class="brand-mark">
-              MM
-            </div>
-
-            <div>
-              <strong>MỘC MẠC</strong>
-              <span>
-                Đặc sản và thủ công Việt Nam
-              </span>
-            </div>
-
-          </div>
-
-
-          <!-- badges -->
-          <div class="product-badges">
-
-            @if (p.ocop > 0) {
-              <span class="badge badge-ocop">
-                OCOP {{ p.ocop }} sao
-              </span>
-            }
-
-            <span class="badge badge-green">
-              {{ p.type }}
-            </span>
-
-            <span class="badge badge-beige">
-              Hàng Việt
-            </span>
-
-          </div>
-
-
-          <!-- title -->
-          <h1>
-            {{ p.name }}
-          </h1>
-
-
-          <!-- Rating lấy từ review đã lưu trong MongoDB -->
+          <a class="category-link" [routerLink]="['/san-pham']" [queryParams]="{type: p.type}">{{ p.type }}</a>
+          <h1>{{ p.name }}</h1>
           <div class="rating-row">
-
-            @if (reviewRatedCount() > 0) {
-              <strong class="rating-number">
-                {{ reviewAverage().toFixed(1) }}
-              </strong>
-              <span class="stars">
-                {{ stars(reviewAverage()) }}
-              </span>
-            } @else {
-              <span class="no-rating-label">Chưa có đánh giá sao</span>
-            }
-
-            <span class="rating-divider"></span>
-
-            <button
-              type="button"
-              class="review-link"
-              (click)="showReviews()"
-            >
-              {{ reviewCount() }} đánh giá
-            </button>
-
-            <span class="rating-divider"></span>
-
-            @if (p.inStock) {
-              <span class="stock in-stock">
-                ● Còn hàng
-              </span>
-            } @else if (p.preorder) {
-              <span class="stock preorder">
-                ● Đặt trước
-              </span>
-            } @else {
-              <span class="stock out-stock">
-                ● Hết hàng
-              </span>
-            }
-
+            @if (reviewRatedCount() > 0) {<span class="stars">{{ stars(reviewAverage()) }}</span><strong>{{ reviewAverage().toFixed(1) }}</strong>} @else {<span>Chưa có đánh giá sao</span>}
+            <button type="button" class="review-link" (click)="showReviews()">{{ reviewCount() }} đánh giá</button>
+            <span class="stock" [class.in-stock]="p.inStock" [class.preorder]="!p.inStock && p.preorder" [class.out-stock]="!p.inStock && !p.preorder">● {{ p.inStock ? 'Còn hàng' : p.preorder ? 'Nhận đặt trước' : 'Tạm hết hàng' }}</span>
           </div>
-
-
-          <!-- price -->
-          <div class="price-card">
-
-            <span class="price-label">
-              Giá bán
-            </span>
-
-            <strong class="price">
-              {{ fmt(p.price) }}
-            </strong>
-
+          <div class="detail-price"><strong>{{ fmt(p.price) }}</strong></div>
+          <dl class="product-facts">
+            <div><dt>Mã sản phẩm</dt><dd>MM-{{ p.id.toString().padStart(3, '0') }}</dd></div>
+            <div><dt>Loại sản phẩm</dt><dd>{{ p.type }}</dd></div>
+            <div><dt>Xuất xứ</dt><dd>{{ p.province }}@if (p.village) { · {{ p.village }}}</dd></div>
+            @if (p.ocop > 0) {<div><dt>Chứng nhận</dt><dd>OCOP {{ p.ocop }} sao</dd></div>}
+          </dl>
+          @if (p.description) {<p class="short-description">{{ p.description }}</p>}
+          <div class="buy-panel">
+            <div class="purchase-heading">Chọn số lượng và đặt hàng</div>
+            <div class="quantity-box"><span>Số lượng</span><div class="quantity-control"><button type="button" [disabled]="quantity() <= 1" (click)="decreaseQuantity()" aria-label="Giảm số lượng">−</button><span aria-live="polite">{{ quantity() }}</span><button type="button" [disabled]="quantity() >= 99" (click)="increaseQuantity()" aria-label="Tăng số lượng">+</button></div><span class="line-total">Tạm tính <strong>{{ fmt(p.price * quantity()) }}</strong></span></div>
+            <div class="action-buttons"><button type="button" class="btn-cart" [disabled]="!p.inStock && !p.preorder" (click)="addToCart()"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 11h11L21 7H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg> Thêm vào giỏ</button><button type="button" class="btn-buy" [disabled]="!p.inStock && !p.preorder" (click)="buyNow()">{{ p.inStock ? 'Mua ngay' : p.preorder ? 'Đặt trước ngay' : 'Tạm hết hàng' }}</button></div>
+            @if (!p.inStock && p.preorder) {<p class="preorder-note">Sản phẩm nhận đặt trước. Liên hệ cửa hàng để xác nhận thời gian chuẩn bị.</p>}
           </div>
-
-
-          <!-- information -->
-          <div class="product-specs">
-
-            <div class="spec-row">
-              <span>Danh mục</span>
-              <strong>
-                {{ p.cat }} · {{ p.type }}
-              </strong>
-            </div>
-
-            <div class="spec-row">
-              <span>Nguồn gốc</span>
-              <strong>
-                {{ p.province }}
-              </strong>
-            </div>
-
-            <div class="spec-row">
-              <span>Làng nghề</span>
-              <strong>
-                {{ p.village || 'Đang cập nhật' }}
-              </strong>
-            </div>
-
-            <div class="spec-row">
-              <span>Vùng miền</span>
-              <strong>
-                {{ p.region }}
-              </strong>
-            </div>
-
-            <div class="spec-row">
-              <span>Tình trạng</span>
-
-              @if (p.inStock) {
-                <strong class="green-text">
-                  ● Còn hàng
-                </strong>
-              } @else if (p.preorder) {
-                <strong class="orange-text">
-                  ● Đặt trước
-                </strong>
-              } @else {
-                <strong class="red-text">
-                  ● Hết hàng
-                </strong>
-              }
-
-            </div>
-
-          </div>
-
-
-          <!-- description -->
-          <p class="short-description">
-            {{ p.description ||
-              'Sản phẩm mang đậm nét văn hóa Việt Nam, được tuyển chọn từ những giá trị đặc sản và làng nghề truyền thống.' }}
-          </p>
-
-
-          <!-- Quantity + purchase buttons: layout wrapper only; existing handlers stay unchanged -->
-          <div class="purchase-actions-layout">
-
-            <div class="purchase-row">
-              <div class="quantity-box">
-                <span class="quantity-label">Số lượng</span>
-                <div class="quantity-control">
-                  <button type="button" (click)="decreaseQuantity()" aria-label="Giảm số lượng">−</button>
-                  <span>{{ quantity() }}</span>
-                  <button type="button" (click)="increaseQuantity()" aria-label="Tăng số lượng">+</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="action-buttons">
-              <button
-                type="button"
-                class="btn-cart"
-                [disabled]="!p.inStock && !p.preorder"
-                (click)="addToCart()"
-              >
-                <span aria-hidden="true">🛒</span>
-                Thêm vào giỏ hàng
-              </button>
-
-              <button
-                type="button"
-                class="btn-buy"
-                [disabled]="!p.inStock && !p.preorder"
-                (click)="buyNow()"
-              >
-                <span aria-hidden="true">⚡</span>
-                Mua ngay
-              </button>
-            </div>
-
-          </div>
-
-
-          <!-- service benefits -->
-          <div class="benefit-grid">
-
-            <div class="benefit">
-
-              <div class="benefit-icon">
-                🚚
-              </div>
-
-              <div>
-                <strong>Giao hàng toàn quốc</strong>
-                <span>Nhanh chóng, an toàn</span>
-              </div>
-
-            </div>
-
-
-            <div class="benefit">
-
-              <div class="benefit-icon">
-                ✓
-              </div>
-
-              <div>
-                <strong>Sản phẩm chính hãng</strong>
-                <span>Đảm bảo chất lượng</span>
-              </div>
-
-            </div>
-
-
-            <div class="benefit">
-
-              <div class="benefit-icon">
-                ↻
-              </div>
-
-              <div>
-                <strong>Đổi trả dễ dàng</strong>
-                <span>Trong vòng 7 ngày</span>
-              </div>
-
-            </div>
-
-
-            <div class="benefit">
-
-              <div class="benefit-icon">
-                ♧
-              </div>
-
-              <div>
-                <strong>Hỗ trợ 24/7</strong>
-                <span>Tư vấn tận tình</span>
-              </div>
-
-            </div>
-
-          </div>
-
+          <div class="store-help"><a routerLink="/chinh-sach-van-chuyen"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h11v12H3zM14 10h4l3 4v4h-7M3 12H1"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg><span>Giao hàng<strong>Xem chính sách</strong></span><b aria-hidden="true">›</b></a><a routerLink="/chinh-sach-doi-tra"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 0 6M4 4v6h6"/></svg><span>Đổi trả<strong>Điều kiện áp dụng</strong></span><b aria-hidden="true">›</b></a></div><a class="contact-support" routerLink="/lien-he">Cần thêm thông tin? <strong>Nhắn Mộc Mạc</strong> <span aria-hidden="true">↗</span></a>
         </div>
-
       </section>
-
 
       <!-- =========================
            PRODUCT DETAILS
@@ -456,35 +126,24 @@
               <div class="content-heading">
                 <span class="heading-line"></span>
                 <div>
-                  <small>VỀ SẢN PHẨM</small>
+                  
                   <h2>Mô tả sản phẩm</h2>
                 </div>
               </div>
 
               <p class="description-lead">
                 {{ p.description ||
-                  p.name + ' là sản phẩm đặc trưng mang nét văn hóa và giá trị truyền thống của Việt Nam.' }}
+                  'Chưa có mô tả chi tiết cho sản phẩm này. Bạn có thể xem thông tin xuất xứ, loại sản phẩm ở tab Thông tin chi tiết hoặc liên hệ cửa hàng để được tư vấn.' }}
               </p>
 
-              <p>
-                Sản phẩm được tuyển chọn nhằm mang đến trải nghiệm chân thực về đặc sản,
-                làng nghề và những giá trị văn hóa đặc trưng của từng vùng miền Việt Nam.
-              </p>
 
-              <div class="story-box">
-                <div class="story-icon">✦</div>
-                <div>
-                  <strong>Câu chuyện phía sau sản phẩm</strong>
-                  <p>Mỗi sản phẩm tại Mộc Mạc đều được lựa chọn dựa trên nguồn gốc, chất lượng và câu chuyện văn hóa phía sau.</p>
-                </div>
-              </div>
             </div>
 
             @if (productImages().length > 0) {
               <figure class="description-visual">
-                <img [src]="productImages()[0]" [alt]="p.name + ' - hình ảnh sản phẩm'" />
+                <img [src]="productImages()[0]" (error)="$any($event.target).onerror = null; $any($event.target).src = '/data/product-placeholder.svg'" [alt]="p.name + ' - hình ảnh sản phẩm'" />
                 <figcaption>
-                  <span>ĐẶC SẢN &amp; THỦ CÔNG VIỆT</span>
+                  
                   <strong>{{ p.name }}</strong>
                   <small>{{ p.province }} · {{ p.region }}</small>
                 </figcaption>
@@ -510,7 +169,7 @@
               <span class="heading-line"></span>
 
               <div>
-                <small>THÔNG TIN</small>
+                
                 <h2>Thông tin sản phẩm</h2>
               </div>
             </div>
@@ -570,7 +229,7 @@
               <span class="heading-line"></span>
 
               <div>
-                <small>KHÁCH HÀNG</small>
+                
                 <h2>Đánh giá sản phẩm</h2>
               </div>
             </div>
@@ -708,7 +367,7 @@
 
 
               @if (reviewMessage()) {
-                <p class="review-message">
+                <p class="review-message" role="status" aria-live="polite">
                   {{ reviewMessage() }}
                 </p>
               }
@@ -826,6 +485,7 @@
 
               <article
                 class="related-card"
+                role="link" tabindex="0" (keydown.enter)="openProduct(item)"
                 (click)="openProduct(item)"
               >
 
@@ -834,7 +494,7 @@
                   @if (item.images && item.images.length > 0) {
 
                     <img
-                      [src]="item.images[0]"
+                      [src]="item.images[0]" loading="lazy" (error)="$any($event.target).onerror = null; $any($event.target).src = '/data/product-placeholder.svg'"
                       [alt]="item.name"
                     />
 
@@ -908,12 +568,11 @@
         </div>
 
         <h2>
-          Không tìm thấy sản phẩm
+          {{ catalogError() ? 'Chưa thể kết nối cửa hàng' : 'Không tìm thấy sản phẩm' }}
         </h2>
 
         <p>
-          Sản phẩm bạn đang tìm kiếm không tồn tại
-          hoặc đã được thay đổi.
+          {{ catalogError() ? 'Vui lòng kiểm tra kết nối và tải lại trang để thử lại.' : 'Sản phẩm bạn đang tìm kiếm không tồn tại hoặc đã được thay đổi.' }}
         </p>
 
         <button

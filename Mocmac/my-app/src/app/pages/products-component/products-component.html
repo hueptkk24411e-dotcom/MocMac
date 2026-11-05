@@ -217,15 +217,12 @@
   <div class="layout">
     <aside class="side" [class.open]="showFilters()">
       <div class="panel">
-        <h4>🔎 Tìm kiếm &amp; gợi ý</h4>
+        <h4>🔎 Tìm kiếm sản phẩm</h4>
         <form class="sbox" (submit)="$event.preventDefault(); search()">
           <input type="search" placeholder="Tìm sản phẩm..." [value]="draft().q" (input)="setField('q', $any($event.target).value)" />
           <button type="submit" aria-label="Tìm">🔍</button>
         </form>
-        <div class="ai">
-          <span class="bot">🤖</span>
-          <div><b>AI Tìm quà phù hợp theo vùng miền</b><small>Nhập vào câu, dịp tặng...</small></div><span>›</span>
-        </div>
+
 
         <button
           type="button"
@@ -302,7 +299,7 @@
 
     <main class="content">
       <div class="banner">
-        <div><h1>🌿 SẢN PHẨM MỘC MẠC</h1><p>Khám phá sản phẩm từ khắp Việt Nam</p></div>
+        <div><h2>Bộ sưu tập sản phẩm</h2><p>Tìm món quà mang dấu ấn riêng của bạn</p></div>
         <q>Mỗi sản phẩm, một câu chuyện, một vùng đất Việt</q>
       </div>
 
@@ -339,7 +336,7 @@
                   <button class="nav next" (click)="step(p, 1, $event)" aria-label="Ảnh sau">›</button>
                   <div class="dots">
                     @for (u of imgs(p); track u; let i = $index) {
-                      <span [class.on]="i === idxOf(p)" (click)="setImg(p, i, $event)"></span>
+                      <button type="button" [class.on]="i === idxOf(p)" [attr.aria-label]="'Xem ảnh ' + (i + 1)" (click)="setImg(p, i, $event)"></button>
                     }
                   </div>
                 }
@@ -355,7 +352,7 @@
               <button class="fav" [class.on]="favs().has(p.id)" (click)="toggleFav(p.id, $event)" aria-label="Yêu thích">{{ favs().has(p.id) ? '♥' : '♡' }}</button>
             </div>
             <div class="pbody">
-              <h3><button class="product-link" type="button" (click)="openProduct(p)">{{ p.name }}</button></h3>
+              <h3 class="product-name">{{ p.name }}</h3>
               <small class="loc">📍 {{ p.village || p.province }}{{ p.village ? ', ' + p.province : '' }} · {{ p.region }}</small>
               <div class="rt">
                   @if (p.rate > 0) {
@@ -369,12 +366,16 @@
                   }
                 </div>
               <div class="row"><b>{{ fmt(p.price) }}</b>
-                <button class="add" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button></div>
+                <button [disabled]="!p.inStock && !p.preorder" class="add" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button></div>
             </div>
           </article>
         } @empty {
           <div class="empty">
-            @if (showFavorites() && favoriteCount() === 0) {
+            @if (!catalogLoaded()) {
+              <p role="status">Đang tải bộ sưu tập sản phẩm…</p>
+            } @else if (catalogError()) {
+              <p role="alert">Chưa thể tải sản phẩm. Vui lòng kiểm tra kết nối máy chủ và tải lại trang.</p>
+            } @else if (showFavorites() && favoriteCount() === 0) {
               <p>♡ Bạn chưa có sản phẩm yêu thích.</p>
               <small>Nhấn biểu tượng trái tim trên sản phẩm để lưu lại tại đây.</small>
               <div class="empty-actions">
@@ -459,7 +460,7 @@
                     </div>
                     <div class="row">
                       <b>{{ fmt(p.price) }}</b>
-                      <button type="button" class="add" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button>
+                      <button type="button" class="add" [disabled]="!p.inStock && !p.preorder" (click)="addToCart($event, p.id, p.name)" aria-label="Thêm vào giỏ">🛒</button>
                     </div>
                   </div>
                 </article>

@@ -22,6 +22,23 @@ router.get('/', async (req, res) => {
   }
 });
 
+// One request for catalog ratings instead of downloading all reviews per card.
+router.get('/review-stats', async (req, res) => {
+  try {
+    const rows = await Review.aggregate([
+      { $set: { numericRating: { $convert: { input: '$rating', to: 'double', onError: null, onNull: null } } } },
+      { $set: { validRating: { $cond: [{ $and: [{ $gte: ['$numericRating', 1] }, { $lte: ['$numericRating', 5] }] }, '$numericRating', null] } } },
+      { $group: { _id: '$productId', count: { $sum: 1 }, average: { $avg: '$validRating' }, ratedCount: { $sum: { $cond: [{ $ne: ['$validRating', null] }, 1, 0] } } } }
+    ]);
+    return res.json(Object.fromEntries(rows.map(row => [row._id, {
+      count: row.count, average: Math.round((row.average || 0) * 10) / 10, ratedCount: row.ratedCount
+    }])));
+  } catch (error) {
+    console.error('Lỗi thống kê đánh giá:', error);
+    return res.status(500).json({ message: 'Không thể tải thống kê đánh giá.' });
+  }
+});
+
 // GET /api/products/:id/reviews - Review của sản phẩm, dùng Product.id dạng số.
 // Keep this before GET /:id for route readability and to avoid accidental conflicts.
 router.get('/:id/reviews', async (req, res) => {
@@ -40,7 +57,7 @@ router.get('/:id/reviews', async (req, res) => {
       productId: Number(row.productId),
       productName: row.productName || '',
       userName: row.userName || row.name || row.username || 'Khách hàng',
-      rating: Number(row.rating) || 5,
+      rating: row.rating != null && Number(row.rating) >= 1 && Number(row.rating) <= 5 ? Number(row.rating) : null,
       content: String(row.content || ''),
       createdAt: row.createdAt || null,
       isDemo: Boolean(row.isDemo)
@@ -116,6 +133,9 @@ router.post('/:id/reviews', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const productId = Number(req.params.id);
+    if (!Number.isSafeInteger(productId) || productId <= 0) {
+      return res.status(400).json({ message: 'Mã sản phẩm không hợp lệ.' });
+    }
     const product = await Product.findOne({ id: productId }).lean();
 
     if (!product) {

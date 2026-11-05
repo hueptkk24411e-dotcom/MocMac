@@ -44,7 +44,11 @@ type CreateReviewResponse = ApiReview | { success?: boolean; message?: string; r
 @Injectable({ providedIn: 'root' })
 export class ReviewsService {
   private readonly http = inject(HttpClient);
-  private readonly apiBase = 'http://localhost:3000/api/products';
+  private readonly apiBase = '/api/products';
+
+  getStats(): Observable<Record<number, { average: number; count: number; ratedCount: number }>> {
+    return this.http.get<Record<number, { average: number; count: number; ratedCount: number }>>(`${this.apiBase}/review-stats`);
+  }
 
   getForProduct(productId: number): Observable<ProductReviewItem[]> {
     return this.http
