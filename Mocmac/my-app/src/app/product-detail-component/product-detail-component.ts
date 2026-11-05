@@ -1,6 +1,6 @@
 import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { catchError, forkJoin, map, of } from 'rxjs';
 
 import { ProductItem, ProductsService } from '../products.service';
@@ -24,7 +24,8 @@ export class ProductDetailComponent {
 
   readonly allProducts = this.productsService.products;
   /** Distinguishes an asynchronously loaded catalog from a missing product ID. */
-  readonly catalogReady = computed(() => (this.allProducts() ?? []).length > 0);
+  readonly catalogReady = this.productsService.catalogLoaded;
+  readonly catalogError = this.productsService.catalogError;
   readonly shareMessage = signal('');
 
   // This component currently uses /san-pham/:id. The MongoDB review API
@@ -173,7 +174,7 @@ export class ProductDetailComponent {
   readonly reviewCount = computed<number>(() => this.reviews().length);
 
   constructor() {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.pipe(takeUntilDestroyed()).subscribe(params => {
       const id = Number(params.get('id'));
       this.resetDetailState();
       if (Number.isSafeInteger(id) && id > 0) {
@@ -192,6 +193,7 @@ export class ProductDetailComponent {
   private resetDetailState(): void {
     this.reviews.set([]);
     this.reviewMessage.set('');
+    this.shareMessage.set('');
     this.reviewLoading.set(false);
     this.reviewSubmitting.set(false);
     this.reviewName = '';
@@ -207,11 +209,13 @@ export class ProductDetailComponent {
     this.reviewLoading.set(true);
     this.reviewsService.getForProduct(productId).subscribe({
       next: (rows: ProductReviewItem[]) => {
+        if (productId !== this.productId()) return;
         this.reviews.set(rows);
         this.reviewLoading.set(false);
         this.reviewMessage.set('');
       },
       error: (error: unknown) => {
+        if (productId !== this.productId()) return;
         console.error('Không thể tải review từ MongoDB:', error);
         this.reviews.set([]);
         this.reviewLoading.set(false);
@@ -261,18 +265,14 @@ export class ProductDetailComponent {
   addToCart(): void {
     const product = this.product();
     if (!product || (!product.inStock && !product.preorder)) return;
-    for (let i = 0; i < this.quantity(); i++) {
-      this.cartService.add(product.id, product.name);
-    }
+    this.cartService.add(product.id, product.name, this.quantity());
   }
 
   /** Adds the selected quantity and opens the cart page. */
   buyNow(): void {
     const product = this.product();
     if (!product || (!product.inStock && !product.preorder)) return;
-    for (let i = 0; i < this.quantity(); i++) {
-      this.cartService.add(product.id, product.name);
-    }
+    this.cartService.add(product.id, product.name, this.quantity());
     void this.router.navigate(['/giohang']);
   }
 
@@ -324,6 +324,7 @@ export class ProductDetailComponent {
   }
 
   submitReview(): void {
+    if (this.reviewSubmitting()) return;
     const product = this.product();
     const userName = this.reviewName.trim();
     const content = this.reviewContent.trim();
@@ -333,8 +334,8 @@ export class ProductDetailComponent {
       this.reviewMessage.set('Không tìm thấy sản phẩm.');
       return;
     }
-    if (!userName || !content) {
-      this.reviewMessage.set('Vui lòng nhập tên và nội dung đánh giá.');
+    if (userName.length < 2 || content.length < 3) {
+      this.reviewMessage.set('Tên cần ít nhất 2 ký tự, nội dung cần ít nhất 3 ký tự.');
       return;
     }
     if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
@@ -351,6 +352,7 @@ export class ProductDetailComponent {
 
     this.reviewsService.createForProduct(product.id, { userName, rating, content }).subscribe({
       next: (savedReview: ProductReviewItem) => {
+        if (product.id !== this.productId()) return;
         this.reviews.update(current => [savedReview, ...current]);
         this.reviewName = '';
         this.reviewContent = '';
@@ -359,6 +361,7 @@ export class ProductDetailComponent {
         this.reviewMessage.set('Đánh giá đã được lưu thành công.');
       },
       error: (error: unknown) => {
+        if (product.id !== this.productId()) return;
         console.error('Không thể lưu review:', error);
         this.reviewSubmitting.set(false);
         let message = 'Không thể gửi đánh giá. Vui lòng thử lại.';

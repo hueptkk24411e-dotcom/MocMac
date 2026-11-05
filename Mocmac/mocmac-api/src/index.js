@@ -5,10 +5,12 @@ import mongoose from 'mongoose';
 import authRoutes from './routes/auth.js';
 import productRoutes from './routes/products.js';
 import contactRoutes from './routes/contacts.js';
+import assistantRoutes from './assistant/routes.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({ origin: 'http://localhost:4200' }));
+app.use('/api/assistant', assistantRoutes);
 app.use(express.json());
 app.use('/api/contacts', contactRoutes);
 app.use('/api/auth', authRoutes);

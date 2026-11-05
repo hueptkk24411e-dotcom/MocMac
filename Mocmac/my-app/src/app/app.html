@@ -12,3 +12,7 @@
     <a routerLink="/giohang">Xem giỏ hàng</a>
   </div>
 }
+
+@if (!isStandaloneAuth()) {
+  <app-chat-widget />
+}
