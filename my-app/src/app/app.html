@@ -1,0 +1,22 @@
+@if (!isStandaloneAuth() && !isAdminPath()) {
+  <app-header-component />
+}
+<router-outlet />
+<app-notification-popup />
+<app-toast />
+@if (!isStandaloneAuth() && !isAdminPath()) {
+  <app-chat-popup />
+}
+@if (!isStandaloneAuth() && !isAdminPath()) {
+  <app-meomeo-guide />
+}
+@if (!isStandaloneAuth() && !isAdminPath()) {
+  <app-footer-component />
+}
+@if (cart.notification(); as notification) {
+  <div class="cart-notification" role="status" aria-live="polite">
+    <span class="cart-notification-icon" aria-hidden="true">✓</span>
+    <span>{{ notification }}</span>
+    <a routerLink="/gio-hang">{{ 'cart.label' | t }}</a>
+  </div>
+}

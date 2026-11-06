@@ -1,0 +1,170 @@
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- CỘT 1: THƯƠNG HIỆU -->
+        <div class="footer-col about">
+          <a class="logo" routerLink="/">
+            <img src="data/images/Logo.png" alt="Mộc Mạc Logo">
+          </a>
+
+          <p class="slogan">{{ t('Tinh hoa Việt – Giá trị thật','Vietnamese Essence – True Value') }}</p>
+
+          <p class="about-text">
+            {{ t('Mộc Mạc mang đến những sản phẩm đặc sản và làng nghề Việt Nam, gìn giữ giá trị truyền thống và lan tỏa nét đẹp văn hóa Việt.','Moc Mac brings Vietnamese specialty and craft-village products, preserving traditional values and spreading the beauty of Vietnamese culture.') }}
+          </p>
+
+          <div class="soc">
+  <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="https://www.tiktok.com/vi-VN/" target="_blank" aria-label="TikTok">
+    <i class="fa-brands fa-tiktok"></i>
+  </a>
+
+  <a href="https://www.youtube.com/" target="_blank" aria-label="Youtube">
+    <i class="fa-brands fa-youtube"></i>
+  </a>
+
+  <a href="https://zalo.me/0365507533" target="_blank" aria-label="Zalo">
+    <img
+      src="data/images/zalo.png"
+      class="zalo-icon"
+      alt="Zalo"
+    >
+  </a>
+</div>
+        </div>
+
+        <!-- CỘT 2 -->
+        <div class="footer-col">
+          <h4>{{ t('Về Mộc Mạc','About Moc Mac') }}</h4>
+
+          <a routerLink="/gioi-thieu">{{ t('Giới thiệu','About') }}</a>
+          <a href="#">{{ t('Câu chuyện thương hiệu','Brand Story') }}</a>
+          <a href="#">{{ t('Cam kết chất lượng','Quality Commitment') }}</a>
+          <a href="#">{{ t('Tin tức','News') }}</a>
+          <a href="#">{{ t('Tuyển dụng','Careers') }}</a>
+        </div>
+
+        <!-- CỘT 3 -->
+        <div class="footer-col">
+            <h4>Hỗ trợ khách hàng</h4>
+<a routerLink="/huong-dan-mua-hang" routerLinkActive="on"> Hướng dẫn mua hàng</a>
+<a  routerLink="/phuong-thuc-thanh-toan"  routerLinkActive="on">  Phương thức thanh toán</a>
+      <a  routerLink="/chinh-sach-van-chuyen"  routerLinkActive="on">  Chính sách vận chuyển</a>
+    <a  routerLink="/chinh-sach-doi-tra"  routerLinkActive="on">  Chính sách đổi trả</a>
+<a  routerLink="/faq"  routerLinkActive="on">  Câu hỏi thường gặp (FAQ)</a>
+          <a routerLink="/lien-he">Liên hệ</a>
+        </div>
+
+        <!-- CỘT 4 -->
+        <div class="footer-col">
+          <h4>{{ t('Danh mục','Categories') }}</h4>
+
+          <a routerLink="/san-pham">{{ t('Sản phẩm','Products') }}</a>
+          <a routerLink="/qua-tang">{{ t('Quà tặng','Gifts') }}</a>
+          <a routerLink="/vung-mien">{{ t('Vùng miền','Regions') }}</a>
+          <a routerLink="/lang-nghe">{{ t('Làng nghề','Craft Villages') }}</a>
+          <a href="#">{{ t('Dịch vụ','Services') }}</a>
+        </div>
+
+        <!-- CỘT 5 -->
+        <div class="footer-col newsletter">
+          <h4>{{ t('Đăng ký nhận tin','Subscribe to Newsletter') }}</h4>
+
+          <p>{{ t('Nhận thông tin sản phẩm mới, ưu đãi và những câu chuyện văn hóa Việt từ Mộc Mạc.','Get new product updates, offers, and Vietnamese cultural stories from Moc Mac.') }}</p>
+
+          <form class="newsletter-form" action="#">
+            <input type="email" [attr.placeholder]="t('✉ Nhập email của bạn','✉ Enter your email')" required>
+            <button type="submit">{{ t('Đăng ký','Subscribe') }}</button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- PAYMENT + SHIPPING -->
+      <div class="partner-section">
+
+        <div class="partner-group">
+          <h4>{{ t('PHƯƠNG THỨC THANH TOÁN','PAYMENT METHODS') }}</h4>
+
+          <div class="partner-logos">
+            <img
+              src="data/images/thanhtoan/visa.png"
+              alt="Visa"
+            >
+
+            <img
+              src="data/images/thanhtoan/momo.png"
+              alt="MoMo"
+            >
+
+            <img
+              src="data/images/thanhtoan/QRR.png"
+              alt="QR Payment"
+            >
+
+            <img
+              src="data/images/thanhtoan/bank.png"
+              alt="Bank Transfer">
+
+            <img
+              src="data/images/thanhtoan/COD.png"
+              alt="COD"
+            >
+          </div>
+        </div>
+
+        <div class="partner-group">
+          <h4>{{ t('ĐƠN VỊ VẬN CHUYỂN','SHIPPING PARTNERS') }}</h4>
+
+          <div class="partner-logos">
+            <img
+              src="data/images/shipping unit/ghn.png"
+              alt="GHN"
+            >
+
+            <img
+              src="data/images/shipping unit/J&T.png"
+              alt="J&T Express"
+            >
+            <img
+              src="data/images/shipping unit/VT.png"
+              alt="Viettel Post"
+            >
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER BOTTOM -->
+  <div class="footer-bottom">
+    <div class="container bottom-wrapper">
+
+      <div class="company-info">
+        <strong>{{ t('© Công Ty Cổ Phần TM & DV Mộc Mạc. MST: (028) 372 44 555.','© Moc Mac Trading & Services JSC. Tax ID: (028) 372 44 555.') }}</strong>
+        <a href="https://maps.app.goo.gl/upxYFEVHobfBSbx76" target="_blank" rel="noopener">
+          {{ t('669 Đỗ Mười, khu phố 13, phường Linh Xuân, TP. Thủ Đức, TP. Hồ Chí Minh','669 Do Muoi, Quarter 13, Linh Xuan Ward, Thu Duc City, Ho Chi Minh City') }}
+        </a>
+      </div>
+
+      <div class="bottom-newsletter">
+        <p>{{ t('Đăng ký để nhận thông tin và ưu đãi','Subscribe for updates and offers') }}</p>
+        <form class="bottom-form" action="#">
+          <input type="text" [attr.placeholder]="t('Nhập số điện thoại của bạn','Enter your phone number')" required>
+          <button type="submit">{{ t('ĐĂNG KÝ','SUBSCRIBE') }}</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</footer>

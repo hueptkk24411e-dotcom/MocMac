@@ -1,0 +1,101 @@
+:host {
+  @apply block min-h-screen;
+}
+
+.admin-wrapper {
+  @apply flex min-h-screen bg-slate-50 font-sans;
+}
+
+.admin-sidebar {
+  @apply w-60 bg-beige text-ink flex flex-col h-screen sticky top-0 overflow-y-auto transition-transform duration-300;
+}
+
+.admin-sidebar-head {
+  @apply flex justify-between items-center p-4 border-b border-line;
+}
+
+.admin-sidebar-head strong {
+  @apply text-sm font-semibold;
+}
+
+.sidebar-close {
+  @apply hidden bg-transparent border-0 text-ink text-lg cursor-pointer;
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    @apply fixed inset-0 w-80 max-w-[80vw] z-50 -translate-x-full;
+  }
+  .admin-sidebar.open {
+    @apply translate-x-0;
+  }
+  .sidebar-close {
+    @apply block;
+  }
+}
+
+.admin-nav {
+  @apply flex-1 p-0;
+}
+
+.nav-item {
+  @apply flex items-center gap-3 px-5 py-2.5 rounded-none border-r-4 border-transparent cursor-pointer text-sm text-ink transition-all;
+}
+
+.nav-item:hover {
+  @apply bg-moss-d text-white;
+}
+
+.nav-item.active {
+  @apply bg-moss-d text-white font-semibold border-sage;
+}
+
+.nav-icon {
+  @apply text-base min-w-[24px] text-center;
+}
+
+.admin-logout {
+  @apply p-3 border-t border-line;
+}
+
+.logout-btn {
+  @apply w-full py-2.5 border-none rounded bg-clay text-white text-sm cursor-pointer transition-opacity;
+}
+
+.logout-btn:hover {
+  @apply opacity-90;
+}
+
+.admin-main {
+  @apply flex-1 flex flex-col min-w-0;
+}
+
+.admin-header {
+  @apply flex items-center justify-between gap-3 p-4 bg-white border-b border-line;
+}
+
+.admin-tag {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-moss text-white text-xs font-semibold;
+}
+
+.admin-tag-dot {
+  @apply w-1.5 h-1.5 rounded-full bg-cream;
+}
+
+.menu-toggle {
+  @apply hidden bg-transparent border-0 text-2xl cursor-pointer text-ink;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    @apply block;
+  }
+}
+
+.admin-title {
+  @apply m-0 font-lora text-xl font-semibold text-ink;
+}
+
+.admin-content {
+  @apply flex-1 bg-white p-6 overflow-y-auto;
+}
