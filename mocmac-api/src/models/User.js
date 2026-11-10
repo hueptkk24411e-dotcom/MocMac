@@ -1,5 +1,16 @@
 import mongoose from 'mongoose';
 
+const addressSchema = new mongoose.Schema(
+  {
+    label: { type: String, default: 'Nhà', trim: true, maxlength: 40 },
+    name: { type: String, required: true, trim: true, maxlength: 100 },
+    phone: { type: String, required: true, trim: true, maxlength: 20 },
+    address: { type: String, required: true, trim: true, maxlength: 500 },
+    isDefault: { type: Boolean, default: false },
+  },
+  { timestamps: false }
+);
+
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -20,6 +31,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       trim: true,
       default: ''
+    },
+
+    addresses: {
+      type: [addressSchema],
+      default: [],
     },
 
     passwordHash: {

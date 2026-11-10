@@ -11,6 +11,7 @@ import { Lienhe } from './pages/lienhe/lienhe';
 import { VungmienComponent } from './pages/vung-mien/vung-mien';
 import { CraftVillageComponent } from './pages/craft-village/craft-village';
 import { GiohangComponent } from './pages/giohang/giohang';
+import { ThanhToanComponent } from './pages/thanh-toan/thanh-toan';
 import { ThongbaoComponent } from './pages/thong-bao/thong-bao';
 import { DonHangComponent } from './pages/don-hang/don-hang';
 import { OrderTrackingComponent } from './pages/order-tracking/order-tracking';
@@ -79,6 +80,7 @@ const routes: Routes = [
   { path: 'tai-khoan', component: AccountSettingsComponent, data: { title: 'Cài đặt tài khoản' } },
   { path: 'dang-ky', component: DangnhapComponent, data: { title: 'Đăng ký' } },
   { path: 'gio-hang', component: GiohangComponent, data: { title: 'Giỏ hàng | Mộc Mạc' } },
+  { path: 'thanh-toan', component: ThanhToanComponent, data: { title: 'Thanh toán | Mộc Mạc' } },
   { 
   path: 'ho-tro-thanh-toan',
   component: PaymentSupportComponent,

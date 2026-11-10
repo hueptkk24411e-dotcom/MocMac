@@ -1,10 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { AuthService } from '../../auth.service';
+import { Component, computed, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../../cart.service';
-import { PaymentService } from '../../payment.service';
 import { ProductItem, ProductsService } from '../../products.service';
 
 interface CartDisplayItem {
@@ -39,34 +36,16 @@ function toCartDisplayItem(product: ProductItem, quantity: number): CartDisplayI
 @Component({
   selector: 'app-giohang',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './giohang.html',
   styleUrl: './giohang.scss',
 })
 export class GiohangComponent {
   private readonly catalog = inject(ProductsService);
   private readonly cart = inject(CartService);
-  private readonly auth = inject(AuthService);
-  private readonly paymentService = inject(PaymentService);
-  private readonly route = inject(ActivatedRoute);
-
-  readonly loginRequiredPopup = signal(false);
-  readonly paymentStatus = signal<'success'|'fail'|'error'|null>(null);
-  readonly paying = signal(false);
-  readonly payError = signal('');
-
-  readonly paymentMethod = signal<'cod' | 'vnpay'>('cod');
-  customerName = '';
-  customerPhone = '';
-  customerAddress = '';
-  orderNote = '';
+  private readonly router = inject(Router);
 
   readonly freeShippingThreshold = FREE_SHIPPING_THRESHOLD;
-  couponInput = '';
-  readonly couponApplied = signal(false);
-  readonly couponError = signal('');
-  readonly couponInfo = signal<any>(null);
-
   readonly items = computed(() => {
     const productsById = new Map(this.catalog.products().map(product => [product.id, product]));
     return this.cart.lines().flatMap(line => {
@@ -74,22 +53,17 @@ export class GiohangComponent {
       return product ? [toCartDisplayItem(product, line.quantity)] : [];
     });
   });
-
   readonly totalQuantity = computed(() =>
     this.items().reduce((sum, item) => sum + item.quantity, 0)
   );
   readonly subtotal = computed(() =>
     this.items().reduce((sum, item) => sum + item.price * item.quantity, 0)
   );
-  readonly discount = computed(() => {
-    if (!this.couponApplied()) return 0;
-    return this.couponInfo()?.discountAmount ?? 0;
-  });
   readonly shipping = computed(() => {
     const subtotal = this.subtotal();
     return subtotal === 0 || subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
   });
-  readonly total = computed(() => this.subtotal() - this.discount() + this.shipping());
+  readonly total = computed(() => this.subtotal() + this.shipping());
   readonly isFreeShipping = computed(() => this.subtotal() > 0 && this.shipping() === 0);
   readonly remainingForFreeShipping = computed(() =>
     Math.max(FREE_SHIPPING_THRESHOLD - this.subtotal(), 0)
@@ -98,14 +72,6 @@ export class GiohangComponent {
     Math.min((this.subtotal() / FREE_SHIPPING_THRESHOLD) * 100, 100)
   );
   readonly isEmpty = computed(() => this.items().length === 0);
-
-  constructor() {
-    const st = this.route.snapshot.queryParamMap.get('status');
-    if (st === 'success' || st === 'fail' || st === 'error') {
-      this.paymentStatus.set(st);
-      if (st === 'success') this.cart.clear();
-    }
-  }
 
   increase(id: number): void {
     this.cart.increase(id);
@@ -123,90 +89,8 @@ export class GiohangComponent {
     this.cart.clear();
   }
 
-  applyCoupon(): void {
-    const code = this.couponInput.trim().toUpperCase();
-    if (!code) {
-      this.couponError.set('Vui lòng nhập mã giảm giá.');
-      return;
-    }
-
-    this.paymentService.validateCoupon(code, this.subtotal()).subscribe({
-      next: (res: any) => {
-        if (res.success) {
-          this.couponApplied.set(true);
-          this.couponError.set('');
-          this.couponInfo.set(res);
-        } else {
-          this.couponApplied.set(false);
-          this.couponInfo.set(null);
-          this.couponError.set(res.message || 'Mã giảm giá không hợp lệ.');
-        }
-      },
-      error: (err: any) => {
-        this.couponApplied.set(false);
-        this.couponInfo.set(null);
-        this.couponError.set(err.error?.message || 'Mã giảm giá không hợp lệ.');
-      },
-    });
-  }
-
-  checkout(): void {
-    if (!this.auth.isAuthenticated()) {
-      this.loginRequiredPopup.set(true);
-      return;
-    }
-
-    if (!this.customerName.trim() || !this.customerPhone.trim() || !this.customerAddress.trim()) {
-      this.payError.set('Vui lòng điền đầy đủ họ tên, số điện thoại và địa chỉ nhận hàng.');
-      return;
-    }
-
-    this.payError.set('');
-    this.paying.set(true);
-    const items = this.items().map(item => ({
-      productId: item.id,
-      name: item.name,
-      price: item.price,
-      quantity: item.quantity,
-    }));
-
-    this.paymentService.checkout({
-      items,
-      subtotal: this.subtotal(),
-      discount: this.discount(),
-      shipping: this.shipping(),
-      total: this.total(),
-      paymentMethod: this.paymentMethod(),
-      couponCode: this.couponApplied() ? this.couponInput.trim().toUpperCase() : '',
-      customerInfo: {
-        name: this.customerName.trim(),
-        phone: this.customerPhone.trim(),
-        address: this.customerAddress.trim(),
-      },
-      note: this.orderNote.trim(),
-    }).subscribe({
-      next: (response: any) => {
-        if (response?.success && response?.payUrl) {
-          window.location.assign(response.payUrl);
-          return;
-        }
-        if (response?.success) {
-          this.cart.clear();
-          this.paymentStatus.set('success');
-        } else {
-          this.payError.set(response?.message || 'Thanh toán thất bại.');
-        }
-        this.paying.set(false);
-      },
-      error: (error: any) => {
-        this.payError.set(error?.error?.message || 'Không thể tạo thanh toán VNPAY. Vui lòng thử lại.');
-        this.paying.set(false);
-      },
-    });
-  }
-
-  closeLoginPopup(): void {
-    this.loginRequiredPopup.set(false);
+  goToCheckout(): void {
+    void this.router.navigate(['/thanh-toan']);
   }
 
   vnd(value: number): string {

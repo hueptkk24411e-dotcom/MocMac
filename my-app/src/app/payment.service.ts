@@ -37,6 +37,22 @@ export interface CouponValidation {
   discountAmount: number;
 }
 
+export interface CheckoutCoupon {
+  _id: string;
+  code: string;
+  description: string;
+  discountType: 'percent' | 'fixed';
+  discountValue: number;
+  scope: 'order' | 'shipping';
+  firstOrderOnly: boolean;
+  minOrderValue: number;
+  maxDiscount: number;
+  expiryDate: string;
+  eligible: boolean;
+  unavailableReason: string;
+  discountAmount: number;
+}
+
 @Injectable({ providedIn: 'root' })
 export class PaymentService {
   private http = inject(HttpClient);
@@ -56,6 +72,15 @@ export class PaymentService {
   validateCoupon(code: string, orderTotal: number): Observable<CouponValidation> {
     return this.http.get<CouponValidation>('/api/coupons/validate/' + code, {
       params: { orderTotal: String(orderTotal) },
+    });
+  }
+
+  getAvailableCoupons(
+    orderTotal: number,
+    shipping = 0,
+  ): Observable<{ success: boolean; coupons: CheckoutCoupon[] }> {
+    return this.http.get<{ success: boolean; coupons: CheckoutCoupon[] }>('/api/coupons/available', {
+      params: { orderTotal: String(orderTotal), shipping: String(shipping) },
     });
   }
 }

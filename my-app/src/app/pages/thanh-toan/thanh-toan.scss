@@ -1,0 +1,441 @@
+$green: #1d4a2e;
+$green-dark: #16392a;
+$green-soft: #e4ebe3;
+$text: #1c2a20;
+$muted: #647068;
+$border: #e5e9e1;
+$page: #f4f3ec;
+$error: #b3401f;
+
+.checkout-page {
+  min-height: 100vh;
+  padding: 32px 16px 56px;
+  background: $page;
+  color: $text;
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+}
+
+.checkout-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.checkout-header {
+  margin-bottom: 22px;
+
+  h1 {
+    margin: 12px 0 4px;
+    font: 600 30px 'Lora', Georgia, serif;
+  }
+
+  p,
+  .back-link {
+    color: $muted;
+    font-size: 13px;
+  }
+
+  .back-link {
+    text-decoration: none;
+
+    &:hover { color: $green; }
+  }
+}
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, .9fr);
+  align-items: start;
+  gap: 20px;
+}
+
+.checkout-main {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.panel,
+.checkout-message {
+  padding: 20px;
+  border: 1px solid $border;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  h2,
+  .checkout-summary h2 {
+    margin: 0;
+    font: 600 17px 'Lora', Georgia, serif;
+  }
+}
+
+.step-number {
+  display: grid;
+  flex: 0 0 27px;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: $green-soft;
+  color: $green;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.text-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: $green;
+  font: 600 12px 'Be Vietnam Pro', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.address-list,
+.voucher-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.address-card {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid $border;
+  border-radius: 9px;
+  background: #fff;
+  color: $text;
+  text-align: left;
+  cursor: pointer;
+
+  &.selected {
+    border-color: $green;
+    background: #f8faf7;
+  }
+}
+
+.radio-mark { color: $green; }
+
+.address-content {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.address-contact {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+
+  small {
+    padding: 2px 6px;
+    border: 1px solid $green;
+    border-radius: 4px;
+    color: $green;
+    font-size: 9px;
+  }
+}
+
+.address-text,
+.muted {
+  color: $muted;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.address-form,
+.note-field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.address-form label,
+.note-field {
+  color: $muted;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.address-form input,
+.address-form textarea,
+.note-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 5px;
+  padding: 10px 12px;
+  border: 1px solid $border;
+  border-radius: 8px;
+  background: #fff;
+  color: $text;
+  font: 400 13px 'Be Vietnam Pro', sans-serif;
+  resize: vertical;
+
+  &:focus { outline: 1px solid $green; }
+}
+
+.address-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 8px;
+  font: 600 13px 'Be Vietnam Pro', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary-button {
+  background: $green;
+  color: #fff;
+
+  &:hover:not(:disabled) { background: $green-dark; }
+  &:disabled { opacity: .6; cursor: wait; }
+}
+
+.secondary-button {
+  border: 1px solid $border;
+  background: #fff;
+  color: $text;
+}
+
+.checkout-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid $border;
+
+  img,
+  .product-placeholder {
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .product-placeholder {
+    display: grid;
+    place-items: center;
+    background: $green-soft;
+    color: $green;
+    font: 600 20px 'Lora', Georgia, serif;
+  }
+
+  .product-info {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+
+    strong {
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    span {
+      color: $muted;
+      font-size: 11px;
+    }
+  }
+
+  .item-total {
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+}
+
+.note-field { margin-top: 14px; }
+
+.voucher-card {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 11px;
+  padding: 12px;
+  border: 1px solid $border;
+  border-radius: 9px;
+  background: #fff;
+  color: $text;
+  text-align: left;
+  cursor: pointer;
+
+  &.selected {
+    border-color: $green;
+    background: #f8faf7;
+  }
+
+  &.unavailable {
+    background: #f7f7f5;
+    color: #777;
+    cursor: not-allowed;
+  }
+}
+
+.voucher-icon {
+  display: grid;
+  flex: 0 0 42px;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: $green-soft;
+  color: $green;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.voucher-copy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+
+  strong { font-size: 12px; }
+  span { font-size: 11px; }
+  small { color: $muted; font-size: 10px; }
+}
+
+.voucher-choice {
+  flex-shrink: 0;
+  color: $green;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.payment-choice {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px;
+  border: 1px solid $border;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+
+  & + & { margin-top: 8px; }
+  input { accent-color: $green; }
+}
+
+.checkout-summary {
+  position: sticky;
+  top: 20px;
+
+  h2 {
+    margin: 0 0 14px;
+    font: 600 18px 'Lora', Georgia, serif;
+  }
+}
+
+.summary-row,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 12px;
+
+  strong { flex-shrink: 0; }
+}
+
+.summary-row { color: $muted; }
+
+.discount-row {
+  color: $green;
+  strong { color: $green; }
+}
+
+.summary-total {
+  align-items: center;
+  margin: 8px 0 14px;
+  border-top: 1px dashed $border;
+  font-weight: 700;
+
+  strong {
+    color: $green;
+    font: 600 23px 'Lora', Georgia, serif;
+  }
+}
+
+.applied-coupon {
+  padding: 8px 10px;
+  border-radius: 7px;
+  background: $green-soft;
+  color: $green;
+  font-size: 11px;
+}
+
+.place-order { width: 100%; }
+
+.secure-note {
+  margin: 10px 0 0;
+  color: $muted;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.error-message {
+  margin: 10px 0;
+  color: $error;
+  font-size: 12px;
+}
+
+.checkout-message {
+  max-width: 520px;
+  margin: 30px auto;
+  text-align: center;
+
+  h2 { font: 600 22px 'Lora', Georgia, serif; }
+  p { color: $muted; font-size: 13px; }
+  a { color: $green; font-size: 13px; }
+}
+
+.success { border-color: $green; }
+
+@media (max-width: 760px) {
+  .checkout-page { padding: 20px 12px 36px; }
+
+  .checkout-header h1 { font-size: 25px; }
+
+  .checkout-layout { grid-template-columns: 1fr; }
+
+  .checkout-summary {
+    position: static;
+    grid-row: 1;
+  }
+
+  .panel { padding: 15px; }
+}

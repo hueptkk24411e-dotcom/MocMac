@@ -58,17 +58,27 @@ import { ToastService } from './toast.service';
           <h3>{{ editing() ? 'Sửa' : 'Thêm' }} mã giảm giá</h3>
              <div class="form-grid">
             <input class="form-input" placeholder="Mã" [(ngModel)]="form.code" />
+            <input class="form-input" placeholder="Mô tả ưu đãi" [(ngModel)]="form.description" />
+            <select class="form-input" [(ngModel)]="form.scope">
+              <option value="order">Giảm giá đơn hàng</option>
+              <option value="shipping">Giảm phí vận chuyển</option>
+            </select>
             <select class="form-input" [(ngModel)]="form.discountType">
               <option value="percent">Phần trăm (%)</option>
               <option value="fixed">Số tiền (đ)</option>
             </select>
             <input class="form-input" placeholder="Giá trị giảm" type="number" [(ngModel)]="form.discountValue" />
+            <input class="form-input" placeholder="Giảm tối đa (0 = không giới hạn)" type="number" [(ngModel)]="form.maxDiscount" />
             <input class="form-input" placeholder="Số lượng" type="number" [(ngModel)]="form.usageLimit" />
             <input class="form-input" placeholder="Ngày hết hạn" type="date" [(ngModel)]="form.expiryDate" />
             <input class="form-input" placeholder="Tối thiểu (đơn)" type="number" [(ngModel)]="form.minOrderValue" />
             <label class="checkbox">
               <input type="checkbox" [(ngModel)]="form.active" />
               <span>Hoạt động</span>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" [(ngModel)]="form.firstOrderOnly" />
+              <span>Chỉ khách đặt đơn đầu tiên</span>
             </label>
           </div>
           <div class="form-actions">
@@ -84,6 +94,7 @@ import { ToastService } from './toast.service';
             <tr>
               <th>Mã</th>
               <th>Giảm giá</th>
+              <th>Phạm vi</th>
               <th>Đã dùng</th>
               <th>Hết hạn</th>
               <th>Trạng thái</th>
@@ -95,6 +106,7 @@ import { ToastService } from './toast.service';
               <tr>
                 <td>{{ c.code }}</td>
                 <td>{{ c.discountType === 'percent' ? (c.discountValue + '%') : (c.discountValue + 'đ') }}</td>
+                <td>{{ c.scope === 'shipping' ? 'Phí vận chuyển' : (c.firstOrderOnly ? 'Đơn đầu tiên' : 'Đơn hàng') }}</td>
                 <td>{{ c.usedCount || 0 }}/{{ c.usageLimit }}</td>
                 <td>{{ c.expiryDate | date:'shortDate' }}</td>
                 <td>
@@ -108,7 +120,7 @@ import { ToastService } from './toast.service';
                 </td>
               </tr>
             } @empty {
-              <tr><td colspan="6">Chưa có mã giảm giá.</td></tr>
+              <tr><td colspan="7">Chưa có mã giảm giá.</td></tr>
             }
           </tbody>
         </table>
@@ -176,7 +188,7 @@ export class AdminCouponsComponent {
 
   startCreate(): void {
     this.editing.set(null);
-    this.form = { code: '', discountType: 'percent', discountValue: 0, usageLimit: 0, expiryDate: '', minOrderValue: 0, active: true };
+    this.form = { code: '', description: '', scope: 'order', discountType: 'percent', discountValue: 0, maxDiscount: 0, usageLimit: 0, expiryDate: '', minOrderValue: 0, firstOrderOnly: false, active: true };
   }
 
   editCoupon(c: any): void {

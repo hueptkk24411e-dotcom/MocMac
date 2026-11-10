@@ -1,5 +1,75 @@
 import { Coupon } from '../models/Coupon.js';
 import { logAction, getRequestInfo } from '../utils/auditLog.js';
+import { calculateCouponDiscount, isCouponEligible } from '../utils/coupon.js';
+import { Order } from '../models/Order.js';
+
+export const getAvailableCoupons = async (req, res) => {
+  try {
+    const orderTotal = Math.max(0, Number(req.query.orderTotal) || 0);
+    const shipping = Math.max(0, Number(req.query.shipping) || 0);
+    const now = new Date();
+    const coupons = await Coupon.find({
+      active: true,
+      expiryDate: { $gte: now },
+      $or: [
+        { usageLimit: { $lte: 0 } },
+        { usageLimit: { $exists: false } },
+        { $expr: { $lt: ['$usedCount', '$usageLimit'] } },
+      ],
+    })
+      .sort({ expiryDate: 1, createdAt: -1 })
+      .limit(50)
+      .select('+redeemedBy')
+      .lean();
+    const hasPreviousOrder = Boolean(await Order.exists({ user: req.user.id }));
+
+    return res.json({
+      success: true,
+      coupons: coupons.map((coupon) => {
+        const alreadyRedeemed = coupon.redeemedBy?.some(
+          (userId) => String(userId) === String(req.user.id)
+        );
+        const eligible =
+          isCouponEligible(coupon, orderTotal, now) &&
+          (!coupon.firstOrderOnly || (!hasPreviousOrder && !alreadyRedeemed)) &&
+          (coupon.scope !== 'shipping' || shipping > 0);
+        let unavailableReason = '';
+        if (coupon.firstOrderOnly && (hasPreviousOrder || alreadyRedeemed)) {
+          unavailableReason = 'Chỉ áp dụng cho khách hàng đặt đơn đầu tiên.';
+        } else if (coupon.scope === 'shipping' && shipping <= 0) {
+          unavailableReason = 'Đơn hàng đã được miễn phí vận chuyển.';
+        } else if (orderTotal < Number(coupon.minOrderValue || 0)) {
+          unavailableReason = `Đơn tối thiểu ${Number(coupon.minOrderValue).toLocaleString('vi-VN')}đ.`;
+        } else if (!coupon.active || new Date(coupon.expiryDate) < now) {
+          unavailableReason = 'Voucher đã hết hạn hoặc hết hiệu lực.';
+        } else if (coupon.usageLimit > 0 && coupon.usedCount >= coupon.usageLimit) {
+          unavailableReason = 'Voucher đã hết lượt sử dụng.';
+        }
+        return {
+          _id: coupon._id,
+          code: coupon.code,
+          description: coupon.description,
+          discountType: coupon.discountType,
+          discountValue: coupon.discountValue,
+          scope: coupon.scope ?? 'order',
+          firstOrderOnly: coupon.firstOrderOnly ?? false,
+          minOrderValue: coupon.minOrderValue,
+          maxDiscount: coupon.maxDiscount,
+          expiryDate: coupon.expiryDate,
+          eligible,
+          unavailableReason,
+          discountAmount: eligible
+            ? calculateCouponDiscount(coupon, orderTotal, shipping)
+            : 0,
+        };
+      }),
+    });
+  } catch (error) {
+    console.error('❌ Lỗi lấy voucher khả dụng:', error);
+    return res.status(500).json({ success: false, message: 'Không thể lấy danh sách ưu đãi.' });
+  }
+};
+
 export const getAllCoupons = async (req, res) => {
   try {
     const page = Math.max(1, Number(req.query.page) || 1);
@@ -42,7 +112,6 @@ export const getAllCoupons = async (req, res) => {
 
 export const getCouponByCode = async (req, res) => {
   try {
-    const isExpired = (d) => new Date(d) < new Date();
     const coupon = await Coupon.findOne({ code: req.params.code.toUpperCase() }).lean();
     if (!coupon) {
       return res.status(404).json({ success: false, message: 'Mã giảm giá không tồn tại.' });
@@ -50,7 +119,7 @@ export const getCouponByCode = async (req, res) => {
     if (!coupon.active) {
       return res.status(400).json({ success: false, message: 'Mã giảm giá đã hết/hết hiệu lực.' });
     }
-    if (isExpired(coupon.expiryDate)) {
+    if (new Date(coupon.expiryDate) < new Date()) {
       return res.status(400).json({ success: false, message: 'Mã giảm giá đã hết hạn.' });
     }
     if (coupon.usageLimit > 0 && coupon.usedCount >= coupon.usageLimit) {
@@ -84,20 +153,14 @@ export const validateCoupon = async (req, res) => {
     if (coupon.usageLimit > 0 && coupon.usedCount >= coupon.usageLimit) {
       return res.status(400).json({ success: false, message: 'Mã giảm giá đã hết lượt sử dụng.' });
     }
-    if (coupon.minOrderValue > 0 && Number(orderTotal || 0) < coupon.minOrderValue) {
+    if (!isCouponEligible(coupon, Number(orderTotal || 0))) {
       return res.status(400).json({
         success: false,
         message: `Đơn hàng tối thiểu ${coupon.minOrderValue.toLocaleString('vi-VN')}đ để áp dụng mã này.`,
       });
     }
 
-    let discountAmount = 0;
-    if (coupon.discountType === 'percent') {
-      discountAmount = Math.round((Number(orderTotal || 0) * coupon.discountValue) / 100);
-      if (coupon.maxDiscount > 0) discountAmount = Math.min(discountAmount, coupon.maxDiscount);
-    } else {
-      discountAmount = coupon.discountValue;
-    }
+    const discountAmount = calculateCouponDiscount(coupon, Number(orderTotal || 0));
 
     return res.json({
       success: true,
@@ -124,7 +187,18 @@ export const validateCoupon = async (req, res) => {
 
 export const createCoupon = async (req, res) => {
   try {
-    const { code, description, discountType, discountValue, minOrderValue, maxDiscount, usageLimit, expiryDate } = req.body ?? {};
+    const {
+      code,
+      description,
+      discountType,
+      discountValue,
+      minOrderValue,
+      maxDiscount,
+      usageLimit,
+      expiryDate,
+      scope,
+      firstOrderOnly,
+    } = req.body ?? {};
     if (!code || !discountValue) {
       return res.status(400).json({ success: false, message: 'Vui lòng nhập mã và giá trị giảm.' });
     }
@@ -134,6 +208,8 @@ export const createCoupon = async (req, res) => {
       description: description ?? '',
       discountType: discountType ?? 'percent',
       discountValue,
+      scope: scope ?? 'order',
+      firstOrderOnly: firstOrderOnly === true,
       minOrderValue: minOrderValue ?? 0,
       maxDiscount: maxDiscount ?? 0,
       usageLimit: usageLimit ?? 0,
@@ -159,10 +235,34 @@ export const createCoupon = async (req, res) => {
 
 export const updateCoupon = async (req, res) => {
   try {
-    const { code, description, discountType, discountValue, minOrderValue, maxDiscount, usageLimit, expiryDate, active } = req.body ?? {};
+    const {
+      code,
+      description,
+      discountType,
+      discountValue,
+      minOrderValue,
+      maxDiscount,
+      usageLimit,
+      expiryDate,
+      active,
+      scope,
+      firstOrderOnly,
+    } = req.body ?? {};
     const updated = await Coupon.findByIdAndUpdate(
       req.params.id,
-      { code, description, discountType, discountValue, minOrderValue, maxDiscount, usageLimit, expiryDate, active },
+      {
+        code,
+        description,
+        discountType,
+        discountValue,
+        minOrderValue,
+        maxDiscount,
+        usageLimit,
+        expiryDate,
+        active,
+        scope,
+        firstOrderOnly,
+      },
       { new: true, runValidators: true }
     );
     if (!updated) {

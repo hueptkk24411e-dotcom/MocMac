@@ -8,6 +8,7 @@
     "start": "node src/index.js",
     "upload-server": "node --watch src/upload-server.js",
     "seed": "node src/seed.js",
+    "seed:checkout-vouchers": "node src/seed-checkout-vouchers.js",
     "migrate-images": "node src/migrate-images.js"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "express": "^5.1.0",
     "express-async-handler": "^1.2.0",
     "express-rate-limit": "^8.7.1",
+    "firebase-admin": "^14.5.0",
     "helmet": "^8.3.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.24.5",

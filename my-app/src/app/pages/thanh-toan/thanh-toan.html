@@ -1,0 +1,228 @@
+<main class="checkout-page">
+  <div class="checkout-container">
+    <header class="checkout-header">
+      <a routerLink="/gio-hang" class="back-link">← Quay lại giỏ hàng</a>
+      <h1>Thanh toán</h1>
+      <p>Kiểm tra sản phẩm, phí vận chuyển và ưu đãi trước khi đặt hàng.</p>
+    </header>
+
+    @if (status() === 'success') {
+      <section class="checkout-message success">
+        <h2>Đặt hàng thành công</h2>
+        <p>Cảm ơn bạn đã mua đặc sản Mộc Mạc.</p>
+        <a routerLink="/don-hang">Xem đơn hàng</a>
+      </section>
+    } @else if (status() === 'fail' || status() === 'error') {
+      <section class="checkout-message error-message">
+        <h2>Thanh toán chưa hoàn tất</h2>
+        <p>Đơn VNPAY chưa được xác nhận. Vui lòng kiểm tra đơn hàng hoặc thử lại.</p>
+        <a routerLink="/don-hang">Xem đơn hàng</a>
+      </section>
+    } @else if (!items().length) {
+      <section class="checkout-message">
+        <h2>Giỏ hàng đang trống</h2>
+        <p>Thêm sản phẩm vào giỏ trước khi thanh toán.</p>
+        <a routerLink="/san-pham">Tiếp tục mua sắm</a>
+      </section>
+    } @else if (!authenticated()) {
+      <section class="checkout-message">
+        <h2>Đăng nhập để thanh toán</h2>
+        <p>Đăng nhập để dùng sổ địa chỉ và lưu đơn hàng vào tài khoản.</p>
+        <button type="button" class="primary-button" (click)="goToLogin()">Đăng nhập</button>
+      </section>
+    } @else {
+      <div class="checkout-layout">
+        <section class="checkout-main">
+          <section class="panel address-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="step-number">1</span>
+                <h2>Địa chỉ nhận hàng</h2>
+              </div>
+              @if (!addingAddress() && addresses().length < 10) {
+                <button type="button" class="text-button" (click)="addAddress()">+ Thêm địa chỉ</button>
+              }
+            </div>
+
+            @if (addressesLoading()) {
+              <p class="muted">Đang tải địa chỉ...</p>
+            } @else {
+              @if (addresses().length && !addingAddress()) {
+                <div class="address-list">
+                  @for (address of addresses(); track address._id) {
+                    <button
+                      type="button"
+                      class="address-card"
+                      [class.selected]="selectedAddressId() === address._id"
+                      [attr.aria-pressed]="selectedAddressId() === address._id"
+                      (click)="selectAddress(address)">
+                      <span class="radio-mark">{{ selectedAddressId() === address._id ? '●' : '○' }}</span>
+                      <span class="address-content">
+                        <span class="address-contact">
+                          <strong>{{ address.name }}</strong>
+                          <span>{{ address.phone }}</span>
+                          @if (address.isDefault) { <small>Mặc định</small> }
+                        </span>
+                        <span class="address-text">{{ address.address }}</span>
+                      </span>
+                    </button>
+                  }
+                </div>
+              }
+
+              @if (addingAddress()) {
+                <div class="address-form">
+                  <label>Họ tên người nhận
+                    <input type="text" [ngModel]="customerName()" (ngModelChange)="customerName.set($event)" placeholder="Nguyễn Văn A" />
+                  </label>
+                  <label>Số điện thoại
+                    <input type="tel" [ngModel]="customerPhone()" (ngModelChange)="customerPhone.set($event)" placeholder="09xx xxx xxx" />
+                  </label>
+                  <label>Địa chỉ chi tiết
+                    <textarea rows="3" [ngModel]="customerAddress()" (ngModelChange)="customerAddress.set($event)" placeholder="Số nhà, đường, phường/xã, tỉnh/thành phố"></textarea>
+                  </label>
+                  <div class="address-actions">
+                    <button type="button" class="primary-button" [disabled]="savingAddress()" (click)="saveAddress()">
+                      {{ savingAddress() ? 'Đang lưu...' : 'Lưu địa chỉ' }}
+                    </button>
+                    @if (addresses().length) {
+                      <button type="button" class="secondary-button" (click)="cancelAddAddress()">Hủy</button>
+                    }
+                  </div>
+                </div>
+              }
+            }
+          </section>
+
+          <section class="panel products-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="step-number">2</span>
+                <h2>Sản phẩm</h2>
+              </div>
+              <a routerLink="/gio-hang" class="text-button">Sửa giỏ hàng</a>
+            </div>
+            @for (item of items(); track item.id) {
+              <article class="checkout-item">
+                @if (item.imageUrl) {
+                  <img [src]="item.imageUrl" [alt]="item.name" />
+                } @else {
+                  <div class="product-placeholder" aria-hidden="true">M</div>
+                }
+                <div class="product-info">
+                  <strong>{{ item.name }}</strong>
+                  <span>{{ vnd(item.price) }} × {{ item.quantity }}</span>
+                </div>
+                <strong class="item-total">{{ vnd(item.price * item.quantity) }}</strong>
+              </article>
+            }
+            <label class="note-field">Lời nhắn cho cửa hàng
+              <textarea rows="2" [ngModel]="orderNote()" (ngModelChange)="orderNote.set($event)" placeholder="Ghi chú giao hàng (không bắt buộc)"></textarea>
+            </label>
+          </section>
+
+          <section class="panel voucher-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="step-number">3</span>
+                <h2>Voucher của bạn</h2>
+              </div>
+              @if (selectedCoupon()) {
+                <button type="button" class="text-button" (click)="selectedCoupon.set(null)">Bỏ chọn</button>
+              }
+            </div>
+            @if (couponsLoading()) {
+              <p class="muted">Đang tải voucher...</p>
+            } @else if (availableCoupons().length) {
+              <div class="voucher-list">
+                @for (coupon of availableCoupons(); track coupon._id) {
+                  <button
+                    type="button"
+                    class="voucher-card"
+                    [class.selected]="selectedCoupon()?.code === coupon.code"
+                    [class.unavailable]="!coupon.eligible"
+                    [disabled]="!coupon.eligible"
+                    [attr.aria-pressed]="selectedCoupon()?.code === coupon.code"
+                    (click)="selectCoupon(coupon)">
+                    <span class="voucher-icon">{{ coupon.scope === 'shipping' ? 'SHIP' : '%' }}</span>
+                    <span class="voucher-copy">
+                      <strong>{{ coupon.code }}</strong>
+                      <span>{{ coupon.description }}</span>
+                      <small>
+                        @if (coupon.eligible) {
+                          @if (coupon.scope === 'shipping') {
+                            Giảm phí vận chuyển {{ vnd(coupon.discountAmount) }}
+                          } @else {
+                            Giảm {{ coupon.discountValue }}% · tiết kiệm {{ vnd(coupon.discountAmount) }} cho đơn này
+                          }
+                        } @else {
+                          {{ coupon.unavailableReason }}
+                        }
+                      </small>
+                    </span>
+                    <span class="voucher-choice">{{ selectedCoupon()?.code === coupon.code ? '✓' : (coupon.eligible ? 'Chọn' : 'Không áp dụng') }}</span>
+                  </button>
+                }
+              </div>
+            } @else {
+              <p class="muted">Hiện chưa có voucher khả dụng cho đơn hàng này.</p>
+            }
+          </section>
+
+          <section class="panel payment-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="step-number">4</span>
+                <h2>Phương thức thanh toán</h2>
+              </div>
+            </div>
+            <label class="payment-choice">
+              <input type="radio" name="payment" [checked]="paymentMethod() === 'cod'" (change)="paymentMethod.set('cod')" />
+              <span>Thanh toán khi nhận hàng (COD)</span>
+            </label>
+            <label class="payment-choice">
+              <input type="radio" name="payment" [checked]="paymentMethod() === 'vnpay'" (change)="paymentMethod.set('vnpay')" />
+              <span>VNPAY (sandbox test)</span>
+            </label>
+          </section>
+        </section>
+
+        <aside class="checkout-summary panel">
+          <h2>Chi tiết thanh toán</h2>
+          <div class="summary-row">
+            <span>Tạm tính sản phẩm</span>
+            <strong>{{ vnd(subtotal()) }}</strong>
+          </div>
+          <div class="summary-row">
+            <span>Phí vận chuyển</span>
+            <strong>{{ shipping() ? vnd(shipping()) : 'Miễn phí' }}</strong>
+          </div>
+          @if (orderDiscount()) {
+            <div class="summary-row discount-row">
+              <span>Voucher {{ selectedCoupon()?.code }}</span>
+              <strong>−{{ vnd(orderDiscount()) }}</strong>
+            </div>
+          }
+          @if (shippingDiscount()) {
+            <div class="summary-row discount-row">
+              <span>Giảm phí ship ({{ selectedCoupon()?.code }})</span>
+              <strong>−{{ vnd(shippingDiscount()) }}</strong>
+            </div>
+          }
+          @if (selectedCoupon(); as coupon) {
+            <div class="applied-coupon">✓ Đã chọn {{ coupon.code }}</div>
+          }
+          <div class="summary-total">
+            <span>Tổng thanh toán</span>
+            <strong>{{ vnd(total()) }}</strong>
+          </div>
+          @if (error()) { <p class="error-message">{{ error() }}</p> }
+          <button type="button" class="primary-button place-order" [disabled]="paying() || addressesLoading()" (click)="checkout()">
+            {{ paying() ? 'Đang xử lý...' : (paymentMethod() === 'cod' ? 'Đặt hàng' : 'Thanh toán VNPAY') }}
+          </button>
+          <p class="secure-note">Địa chỉ và voucher sẽ được kiểm tra lại khi tạo đơn.</p>
+        </aside>
+      </div>
+    }
+  </div>
+</main>

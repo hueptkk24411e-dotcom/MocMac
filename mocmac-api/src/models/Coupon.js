@@ -6,6 +6,13 @@ const couponSchema = new mongoose.Schema(
     description: { type: String, default: '' },
     discountType: { type: String, enum: ['percent', 'fixed'], default: 'percent' },
     discountValue: { type: Number, required: true },
+    scope: { type: String, enum: ['order', 'shipping'], default: 'order' },
+    firstOrderOnly: { type: Boolean, default: false },
+    redeemedBy: {
+      type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+      default: [],
+      select: false,
+    },
     minOrderValue: { type: Number, default: 0 },
     maxDiscount: { type: Number, default: 0 },
     usageLimit: { type: Number, default: 0 },

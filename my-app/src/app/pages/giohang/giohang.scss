@@ -448,51 +448,115 @@ $error: #b3401f;
 
 .coupon {
   margin-bottom: 16px;
+  padding: 14px;
+  border: 1px solid $border;
+  border-radius: 12px;
+  background: #fff;
 
-  label {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    color: $text-muted;
+  .coupon-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    strong {
+      font-size: 13px;
+      color: $text-main;
+    }
+
+    small {
+      font-size: 11px;
+      color: $text-muted;
+    }
   }
 
-  .coupon-row {
+  .coupon-clear {
+    border: 0;
+    background: transparent;
+    color: $green-accent;
+    font: 600 11px 'Be Vietnam Pro', sans-serif;
+    cursor: pointer;
+  }
+
+  .coupon-list {
     display: flex;
+    flex-direction: column;
     gap: 8px;
+  }
 
-    input {
-      flex: 1;
-      min-width: 0;
-      height: 40px;
-      padding: 0 12px;
-      border: 1px solid $border-strong;
-      border-radius: 8px;
-      background: #f7f7f2;
-      font: 400 13px 'Be Vietnam Pro', sans-serif;
-      color: $text-main;
-      outline: none;
+  .coupon-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $border-strong;
+    border-radius: 9px;
+    background: #fff;
+    color: $text-main;
+    text-align: left;
+    cursor: pointer;
 
-      &:focus {
-        border-color: $green-accent;
-        background: #ffffff;
-      }
+    &.selected {
+      border-color: $green-accent;
+      background: $cream-soft;
     }
 
-    button {
-      height: 40px;
-      padding: 0 16px;
-      border: none;
-      border-radius: 8px;
-      background: $green-soft;
-      color: $green-btn;
-      font: 600 12.5px 'Be Vietnam Pro', sans-serif;
-      cursor: pointer;
-
-      &:hover {
-        background: #d8e3d6;
-      }
+    &.unavailable {
+      opacity: .58;
+      cursor: not-allowed;
     }
+  }
+
+  .coupon-ticket {
+    display: grid;
+    flex: 0 0 30px;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    background: $green-soft;
+    color: $green-btn;
+    font-weight: 700;
+  }
+
+  .coupon-details {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    gap: 2px;
+
+    strong {
+      font-size: 12px;
+    }
+
+    span,
+    small {
+      font-size: 10.5px;
+      color: $text-muted;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .coupon-check {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 600;
+    color: $green-accent;
+  }
+
+  .coupon-empty {
+    display: block;
+    padding: 8px 0;
+    color: $text-muted;
   }
 
   .error {
@@ -518,11 +582,116 @@ $error: #b3401f;
   border: 1px solid $border;
 
   h3 {
-    margin: 0 0 12px;
+    margin: 0;
     font-family: 'Lora', Georgia, serif;
     font-size: 15px;
     font-weight: 600;
     color: $text-main;
+  }
+
+  .address-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .address-add,
+  .address-save,
+  .address-cancel {
+    border: 1px solid $green-accent;
+    border-radius: 7px;
+    padding: 7px 10px;
+    background: #fff;
+    color: $green-btn;
+    font: 600 11px 'Be Vietnam Pro', sans-serif;
+    cursor: pointer;
+  }
+
+  .address-save {
+    background: $green-btn;
+    color: #fff;
+
+    &:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+  }
+
+  .address-cancel {
+    border-color: $border-strong;
+    color: $text-muted;
+  }
+
+  .address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .address-option {
+    display: flex;
+    width: 100%;
+    gap: 9px;
+    padding: 10px;
+    border: 1px solid $border-strong;
+    border-radius: 8px;
+    background: #fff;
+    color: $text-main;
+    text-align: left;
+    cursor: pointer;
+
+    &.selected {
+      border-color: $green-accent;
+      background: #fff;
+    }
+  }
+
+  .address-radio {
+    flex: 0 0 18px;
+    color: $green-accent;
+    font-size: 15px;
+  }
+
+  .address-details {
+    display: flex;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 3px 8px;
+
+    strong,
+    span {
+      font-size: 11.5px;
+    }
+
+    small {
+      flex-basis: 100%;
+      font-size: 10.5px;
+      color: $text-muted;
+      overflow-wrap: anywhere;
+    }
+
+    .address-label {
+      color: $green-accent;
+    }
+  }
+
+  .address-form {
+    margin-top: 8px;
+  }
+
+  .address-form-actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .address-hint {
+    margin: 0 0 10px;
+    font-size: 11px;
+    color: $text-muted;
   }
 
   .form-row {

@@ -7,11 +7,13 @@ import {
   deleteCoupon,
   validateCoupon,
   getCouponByCode,
+  getAvailableCoupons,
 } from '../controllers/couponController.js';
 
 const router = Router();
 
 // Public (checkout)
+router.get('/available', requireAuth, getAvailableCoupons);
 router.get('/validate/:code', validateCoupon);
 router.get('/code/:code', getCouponByCode);
 

@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import {
   AbstractControl,
@@ -30,6 +30,7 @@ export class DangnhapComponent {
   private auth = inject(AuthService);
   private toast = inject(ToastService);
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
   readonly i18n = inject(I18nService);
   t(vi: string, en: string): string { return this.i18n.lang() === 'en' ? en : vi; }
 
@@ -245,6 +246,11 @@ export class DangnhapComponent {
 
         const email = (response.user?.email || '').toLowerCase();
         const isAdmin = email.endsWith('@admin.mocmac.vn') || response.user?.role === 'admin';
+        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+        if (returnUrl?.startsWith('/') && !returnUrl.startsWith('//') && !isAdmin) {
+          void this.router.navigateByUrl(returnUrl);
+          return;
+        }
         if (this.isAdminMode() || isAdmin) {
           this.router.navigate(['/admin']);
         } else {
@@ -272,6 +278,10 @@ export class DangnhapComponent {
         this.auth.saveSession(response, false);
         this.feedback.set({ type: 'success', message: this.t('Tạo tài khoản thành công.', 'Account created successfully.') });
         this.loading.set(false);
+        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+        if (returnUrl?.startsWith('/') && !returnUrl.startsWith('//')) {
+          void this.router.navigateByUrl(returnUrl);
+        }
       },
       error: (error: unknown) => {
         this.loading.set(false);
@@ -293,7 +303,41 @@ export class DangnhapComponent {
     this.feedback.set({ type: 'error', message });
   }
 
-  loginWithSocial(provider: 'google' | 'facebook'): void {
-    console.log('Đăng nhập bằng', provider);
+  async loginWithSocial(provider: 'google' | 'facebook'): Promise<void> {
+    if (provider !== 'google') {
+      this.toast.error(this.t('Đăng nhập Facebook chưa được cấu hình.', 'Facebook login is not configured.'));
+      return;
+    }
+
+    this.loading.set(true);
+    this.feedback.set(null);
+    try {
+      const response = await this.auth.loginWithGoogle();
+      this.auth.saveSession(response, false);
+      this.feedback.set({
+        type: 'success',
+        message: this.t(`Xin chào ${response.user.name}!`, `Hello ${response.user.name}!`),
+      });
+
+      const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+      if (returnUrl?.startsWith('/') && !returnUrl.startsWith('//') && response.user.role === 'customer') {
+        await this.router.navigateByUrl(returnUrl);
+      } else if (response.user.role === 'admin' || response.user.role === 'staff') {
+        await this.router.navigate(['/admin']);
+      } else {
+        await this.router.navigate(['']);
+      }
+    } catch (error: unknown) {
+      const message =
+        error instanceof HttpErrorResponse && typeof error.error?.message === 'string'
+          ? error.error.message
+          : error instanceof Error
+            ? error.message
+            : this.t('Đăng nhập Google thất bại. Vui lòng thử lại.', 'Google sign-in failed. Please try again.');
+      this.toast.error(message);
+      this.feedback.set({ type: 'error', message });
+    } finally {
+      this.loading.set(false);
+    }
   }
 }

@@ -16,6 +16,7 @@ const paymentSchema = new mongoose.Schema(
     note: { type: String, default: '' },
     couponCode: { type: String, default: '' },
     discountAmount: { type: Number, default: 0 },
+    shippingDiscount: { type: Number, default: 0 },
   },
   { timestamps: true }
 );

@@ -9,10 +9,14 @@ import {
   activateUser,
   deactivateUser,
   deleteUser,
+  getMyAddresses,
+  saveMyAddresses,
 } from '../controllers/userController.js';
 
 const router = Router();
 
+router.get('/me/addresses', requireAuth, getMyAddresses);
+router.put('/me/addresses', requireAuth, saveMyAddresses);
 router.get('/', requireAuth, requireRole('admin', 'staff'), requirePermission('users.view'), getAllUsers);
 router.post('/', requireAuth, requireRole('admin'), requirePermission('users.create'), createUser);
 router.get('/:id', requireAuth, requireRole('admin', 'staff'), requirePermission('users.view'), getUserById);

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 export interface AuthUser {
   id: string;
@@ -26,6 +27,27 @@ export class AuthService {
 
   login(identifier: string, password: string): Observable<AuthResponse> {
     return this.http.post<AuthResponse>('/api/auth/login', { identifier, password });
+  }
+
+  async loginWithGoogle(): Promise<AuthResponse> {
+    const config = environment.firebase;
+    if (!config.apiKey || !config.authDomain || !config.projectId || !config.appId) {
+      throw new Error('Chưa cấu hình Firebase Web App trong my-app/src/environments/firebase.config.ts.');
+    }
+
+    const [{ getApps, initializeApp }, { getAuth, GoogleAuthProvider, signInWithPopup }] =
+      await Promise.all([import('firebase/app'), import('firebase/auth')]);
+    const app =
+      getApps().find((firebaseApp) => firebaseApp.name === 'mocmac-google-auth') ??
+      initializeApp(config, 'mocmac-google-auth');
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+
+    const result = await signInWithPopup(getAuth(app), provider);
+    const idToken = await result.user.getIdToken();
+    return firstValueFrom(
+      this.http.post<AuthResponse>('/api/auth/google', { idToken }),
+    );
   }
 
   register(payload: {

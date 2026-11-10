@@ -1,4 +1,7 @@
 import bcrypt from 'bcryptjs';
+import { randomBytes } from 'node:crypto';
+import { getAuth } from 'firebase-admin/auth';
+import { getApps, initializeApp } from 'firebase-admin/app';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/User.js';
 import { logAction, getRequestInfo } from '../utils/auditLog.js';
@@ -15,6 +18,78 @@ const toPublicUser = (user) => ({
   email: user.email,
   role: user.role,
 });
+
+const getFirebaseAuth = () => {
+  const projectId = process.env.FIREBASE_PROJECT_ID?.trim();
+  if (!projectId) {
+    throw new Error('FIREBASE_PROJECT_ID is required for Google sign-in');
+  }
+
+  const appName = 'mocmac-google-auth';
+  const app =
+    getApps().find((firebaseApp) => firebaseApp.name === appName) ??
+    initializeApp({ projectId }, appName);
+  return getAuth(app);
+};
+
+export const loginWithGoogle = async (req, res) => {
+  const { idToken } = req.body ?? {};
+  if (typeof idToken !== 'string' || idToken.length === 0 || idToken.length > 12_000) {
+    return res.status(400).json({ message: 'Firebase ID token không hợp lệ.' });
+  }
+
+  const firebaseAuth = getFirebaseAuth();
+  let claims;
+  try {
+    claims = await firebaseAuth.verifyIdToken(idToken);
+  } catch {
+    return res.status(401).json({ message: 'Phiên đăng nhập Google không hợp lệ hoặc đã hết hạn.' });
+  }
+
+  const email = String(claims.email ?? '').trim().toLowerCase();
+  if (
+    claims.firebase?.sign_in_provider !== 'google.com' ||
+    claims.email_verified !== true ||
+    !email
+  ) {
+    return res.status(401).json({ message: 'Tài khoản Google chưa xác minh email.' });
+  }
+
+  let user = await User.findOne({ email });
+  if (!user) {
+    try {
+      user = await User.create({
+        name: String(claims.name ?? '').trim() || email.split('@')[0],
+        email,
+        passwordHash: await bcrypt.hash(randomBytes(32).toString('hex'), 10),
+        role: 'customer',
+      });
+    } catch (error) {
+      if (error?.code !== 11000) {
+        throw error;
+      }
+      user = await User.findOne({ email });
+      if (!user) {
+        throw error;
+      }
+    }
+  }
+
+  if (user.isActive === false) {
+    return res.status(403).json({ message: 'Tài khoản đã bị khóa.' });
+  }
+
+  const { ip } = getRequestInfo(req);
+  await logAction({
+    action: 'auth.google_login_success',
+    resourceType: 'Auth',
+    user,
+    ip,
+    details: { email: user.email, role: user.role },
+  });
+
+  return res.json({ token: signToken(user), user: toPublicUser(user) });
+};
 
 export const login = async (req, res) => {
   const { identifier, password } = req.body ?? {};

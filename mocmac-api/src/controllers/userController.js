@@ -2,6 +2,93 @@ import bcrypt from 'bcryptjs';
 import { User } from '../models/User.js';
 import { logAction, getRequestInfo } from '../utils/auditLog.js';
 
+export const getMyAddresses = async (req, res) => {
+  const user = await User.findById(req.user.id).select('name phone addresses').lean();
+  if (!user) {
+    return res.status(404).json({ success: false, message: 'Không tìm thấy tài khoản.' });
+  }
+
+  return res.json({
+    success: true,
+    profile: { name: user.name, phone: user.phone },
+    addresses: user.addresses ?? [],
+  });
+};
+
+export const saveMyAddresses = async (req, res) => {
+  const { addresses } = req.body ?? {};
+  if (!Array.isArray(addresses) || addresses.length > 10) {
+    return res.status(400).json({
+      success: false,
+      message: 'Danh sách địa chỉ không hợp lệ (tối đa 10 địa chỉ).',
+    });
+  }
+
+  const user = await User.findById(req.user.id);
+  if (!user) {
+    return res.status(404).json({ success: false, message: 'Không tìm thấy tài khoản.' });
+  }
+  const existingAddressIds = new Set(user.addresses.map((address) => String(address._id)));
+
+  const normalized = [];
+  const seenAddressIds = new Set();
+  for (const address of addresses) {
+    const name = String(address?.name ?? '').trim();
+    const phone = String(address?.phone ?? '').trim();
+    const fullAddress = String(address?.address ?? '').trim();
+    const label = String(address?.label ?? 'Nhà').trim() || 'Nhà';
+
+    if (!name || !phone || !fullAddress) {
+      return res.status(400).json({
+        success: false,
+        message: 'Mỗi địa chỉ cần có họ tên, số điện thoại và địa chỉ nhận hàng.',
+      });
+    }
+    if (name.length > 100 || phone.length > 20 || fullAddress.length > 500 || label.length > 40) {
+      return res.status(400).json({ success: false, message: 'Thông tin địa chỉ vượt quá độ dài cho phép.' });
+    }
+    if (address?._id) {
+      const addressId = String(address._id);
+      if (!existingAddressIds.has(addressId) || seenAddressIds.has(addressId)) {
+        return res.status(400).json({ success: false, message: 'Địa chỉ không hợp lệ.' });
+      }
+      seenAddressIds.add(addressId);
+    }
+
+    normalized.push({
+      ...(address._id ? { _id: address._id } : {}),
+      name,
+      phone,
+      address: fullAddress,
+      label,
+      isDefault: address.isDefault === true,
+    });
+  }
+
+  if (normalized.length && !normalized.some((address) => address.isDefault)) {
+    normalized[0].isDefault = true;
+  }
+  let defaultAssigned = false;
+  for (const address of normalized) {
+    address.isDefault = address.isDefault && !defaultAssigned;
+    defaultAssigned ||= address.isDefault;
+  }
+
+  user.addresses = normalized;
+  const defaultAddress = normalized.find((address) => address.isDefault);
+  if (defaultAddress) {
+    user.name = defaultAddress.name;
+    user.phone = defaultAddress.phone;
+  }
+  await user.save();
+
+  return res.json({
+    success: true,
+    message: 'Đã lưu sổ địa chỉ.',
+    addresses: user.addresses,
+  });
+};
+
 export const getAllUsers = async (req, res) => {
   try {
     const page = Math.max(1, Number(req.query.page) || 1);

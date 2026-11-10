@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { signal } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { afterEach } from 'vitest';
 import { CartService } from '../../cart.service';
 import { ProductItem, ProductsService } from '../../products.service';
 import { GiohangComponent } from './giohang';
@@ -30,6 +31,8 @@ describe('GiohangComponent', () => {
     badges: [],
     images: [],
   };
+
+  afterEach(() => TestBed.inject(CartService).clear());
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

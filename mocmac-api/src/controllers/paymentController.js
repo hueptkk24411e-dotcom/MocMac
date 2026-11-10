@@ -4,39 +4,104 @@ import { Payment } from '../models/Payment.js';
 import { Coupon } from '../models/Coupon.js';
 import { generateOrderId, initStatusHistory, appendStatusHistory } from '../utils/orderUtils.js';
 import { buildVnpayPaymentUrl, verifyVnpayReturn } from '../utils/vnpay.js';
+import { calculateCouponDiscount, isCouponEligible } from '../utils/coupon.js';
 
 const FRONTEND_URL = (process.env.FRONTEND_URL || 'http://localhost:4200').replace(/\s+/g,'').replace(/\/+$/,'');
 
 export const createPayment = async (req, res) => {
+  let reservedCouponId = null;
   try {
     const { items, subtotal, discount = 0, shipping = 0, total, paymentMethod = 'cod', customerInfo, note = '', couponCode = '' } = req.body ?? {};
 
     if (!Array.isArray(items) || items.length === 0) {
       return res.status(400).json({ success: false, message: 'Đơn hàng phải có ít nhất một sản phẩm.' });
     }
+    if (!['cod', 'vnpay'].includes(paymentMethod)) {
+      return res.status(400).json({ success: false, message: 'Phương thức thanh toán không hỗ trợ.' });
+    }
 
      if (typeof total !== 'number' || total < 0) {
       return res.status(400).json({ success: false, message: 'Tổng đơn hàng không hợp lệ.' });
     }
 
-    if (couponCode) {
-      const couponDoc = await Coupon.findOne({ code: String(couponCode).toUpperCase() });
-      if (couponDoc) {
-        await Coupon.updateOne(
-          { code: couponDoc.code },
-          { $inc: { usedCount: 1 } }
-        );
-      }
+    const orderSubtotal = Number(subtotal);
+    if (!Number.isFinite(orderSubtotal) || orderSubtotal < 0) {
+      return res.status(400).json({ success: false, message: 'Tạm tính đơn hàng không hợp lệ.' });
     }
+    const orderShipping = orderSubtotal === 0 || orderSubtotal >= 500000 ? 0 : 30000;
+    let orderDiscount = 0;
+    let shippingDiscount = 0;
+    let normalizedCouponCode = '';
+    let reservedCouponForUser = false;
+    if (couponCode) {
+      const code = String(couponCode).trim().toUpperCase();
+      const coupon = await Coupon.findOne({ code }).select('+redeemedBy').lean();
+      if (!coupon || !isCouponEligible(coupon, orderSubtotal)) {
+        return res.status(400).json({ success: false, message: 'Voucher đã hết hạn hoặc không đủ điều kiện áp dụng.' });
+      }
+      const hasPreviousOrder = Boolean(await Order.exists({ user: req.user.id }));
+      const alreadyRedeemed = coupon.redeemedBy?.some(
+        (userId) => String(userId) === String(req.user.id)
+      );
+      if (coupon.firstOrderOnly && (hasPreviousOrder || alreadyRedeemed)) {
+        return res.status(400).json({
+          success: false,
+          message: 'Voucher này chỉ áp dụng một lần cho khách hàng đặt đơn đầu tiên.',
+        });
+      }
+      if (coupon.scope === 'shipping' && orderShipping <= 0) {
+        return res.status(400).json({
+          success: false,
+          message: 'Đơn hàng đã được miễn phí vận chuyển.',
+        });
+      }
+
+      const couponDiscount = calculateCouponDiscount(coupon, orderSubtotal, orderShipping);
+      if (coupon.scope === 'shipping') {
+        shippingDiscount = couponDiscount;
+      } else {
+        orderDiscount = couponDiscount;
+      }
+      normalizedCouponCode = coupon.code;
+      const updatedCoupon = await Coupon.findOneAndUpdate(
+        {
+          _id: coupon._id,
+          active: true,
+          expiryDate: { $gte: new Date() },
+          $or: [
+            { usageLimit: { $lte: 0 } },
+            { usageLimit: { $exists: false } },
+            { $expr: { $lt: ['$usedCount', '$usageLimit'] } },
+          ],
+          ...(coupon.firstOrderOnly ? { redeemedBy: { $ne: req.user.id } } : {}),
+        },
+        {
+          $inc: { usedCount: 1 },
+          ...(coupon.firstOrderOnly ? { $addToSet: { redeemedBy: req.user.id } } : {}),
+        },
+        { new: true },
+      );
+      if (!updatedCoupon) {
+        return res.status(400).json({ success: false, message: 'Voucher vừa hết lượt sử dụng. Vui lòng chọn ưu đãi khác.' });
+      }
+      reservedCouponId = coupon._id;
+      reservedCouponForUser = coupon.firstOrderOnly === true;
+    }
+
+    const verifiedTotal = Math.max(
+      0,
+      orderSubtotal - orderDiscount + orderShipping - shippingDiscount
+    );
 
     const order = await Order.create({
       user: req.user ? req.user.id : null,
       orderId: generateOrderId(),
       items,
-      subtotal,
-      discount,
-      shipping,
-      total,
+      subtotal: orderSubtotal,
+      discount: orderDiscount,
+      shippingDiscount,
+      shipping: orderShipping,
+      total: verifiedTotal,
       paymentMethod,
       customerInfo: customerInfo ?? {},
       note: String(note || ''),
@@ -47,11 +112,12 @@ export const createPayment = async (req, res) => {
       const payment = await Payment.create({
         order: order._id,
         user: req.user ? req.user.id : null,
-        amount: total,
+        amount: verifiedTotal,
         method: 'cod',
         status: 'pending',
-        couponCode,
-        discountAmount: discount,
+        couponCode: normalizedCouponCode,
+        discountAmount: orderDiscount,
+        shippingDiscount,
       });
       order.paymentId = payment._id;
       order.paymentStatus = 'pending';
@@ -73,19 +139,20 @@ export const createPayment = async (req, res) => {
       const baseUrl = (process.env.BACKEND_URL || `http://localhost:${process.env.PORT||3000}`).replace(/\s+/g,'').replace(/\/+$/,'');
       const payUrl = isMock
         ? `${baseUrl}/api/payments/vnpay/mock?txnRef=${encodeURIComponent(txnRef)}`
-        : buildVnpayPaymentUrl({ amount: Math.round(Number(total)||0), orderId: txnRef, orderInfo, ipAddr, locale: 'vn' }).url;
+        : buildVnpayPaymentUrl({ amount: Math.round(verifiedTotal), orderId: txnRef, orderInfo, ipAddr, locale: 'vn' }).url;
 
       const payment = await Payment.create({
         order: order._id,
         user: req.user ? req.user.id : null,
-        amount: total,
+        amount: verifiedTotal,
         method: 'vnpay',
         status: 'pending',
         transactionId: txnRef,
         payUrl,
         note: isMock ? `${orderInfo} (VNPAY mock test)` : orderInfo,
-        couponCode,
-        discountAmount: discount,
+        couponCode: normalizedCouponCode,
+        discountAmount: orderDiscount,
+        shippingDiscount,
       });
 
       order.paymentId = payment._id;
@@ -104,6 +171,19 @@ export const createPayment = async (req, res) => {
     return res.status(400).json({ success: false, message: 'Phương thức thanh toán không hỗ trợ.' });
   } catch (error) {
     console.error('❌ Lỗi tạo thanh toán:', error);
+    if (reservedCouponId) {
+      try {
+        await Coupon.updateOne(
+          { _id: reservedCouponId, usedCount: { $gt: 0 } },
+          {
+            $inc: { usedCount: -1 },
+            ...(reservedCouponForUser ? { $pull: { redeemedBy: req.user.id } } : {}),
+          }
+        );
+      } catch (rollbackError) {
+        console.error('❌ Lỗi hoàn lại lượt sử dụng voucher:', rollbackError);
+      }
+    }
     return res.status(500).json({
       success: false,
       message: 'Không thể tạo thanh toán. Vui lòng thử lại.',
@@ -153,7 +233,7 @@ export const vnpayMockPay = async (req, res) => {
     const txnRef = String(req.body?.txnRef || req.query?.txnRef || '');
     const result = String(req.body?.result || req.query?.result || 'success');
     const payment = txnRef ? await Payment.findOne({ transactionId: txnRef, method: 'vnpay' }).exec() : null;
-    if (!payment) return res.redirect(303, `${FRONTEND_URL}/gio-hang?status=error&method=vnpay`);
+    if (!payment) return res.redirect(303, `${FRONTEND_URL}/thanh-toan?status=error&method=vnpay`);
     const ok = result === 'success';
     payment.status = ok ? 'completed' : 'failed';
     await payment.save();
@@ -163,9 +243,9 @@ export const vnpayMockPay = async (req, res) => {
       appendStatusHistory(order, { paymentStatus: order.paymentStatus, note: ok ? 'Thanh toán VNPAY test (mô phỏng) thành công' : 'Thanh toán VNPAY test (mô phỏng) thất bại' });
       await order.save();
     }
-    return res.redirect(303, `${FRONTEND_URL}/gio-hang?status=${ok ? 'success' : 'fail'}&method=vnpay`);
+    return res.redirect(303, `${FRONTEND_URL}/thanh-toan?status=${ok ? 'success' : 'fail'}&method=vnpay`);
   } catch (e) {
-    return res.redirect(303, `${FRONTEND_URL}/gio-hang?status=error&method=vnpay`);
+    return res.redirect(303, `${FRONTEND_URL}/thanh-toan?status=error&method=vnpay`);
   }
 };
 
@@ -185,12 +265,12 @@ export const vnpayReturn = async (req, res) => {
         appendStatusHistory(order, { paymentStatus: order.paymentStatus, note: ok ? 'Thanh toán VNPAY thành công' : `Thanh toán VNPAY thất bại (${result.code||'?'})` });
         await order.save();
       }
-      return res.redirect(303, `${FRONTEND_URL}/gio-hang?status=${ok ? 'success' : 'fail'}&method=vnpay`);
+      return res.redirect(303, `${FRONTEND_URL}/thanh-toan?status=${ok ? 'success' : 'fail'}&method=vnpay`);
     }
-    return res.redirect(303, `${FRONTEND_URL}/gio-hang?status=error&method=vnpay`);
+    return res.redirect(303, `${FRONTEND_URL}/thanh-toan?status=error&method=vnpay`);
   } catch (e) {
     console.error('VNPAY return error:', e);
-    return res.redirect(303, `${FRONTEND_URL}/gio-hang?status=error&method=vnpay`);
+    return res.redirect(303, `${FRONTEND_URL}/thanh-toan?status=error&method=vnpay`);
   }
 };
 
