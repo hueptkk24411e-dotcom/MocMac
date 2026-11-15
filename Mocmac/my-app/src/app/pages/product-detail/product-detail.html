@@ -1,0 +1,123 @@
+@if (showOrigin()) {
+  <app-product-origin [product]="product()" [loading]="productLoading()" [optionGroups]="optionGroups()" />
+} @else {
+<div class="product-page">
+  <nav class="detail-container breadcrumb" aria-label="Điều hướng">
+    <a routerLink="/">Trang chủ</a><span>/</span><a routerLink="/san-pham">Sản phẩm</a><span>/</span><span aria-current="page">{{ product()?.name || 'Chi tiết sản phẩm' }}</span>
+  </nav>
+  <main class="detail-container">
+    @if (productLoading()) { <div class="page-status" role="status">Đang tải thông tin sản phẩm…</div> }
+    @else if (product(); as p) {
+      <section class="product-main">
+        <div class="gallery">
+          <div class="image-stage" tabindex="0" aria-label="Thư viện ảnh sản phẩm" (keydown.arrowleft)="previousImage(); $event.preventDefault()" (keydown.arrowright)="nextImage(); $event.preventDefault()">
+            @if (selectedSlide(); as slide) { @if (!imageBroken()) { <img class="main-product-image" [src]="slide.src" [alt]="p.name + ' — ' + slide.label" [style.transform]="'scale(' + slide.zoom + ')'" [style.transform-origin]="slide.position" (error)="onImageError()" /> } @else { <div class="image-placeholder">Không tải được ảnh này. Bạn có thể chọn ảnh khác bên dưới.</div> } }
+            @else { <div class="image-placeholder">Hình ảnh đang được cập nhật</div> }
+            @if (gallerySlides().length > 1) {
+              <button type="button" class="gallery-arrow previous" (click)="previousImage()" aria-label="Ảnh trước">‹</button><button type="button" class="gallery-arrow next" (click)="nextImage()" aria-label="Ảnh tiếp theo">›</button>
+              <span class="gallery-caption">{{ selectedSlide()?.label }}</span><span class="gallery-counter" aria-live="polite">{{ selectedImageIndex() + 1 }} / {{ gallerySlides().length }}</span>
+            }
+          </div>
+          @if (productImages().length > 0) {
+            <div class="thumbnails" aria-label="Chọn hình ảnh">@for (slide of gallerySlides(); track slide.id; let index = $index) { <button type="button" [class.selected]="selectedImageIndex() === index" [attr.aria-label]="'Xem ảnh ' + (index + 1) + ' — ' + slide.label" [attr.aria-pressed]="selectedImageIndex() === index" (click)="selectImage(index)"><img [src]="slide.src" [alt]="slide.label" [style.transform]="'scale(' + slide.zoom + ')'" [style.transform-origin]="slide.position" /></button> }</div>
+          }
+          <div class="share-row"><span>Chia sẻ sản phẩm</span><button type="button" (click)="shareFacebook()">Facebook</button><button type="button" (click)="shareZalo()">Zalo</button><button type="button" (click)="copyProductLink()">Sao chép liên kết</button></div>
+          @if (shareMessage()) { <p class="share-feedback" role="status">{{ shareMessage() }}</p> }
+          @if (originQr(); as qr) {
+            <details class="origin-qr">
+              <summary>Truy xuất nguồn gốc</summary>
+              <div class="origin-qr-content">
+                <img [src]="qr.src" [alt]="'QR nguồn gốc ' + p.name" width="154" height="154" loading="lazy" />
+                <div>
+                  <a class="origin-preview" [href]="qr.target" target="_blank" rel="noopener noreferrer">
+                    Mở trang truy xuất <span aria-hidden="true">↗</span>
+                  </a>
+                  <a [href]="qr.src" [download]="qr.filename">Tải mã QR</a>
+                </div>
+              </div>
+            </details>
+          }
+        </div>
+
+        <div class="product-info">
+          <p class="product-category">{{ p.type || p.cat }}</p>
+          <h1>{{ p.name }}</h1>
+          <div class="rating-row">
+            @if (reviewRatedCount() > 0) { <span class="stars">{{ stars(reviewAverage()) }}</span><strong>{{ reviewAverage().toFixed(1) }}</strong> }
+            <button type="button" class="review-link" (click)="showReviews()">{{ reviewCount() ? reviewCount() + ' đánh giá' : 'Chưa có đánh giá' }}</button>
+            <span class="stock" [class.preorder]="!p.inStock && p.preorder" [class.unavailable]="!p.inStock && !p.preorder">{{ p.inStock ? 'Còn hàng' : p.preorder ? 'Nhận đặt trước' : 'Tạm hết hàng' }}</span>
+          </div>
+          <div class="price-block"><strong>{{ fmt(unitPrice()) }}</strong></div>
+          <dl class="product-specs"><div><dt>Mã sản phẩm</dt><dd>MM-{{ p.id.toString().padStart(3, '0') }}</dd></div><div><dt>Loại sản phẩm</dt><dd>{{ p.type || p.cat }}</dd></div><div><dt>Xuất xứ</dt><dd>{{ p.province }}{{ p.village ? ' · ' + p.village : '' }}</dd></div></dl>
+
+          @if (optionGroups().length) {
+            <div class="product-options">
+              @for (group of optionGroups(); track group.name) {
+                <fieldset><legend>{{ group.name }}: <strong>{{ selectedOptions()[group.name] }}</strong></legend><div class="option-values">
+                  @for (option of group.values; track option.value) { <button type="button" class="variant-option" [class.selected]="selectedOptions()[group.name] === option.value" [attr.aria-pressed]="selectedOptions()[group.name] === option.value" [disabled]="!optionAvailable(group.name, option.value)" (click)="chooseOption(group.name, option.value)">@if (option.swatch) { <span class="color-swatch" [style.background]="option.swatch" aria-hidden="true"></span> }{{ option.value }}</button> }
+                </div></fieldset>
+              }
+              @if (selectedVariant(); as variant) { <p class="selected-variant" [class.unavailable]="!variant.available">{{ variant.available ? 'Đã chọn: ' + variant.label : 'Phiên bản này tạm hết hàng' }}</p> }
+            </div>
+          }
+          <div class="purchase-panel">
+            <h2>Chọn số lượng và đặt hàng</h2>
+            <div class="quantity-row"><div class="quantity-box"><span>Số lượng</span><div class="quantity-control"><button type="button" (click)="decreaseQuantity()" [disabled]="quantity() <= 1" aria-label="Giảm số lượng">−</button><span aria-live="polite">{{ quantity() }}</span><button type="button" (click)="increaseQuantity()" [disabled]="quantity() >= 99" aria-label="Tăng số lượng">+</button></div></div><div class="subtotal"><small>Tạm tính</small><strong>{{ fmt(unitPrice() * quantity()) }}</strong></div></div>
+            <div class="action-buttons">
+              <button type="button" class="btn-cart" [disabled]="!canPurchase()" (click)="addToCart()"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h2l2.5 12h11l2-8H6M9 20h.01M18 20h.01"/></svg>Thêm vào giỏ</button>
+              <button type="button" class="btn-buy" [disabled]="!canPurchase()" (click)="buyNow()">{{ !p.inStock && p.preorder ? 'Đặt trước ngay' : 'Mua ngay' }}</button>
+            </div>
+            @if (!p.inStock && p.preorder) { <p class="purchase-note">Sản phẩm nhận đặt trước. Liên hệ cửa hàng để xác nhận thời gian chuẩn bị.</p> }
+            @else if (!p.inStock) { <p class="purchase-note">Sản phẩm tạm hết hàng. Liên hệ cửa hàng để được hỗ trợ.</p> }
+          </div>
+
+          <div class="service-links"><a routerLink="/chinh-sach-van-chuyen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h11v12H3ZM14 9h4l3 4v4h-7M7 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM17 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/></svg><span><strong>Giao hàng</strong><small>Xem chính sách vận chuyển</small></span><b aria-hidden="true">›</b></a><a routerLink="/chinh-sach-doi-tra"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg><span><strong>Đổi trả</strong><small>Xem điều kiện đổi trả</small></span><b aria-hidden="true">›</b></a></div>
+          <p class="contact-note">Bạn cần tư vấn thêm? <a routerLink="/lien-he">Liên hệ Mộc Mạc</a></p>
+        </div>
+      </section>
+
+      <section class="details-section" id="product-details-tabs">
+        <nav class="detail-tabs" aria-label="Thông tin sản phẩm">
+          <button type="button" [class.active]="activeTab() === 'description'" [attr.aria-pressed]="activeTab() === 'description'" (click)="setTab('description')">Mô tả sản phẩm</button>
+          <button type="button" [class.active]="activeTab() === 'information'" [attr.aria-pressed]="activeTab() === 'information'" (click)="setTab('information')">Thông tin chi tiết</button>
+          <button type="button" [class.active]="activeTab() === 'reviews'" [attr.aria-pressed]="activeTab() === 'reviews'" (click)="setTab('reviews')">Đánh giá ({{ reviewCount() }})</button>
+        </nav>
+        @if (activeTab() === 'description') {
+          <div class="description-layout"><div class="description-copy"><h2>Mô tả sản phẩm</h2>@for (paragraph of descriptionParagraphs(p); track $index) { <p>{{ paragraph }}</p> }</div>
+            @if (productImages().length) { <figure class="description-visual"><img [src]="productImages()[0]" [alt]="p.name" loading="lazy" /><figcaption><strong>{{ p.name }}</strong><small>{{ p.province }} · {{ p.region }}</small></figcaption></figure> }
+          </div>
+        }
+        @if (activeTab() === 'information') {
+          <div class="information-content"><h2>Thông tin chi tiết</h2><dl class="information-table"><div><dt>Tên sản phẩm</dt><dd>{{ p.name }}</dd></div><div><dt>Mã sản phẩm</dt><dd>MM-{{ p.id.toString().padStart(3, '0') }}</dd></div><div><dt>Loại sản phẩm</dt><dd>{{ p.type || p.cat }}</dd></div><div><dt>Tỉnh thành</dt><dd>{{ p.province }}</dd></div>@if (p.village) { <div><dt>Làng nghề</dt><dd>{{ p.village }}</dd></div> }<div><dt>Vùng miền</dt><dd>{{ p.region }}</dd></div>@if (p.ocop) { <div><dt>Chứng nhận OCOP</dt><dd>{{ p.ocop }} sao</dd></div> }@if (p.heritage) { <div><dt>Huy hiệu di sản</dt><dd>{{ p.heritage }}</dd></div> }<div><dt>Tình trạng</dt><dd>{{ p.inStock ? 'Còn hàng' : p.preorder ? 'Nhận đặt trước' : 'Tạm hết hàng' }}</dd></div></dl></div>
+        }
+        @if (activeTab() === 'reviews') {
+          <div class="reviews-content"><h2>Đánh giá sản phẩm</h2><div class="reviews-layout">
+            <aside class="review-summary"><div class="review-score"><strong>{{ reviewRatedCount() ? reviewAverage().toFixed(1) : '—' }}</strong><span>/ 5</span></div>@if (reviewRatedCount()) { <div class="stars big-stars">{{ stars(reviewAverage()) }}</div> }<p>{{ reviewCount() }} đánh giá</p><button type="button" class="write-review" (click)="scrollToReviewForm()">Viết đánh giá</button></aside>
+            <div class="reviews-main">
+              @if (reviewLoading()) { <p class="review-empty" role="status">Đang tải đánh giá…</p> }
+              @else if (reviewError()) { <div class="review-empty" role="alert"><p>{{ reviewError() }}</p><button type="button" class="review-retry" (click)="loadReviewPage()">Thử lại</button></div> }
+              @else {
+                <div class="reviews-list">@for (review of reviews(); track review.id) { <article class="review-item"><span class="review-avatar" aria-hidden="true">{{ review.name.charAt(0).toUpperCase() }}</span><div class="review-body"><div class="review-top"><strong>{{ review.name }}</strong>@if (formatReviewDate(review.createdAt)) { <time>{{ formatReviewDate(review.createdAt) }}</time> }</div>@if (review.rating >= 1 && review.rating <= 5) { <div class="stars">{{ stars(review.rating) }}</div> }<p>{{ review.content }}</p></div></article> } @empty { <p class="review-empty">Chưa có đánh giá. Hãy chia sẻ cảm nhận của bạn về sản phẩm.</p> }</div>
+                @if (reviewPages() > 1) { <nav class="review-pagination" aria-label="Trang đánh giá"><button type="button" [disabled]="reviewPage() <= 1" (click)="loadReviewPage(reviewPage() - 1)">Trước</button><span>{{ reviewPage() }} / {{ reviewPages() }}</span><button type="button" [disabled]="reviewPage() >= reviewPages()" (click)="loadReviewPage(reviewPage() + 1)">Tiếp</button></nav> }
+              }
+              <section class="review-form" id="review-form">
+                @if (!auth.isAuthenticated()) { <p><a routerLink="/dang-nhap">Đăng nhập</a> để viết đánh giá sản phẩm.</p> }
+                @else if (!canReview()) { <p>Bạn có thể viết đánh giá sau khi đơn hàng được giao thành công.</p> }
+                @else {
+                  <h3>Viết đánh giá của bạn</h3><p class="review-author">{{ auth.user()?.name }}</p>
+                  <form (ngSubmit)="submitReview()"><label for="review-rating">Số sao</label><select id="review-rating" name="reviewRating" [(ngModel)]="reviewRating"><option [ngValue]="5">5 sao</option><option [ngValue]="4">4 sao</option><option [ngValue]="3">3 sao</option><option [ngValue]="2">2 sao</option><option [ngValue]="1">1 sao</option></select><label for="review-content">Nội dung đánh giá</label><textarea id="review-content" name="reviewContent" [(ngModel)]="reviewContent" rows="4" maxlength="1500" placeholder="Chia sẻ cảm nhận của bạn về sản phẩm"></textarea><button type="submit" [disabled]="reviewSubmitting()">{{ reviewSubmitting() ? 'Đang gửi…' : 'Gửi đánh giá' }}</button></form>
+                }
+                @if (reviewMessage()) { <p role="status">{{ reviewMessage() }}</p> }
+              </section>
+            </div>
+          </div></div>
+        }
+      </section>
+
+      @if (relatedProducts().length) {
+        <section class="related-section"><header class="section-heading"><h2>Có thể bạn cũng thích</h2><a routerLink="/san-pham">Xem tất cả <span aria-hidden="true">→</span></a></header><div class="related-grid">@for (item of relatedProducts(); track item.id) { <a class="related-card" [routerLink]="['/san-pham', item.slug]"><div class="related-image">@if (item.images?.length) { <img [src]="item.images![0]" [alt]="item.name" loading="lazy" /> }@else { <span>Mộc Mạc</span> }@if (item.ocop) { <span class="related-badge">OCOP {{ item.ocop }} sao</span> }</div><div class="related-info"><small>{{ item.region }}</small><h3>{{ item.name }}</h3><div><strong>{{ fmt(item.price) }}</strong>@if (item.reviews) { <span>★ {{ item.rate.toFixed(1) }}</span> }</div></div></a> }</div></section>
+      }
+    } @else { <div class="page-status"><h1>Không tìm thấy sản phẩm</h1><a routerLink="/san-pham">Về trang sản phẩm</a></div> }
+  </main>
+</div>
+}

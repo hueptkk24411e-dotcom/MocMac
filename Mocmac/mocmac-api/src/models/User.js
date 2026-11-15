@@ -1,5 +1,18 @@
 import mongoose from 'mongoose';
 
+const addressSchema = new mongoose.Schema(
+  {
+    label: { type: String, default: 'Nhà', trim: true, maxlength: 40 },
+    name: { type: String, required: true, trim: true, maxlength: 100 },
+    phone: { type: String, required: true, trim: true, maxlength: 20 },
+    address: { type: String, required: true, trim: true, maxlength: 500 },
+    province: { type: Number, default: null },
+    district: { type: Number, default: null },
+    isDefault: { type: Boolean, default: false },
+  },
+  { timestamps: false }
+);
+
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -22,6 +35,11 @@ const userSchema = new mongoose.Schema(
       default: ''
     },
 
+    addresses: {
+      type: [addressSchema],
+      default: [],
+    },
+
     passwordHash: {
       type: String,
       required: true,
@@ -30,8 +48,28 @@ const userSchema = new mongoose.Schema(
 
     role: {
       type: String,
-      enum: ['admin', 'staff', 'customer'],
+      enum: ['admin', 'staff', 'collaborator', 'cooperative', 'customer'],
       default: 'customer'
+    },
+
+    isActive: {
+      type: Boolean,
+      default: true
+    },
+
+    originalEmail: {
+      type: String,
+      trim: true
+    },
+
+    resetOTP: {
+      type: String,
+      default: null,
+    },
+
+    resetOTPExpires: {
+      type: Date,
+      default: null,
     }
   },
   { timestamps: true }

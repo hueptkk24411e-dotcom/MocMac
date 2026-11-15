@@ -1,14 +1,18 @@
-@if (!isStandaloneAuth()) {
+@if (showStoreLayout()) {
   <app-header-component />
 }
 <router-outlet />
-@if (!isStandaloneAuth()) {
+<app-notification-popup />
+<app-toast />
+@if (showStoreLayout()) {
+  <app-chat-popup />
+  <app-meomeo-guide />
   <app-footer-component />
 }
 @if (cart.notification(); as notification) {
   <div class="cart-notification" role="status" aria-live="polite">
     <span class="cart-notification-icon" aria-hidden="true">✓</span>
     <span>{{ notification }}</span>
-    <a routerLink="/giohang">Xem giỏ hàng</a>
+    <a routerLink="/gio-hang">{{ 'cart.label' | t }}</a>
   </div>
 }

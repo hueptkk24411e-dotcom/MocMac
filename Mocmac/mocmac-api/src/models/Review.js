@@ -2,59 +2,26 @@ import mongoose from 'mongoose';
 
 const reviewSchema = new mongoose.Schema(
   {
-    productId: {
-      type: Number,
-      required: true,
-      index: true
-    },
-    productName: {
-      type: String,
-      default: ''
-    },
-    userName: {
-      type: String,
-      default: '',
-      trim: true
-    },
-    // Backward compatibility for old review documents.
-    name: {
-      type: String,
-      default: '',
-      trim: true
-    },
-    username: {
-      type: String,
-      default: '',
-      trim: true
-    },
-    rating: {
-      type: Number,
-      required: true,
-      min: 1,
-      max: 5
-    },
-    content: {
-      type: String,
-      required: true,
-      trim: true
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now
-    },
-    isDemo: {
-      type: Boolean,
-      default: false
-    }
+    product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    productId: { type: Number },
+    userName: { type: String, trim: true },
+    content: { type: String, trim: true },
+    isDemo: { type: Boolean },
+    rating: { type: Number, required: true, min: 1, max: 5 },
+    comment: { type: String, default: '', trim: true },
+    status: { type: String, enum: ['visible', 'hidden'], default: 'visible' },
+    reply: { type: String, default: '', trim: true },
+    replyAt: { type: Date },
   },
-  {
-    collection: 'reviews',
-    versionKey: false
-  }
+  { timestamps: true }
 );
 
+reviewSchema.index({ product: 1, user: 1 }, {
+  unique: true,
+  name: 'review_user_product_unique',
+  partialFilterExpression: { product: { $type: 'objectId' }, user: { $type: 'objectId' } },
+});
 reviewSchema.index({ productId: 1, createdAt: -1 });
 
-export const Review =
-  mongoose.models.Review ||
-  mongoose.model('Review', reviewSchema);
+export const Review = mongoose.model('Review', reviewSchema);

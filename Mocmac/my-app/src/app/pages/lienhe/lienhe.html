@@ -349,11 +349,35 @@
           Chúng tôi sẽ phản hồi sớm nhất có thể.
         </div>
 
-      </form>
+       </form>
 
     </div>
 
   </div>
+
+
+   <!-- POPUP -->
+   <div
+     class="popup-overlay"
+     *ngIf="popup().show"
+   >
+     <div class="popup" [class.error]="popup().type === 'error'">
+       <div class="popup-icon">
+         <i *ngIf="popup().type === 'success'" class="fa-solid fa-circle-check"></i>
+         <i *ngIf="popup().type === 'error'" class="fa-solid fa-circle-xmark"></i>
+       </div>
+
+       <p class="popup-message">{{ popup().message }}</p>
+
+       <button
+         class="popup-close"
+         (click)="closePopup()"
+         type="button"
+       >
+         Đóng
+       </button>
+     </div>
+   </div>
 
 
   <!-- QUICK SUPPORT -->

@@ -26,6 +26,9 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/admin-app/tsconfig.app.json"
     }
   ]
 }

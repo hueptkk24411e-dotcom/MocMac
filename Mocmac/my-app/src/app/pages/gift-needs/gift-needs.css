@@ -1,0 +1,302 @@
+.gift-needs-page {
+  background: #fffdf8;
+  color: var(--text, #5f5a51);
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+.gift-needs-page .container {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+}
+
+.gift-needs-page .section {
+  padding: 56px 0;
+}
+
+.gift-needs-page h1,
+.gift-needs-page h2,
+.gift-needs-page h3 {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+.gift-needs-page .hero {
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white, #fff);
+  background-size: cover;
+  background-position: center;
+}
+
+.gift-needs-page .hero-content {
+  max-width: 760px;
+  padding: 0 20px;
+}
+
+.gift-needs-page .hero-label {
+  display: block;
+  margin-bottom: 12px;
+  color: #edc79e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.gift-needs-page .hero h1 {
+  margin: 4px 0 16px;
+  font-size: 44px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.gift-needs-page .hero-desc {
+  max-width: 640px;
+  margin: 0 auto 26px;
+  font-size: 17px;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+.gift-needs-page .hero-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  color: var(--white, #fff);
+  background: var(--orange, #df8a4f);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gift-needs-page .hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(223, 138, 79, 0.25);
+}
+
+.gift-needs-page .section-heading {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.gift-needs-page .section-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(127, 161, 122, 0.16);
+  color: var(--green-dark, #35543a);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.gift-needs-page .section-heading h2 {
+  margin: 10px 0 12px;
+  color: var(--green-dark, #35543a);
+  font-size: 34px;
+  line-height: 1.25;
+}
+
+.gift-needs-page .section-subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--text, #5f5a51);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.gift-needs-page .categories-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.gift-needs-page .category-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(184, 178, 164, 0.6);
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark, #403f37);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gift-needs-page .category-btn:hover {
+  border-color: var(--green-dark, #35543a);
+  color: var(--green-dark, #35543a);
+}
+
+.gift-needs-page .category-btn.active {
+  background: var(--green-dark, #35543a);
+  border-color: var(--green-dark, #35543a);
+  color: var(--white, #fff);
+}
+
+.gift-needs-page .cat-icon {
+  font-size: 18px;
+}
+
+.gift-needs-page .products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.gift-needs-page .product-card {
+  background: #fff;
+  border: 1px solid rgba(184, 178, 164, 0.4);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(64, 63, 55, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gift-needs-page .product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(53, 84, 58, 0.12);
+}
+
+.gift-needs-page .product-image-link {
+  display: block;
+  position: relative;
+  height: 230px;
+}
+
+.gift-needs-page .product-image-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gift-needs-page .product-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f6f1e7 0%, #ebe2d0 100%);
+  font-size: 40px;
+}
+
+.gift-needs-page .product-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 22px 24px;
+}
+
+.gift-needs-page .product-cat {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--brown, #b56f45);
+}
+
+.gift-needs-page .product-title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.gift-needs-page .product-title a {
+  color: var(--green-dark, #35543a);
+  text-decoration: none;
+}
+
+.gift-needs-page .product-title a:hover {
+  color: var(--brown, #b56f45);
+}
+
+.gift-needs-page .product-price {
+  margin: 4px 0 0;
+  font-weight: 700;
+  color: var(--green-dark, #35543a);
+}
+
+.gift-needs-page .product-btn {
+  align-self: flex-start;
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(53, 84, 58, 0.4);
+  color: var(--green-dark, #35543a);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.gift-needs-page .product-btn:hover {
+  background: var(--green-dark, #35543a);
+  color: var(--white, #fff);
+}
+
+.gift-needs-page .tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.gift-needs-page .tip-card {
+  background: #fff;
+  border: 1px solid rgba(184, 178, 164, 0.4);
+  border-radius: 14px;
+  padding: 28px 26px;
+  box-shadow: 0 18px 40px rgba(64, 63, 55, 0.06);
+}
+
+.gift-needs-page .tip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(127, 161, 122, 0.18);
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.gift-needs-page .tip-card h3 {
+  margin: 0 0 10px;
+  color: var(--green-dark, #35543a);
+  font-size: 18px;
+}
+
+.gift-needs-page .tip-card p {
+  margin: 0;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.gift-needs-page .empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text, #5f5a51);
+}
+
+@media (max-width: 768px) {
+  .gift-needs-page .hero h1 {
+    font-size: 34px;
+  }
+
+  .gift-needs-page .section-heading h2 {
+    font-size: 28px;
+  }
+}

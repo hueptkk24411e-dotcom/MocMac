@@ -1,0 +1,995 @@
+[
+  {
+    "id": 1,
+    "name": "Cà phê Buôn Ma Thuột rang mộc",
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljmwck45uz2a2c",
+      "https://static.wixstatic.com/media/746053_0ca7bf6a65bf4a2ea162fefc8cf7cb1f~mv2.png",
+      "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/02/15/1771124078651_gia-ca-phe-trong-nuoc-on-dinh-quanh-muc-96400-97700-dongkg-trong-ngay-15-2.jpeg"
+    ],
+    "variants": [
+      {
+        "id": "500g-nguyen-hat",
+        "label": "500g · Nguyên hạt",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "500g"
+          },
+          {
+            "name": "Dạng cà phê",
+            "value": "Nguyên hạt"
+          }
+        ],
+        "price": 126000,
+        "available": true
+      },
+      {
+        "id": "500g-xay-phin",
+        "label": "500g · Xay pha phin",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "500g"
+          },
+          {
+            "name": "Dạng cà phê",
+            "value": "Xay pha phin"
+          }
+        ],
+        "price": 126000,
+        "available": true
+      },
+      {
+        "id": "1kg-nguyen-hat",
+        "label": "1kg · Nguyên hạt",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "1kg"
+          },
+          {
+            "name": "Dạng cà phê",
+            "value": "Nguyên hạt"
+          }
+        ],
+        "price": 239000,
+        "available": true
+      },
+      {
+        "id": "1kg-xay-phin",
+        "label": "1kg · Xay pha phin",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "1kg"
+          },
+          {
+            "name": "Dạng cà phê",
+            "value": "Xay pha phin"
+          }
+        ],
+        "price": 239000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Cà phê chồn Đà Lạt",
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lzeaaulmy6vhb1_tn",
+      "https://static.wixstatic.com/media/746053_0ca7bf6a65bf4a2ea162fefc8cf7cb1f~mv2.png",
+      "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/02/15/1771124078651_gia-ca-phe-trong-nuoc-on-dinh-quanh-muc-96400-97700-dongkg-trong-ngay-15-2.jpeg"
+    ],
+    "variants": [
+      {
+        "id": "250g",
+        "label": "250g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "250g"
+          }
+        ],
+        "price": 428000,
+        "available": true
+      },
+      {
+        "id": "500g",
+        "label": "500g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "500g"
+          }
+        ],
+        "price": 818000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Trà Thái Nguyên đặc sản",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1BLuIIhg2e9Gsakmp0Iw9g3_F-oqHWKX5kNWaTxoiVt-ZJ8D4vTwrH-qH&s=10",
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvpq3u2ezj3ta7",
+      "https://m.media-amazon.com/images/I/41b3sH5xylL._SL500_.jpg"
+    ],
+    "variants": [
+      {
+        "id": "100g",
+        "label": "100g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "100g"
+          }
+        ],
+        "price": 150000,
+        "available": true
+      },
+      {
+        "id": "200g",
+        "label": "200g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "200g"
+          }
+        ],
+        "price": 280000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Trà shan tuyết Hà Giang",
+    "images": [
+      "https://pos.nvncdn.com/35ab07-173722/ps/Tra-Shan-Tuyet-Co-Thu-Loai-1-200G-Goi-Vang.png?v=1742360303",
+      "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-nen-trang.png",
+      "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-5.jpg",
+      "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-2.jpg"
+    ],
+    "variants": [
+      {
+        "id": "200g",
+        "label": "200g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "200g"
+          }
+        ],
+        "price": 304000,
+        "available": true,
+        "image": "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-nen-trang.png",
+        "images": [
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-nen-trang.png",
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-5.jpg",
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-2.jpg"
+        ]
+      },
+      {
+        "id": "400g",
+        "label": "400g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "400g"
+          }
+        ],
+        "price": 578000,
+        "available": true,
+        "image": "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-nen-trang.png",
+        "images": [
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-nen-trang.png",
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-5.jpg",
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-2.jpg"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Trà sen Tây Hồ",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkw5-e6O7p17G8VVRNNxS3IAIVqaOAGiADSjR3iAnH_a-DUC5itpcGE70&s=10",
+      "https://cdn.honglam.vn/honglam/Tra_sen_Ho_Tay_b3e58b0d1b.jpg",
+      "https://bizweb.dktcdn.net/100/383/513/products/tra-sen-tay-ho-say-kho-sen-vo-uu-4.png?v=1736215518317"
+    ],
+    "variants": []
+  },
+  {
+    "id": 6,
+    "name": "Túi mây tre đan Phú Vinh",
+    "images": [
+      "https://dunghangviet.vn/wp-content/uploads/2024/12/may-tre-dan-Phu-Vinh-1.jpg",
+      "https://laodongthudo.vn/stores/news_dataimages/luonghang/102018/29/21/4022_may_tre_dan.jpg",
+      "https://nhandan.vn/special/may-tre-dan-Phu-Vinh-hon-xua-voc-moi/assets/eV36qMqp2M/hanam-348-1920x1280.jpg"
+    ],
+    "variants": [
+      {
+        "id": "nho",
+        "label": "Nhỏ",
+        "attributes": [
+          {
+            "name": "Kích cỡ",
+            "value": "Nhỏ"
+          }
+        ],
+        "price": 238000,
+        "available": true
+      },
+      {
+        "id": "vua",
+        "label": "Vừa",
+        "attributes": [
+          {
+            "name": "Kích cỡ",
+            "value": "Vừa"
+          }
+        ],
+        "price": 278000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Rổ mây Bát Tràng",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlsYEg8DHiFA8YKFqc_nzqPjDFfcQ11O2KOG7XVpsQzt4G2cphtU0asyg&s=10",
+      "https://product.hstatic.net/200000490263/product/photoroom-20230725_142937_2c82c5dbaf4b4efa8682080e9d71258f_grande.png",
+      "https://salt.tikicdn.com/cache/550x550/ts/product/1a/6e/eb/6b9870bb66f6562a03f7b6922dedd85a.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 8,
+    "name": "Bộ ấm trà Bát Tràng hoa son",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9f6TGHUEvwGlGlsfnuD8rn5RuHNZoAFQ004-AoqiUiX-KGJYt7I-s_AE&s=10",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-3.jpg",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-4.jpg",
+      "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp"
+    ],
+    "variants": [
+      {
+        "id": "xanh-hoa-bien",
+        "label": "Xanh hỏa biến",
+        "attributes": [
+          {
+            "name": "Mẫu men",
+            "value": "Xanh hỏa biến",
+            "swatch": "#315c66"
+          }
+        ],
+        "price": 724000,
+        "available": true,
+        "image": "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+        "images": [
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-3.jpg",
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-4.jpg"
+        ]
+      },
+      {
+        "id": "trang-xanh",
+        "label": "Trắng xanh",
+        "attributes": [
+          {
+            "name": "Mẫu men",
+            "value": "Trắng xanh",
+            "swatch": "#eef1e8"
+          }
+        ],
+        "price": 754000,
+        "available": true,
+        "image": "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp",
+        "images": [
+          "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Ấm tử sa Bát Tràng",
+    "images": [
+      "https://gomsubattranghaotho.vn/uploads/2024/10/ts16-400x400.jpg",
+      "https://cdn.hstatic.net/products/200000426635/song__m__n_li_n_f34c607c10da4673ab13058013380bac_master.png",
+      "https://gomsubattrang.vn/uploads/data/20/files/files/c%C3%BAc%20nh%E1%BB%8F/IMG_3546.JPG"
+    ],
+    "variants": [
+      {
+        "id": "250ml",
+        "label": "250ml",
+        "attributes": [
+          {
+            "name": "Dung tích",
+            "value": "250ml"
+          }
+        ],
+        "price": 546000,
+        "available": true
+      },
+      {
+        "id": "400ml",
+        "label": "400ml",
+        "attributes": [
+          {
+            "name": "Dung tích",
+            "value": "400ml"
+          }
+        ],
+        "price": 646000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Bình gốm Chu Đậu men rạn",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYKy3V9mP-N5NNQaikOW_GayiGYRte3X436ZCGSMOySBxkBOZP7ikGtgU&s=10",
+      "https://bizweb.dktcdn.net/thumb/grande/100/376/052/products/36-b721b1eb-e02e-4143-97d7-a30414eb48e8.jpg?v=1712198046063",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/422/864/products/2x.jpg?v=1699950097963"
+    ],
+    "variants": []
+  },
+  {
+    "id": 11,
+    "name": "Gốm Bàu Trúc chậu hoa",
+    "images": [
+      "https://img.lazcdn.com/g/p/5b06354a3bfbf40555aa86584d2e81ee.jpg_720x720q80.jpg",
+      "https://down-vn.img.susercontent.com/file/6d602a7ca6ca9ef9eb47c299d8abe121"
+    ],
+    "variants": []
+  },
+  {
+    "id": 12,
+    "name": "Bát sơn mài truyền thống",
+    "images": [
+      "https://tanmydesign.com/uploaded/san-pham/Son%20mai/Khac/b%C3%A1t%20s%C6%A1n%20m%C3%A0i/PAS001133.1.1370.jpg",
+      "https://dongphuongart.com/uploads/images/BatP11Ca3.png",
+      "https://dongphuongart.com/uploads/images/BatP11CaLS.jpg"
+    ],
+    "variants": [
+      {
+        "id": "mot-bat",
+        "label": "1 bát",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "1 bát"
+          }
+        ],
+        "price": 336000,
+        "available": true
+      },
+      {
+        "id": "cap-hai-bat",
+        "label": "Cặp 2 bát",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "Cặp 2 bát"
+          }
+        ],
+        "price": 640000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Khay sơn mài khảm trai",
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqok5t7yjrxzb0",
+      "https://bizweb.dktcdn.net/thumb/grande/100/347/978/products/15bec8d7-ee3a-4467-9447-54068d3de697.jpg?v=1724042021413",
+      "https://nhn.1cdn.vn/2023/08/11/img_8182.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 14,
+    "name": "Khăn thổ cẩm dệt tay",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTasirAYt_ogiPCeSg5Zy8HFWcBwqFqEejOiD3YR8yHrCTQi-O5sucjkWc&s=10",
+      "https://khankm0.com/media/uploads/2024/TH%E1%BB%94%20C%E1%BA%A8M%20TH%C3%81I/khan-tho-cam-dan-toc-thai%20%286%29.jpg",
+      "https://www.tirakita.com/rng_brdr/Photos/thai_scarf_750.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 15,
+    "name": "Túi thổ cẩm Lục Yên",
+    "images": [
+      "https://admin.vov.gov.vn/UploadFolder/KhoTin/Images/UploadFolder/VOVVN/Images/sites/default/files/styles/large_watermark/public/2024-04/chiec_tui_tho_cam_ket_hop_nhieu_mau_cua_nguoi_kho_mu.jpg",
+      "https://admin.vov.gov.vn/UploadFolder/KhoTin/Images/UploadFolder/VOVVN/Images/sites/default/files/styles/large_watermark/public/2024-04/chiec_tui_tho_cam_do_truyen_thong_cua_nguoi_kho_mu.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 16,
+    "name": "Nón lá làng Chuồng",
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.eriY8agRzC9vT5jCRmTP4AHaE2?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://gezimanya.com/sites/default/files/styles/800x600_/public/lokasyon-detay/2019-11/image-hue-in-vietnam-the-traditional-hand-made-vietnamese-conic-hats-1600x1241.jpg",
+      "https://suckhoedoisong.qltns.mediacdn.vn/2015/1-1438524903848.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 17,
+    "name": "Nón bài thơ Huế",
+    "images": [
+      "https://statics.vinpearl.com/non-bai-tho-hue-3_1630895844.jpg",
+      "https://gezimanya.com/sites/default/files/styles/800x600_/public/lokasyon-detay/2019-11/image-hue-in-vietnam-the-traditional-hand-made-vietnamese-conic-hats-1600x1241.jpg",
+      "https://suckhoedoisong.qltns.mediacdn.vn/2015/1-1438524903848.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 18,
+    "name": "Giỏ tre đan làng nghề Phú Vinh",
+    "images": [
+      "https://dunghangviet.vn/wp-content/uploads/2024/12/may-tre-dan-Phu-Vinh-1.jpg",
+      "https://laodongthudo.vn/stores/news_dataimages/luonghang/102018/29/21/4022_may_tre_dan.jpg",
+      "https://nhandan.vn/special/may-tre-dan-Phu-Vinh-hon-xua-voc-moi/assets/eV36qMqp2M/hanam-348-1920x1280.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 19,
+    "name": "Khay tre đan thủ công Phú Vinh",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlsYEg8DHiFA8YKFqc_nzqPjDFfcQ11O2KOG7XVpsQzt4G2cphtU0asyg&s=10",
+      "https://product.hstatic.net/200000490263/product/photoroom-20230725_142937_2c82c5dbaf4b4efa8682080e9d71258f_grande.png",
+      "https://salt.tikicdn.com/cache/550x550/ts/product/1a/6e/eb/6b9870bb66f6562a03f7b6922dedd85a.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 20,
+    "name": "Xoài sấy dẻo Mộc Châu",
+    "images": [
+      "https://th.bing.com/th/id/OIP.8k8FKDGL4Vd9AQhjHT4zHAHaHa?w=211&h=211&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+      "https://product.hstatic.net/200000939551/product/xoai_deo_-_hop_350g_61e3fd5791ce4c89b3dab12d6664fa5e_small.png"
+    ],
+    "variants": [
+      {
+        "id": "500g",
+        "label": "500g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "500g"
+          }
+        ],
+        "price": 100000,
+        "available": true,
+        "image": "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+        "images": [
+          "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+          "https://product.hstatic.net/200000939551/product/xoai_deo_-_hop_350g_61e3fd5791ce4c89b3dab12d6664fa5e_small.png"
+        ]
+      },
+      {
+        "id": "1kg",
+        "label": "1kg",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "1kg"
+          }
+        ],
+        "price": 190000,
+        "available": true,
+        "image": "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+        "images": [
+          "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+          "https://product.hstatic.net/200000939551/product/xoai_deo_-_hop_350g_61e3fd5791ce4c89b3dab12d6664fa5e_small.png"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Chuối sấy dẻo",
+    "images": [
+      "https://th.bing.com/th/id/OIP.BWcGaDg6PmiyukEBX3gaHwHaHa?w=185&h=184&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://down-th.img.susercontent.com/file/th-11134207-7rask-m9r65ajdcc3zfd",
+      "https://cdn-img-v2.mybota.vn/media/4678/Trai%20cay%20say/chuoi-say-deo-200g.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 23,
+    "name": "Bình gốm Bát Tràng men lam",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYKy3V9mP-N5NNQaikOW_GayiGYRte3X436ZCGSMOySBxkBOZP7ikGtgU&s=10",
+      "https://bizweb.dktcdn.net/thumb/grande/100/376/052/products/36-b721b1eb-e02e-4143-97d7-a30414eb48e8.jpg?v=1712198046063",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/422/864/products/2x.jpg?v=1699950097963"
+    ],
+    "variants": []
+  },
+  {
+    "id": 24,
+    "name": "Hạt điều rang muối Bình Phước",
+    "images": [
+      "https://media.tripmap.vn/marketplace/2026/02/hat-dieu-rang-muoi-binh-phuoc-500g-gia-re-tang-ngay-ngon-gion-chat-luong-1769958593-uhmydc-600x600.webp",
+      "https://admin.vov.gov.vn/UploadFolder/KhoTin/Images/UploadFolder/VOVVN/Images/sites/default/files/styles/large_watermark/public/2020-09/dieu_1.jpg",
+      "https://quaqueviet.vn/upload/imgproduct/hat-dieu-rang-muoi-1234-min.jpg"
+    ],
+    "variants": [
+      {
+        "id": "500g",
+        "label": "500g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "500g"
+          }
+        ],
+        "price": 157000,
+        "available": true
+      },
+      {
+        "id": "1kg",
+        "label": "1kg",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "1kg"
+          }
+        ],
+        "price": 299000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Đĩa gốm trang trí Bát Tràng",
+    "images": [
+      "https://th.bing.com/th/id/OIP.6uVR25PCilsBt-tDCVMjKQHaE7?w=236&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://uongtrathoi.com/upload/Pages/098-101-tpt-special_laithieu1-9-1728960214.jpg",
+      "https://baseec-img-mng.akamaized.net/images/item/origin/c448c8e49e9cd5c9b882019c6a2141cc.jpg?im=Resize%2Cwidth%3D1280%2Ctype%3Dnormal&imformat=generic&q=90"
+    ],
+    "variants": []
+  },
+  {
+    "id": 26,
+    "name": "Bình gốm Chu Đậu vẽ tay",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYKy3V9mP-N5NNQaikOW_GayiGYRte3X436ZCGSMOySBxkBOZP7ikGtgU&s=10",
+      "https://bizweb.dktcdn.net/thumb/grande/100/376/052/products/36-b721b1eb-e02e-4143-97d7-a30414eb48e8.jpg?v=1712198046063",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/422/864/products/2x.jpg?v=1699950097963"
+    ],
+    "variants": []
+  },
+  {
+    "id": 27,
+    "name": "Khay sơn mài Hạ Thái",
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqok5t7yjrxzb0",
+      "https://bizweb.dktcdn.net/thumb/grande/100/347/978/products/15bec8d7-ee3a-4467-9447-54068d3de697.jpg?v=1724042021413",
+      "https://nhn.1cdn.vn/2023/08/11/img_8182.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 28,
+    "name": "Tranh sơn mài thủ công Hạ Thái",
+    "images": [
+      "https://asianovotours.com/frontend/media/2025/05/vietnam-laque-asianovo-800x533.jpg.webp",
+      "https://www.mrlinhadventure.com/UserFiles/image/Travel-blog/Image-content/Vietnamese-art7.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 29,
+    "name": "Khăn lụa tơ tằm Vạn Phúc",
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.ol8q9CJwo6I7GAutgiu-MwHaJC?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xiutgp761su0oscu7asygkf7plonuku2s9-1793671060.jpg.webp",
+      "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xivsqrilgsx9zedr6c2ahsyzf8xpz0s8e11-1793670806.jpg.webp"
+    ],
+    "variants": [
+      {
+        "id": "xanh-ngoc",
+        "label": "Xanh ngọc",
+        "attributes": [
+          {
+            "name": "Màu sắc",
+            "value": "Xanh ngọc",
+            "swatch": "#68aaa5"
+          }
+        ],
+        "price": 320000,
+        "available": true,
+        "image": "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xiutgp761su0oscu7asygkf7plonuku2s9-1793671060.jpg.webp",
+        "images": [
+          "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xiutgp761su0oscu7asygkf7plonuku2s9-1793671060.jpg.webp"
+        ]
+      },
+      {
+        "id": "hong-sen",
+        "label": "Hồng sen",
+        "attributes": [
+          {
+            "name": "Màu sắc",
+            "value": "Hồng sen",
+            "swatch": "#cf949b"
+          }
+        ],
+        "price": 320000,
+        "available": true,
+        "image": "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xivsqrilgsx9zedr6c2ahsyzf8xpz0s8e11-1793670806.jpg.webp",
+        "images": [
+          "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xivsqrilgsx9zedr6c2ahsyzf8xpz0s8e11-1793670806.jpg.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Măng khô Tây Bắc",
+    "images": [
+      "https://hoabanfood.com/wp-content/uploads/Mang-La-Kho-2020-4.jpg",
+      "https://media.tripmap.vn/marketplace/2025/10/mang-mam-kho-tay-bac-2025-gion-ngon-dac-san-mang-non-tuoi-ham-500g-1kg-1761863097-600x600.webp",
+      "https://media.tabfarm.vn/2024/11/Mang-roi-kho-tay-bac-tabfarm-3-1024x1024.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 31,
+    "name": "Đèn lồng thủ công Hội An",
+    "images": [
+      "https://th.bing.com/th/id/OIP.Wntz4s1r7_GvY2Z1sxfrggHaE8?w=279&h=186&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://thegioidenlonghoian.com/wp-content/uploads/2024/11/022abb61-541c-45a0-81d5-638540297a5b-min.jpg",
+      "https://thegioidenlonghoian.com/wp-content/uploads/2024/11/4728d5e6-5b54-425e-b8c5-b05026bd03d3-min.jpg",
+      "https://thegioidenlonghoian.com/wp-content/uploads/2022/10/309629646_1250164515769076_4161562827531281874_n.jpg",
+      "https://thegioidenlonghoian.com/wp-content/uploads/2022/10/279063256_1295491681194683_1224869289133332599_n.jpg"
+    ],
+    "variants": [
+      {
+        "id": "tron",
+        "label": "Tròn",
+        "attributes": [
+          {
+            "name": "Kiểu dáng",
+            "value": "Tròn"
+          }
+        ],
+        "price": 180000,
+        "available": true,
+        "image": "https://thegioidenlonghoian.com/wp-content/uploads/2024/11/022abb61-541c-45a0-81d5-638540297a5b-min.jpg",
+        "images": [
+          "https://thegioidenlonghoian.com/wp-content/uploads/2024/11/022abb61-541c-45a0-81d5-638540297a5b-min.jpg",
+          "https://thegioidenlonghoian.com/wp-content/uploads/2024/11/4728d5e6-5b54-425e-b8c5-b05026bd03d3-min.jpg"
+        ]
+      },
+      {
+        "id": "luc-giac",
+        "label": "Lục giác",
+        "attributes": [
+          {
+            "name": "Kiểu dáng",
+            "value": "Lục giác"
+          }
+        ],
+        "price": 220000,
+        "available": true,
+        "image": "https://thegioidenlonghoian.com/wp-content/uploads/2022/10/309629646_1250164515769076_4161562827531281874_n.jpg",
+        "images": [
+          "https://thegioidenlonghoian.com/wp-content/uploads/2022/10/309629646_1250164515769076_4161562827531281874_n.jpg",
+          "https://thegioidenlonghoian.com/wp-content/uploads/2022/10/279063256_1295491681194683_1224869289133332599_n.jpg"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Tranh dân gian Đông Hồ",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSsZzs2xpcu9iFZfYr8fulE9SrldUVTFiKL2Ql-HjaHE8xDhAGxj2DXzNd&s=10",
+      "https://bizweb.dktcdn.net/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-kinh-45cmx60cm.jpg?v=1751118192410",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-30x40.jpg?v=1690691739367"
+    ],
+    "variants": []
+  },
+  {
+    "id": 33,
+    "name": "Bánh đậu xanh Hải Dương",
+    "images": [
+      "https://th.bing.com/th/id/OIP.Jv4oj3VzRCnd_9f-3PmirwHaGs?w=181&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://cdn2.tuoitre.vn/zoom/700_700/471584752817336320/2023/12/8/26102020092906525-04b-1702017052893734662867-0-0-617-1180-crop-1702017203764753610866.jpg",
+      "https://kenh14cdn.com/203336854389633024/2024/3/20/photo-1-17109442380221242875296.jpeg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 34,
+    "name": "Tượng gỗ mỹ nghệ Đồng Kỵ",
+    "images": [
+      "https://imagevietnam.vnanet.vn/MediaUpload/Thumb/2026/03/20/vna-potal-village-in-hoi-an-recycles-firewood-into-art-works-103114082-864625520-15-32-21.jpg",
+      "https://cdn.tienphong.vn/images/bdfc554ea35983ad68a96e0050b6e2cb46c52704ed73e29298714a74cdf2e4e719604388033488d9101294fde6c94e9d1561e11963e6dfffe0b52c26e7dd2dea/image001-5780.png.webp"
+    ],
+    "variants": []
+  },
+  {
+    "id": 35,
+    "name": "Xoài sấy dẻo",
+    "images": [
+      "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+      "https://product.hstatic.net/200000939551/product/xoai_deo_-_hop_350g_61e3fd5791ce4c89b3dab12d6664fa5e_small.png"
+    ],
+    "variants": []
+  },
+  {
+    "id": 36,
+    "name": "Lụa tơ tằm Vạn Phúc",
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.ol8q9CJwo6I7GAutgiu-MwHaJC?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xiutgp761su0oscu7asygkf7plonuku2s9-1793671060.jpg.webp"
+    ],
+    "variants": []
+  },
+  {
+    "id": 37,
+    "name": "Tranh Đông Hồ",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSsZzs2xpcu9iFZfYr8fulE9SrldUVTFiKL2Ql-HjaHE8xDhAGxj2DXzNd&s=10",
+      "https://bizweb.dktcdn.net/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-kinh-45cmx60cm.jpg?v=1751118192410",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-30x40.jpg?v=1690691739367"
+    ],
+    "variants": []
+  },
+  {
+    "id": 38,
+    "name": "Tranh thêu tay Quất Động",
+    "images": [
+      "https://langngheviet.com.vn/stores/news_dataimages/langnghevietcomvn/082020/12/21/lang-theu-quat-dong-ban-sac-mot-vung-que-25-.2235.jpg",
+      "https://resource.kinhtedothi.vn/2021/12/26/tranh-theu-quat-dong.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 39,
+    "name": "Guốc mộc Bình Nhâm",
+    "images": [
+      "https://th.bing.com/th/id/OIP.5RbFmrtkGyIFWVU7XhQO1AHaHs?w=133&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://i.ebayimg.com/images/g/bPkAAeSwMt5oFuWG/s-l1200.jpg",
+      "https://i.ebayimg.com/images/g/zpYAAOSwiEdnDNKd/s-l1200.png"
+    ],
+    "variants": [
+      {
+        "id": "36",
+        "label": "36",
+        "attributes": [
+          {
+            "name": "Cỡ giày",
+            "value": "36"
+          }
+        ],
+        "price": 160000,
+        "available": true
+      },
+      {
+        "id": "37",
+        "label": "37",
+        "attributes": [
+          {
+            "name": "Cỡ giày",
+            "value": "37"
+          }
+        ],
+        "price": 160000,
+        "available": true
+      },
+      {
+        "id": "38",
+        "label": "38",
+        "attributes": [
+          {
+            "name": "Cỡ giày",
+            "value": "38"
+          }
+        ],
+        "price": 160000,
+        "available": true
+      },
+      {
+        "id": "39",
+        "label": "39",
+        "attributes": [
+          {
+            "name": "Cỡ giày",
+            "value": "39"
+          }
+        ],
+        "price": 160000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Trống da thủ công Đọi Tam",
+    "images": [
+      "https://th.bing.com/th/id/OIP.8_zUnGvTeg0DUiosXTfwzwHaJ4?w=132&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://cdn.24h.com.vn/upload/1-2021/images/2021-02-02/Can-canh-qua-trinh-ho-bien-manh-da-trau-kho-thanh-san-pham-giup-dan-lang-doi-Tam-doi-doi-8-1612247572-501-width750height490.jpg",
+      "https://resource.kinhtedothi.vn/2023/09/12/ba68eb32b3fe66a03fef12.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 41,
+    "name": "Tò he Xuân La",
+    "images": [
+      "https://mediabls.mediatech.vn/upload/image/202301/medium/70139_img-1463-1673414198151825465541-1673426851024-16734268514611990460810.jpg",
+      "https://cly.1cdn.vn/2024/02/10/anh-4.4.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 42,
+    "name": "Nón lá làng Chuông",
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.eriY8agRzC9vT5jCRmTP4AHaE2?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://gezimanya.com/sites/default/files/styles/800x600_/public/lokasyon-detay/2019-11/image-hue-in-vietnam-the-traditional-hand-made-vietnamese-conic-hats-1600x1241.jpg",
+      "https://suckhoedoisong.qltns.mediacdn.vn/2015/1-1438524903848.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 43,
+    "name": "Đĩa gốm Lái Thiêu",
+    "images": [
+      "https://th.bing.com/th/id/OIP.6uVR25PCilsBt-tDCVMjKQHaE7?w=236&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://uongtrathoi.com/upload/Pages/098-101-tpt-special_laithieu1-9-1728960214.jpg",
+      "https://baseec-img-mng.akamaized.net/images/item/origin/c448c8e49e9cd5c9b882019c6a2141cc.jpg?im=Resize%2Cwidth%3D1280%2Ctype%3Dnormal&imformat=generic&q=90"
+    ],
+    "variants": []
+  },
+  {
+    "id": 44,
+    "name": "Túi thổ cẩm dệt tay Mường Chanh",
+    "images": [
+      "https://admin.vov.gov.vn/UploadFolder/KhoTin/Images/UploadFolder/VOVVN/Images/sites/default/files/styles/large_watermark/public/2024-04/chiec_tui_tho_cam_ket_hop_nhieu_mau_cua_nguoi_kho_mu.jpg",
+      "https://admin.vov.gov.vn/UploadFolder/KhoTin/Images/UploadFolder/VOVVN/Images/sites/default/files/styles/large_watermark/public/2024-04/chiec_tui_tho_cam_do_truyen_thong_cua_nguoi_kho_mu.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 45,
+    "name": "Móc khóa len thủ công",
+    "images": [
+      "https://th.bing.com/th/id/OIP.D9Q6ZuB5pWwSjQUTnll5BAHaHa?w=160&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://floreal.in/cdn/shop/files/IMG_7257_13_11zon_2_11zon_grande.webp?v=1722525163",
+      "https://c.p02.c4a.im/images/item/20039067/ee75a96718bcaa60565690d838ac5574a10e77e3807723c7aca117f1bfabb951?d=583x585"
+    ],
+    "variants": [
+      {
+        "id": "moc-khoa",
+        "label": "Móc khóa",
+        "attributes": [
+          {
+            "name": "Kiểu móc",
+            "value": "Móc khóa"
+          }
+        ],
+        "price": 45000,
+        "available": true
+      },
+      {
+        "id": "moc-tui",
+        "label": "Móc treo túi",
+        "attributes": [
+          {
+            "name": "Kiểu móc",
+            "value": "Móc treo túi"
+          }
+        ],
+        "price": 55000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Bộ ấm chén gốm Bát Tràng",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9f6TGHUEvwGlGlsfnuD8rn5RuHNZoAFQ004-AoqiUiX-KGJYt7I-s_AE&s=10",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-3.jpg",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-4.jpg",
+      "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp"
+    ],
+    "variants": [
+      {
+        "id": "xanh-hoa-bien",
+        "label": "Xanh hỏa biến",
+        "attributes": [
+          {
+            "name": "Mẫu men",
+            "value": "Xanh hỏa biến",
+            "swatch": "#315c66"
+          }
+        ],
+        "price": 520000,
+        "available": true,
+        "image": "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+        "images": [
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-3.jpg",
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-4.jpg"
+        ]
+      },
+      {
+        "id": "trang-xanh",
+        "label": "Trắng xanh",
+        "attributes": [
+          {
+            "name": "Mẫu men",
+            "value": "Trắng xanh",
+            "swatch": "#eef1e8"
+          }
+        ],
+        "price": 560000,
+        "available": true,
+        "image": "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp",
+        "images": [
+          "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Móc khóa len thủ công",
+    "images": [
+      "https://th.bing.com/th/id/OIP.D9Q6ZuB5pWwSjQUTnll5BAHaHa?w=160&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://floreal.in/cdn/shop/files/IMG_7257_13_11zon_2_11zon_grande.webp?v=1722525163",
+      "https://c.p02.c4a.im/images/item/20039067/ee75a96718bcaa60565690d838ac5574a10e77e3807723c7aca117f1bfabb951?d=583x585"
+    ],
+    "variants": []
+  },
+  {
+    "id": 48,
+    "name": "Bánh tráng phơi sương Trảng Bàng",
+    "images": [
+      "https://dacsantayninh.info/wp-content/uploads/2015/06/banh-trang-phoi-suong-ngoc-han-1-768x480.jpg",
+      "https://cdn2.fptshop.com.vn/unsafe/800x0/banh_trang_trang_bang_7_05d338df69.png",
+      "https://media.mia.vn/uploads/blog-du-lich/lang-nghe-banh-trang-trang-bang-net-dep-truyen-thong-cua-nguoi-dan-nam-bo-01-1661881528.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 49,
+    "name": "Đĩa gốm Lái Thiêu",
+    "images": [
+      "https://th.bing.com/th/id/OIP.6uVR25PCilsBt-tDCVMjKQHaE7?w=236&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://uongtrathoi.com/upload/Pages/098-101-tpt-special_laithieu1-9-1728960214.jpg",
+      "https://baseec-img-mng.akamaized.net/images/item/origin/c448c8e49e9cd5c9b882019c6a2141cc.jpg?im=Resize%2Cwidth%3D1280%2Ctype%3Dnormal&imformat=generic&q=90"
+    ],
+    "variants": []
+  },
+  {
+    "id": 50,
+    "name": "Tranh dân gian Đông Hồ đóng khung",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSsZzs2xpcu9iFZfYr8fulE9SrldUVTFiKL2Ql-HjaHE8xDhAGxj2DXzNd&s=10",
+      "https://bizweb.dktcdn.net/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-kinh-45cmx60cm.jpg?v=1751118192410",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-30x40.jpg?v=1690691739367"
+    ],
+    "variants": []
+  }
+]

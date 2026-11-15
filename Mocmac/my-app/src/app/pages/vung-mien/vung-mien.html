@@ -1,0 +1,47 @@
+<section class="wrap page">
+
+  <!-- BANNER -->
+  <div class="region-banner">
+    <span class="small-title">MỘC MẠC</span>
+    <h1>Vùng miền &amp; Làng nghề</h1>
+    <p>Hành trình khám phá từ bao miền đất nước, nơi mỗi bản tay nghệ nhân mang hương vị truyền thống.</p>
+  </div>
+
+  <!-- REGIONS -->
+  @if (regions().length > 0) {
+    <div class="region-grid">
+      @for (r of regions(); track r.slug) {
+        <section class="region-card" [routerLink]="['/san-pham']">
+          <div class="region-img">
+            <img [src]="r.image" [alt]="r.name" loading="lazy" />
+          </div>
+          <div class="region-body">
+            <h2>{{ r.name }}</h2>
+            <p class="region-desc">{{ r.description }}</p>
+            <div class="region-count">{{ r.productCount }} sản phẩm</div>
+          </div>
+        </section>
+      }
+    </div>
+  } @else {
+    <div class="loading">
+      <p>Đang tải dữ liệu vùng miền…</p>
+    </div>
+  }
+
+  <!-- Products by region -->
+  @if (productsByRegion().length > 0) {
+    <div class="region-products-section">
+      <h3>Sản phẩm theo vùng miền</h3>
+      <div class="region-list">
+        @for (r of productsByRegion(); track r.name) {
+          <div class="region-row">
+            <strong>{{ r.name }}</strong>
+            <span>{{ r.count }} sản phẩm</span>
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+</section>

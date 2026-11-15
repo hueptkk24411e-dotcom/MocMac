@@ -1,0 +1,115 @@
+:host {
+  @apply block min-h-screen;
+}
+
+.admin-wrapper {
+  @apply flex min-h-screen bg-[#f7f5ee] font-sans;
+}
+
+.admin-sidebar {
+  @apply w-60 bg-beige text-ink flex flex-col h-screen sticky top-0 overflow-y-auto transition-transform duration-300 shadow-sm;
+  border-right: 1px solid #d6ceb9;
+}
+
+.admin-sidebar-head {
+  @apply flex justify-between items-center p-5 border-b border-line bg-[#f4f3ec];
+}
+
+.admin-sidebar-head strong {
+  @apply text-sm font-semibold text-moss-d;
+}
+
+.sidebar-close {
+  @apply hidden bg-transparent border-0 text-ink text-lg cursor-pointer;
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    @apply fixed inset-0 w-80 max-w-[80vw] z-50 -translate-x-full;
+  }
+  .admin-sidebar.open {
+    @apply translate-x-0;
+  }
+  .sidebar-close {
+    @apply block;
+  }
+}
+
+.admin-nav {
+  @apply flex-1 p-1;
+}
+
+.nav-item {
+  @apply flex items-center gap-3 px-4 py-2.5 rounded-lg border-transparent cursor-pointer text-sm text-ink2 transition-all;
+}
+
+.nav-item:hover {
+  @apply bg-[#f4f3ec] text-moss-d;
+}
+
+.nav-item.active {
+  @apply bg-moss text-white font-semibold shadow-md;
+  box-shadow: 0 2px 6px rgba(67,87,49,0.18);
+}
+
+.nav-icon {
+  @apply text-base min-w-[24px] text-center;
+}
+
+.admin-logout {
+  @apply p-3 border-t border-line;
+}
+
+.logout-btn {
+  @apply w-full py-2.5 border-none rounded bg-clay text-white text-sm cursor-pointer transition-opacity;
+}
+
+.logout-btn:hover {
+  @apply opacity-90;
+}
+
+.btn-back {
+  @apply inline-flex items-center gap-2 px-3 py-1.5 border border-[#d6ceb9] rounded-md bg-white text-sm font-medium text-ink cursor-pointer transition-colors hover:bg-[#f4f3ec] shadow-sm;
+}
+
+.btn-back i {
+  @apply text-xs;
+}
+
+.btn-back:hover {
+  @apply border-moss text-moss;
+}
+
+.admin-main {
+  @apply flex-1 flex flex-col min-w-0;
+}
+
+.admin-header {
+  @apply flex items-center justify-between gap-3 p-4 bg-white border-b border-line shadow-sm;
+}
+
+.admin-tag {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-moss text-white text-xs font-semibold;
+}
+
+.admin-tag-dot {
+  @apply w-1.5 h-1.5 rounded-full bg-cream;
+}
+
+.menu-toggle {
+  @apply hidden bg-transparent border-0 text-2xl cursor-pointer text-ink;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    @apply block;
+  }
+}
+
+.admin-title {
+  @apply m-0 font-lora text-xl font-semibold text-ink;
+}
+
+.admin-content {
+  @apply flex-1 bg-[#f7f5ee] p-6 overflow-y-auto;
+}

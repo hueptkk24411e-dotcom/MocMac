@@ -1,22 +1,36 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { catchError, map, of, tap } from 'rxjs';
+import { Observable, Subject, catchError, map, of, startWith, switchMap, tap } from 'rxjs';
+import { ReviewSummary } from './reviews-service';
 
-// ============================================================
-// 1. MODEL SẢN PHẨM
-// ============================================================
+export interface RegionItem {
+  name: string;
+  slug: string;
+  image: string;
+  description: string;
+  productCount: number;
+}
+
+export interface ProductVariant {
+  id: string;
+  label: string;
+  attributes: { name: string; value: string; swatch?: string }[];
+  price: number;
+  available: boolean;
+  image?: string;
+  images?: string[];
+}
 
 export interface ProductItem {
   id: number;
+  slug: string;
   name: string;
   cat: string;
   type: string;
   region: string;
   province: string;
   village: string;
-
-  description?: string;
 
   price: number;
   rate: number;
@@ -26,31 +40,29 @@ export interface ProductItem {
   heritage: 'Vàng' | 'Bạc' | null;
 
   seasons: number[];
+
+  // MỘT SẢN PHẨM CÓ THỂ CÓ NHIỀU OCCASION
   occasion: string[];
 
   inStock: boolean;
   preorder: boolean;
-
   icon: string;
   badges: string[];
 
   images?: string[];
+  variants?: ProductVariant[];
+  referenceImages?: string[];
+  description?: string;
+  reviewStats?: ReviewSummary;
 }
-
-// ============================================================
-// 2. MODEL FILTER
-// ============================================================
 
 export interface Filters {
   q: string;
-
   cat: string[];
   type: string[];
   region: string[];
-
   province: string;
   village: string;
-
   price: string[];
   ocop: string[];
   heri: string[];
@@ -66,10 +78,6 @@ export interface Filters {
   view: 'grid' | 'list';
   page: number;
 }
-
-// ============================================================
-// 3. ARRAY KEY
-// ============================================================
 
 export type ArrayKey =
   | 'cat'
@@ -93,10 +101,6 @@ export const ARRAY_KEYS: ArrayKey[] = [
   'status',
   'months'
 ];
-
-// ============================================================
-// 4. FILTER MẶC ĐỊNH
-// ============================================================
 
 export const defaultFilters = (): Filters => ({
   q: '',
@@ -124,25 +128,19 @@ export const defaultFilters = (): Filters => ({
   page: 1
 });
 
-// ============================================================
-// 5. CHUẨN HÓA CHỮ
-// ============================================================
-
-export const norm = (s: string): string =>
+export const norm = (s: string) =>
   s
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/đ/g, 'd');
 
-// ============================================================
-// 6. LOGIC FILTER
-// ============================================================
 
 export const PRED: Record<
   ArrayKey,
   (p: ProductItem, v: string) => boolean
 > = {
+
   cat: (p, v) =>
     v === 'Sản phẩm OCOP'
       ? p.ocop > 0
@@ -160,12 +158,10 @@ export const PRED: Record<
         return p.price < 200000;
 
       case '200-500':
-        return p.price >= 200000 &&
-               p.price <= 500000;
+        return p.price >= 200000 && p.price <= 500000;
 
       case '500-1000':
-        return p.price > 500000 &&
-               p.price <= 1000000;
+        return p.price > 500000 && p.price <= 1000000;
 
       case 'gt1000':
         return p.price > 1000000;
@@ -181,6 +177,7 @@ export const PRED: Record<
   heri: (p, v) =>
     p.heritage === v,
 
+  // MỘT SẢN PHẨM CÓ THỂ CÓ NHIỀU OCCASION
   occ: (p, v) =>
     p.occasion.includes(v),
 
@@ -193,27 +190,24 @@ export const PRED: Record<
     const [a, b] = v.split('-').map(Number);
 
     return p.seasons.some(
-      (m: number) => m >= a && m <= b
+      m => m >= a && m <= b
     );
   }
 };
 
-// ============================================================
-// 7. LỌC SẢN PHẨM
-// ============================================================
 
 export function matchFilters(
   p: ProductItem,
   f: Filters,
-  month: number = new Date().getMonth() + 1
+  month = new Date().getMonth() + 1
 ): boolean {
 
-  // Tìm kiếm theo tên, tỉnh, làng nghề, loại và vùng.
+  // SEARCH
   if (f.q) {
     const q = norm(f.q);
 
     const text = norm(
-      `${p.name} ${p.province} ${p.village} ${p.type} ${p.region}`
+      `${p.name} ${p.province} ${p.village} ${p.type} ${p.region} ${p.cat} ${p.slug}`
     );
 
     if (!text.includes(q)) {
@@ -221,7 +215,7 @@ export function matchFilters(
     }
   }
 
-  // Tab danh mục.
+  // TAB
   if (
     f.tab !== 'Tất cả' &&
     !PRED.cat(p, f.tab)
@@ -229,19 +223,18 @@ export function matchFilters(
     return false;
   }
 
-  // Các filter dạng mảng.
+  // CÁC FILTER
   for (const k of ARRAY_KEYS) {
+
     if (
-      f[k].length > 0 &&
-      !f[k].some(
-        (v: string) => PRED[k](p, v)
-      )
+      f[k].length &&
+      !f[k].some(v => PRED[k](p, v))
     ) {
       return false;
     }
   }
 
-  // Tỉnh thành.
+  // TỈNH
   if (
     f.province &&
     p.province !== f.province
@@ -249,7 +242,7 @@ export function matchFilters(
     return false;
   }
 
-  // Làng nghề.
+  // LÀNG NGHỀ
   if (
     f.village &&
     p.village !== f.village
@@ -257,7 +250,7 @@ export function matchFilters(
     return false;
   }
 
-  // Mùa hiện tại.
+  // MÙA HIỆN TẠI
   if (
     f.now &&
     !p.seasons.includes(month)
@@ -265,9 +258,9 @@ export function matchFilters(
     return false;
   }
 
-  // Số sao tối thiểu.
+  // ĐÁNH GIÁ
   if (
-    f.rate > 0 &&
+    f.rate &&
     p.rate < f.rate
   ) {
     return false;
@@ -276,9 +269,6 @@ export function matchFilters(
   return true;
 }
 
-// ============================================================
-// 8. CHUYỂN FILTER THÀNH QUERY PARAMETERS
-// ============================================================
 
 export function toParams(
   f: Filters
@@ -289,21 +279,21 @@ export function toParams(
   const o: Record<string, string | number> = {};
 
   for (const k of ARRAY_KEYS) {
-    if (f[k].length > 0) {
+    if (f[k].length) {
       o[k] = f[k].join(',');
     }
   }
 
-  const keys = [
-    'q',
-    'province',
-    'village',
-    'tab',
-    'sort',
-    'view'
-  ] as const;
-
-  for (const k of keys) {
+  for (
+    const k of [
+      'q',
+      'province',
+      'village',
+      'tab',
+      'sort',
+      'view'
+    ] as const
+  ) {
     if (f[k] !== d[k]) {
       o[k] = f[k];
     }
@@ -313,7 +303,7 @@ export function toParams(
     o['now'] = 1;
   }
 
-  if (f.rate > 0) {
+  if (f.rate) {
     o['rate'] = f.rate;
   }
 
@@ -324,13 +314,10 @@ export function toParams(
   return o;
 }
 
-// ============================================================
-// 9. ĐỌC QUERY PARAMETERS
-// ============================================================
 
 export function fromParams(
-  params: {
-    get(key: string): string | null;
+  p: {
+    get(k: string): string | null;
   }
 ): Filters {
 
@@ -338,115 +325,97 @@ export function fromParams(
 
   for (const k of ARRAY_KEYS) {
     f[k] =
-      params.get(k)
+      p.get(k)
         ?.split(',')
         .filter(Boolean) ?? [];
   }
 
-  f.q = params.get('q') ?? '';
+  f.q =
+    p.get('q') ?? '';
 
   f.province =
-    params.get('province') ?? '';
+    p.get('province') ?? '';
 
   f.village =
-    params.get('village') ?? '';
+    p.get('village') ?? '';
 
   f.tab =
-    params.get('tab') ?? 'Tất cả';
+    p.get('tab') ?? 'Tất cả';
 
   f.sort =
-    params.get('sort') ?? 'popular';
+    p.get('sort') ?? 'popular';
 
   f.view =
-    params.get('view') === 'list'
+    p.get('view') === 'list'
       ? 'list'
       : 'grid';
 
   f.now =
-    params.get('now') === '1';
+    p.get('now') === '1';
 
   f.rate =
-    Number(params.get('rate')) || 0;
+    Number(p.get('rate')) || 0;
 
-  f.page = Math.max(
-    1,
-    Number(params.get('page')) || 1
-  );
+  f.page =
+    Math.max(
+      1,
+      Number(p.get('page')) || 1
+    );
 
   return f;
 }
 
-// ============================================================
-// 10. PRODUCTS SERVICE
-// ============================================================
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class ProductsService {
+  private readonly http = inject(HttpClient);
+  private readonly reload = new Subject<void>();
+  readonly loading = signal(true);
+  readonly error = signal('');
 
-  private http = inject(HttpClient);
+  private normalize(product: ProductItem): ProductItem {
+    return {
+      ...product,
+      rate: Number(product.reviewStats?.average) || 0,
+      reviews: Number(product.reviewStats?.count) || 0,
+      occasion: Array.isArray(product.occasion) ? product.occasion : product.occasion ? [product.occasion] : [],
+      seasons: Array.isArray(product.seasons) ? product.seasons : [],
+      badges: Array.isArray(product.badges) ? product.badges : [],
+      images: Array.isArray(product.images) ? product.images : [],
+      variants: Array.isArray(product.variants) ? product.variants : [],
+    };
+  }
 
-  /** True after the first catalog request finishes, including an error response. */
-  readonly catalogLoaded = signal(false);
-
-  // QUAN TRỌNG:
-  // Khai báo kiểu trả về của map là ProductItem[].
-  // Điều này giúp TypeScript không suy luận sai kiểu
-  // và tránh lỗi products có thể là undefined.
-
-  readonly products = toSignal(
-    this.http
-      .get<
-        ProductItem[] | { products: ProductItem[] }
-      >('/api/products')
-      .pipe(
-        map((data): ProductItem[] => {
-
-          const rawProducts: ProductItem[] =
-            Array.isArray(data)
-              ? data
-              : data.products ?? [];
-
-          // Chuẩn hóa dữ liệu từng sản phẩm.
-          const normalized: ProductItem[] =
-            rawProducts.map(
-              (p): ProductItem => ({
-                ...p,
-
-                // Occasion luôn là mảng.
-                occasion: Array.isArray(p.occasion)
-                  ? p.occasion
-                  : [],
-
-                // Seasons luôn là mảng.
-                seasons: Array.isArray(p.seasons)
-                  ? p.seasons
-                  : [],
-
-                // Badges luôn là mảng.
-                badges: Array.isArray(p.badges)
-                  ? p.badges
-                  : [],
-
-                // Ảnh không có thì dùng mảng rỗng.
-                images: Array.isArray(p.images)
-                  ? p.images
-                  : []
-              })
-            );
-
-          return normalized;
-        }),
-        tap(() => this.catalogLoaded.set(true)),
-        catchError((error: unknown) => {
-          console.error('Không thể tải danh sách sản phẩm:', error);
-          this.catalogLoaded.set(true);
+  readonly products = toSignal(this.reload.pipe(
+    startWith(undefined),
+    switchMap(() => {
+      this.loading.set(true);
+      this.error.set('');
+      return this.http.get<ProductItem[] | { products: ProductItem[] }>('/api/products?limit=100').pipe(
+        map((data): ProductItem[] => (Array.isArray(data) ? data : data.products ?? []).map((p) => this.normalize(p))),
+        tap(() => this.loading.set(false)),
+        catchError(() => {
+          this.loading.set(false);
+          this.error.set('Chưa tải được sản phẩm. Vui lòng thử lại.');
           return of([] as ProductItem[]);
-        })
-      ),
-    {
-      initialValue: [] as ProductItem[]
-    }
+        }),
+      );
+    }),
+  ), { initialValue: [] as ProductItem[] });
+
+  refresh(): void {
+    this.reload.next();
+  }
+
+  getProductBySlug(slug: string): Observable<ProductItem> {
+    return this.http.get<ProductItem>('/api/products/' + encodeURIComponent(slug))
+      .pipe(map((product) => this.normalize(product)));
+  }
+
+  readonly regions = toSignal(
+    this.http.get<RegionItem[] | { regions: RegionItem[] }>('/api/regions').pipe(
+      map((data) => Array.isArray(data) ? data : data.regions ?? []),
+      catchError(() => of([] as RegionItem[])),
+    ), { initialValue: [] as RegionItem[] },
   );
 }

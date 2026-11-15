@@ -1,0 +1,142 @@
+<main class="origin-page" lang="vi" data-no-translate>
+  <div class="origin-shell">
+    <header class="origin-topbar">
+      <a class="origin-brand" routerLink="/" aria-label="Mộc Mạc, trang chủ">
+        <img src="https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/Logo.png" alt="Mộc Mạc" width="108" height="46" />
+      </a>
+      @if (product(); as item) {
+        <a class="origin-back" [routerLink]="['/san-pham', item.slug]">
+          Chi tiết sản phẩm <span aria-hidden="true">→</span>
+        </a>
+      } @else {
+        <a class="origin-back" routerLink="/san-pham">Danh mục sản phẩm <span aria-hidden="true">→</span></a>
+      }
+    </header>
+
+    @if (loading()) {
+      <p class="origin-status" role="status">Đang tải thông tin xuất xứ…</p>
+    } @else if (product(); as item) {
+      @let journey = story();
+      <article class="origin-card" aria-labelledby="origin-title">
+        <header class="origin-hero" [class.with-photo]="!!journey">
+          @if (journey) {
+            <img
+              class="origin-cover"
+              [src]="journey.cover.src"
+              [alt]="journey.cover.alt"
+              fetchpriority="high"
+            />
+          }
+          <div class="origin-title">
+            <p>Truy xuất nguồn gốc</p>
+            <h1 id="origin-title">{{ item.name }}</h1>
+          </div>
+        </header>
+        @if (journey) {
+          <div class="cover-credit">
+            <ng-container *ngTemplateOutlet="photoCredit; context: { $implicit: journey.cover, label: 'Ảnh vùng trồng' }" />
+          </div>
+        }
+
+        <section class="origin-information" aria-label="Thông tin trong danh mục">
+          <dl class="origin-facts">
+            @if (item.province) {
+              <div><dt>Tỉnh thành</dt><dd>{{ item.province }}</dd></div>
+            }
+            @if (item.region) {
+              <div><dt>Vùng miền</dt><dd>{{ item.region }}</dd></div>
+            }
+            @if (item.village) {
+              <div><dt>Làng nghề</dt><dd>{{ item.village }}</dd></div>
+            }
+            <div><dt>Mã sản phẩm</dt><dd class="origin-code">MM-{{ item.id.toString().padStart(3, '0') }}</dd></div>
+            @if (item.type || item.cat) {
+              <div><dt>Loại sản phẩm</dt><dd>{{ item.type || item.cat }}</dd></div>
+            }
+            @if (item.ocop) {
+              <div><dt>OCOP</dt><dd>{{ item.ocop }} sao</dd></div>
+            }
+          </dl>
+
+          @if (optionGroups().length) {
+            <dl class="origin-facts origin-options" aria-label="Quy cách trong danh mục">
+              @for (group of optionGroups(); track group.name) {
+                <div>
+                  <dt>{{ group.name }}</dt>
+                  <dd>
+                    @for (option of group.values; track option.value; let last = $last) {
+                      {{ option.value }}{{ last ? '' : ' · ' }}
+                    }
+                  </dd>
+                </div>
+              }
+            </dl>
+          }
+
+          @if (journey) {
+            <section class="origin-region" aria-labelledby="region-title">
+              <h2 id="region-title">{{ journey.region.title }}</h2>
+              <p>{{ journey.region.description }}</p>
+              <a [href]="journey.region.source.url" target="_blank" rel="noopener noreferrer">
+                {{ journey.region.source.label }} <span aria-hidden="true">↗</span>
+              </a>
+            </section>
+          }
+        </section>
+
+        @if (journey) {
+          <section class="origin-process" aria-labelledby="process-title">
+            <div class="process-heading">
+              <p>{{ journey.tabLabel }} · Tham khảo</p>
+              <h2 id="process-title">{{ journey.heading }}</h2>
+            </div>
+
+            <div class="process-steps" role="group" aria-label="Các bước">
+              @for (step of journey.steps; track step.label; let i = $index) {
+                <button
+                  type="button"
+                  [class.selected]="stepIndex() === i"
+                  [attr.aria-pressed]="stepIndex() === i"
+                  (click)="stepIndex.set(i)"
+                >
+                  <span>{{ i + 1 }}</span>{{ step.label }}
+                </button>
+              }
+            </div>
+
+            @if (activeStep(); as step) {
+              <div class="step-panel">
+                <figure class="step-figure">
+                  <img [src]="step.photo.src" [alt]="step.photo.alt" loading="lazy" />
+                  <figcaption>
+                    <ng-container *ngTemplateOutlet="photoCredit; context: { $implicit: step.photo, label: 'Ảnh minh họa' }" />
+                  </figcaption>
+                </figure>
+                <div class="step-copy" aria-live="polite">
+                  <h3>{{ step.title }}</h3>
+                  <p>{{ step.description }}</p>
+                </div>
+              </div>
+            }
+
+            <a class="process-reference" [href]="journey.reference.url" target="_blank" rel="noopener noreferrer">
+              {{ journey.reference.label }} <span aria-hidden="true">↗</span>
+            </a>
+          </section>
+        }
+      </article>
+    } @else {
+      <p class="origin-status" role="status">Chưa tải được thông tin xuất xứ của sản phẩm này.</p>
+    }
+  </div>
+</main>
+
+<ng-template #photoCredit let-photo let-label="label">
+  {{ label }} · <a [href]="photo.source" target="_blank" rel="noopener noreferrer">{{ photo.author }}</a> ·
+  @if (photo.licenseUrl) {
+    <a [href]="photo.licenseUrl" target="_blank" rel="noopener noreferrer">{{ photo.license }}</a>
+  } @else {
+    {{ photo.license }}
+  }
+  · Ảnh thu nhỏ
+</ng-template>

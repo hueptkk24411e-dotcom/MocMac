@@ -1,0 +1,101 @@
+<div class="auth-page">
+  <div class="auth-card">
+
+    <!-- ===== Cột trái: thương hiệu ===== -->
+    <aside class="brand-panel">
+      <div class="brand-top">
+        <div class="brand">
+          <div class="brand-logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21c-4.5 0-8-3.5-8-8 0-5 4-9 8-10 4 1 8 5 8 10 0 4.5-3.5 8-8 8z" />
+              <path d="M12 21V9" />
+              <path d="M12 14l-3-2.5M12 11l3-2.5" />
+            </svg>
+          </div>
+          <div>
+            <div class="brand-name">MỘC MẠC</div>
+            <div class="brand-sub">CỔNG QUẢN TRỊ</div>
+          </div>
+        </div>
+        <span class="tag-pill"><span class="dot"></span>Chỉ dành cho quản trị viên</span>
+      </div>
+
+      <div class="brand-middle">
+        <span class="philo">QUẢN TRỊ HỆ THỐNG</span>
+        <h2 class="quote">Quản lý sản phẩm, đơn hàng và khách hàng tại đây.</h2>
+        <p class="quote-desc">
+          Cập nhật trạng thái đơn hàng, quản lý tài khoản và theo dõi hoạt động khách hàng một cách toàn diện.
+        </p>
+      </div>
+
+      <div class="feature-list">
+        <div class="brand-feature">
+          <span aria-hidden="true">✦</span>
+          <div><strong>Quản lý toàn diện</strong><small>Đơn hàng, sản phẩm, người dùng</small></div>
+        </div>
+        <div class="brand-feature">
+          <span aria-hidden="true">♧</span>
+          <div><strong>Phân tích thời gian thực</strong><small>Theo dõi doanh thu và hoạt động</small></div>
+        </div>
+        <div class="brand-feature">
+          <span aria-hidden="true">♡</span>
+          <div><strong>Bảo mật cao cấp</strong><small>Chỉ dành cho tài khoản @admin.mocmac.vn</small></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== Cột phải: form ===== -->
+    <main class="form-panel">
+      <header class="form-header">
+        <div class="header-links">
+          <a class="link-back" (click)="goHome()" style="cursor:pointer">← {{ t('Về trang chủ','Back to home') }}</a>
+        </div>
+      </header>
+
+      <section class="form-body">
+        <h1 class="admin-title">
+          <span class="line-1">Quản trị viên đã về,</span>
+          <span class="line-2">vui lòng đăng nhập để vào cổng.</span>
+        </h1>
+        <p class="subtitle">Sử dụng tài khoản @admin.mocmac.vn của bạn.</p>
+
+        <form (ngSubmit)="login()" novalidate>
+          <label class="field-label" for="identifier">Email quản trị</label>
+          <div class="input-wrap" [class.invalid]="!!error">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                 stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>
+            <input id="identifier" type="text" [(ngModel)]="identifier" name="identifier"
+                   placeholder="quanly@mocmac.vn" autocomplete="username" required />
+          </div>
+          @if (error) { <small class="error">{{ error }}</small> }
+
+          <div class="label-row">
+            <label class="field-label" for="login-password">Mật khẩu</label>
+          </div>
+          <div class="input-wrap" [class.invalid]="!!error">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                 stroke-width="1.8" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg>
+            <input id="login-password" type="password" [(ngModel)]="password" name="password"
+                   placeholder="Nhập mật khẩu của bạn" autocomplete="current-password" required />
+          </div>
+          @if (error && !identifier) { } 
+
+          <label class="checkbox">
+            <input type="checkbox" [(ngModel)]="remember" name="remember" />
+            <span>Ghi nhớ phiên đăng nhập trên thiết bị này</span>
+          </label>
+
+          <button type="submit" class="submit-btn" [disabled]="loading">
+            @if (loading) { Đang xử... } @else { Đăng nhập quản trị &nbsp;→ }
+          </button>
+
+          @if (error) {
+            <small class="error" role="alert">{{ error }}</small>
+          }
+        </form>
+      </section>
+    </main>
+
+  </div>
+</div>

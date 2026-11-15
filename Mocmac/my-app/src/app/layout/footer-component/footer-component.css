@@ -57,7 +57,7 @@ footer {
 }
 
 .logo img {
-  width: 100px;
+  width: 140px;
   height: auto;
   display: block;
   object-fit: contain;
@@ -286,23 +286,27 @@ footer {
    PARTNER GROUP
 ========================= */
 
-.partner-group {
+.partner-logos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
   margin: 0;
-  padding: 0 !important;
+  padding: 0;
 }
 
-.partner-group h4 {
-  margin: 0 0 8px;
-
-  color: #43533a;
-
-  font-family: "Lora", serif;
-
-  font-size: 13px;
-
-  font-weight: 700;
+.partner-logos img {
+  width: 76px;
+  height: 38px;
+  max-width: none;
+  padding: 4px 6px;
+  box-sizing: border-box;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+  border: 1px solid #ddd5c2;
+  border-radius: 6px;
 }
-
 /* =========================
    PARTNER LOGOS
 ========================= */

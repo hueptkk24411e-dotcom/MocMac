@@ -1,5 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+type PopupType = 'success' | 'error';
+
+interface PopupState {
+  show: boolean;
+  type: PopupType;
+  message: string;
+}
 
 @Component({
   selector: 'app-lienhe',
@@ -19,12 +27,14 @@ export class Lienhe {
 
   submitted = false;
   isLoading = false;
+  popup = signal<PopupState>({ show: false, type: 'success', message: '' });
 
   constructor(private http: HttpClient) {}
 
   sendContact(): void {
     this.isLoading = true;
     this.submitted = false;
+    this.popup.set({ show: false, type: 'success', message: '' });
 
     console.log('Dữ liệu liên hệ:', this.contact);
     this.http
@@ -38,12 +48,14 @@ export class Lienhe {
           console.log('Phản hồi từ server:', response.body);
 
           if (response.status === 200 || response.status === 201) {
-
-            alert('Gửi liên hệ thành công!');
+            this.popup.set({
+              show: true,
+              type: 'success',
+              message: 'Gửi liên hệ thành công! Cảm ơn bạn đã liên hệ với Mộc Mạc. Chúng tôi sẽ phản hồi sớm nhất có thể.',
+            });
 
             this.submitted = true;
 
-            // Xóa dữ liệu form sau khi gửi thành công
             this.contact = {
               name: '',
               phone: '',
@@ -61,12 +73,19 @@ export class Lienhe {
 
           this.isLoading = false;
 
-          alert(
-            error.error?.message ||
-            'Không thể gửi liên hệ. Vui lòng thử lại.'
-          );
-        }
+          this.popup.set({
+            show: true,
+            type: 'error',
+            message:
+              error.error?.message ||
+              'Không thể gửi liên hệ. Vui lòng thử lại.',
+          });
+        },
 
       });
+  }
+
+  closePopup(): void {
+    this.popup.set({ show: false, type: 'success', message: '' });
   }
 }

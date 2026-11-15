@@ -1,7 +1,5 @@
 <div class="cart-page">
   <div class="cart-container">
-
-    <!-- ===== Tiêu đề ===== -->
     <header class="page-head">
       <div class="title-group">
         <h1>Giỏ hàng của bạn</h1>
@@ -12,7 +10,6 @@
     </header>
 
     @if (isEmpty()) {
-      <!-- ===== Trạng thái rỗng ===== -->
       <section class="empty-state">
         <div class="empty-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
@@ -25,11 +22,10 @@
         <a class="btn-primary inline" routerLink="/san-pham">Khám phá đặc sản</a>
       </section>
     } @else {
+      @if (giftLineCount() && giftsLoading()) { <p role="status">Đang tải thông tin quà tặng trong giỏ…</p> }
+      @if (giftLineCount() && giftsError()) { <p role="alert">{{ giftsError() }}</p> }
       <div class="cart-layout">
-
-        <!-- ===== Cột trái: danh sách sản phẩm ===== -->
         <section class="cart-main">
-
           <div class="shipping-banner">
             <div class="shipping-top">
               <div class="shipping-text">
@@ -40,18 +36,16 @@
                 </svg>
                 <div>
                   @if (isFreeShipping()) {
-                    <strong>Chúc mừng! Bạn đã đủ điều kiện nhận Miễn phí vận chuyển toàn quốc.</strong>
+                    <strong>Đơn hàng được miễn phí vận chuyển.</strong>
                   } @else {
-                    <strong>Mua thêm {{ vnd(remainingForFreeShipping()) }} để nhận Miễn phí vận chuyển toàn quốc.</strong>
+                    <strong>Mua thêm {{ vnd(remainingForFreeShipping()) }} để được miễn phí vận chuyển.</strong>
                   }
-                  <small>Áp dụng cho mọi đơn hàng mộc từ {{ vnd(freeShippingThreshold) }} trên toàn lãnh thổ Việt Nam.</small>
+                  <small>Đơn từ {{ vnd(freeShippingThreshold) }} được miễn phí giao hàng.</small>
                 </div>
               </div>
               <span class="free-tag">MIỄN PHÍ GIAO HÀNG</span>
             </div>
-            <div class="progress">
-              <span [style.width.%]="shippingProgress()"></span>
-            </div>
+            <div class="progress"><span [style.width.%]="shippingProgress()"></span></div>
           </div>
 
           <div class="trust-row">
@@ -59,38 +53,35 @@
             <button type="button" class="link-btn" (click)="clearAll()">Xóa toàn bộ giỏ hàng</button>
           </div>
 
-          @for (item of items(); track item.id) {
+          @for (item of items(); track item.key) {
             <article class="item-card">
               <div class="thumb"
                    [style.background-image]="item.imageUrl ? 'url(' + item.imageUrl + ')' : null">
                 <span class="thumb-badge" [class.brown]="item.badgeTone === 'brown'">{{ item.badge }}</span>
               </div>
-
               <div class="item-info">
                 <div class="origin">{{ item.origin }}</div>
                 <h3>{{ item.name }}</h3>
+                @if (item.variantLabel) { <p class="variant-label">{{ item.variantLabel }}</p> }
+                @if (!item.available) { <p class="unavailable-note">Phiên bản này không còn mua được. Hãy xóa hoặc chọn lại sản phẩm.</p> }
                 <p class="desc">{{ item.description }}</p>
-
                 <div class="item-bottom">
                   <div class="price-col">
                     <small>Đơn giá thủ công</small>
                     <strong>{{ vnd(item.price) }}</strong>
                   </div>
-
                   <div class="qty">
-                    <button type="button" (click)="decrease(item.id)" [disabled]="item.quantity <= 1" aria-label="Giảm">−</button>
+                    <button type="button" (click)="decrease(item.id, item.variantId, item.itemType)" [disabled]="item.quantity <= 1" aria-label="Giảm">−</button>
                     <span>{{ item.quantity }}</span>
-                    <button type="button" (click)="increase(item.id)" aria-label="Tăng">+</button>
+                    <button type="button" (click)="increase(item.id, item.variantId, item.itemType)" [disabled]="item.quantity >= 99 || !item.available" aria-label="Tăng">+</button>
                   </div>
-
                   <div class="price-col right">
                     <small>Thành tiền</small>
                     <strong>{{ vnd(item.price * item.quantity) }}</strong>
                   </div>
                 </div>
               </div>
-
-              <button type="button" class="remove" (click)="remove(item.id)" aria-label="Xóa sản phẩm">×</button>
+              <button type="button" class="remove" (click)="remove(item.id, item.variantId, item.itemType)" aria-label="Xóa sản phẩm">×</button>
             </article>
           }
 
@@ -101,88 +92,44 @@
             </svg>
             <div>
               <strong>Đóng gói chuẩn mộc &amp; Tôn vinh cội nguồn</strong>
-              <p>
-                Tất cả sản phẩm trong giỏ được đóng trong hộp giấy kraft mộc, lót rơm gỗ tự nhiên
-                và dán tem niêm phong làng nghề chính gốc có mã QR truy xuất nguồn gốc.
-              </p>
+              <p>Tất cả sản phẩm được đóng gói cẩn thận và có mã QR truy xuất nguồn gốc.</p>
             </div>
           </div>
         </section>
 
-        <!-- ===== Cột phải: tóm tắt đơn hàng ===== -->
         <aside class="cart-aside">
           <div class="summary-card">
             <div class="summary-head">
-              <h2>Tóm tắt đơn hàng</h2>
+              <h2>Tóm tắt giỏ hàng</h2>
               <span class="tag">Bán sắc Việt</span>
             </div>
-
             <div class="row">
               <span>Tạm tính ({{ totalQuantity() }} món)</span>
               <strong>{{ vnd(subtotal()) }}</strong>
             </div>
-
-            @if (couponApplied()) {
-              <div class="row discount">
-                <span>Ưu đãi (Mã MOCMAC10)</span>
-                <strong>-{{ vnd(discount()) }}</strong>
-              </div>
-            }
-
             <div class="row">
-              <span>Phí vận chuyển</span>
+              <span>Phí vận chuyển dự kiến</span>
               @if (shipping() === 0) {
-                <span class="free">
-                  Miễn phí
-                  <small>(Đơn từ {{ vnd(freeShippingThreshold) }})</small>
-                </span>
+                <span class="free">Miễn phí</span>
               } @else {
                 <strong>{{ vnd(shipping()) }}</strong>
               }
             </div>
-
             <div class="total">
               <div>
-                <span>Tổng thanh toán</span>
-                <small>Đã gồm VAT &amp; đóng gói quà mộc</small>
+                <span>Tạm tính</span>
+                <small>Phí ship và voucher được chọn ở bước thanh toán</small>
               </div>
               <strong>{{ vnd(total()) }}</strong>
             </div>
-
-            <div class="coupon">
-              <label for="coupon">Mã giảm giá ưu đãi</label>
-              <div class="coupon-row">
-                <input id="coupon" name="coupon" type="text" placeholder="Nhập mã"
-                       [(ngModel)]="couponInput" (keyup.enter)="applyCoupon()" />
-                <button type="button" (click)="applyCoupon()">Áp dụng</button>
-              </div>
-              @if (couponError()) {
-                <small class="error">{{ couponError() }}</small>
-              }
-              @if (couponApplied()) {
-                <small class="ok">✓ Đã kích hoạt ưu đãi nghệ nhân -{{ vnd(discount()) }}</small>
-              }
-            </div>
-
-            <button type="button" class="btn-primary block" (click)="checkout()">
-              Tiến hành Thanh toán &nbsp;→
+            @if (hasUnavailable()) { <p class="unavailable-note">Có phiên bản tạm hết hàng. Vui lòng chọn lại trước khi thanh toán.</p> }
+            <button type="button" class="btn-primary block" [disabled]="hasUnavailable()" (click)="goToCheckout()">
+              Tiếp tục thanh toán &nbsp;→
             </button>
-            <a class="btn-secondary block" routerLink="/san-pham">
-              Tiếp tục chọn đặc sản vùng khác
-            </a>
-
-            <ul class="assurance">
-              <li>✓ 100% đặc sản chính gốc làng nghề truyền thống</li>
-              <li>↻ Đổi trả an tâm trong vòng 7 ngày nếu lỗi thủ công</li>
-              <li>✓ Đóng gói xanh mộc mạc, phân hủy tự nhiên 100%</li>
-            </ul>
-
-            <div class="refund-note">5% mỗi đơn được hoàn lại Quỹ gìn giữ Làng nghề Việt</div>
+            <a class="btn-secondary block" routerLink="/san-pham">Tiếp tục mua sắm</a>
           </div>
         </aside>
-
       </div>
     }
-
   </div>
 </div>

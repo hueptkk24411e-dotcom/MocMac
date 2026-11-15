@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable, computed, inject, signal } from '@angular/core';
+import { firstValueFrom, Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 export interface AuthUser {
   id: string;
   name: string;
   email: string;
-  role: 'admin' | 'customer';
+  role: 'admin' | 'staff' | 'collaborator' | 'cooperative' | 'customer';
 }
 
 export interface AuthResponse {
@@ -18,8 +19,35 @@ export interface AuthResponse {
 export class AuthService {
   private readonly http = inject(HttpClient);
 
+  private readonly _token = signal<string | null>(this.readToken());
+  private readonly _user = signal<AuthUser | null>(this.readUser());
+
+  readonly isAuthenticated = computed(() => !!this._token());
+  readonly user = computed(() => this._user());
+
   login(identifier: string, password: string): Observable<AuthResponse> {
     return this.http.post<AuthResponse>('/api/auth/login', { identifier, password });
+  }
+
+  async loginWithGoogle(): Promise<AuthResponse> {
+    const config = environment.firebase;
+    if (!config.apiKey || !config.authDomain || !config.projectId || !config.appId) {
+      throw new Error('Chưa cấu hình Firebase Web App trong my-app/src/environments/firebase.config.ts.');
+    }
+
+    const [{ getApps, initializeApp }, { getAuth, GoogleAuthProvider, signInWithPopup }] =
+      await Promise.all([import('firebase/app'), import('firebase/auth')]);
+    const app =
+      getApps().find((firebaseApp) => firebaseApp.name === 'mocmac-google-auth') ??
+      initializeApp(config, 'mocmac-google-auth');
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+
+    const result = await signInWithPopup(getAuth(app), provider);
+    const idToken = await result.user.getIdToken();
+    return firstValueFrom(
+      this.http.post<AuthResponse>('/api/auth/google', { idToken }),
+    );
   }
 
   register(payload: {
@@ -31,10 +59,66 @@ export class AuthService {
     return this.http.post<AuthResponse>('/api/auth/register', payload);
   }
 
+  forgotPassword(email: string): Observable<{ success: boolean; message: string }> {
+    return this.http.post<{ success: boolean; message: string }>('/api/auth/forgot-password', { email });
+  }
+
+  resetPassword(payload: { email: string; otp: string; password: string }): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>('/api/auth/reset-password', payload);
+  }
+
+  adminResetPassword(payload: { email: string; resetSecret: string; password: string }): Observable<{ success: boolean; message: string }> {
+    return this.http.post<{ success: boolean; message: string }>('/api/auth/admin/reset', payload);
+  }
+
   saveSession(response: AuthResponse, remember: boolean): void {
     const storage = remember ? localStorage : sessionStorage;
     const otherStorage = remember ? sessionStorage : localStorage;
     otherStorage.removeItem('mocmac-auth-token');
+    otherStorage.removeItem('mocmac-auth-user');
     storage.setItem('mocmac-auth-token', response.token);
+    storage.setItem('mocmac-auth-user', JSON.stringify(response.user));
+    this._token.set(response.token);
+    this._user.set(response.user);
+  }
+
+  logout(): void {
+    localStorage.removeItem('mocmac-auth-token');
+    sessionStorage.removeItem('mocmac-auth-token');
+    localStorage.removeItem('mocmac-auth-user');
+    sessionStorage.removeItem('mocmac-auth-user');
+    this._token.set(null);
+    this._user.set(null);
+  }
+
+  async refreshUser(): Promise<AuthUser | null> {
+    try {
+      const res = await firstValueFrom(
+        this.http.get<{ success: boolean; user: AuthUser }>('/api/auth/me'),
+      );
+      if (res?.user) {
+        const storage = localStorage.getItem('mocmac-auth-token') ? localStorage : sessionStorage;
+        storage.setItem('mocmac-auth-user', JSON.stringify(res.user));
+        this._user.set(res.user);
+        return res.user;
+      }
+    } catch {
+      // Bỏ qua lỗi làm mới thông tin; giữ nguyên dữ liệu hiện có.
+    }
+    return this._user();
+  }
+
+  private readToken(): string | null {
+    return localStorage.getItem('mocmac-auth-token') ?? sessionStorage.getItem('mocmac-auth-token');
+  }
+
+  private readUser(): AuthUser | null {
+    const raw = localStorage.getItem('mocmac-auth-user') ?? sessionStorage.getItem('mocmac-auth-user');
+    if (!raw) return null;
+    try {
+      return JSON.parse(raw) as AuthUser;
+    } catch {
+      return null;
+    }
   }
 }

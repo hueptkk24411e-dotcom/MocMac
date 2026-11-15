@@ -1,0 +1,1969 @@
+[
+  {
+    "id": 1,
+    "name": "Cà phê Buôn Ma Thuột rang mộc",
+    "description": "Cà phê Buôn Ma Thuột rang mộc mang đến một lựa chọn quen thuộc cho góc cà phê tại nhà hoặc nơi làm việc. Sản phẩm gắn với Đắk Lắk, phù hợp với người yêu phong cách thưởng thức cà phê giản dị và muốn tự điều chỉnh độ đậm theo khẩu vị.\n\nBạn có thể chuẩn bị một ly cà phê nóng để bắt đầu buổi sáng hoặc dùng cùng đá cho những lúc cần nghỉ ngơi. Chọn dụng cụ pha phù hợp với dạng hạt hoặc bột của sản phẩm; tham khảo hướng dẫn trên bao bì và thay đổi lượng cà phê, nước từng chút một để tìm được cách pha yêu thích.\n\nSau khi mở gói, đóng kín miệng túi hoặc chuyển sang hộp sạch, khô có nắp đậy. Đặt cà phê ở nơi thoáng mát, tránh ánh nắng, hơi nước và các thực phẩm có mùi mạnh. Sản phẩm cũng phù hợp để kết hợp cùng phin hoặc cốc trong một món quà dành cho người thích cà phê Việt.",
+    "cat": "Cà phê - Trà",
+    "type": "Cà phê",
+    "region": "Tây Nguyên",
+    "province": "Đắk Lắk",
+    "village": "",
+    "price": 126000,
+    "rate": 4.5,
+    "reviews": 30,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": null,
+    "inStock": false,
+    "preorder": true,
+    "icon": "☕",
+    "badges": [],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljmwck45uz2a2c",
+      "https://static.wixstatic.com/media/746053_0ca7bf6a65bf4a2ea162fefc8cf7cb1f~mv2.png",
+      "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/02/15/1771124078651_gia-ca-phe-trong-nuoc-on-dinh-quanh-muc-96400-97700-dongkg-trong-ngay-15-2.jpeg"
+    ],
+    "variants": [
+      {
+        "id": "500g-nguyen-hat",
+        "label": "500g · Nguyên hạt",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "500g"
+          },
+          {
+            "name": "Dạng cà phê",
+            "value": "Nguyên hạt"
+          }
+        ],
+        "price": 126000,
+        "available": true
+      },
+      {
+        "id": "500g-xay-phin",
+        "label": "500g · Xay pha phin",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "500g"
+          },
+          {
+            "name": "Dạng cà phê",
+            "value": "Xay pha phin"
+          }
+        ],
+        "price": 126000,
+        "available": true
+      },
+      {
+        "id": "1kg-nguyen-hat",
+        "label": "1kg · Nguyên hạt",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "1kg"
+          },
+          {
+            "name": "Dạng cà phê",
+            "value": "Nguyên hạt"
+          }
+        ],
+        "price": 239000,
+        "available": true
+      },
+      {
+        "id": "1kg-xay-phin",
+        "label": "1kg · Xay pha phin",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "1kg"
+          },
+          {
+            "name": "Dạng cà phê",
+            "value": "Xay pha phin"
+          }
+        ],
+        "price": 239000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Cà phê chồn Đà Lạt",
+    "description": "Cà phê chồn Đà Lạt là lựa chọn dành cho người muốn khám phá thêm một dòng cà phê trong bộ sưu tập của mình. Với tên gọi gắn với Đà Lạt, sản phẩm phù hợp để thưởng thức trong những buổi gặp gỡ hoặc làm quà cho người có sở thích tìm hiểu cà phê.\n\nKhi pha lần đầu, nên dùng lượng vừa đủ cho một lần thưởng thức và làm theo hướng dẫn của nhà sản xuất. Thưởng thức nóng giúp bạn dễ cảm nhận hương cà phê; sau đó có thể điều chỉnh độ đậm, thêm đá hoặc sữa theo khẩu vị. Dụng cụ pha cần sạch, khô và phù hợp với độ xay của sản phẩm.\n\nGiữ cà phê trong bao bì được đóng kín, tránh nơi nóng, ẩm và ánh nắng trực tiếp. Dùng thìa khô khi lấy bột, không để hơi nước từ dụng cụ pha đi vào gói. Khi chọn làm quà, có thể phối cùng một chiếc cốc gốm để tạo thành bộ quà nhỏ, dễ sử dụng hằng ngày.",
+    "cat": "Cà phê - Trà",
+    "type": "Cà phê",
+    "region": "Tây Nguyên",
+    "province": "Lâm Đồng",
+    "village": "",
+    "price": 428000,
+    "rate": 3.7,
+    "reviews": 123,
+    "ocop": 0,
+    "heritage": "Bạc",
+    "seasons": [],
+    "occasion": "Quà biếu đối tác",
+    "inStock": false,
+    "preorder": true,
+    "icon": "☕",
+    "badges": [],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lzeaaulmy6vhb1_tn",
+      "https://static.wixstatic.com/media/746053_0ca7bf6a65bf4a2ea162fefc8cf7cb1f~mv2.png",
+      "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/02/15/1771124078651_gia-ca-phe-trong-nuoc-on-dinh-quanh-muc-96400-97700-dongkg-trong-ngay-15-2.jpeg"
+    ],
+    "variants": [
+      {
+        "id": "250g",
+        "label": "250g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "250g"
+          }
+        ],
+        "price": 428000,
+        "available": true
+      },
+      {
+        "id": "500g",
+        "label": "500g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "500g"
+          }
+        ],
+        "price": 818000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Trà Thái Nguyên đặc sản",
+    "description": "Trà Thái Nguyên đặc sản dành cho những người yêu thói quen pha ấm trà và dành thời gian thưởng thức cùng gia đình, bạn bè. Đây là một lựa chọn mang dấu ấn vùng trà Thái Nguyên, phù hợp cho góc tiếp khách, bàn làm việc hoặc một món quà giản dị dành cho người thích trà Việt.\n\nDùng ấm và chén sạch, tráng dụng cụ bằng nước nóng trước khi pha. Bắt đầu với lượng trà, nhiệt độ nước và thời gian hãm theo hướng dẫn trên bao bì, sau đó điều chỉnh để có chén trà vừa khẩu vị. Nên pha lượng đủ dùng cho từng buổi, tránh hãm quá lâu nếu bạn thích vị trà nhẹ.\n\nBảo quản trà trong túi hoặc hộp kín, đặt ở nơi khô, mát và tránh ánh sáng trực tiếp. Trà dễ tiếp nhận mùi từ môi trường xung quanh nên cần để riêng với gia vị và các thực phẩm có hương mạnh. Luôn dùng dụng cụ khô khi lấy trà và đóng kín sau mỗi lần sử dụng.",
+    "cat": "Cà phê - Trà",
+    "type": "Trà",
+    "region": "Miền Bắc",
+    "province": "Thái Nguyên",
+    "village": "",
+    "price": 150000,
+    "rate": 3.7,
+    "reviews": 43,
+    "ocop": 5,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà cưới",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🍵",
+    "badges": [],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1BLuIIhg2e9Gsakmp0Iw9g3_F-oqHWKX5kNWaTxoiVt-ZJ8D4vTwrH-qH&s=10",
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvpq3u2ezj3ta7",
+      "https://m.media-amazon.com/images/I/41b3sH5xylL._SL500_.jpg"
+    ],
+    "variants": [
+      {
+        "id": "100g",
+        "label": "100g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "100g"
+          }
+        ],
+        "price": 150000,
+        "available": true
+      },
+      {
+        "id": "200g",
+        "label": "200g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "200g"
+          }
+        ],
+        "price": 280000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Trà shan tuyết Hà Giang",
+    "description": "Trà shan tuyết Hà Giang là lựa chọn cho người muốn bổ sung một dòng trà mang tên vùng cao Hà Giang vào thói quen thưởng trà. Sản phẩm phù hợp để pha trong những buổi trò chuyện thong thả, tiếp khách tại nhà hoặc dành tặng người có sở thích sưu tầm các loại trà.\n\nNên chuẩn bị ấm có dung tích phù hợp với số người uống và dùng nước sạch khi pha. Tham khảo hướng dẫn của sản phẩm để chọn nhiệt độ, lượng trà và thời gian hãm; có thể thử từng lượng nhỏ trước khi tìm được độ đậm mong muốn. Mỗi lần pha là dịp để quan sát màu nước và cảm nhận hương vị theo cách riêng của bạn.\n\nSau khi sử dụng, giữ phần trà còn lại trong bao bì hoặc hộp kín, tránh hơi ẩm và nguồn nhiệt. Không đặt trà gần bếp, nơi có nắng hoặc thực phẩm có mùi mạnh. Có thể kết hợp trà với một bộ ấm chén nhỏ để làm quà cho gia đình, đối tác hoặc người thân yêu thích trà Việt.",
+    "cat": "Cà phê - Trà",
+    "type": "Trà",
+    "region": "Miền Bắc",
+    "province": "Hà Giang",
+    "village": "",
+    "price": 304000,
+    "rate": 3.7,
+    "reviews": 68,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà Tết",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🍵",
+    "badges": [],
+    "images": [
+      "https://pos.nvncdn.com/35ab07-173722/ps/Tra-Shan-Tuyet-Co-Thu-Loai-1-200G-Goi-Vang.png?v=1742360303",
+      "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-nen-trang.png",
+      "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-5.jpg",
+      "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-2.jpg"
+    ],
+    "variants": [
+      {
+        "id": "200g",
+        "label": "200g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "200g"
+          }
+        ],
+        "price": 304000,
+        "available": true,
+        "image": "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-nen-trang.png",
+        "images": [
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-nen-trang.png",
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-5.jpg",
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-2.jpg"
+        ]
+      },
+      {
+        "id": "400g",
+        "label": "400g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "400g"
+          }
+        ],
+        "price": 578000,
+        "available": true,
+        "image": "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-nen-trang.png",
+        "images": [
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-nen-trang.png",
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-5.jpg",
+          "https://loctancuong.com/wp-content/uploads/2024/01/shan-tuyet-ha-giang-2.jpg"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Trà sen Tây Hồ",
+    "description": "Trà sen Tây Hồ gợi nhắc nét thanh nhã của một buổi thưởng trà Hà Nội. Sản phẩm phù hợp với người yêu trà mang hương sen, thích cách pha chậm rãi và muốn có một món quà gắn với tên gọi Tây Hồ, Quảng Bá.\n\nChuẩn bị ấm, chén sạch và tránh dùng dụng cụ còn lưu mùi từ thức uống khác. Pha theo hướng dẫn trên bao bì, điều chỉnh lượng trà và thời gian hãm tùy khẩu vị để hương trà không bị lấn át bởi độ đậm. Một ấm trà nhỏ có thể dùng trong buổi tiếp khách, cuộc gặp cuối tuần hoặc khoảng nghỉ yên tĩnh trong ngày.\n\nĐóng kín túi ngay sau khi lấy trà và cất ở nơi mát, khô, tránh ánh nắng. Nên để trà riêng với cà phê, gia vị và các thực phẩm có mùi mạnh để việc thưởng thức không bị ảnh hưởng. Khi làm quà, có thể phối cùng chén gốm hoặc ấm trà với cách gói đơn giản, trang nhã.",
+    "cat": "Cà phê - Trà",
+    "type": "Trà",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Quảng Bá",
+    "price": 680000,
+    "rate": 3.8,
+    "reviews": 42,
+    "ocop": 3,
+    "heritage": null,
+    "seasons": [],
+    "occasion": null,
+    "inStock": true,
+    "preorder": false,
+    "icon": "🪷",
+    "badges": [
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkw5-e6O7p17G8VVRNNxS3IAIVqaOAGiADSjR3iAnH_a-DUC5itpcGE70&s=10",
+      "https://cdn.honglam.vn/honglam/Tra_sen_Ho_Tay_b3e58b0d1b.jpg",
+      "https://bizweb.dktcdn.net/100/383/513/products/tra-sen-tay-ho-say-kho-sen-vo-uu-4.png?v=1736215518317"
+    ],
+    "variants": []
+  },
+  {
+    "id": 6,
+    "name": "Túi mây tre đan Phú Vinh",
+    "description": "Túi mây tre đan Phú Vinh mang nét mộc mạc của đồ đan vào một phụ kiện có thể đồng hành cùng trang phục hằng ngày. Những đường đan tạo nhịp trên bề mặt túi, phù hợp với người thích phụ kiện có chất liệu và chi tiết thủ công làm điểm nhấn.\n\nBạn có thể phối túi cùng áo sơ mi, váy đơn sắc hoặc trang phục đi dạo để tổng thể gọn gàng, tự nhiên. Khi sử dụng, phân bố vật dụng đều trong lòng túi và ưu tiên những món đồ cá nhân nhỏ, tránh nhồi quá đầy hoặc mang vật sắc có thể mắc vào sợi đan. Có thể dùng túi vải nhỏ bên trong để sắp xếp đồ thuận tiện hơn.\n\nLàm sạch bụi bằng khăn mềm hoặc chổi lông nhẹ, lau khô nếu túi bị dính nước. Cất ở nơi thông thoáng, tránh ngâm rửa, để ẩm lâu và đặt dưới vật nặng làm biến dạng. Đây cũng là một lựa chọn quà tặng dành cho người yêu thời trang và sản phẩm làng nghề Phú Vinh.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Mây tre đan",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Phú Vinh",
+    "price": 238000,
+    "rate": 4.1,
+    "reviews": 28,
+    "ocop": 5,
+    "heritage": "Bạc",
+    "seasons": [],
+    "occasion": null,
+    "inStock": false,
+    "preorder": true,
+    "icon": "🧺",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://dunghangviet.vn/wp-content/uploads/2024/12/may-tre-dan-Phu-Vinh-1.jpg",
+      "https://laodongthudo.vn/stores/news_dataimages/luonghang/102018/29/21/4022_may_tre_dan.jpg",
+      "https://nhandan.vn/special/may-tre-dan-Phu-Vinh-hon-xua-voc-moi/assets/eV36qMqp2M/hanam-348-1920x1280.jpg"
+    ],
+    "variants": [
+      {
+        "id": "nho",
+        "label": "Nhỏ",
+        "attributes": [
+          {
+            "name": "Kích cỡ",
+            "value": "Nhỏ"
+          }
+        ],
+        "price": 238000,
+        "available": true
+      },
+      {
+        "id": "vua",
+        "label": "Vừa",
+        "attributes": [
+          {
+            "name": "Kích cỡ",
+            "value": "Vừa"
+          }
+        ],
+        "price": 278000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Rổ mây Bát Tràng",
+    "description": "Rổ mây Bát Tràng có thể trở thành một chi tiết trang trí gần gũi trong góc bếp, phòng khách hoặc không gian trưng bày. Bề mặt đan và hình dáng của rổ tạo cảm giác mộc, dễ kết hợp với đồ gỗ, vải và các vật dụng mang tông màu tự nhiên.\n\nSản phẩm phù hợp để sắp xếp những vật dụng nhẹ, làm nền cho một bộ quà hoặc dùng trong bố cục chụp ảnh sản phẩm. Khi đựng đồ, nên phân bổ đều và tránh vật sắc, nặng hoặc còn ướt. Nếu dùng để bày thực phẩm, nên có lớp lót phù hợp và tuân theo hướng dẫn sử dụng của sản phẩm.\n\nVệ sinh bằng chổi mềm hoặc khăn hơi ẩm, sau đó để rổ khô hoàn toàn ở nơi thoáng. Không ngâm nước, không cất sát nền ẩm và tránh đè ép lâu ngày. Một chiếc rổ đan được đặt đúng chỗ vừa giúp không gian ngăn nắp hơn, vừa tạo điểm nhấn nhẹ nhàng cho ngôi nhà.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Mây tre đan",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Bát Tràng",
+    "price": 95000,
+    "rate": 4.7,
+    "reviews": 131,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": null,
+    "inStock": true,
+    "preorder": false,
+    "icon": "🧺",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlsYEg8DHiFA8YKFqc_nzqPjDFfcQ11O2KOG7XVpsQzt4G2cphtU0asyg&s=10",
+      "https://product.hstatic.net/200000490263/product/photoroom-20230725_142937_2c82c5dbaf4b4efa8682080e9d71258f_grande.png",
+      "https://salt.tikicdn.com/cache/550x550/ts/product/1a/6e/eb/6b9870bb66f6562a03f7b6922dedd85a.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 8,
+    "name": "Bộ ấm trà Bát Tràng hoa son",
+    "description": "Bộ ấm trà Bát Tràng hoa son mang đến một điểm nhấn gốm cho bàn trà gia đình. Sự kết hợp giữa ấm và các chén giúp góc tiếp khách có bố cục đồng bộ, phù hợp với những buổi trò chuyện thân mật hoặc khoảng thời gian thưởng trà mỗi ngày.\n\nBạn có thể đặt bộ ấm trà trên khay gỗ, khay đan hoặc mặt bàn đơn giản để làm nổi bật dáng gốm và cách phối màu của sản phẩm. Trước lần dùng đầu tiên, rửa nhẹ, tráng sạch và để ráo. Khi pha trà, làm ấm dụng cụ từ từ, tránh thay đổi nhiệt độ đột ngột và đặt ấm chén trên bề mặt bằng phẳng.\n\nSau mỗi lần sử dụng, vệ sinh bằng khăn hoặc miếng rửa mềm rồi lau khô trước khi cất. Hạn chế va chạm ở vòi, quai và miệng chén; không dùng vật cứng để cạo vết trà. Bộ sản phẩm phù hợp làm quà tân gia, quà cho người thân hoặc người yêu thích đồ gốm Bát Tràng.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Gốm",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Bát Tràng",
+    "price": 724000,
+    "rate": 3.7,
+    "reviews": 88,
+    "ocop": 0,
+    "heritage": "Bạc",
+    "seasons": [],
+    "occasion": null,
+    "inStock": true,
+    "preorder": false,
+    "icon": "🫖",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9f6TGHUEvwGlGlsfnuD8rn5RuHNZoAFQ004-AoqiUiX-KGJYt7I-s_AE&s=10",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-3.jpg",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-4.jpg",
+      "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp"
+    ],
+    "variants": [
+      {
+        "id": "xanh-hoa-bien",
+        "label": "Xanh hỏa biến",
+        "attributes": [
+          {
+            "name": "Mẫu men",
+            "value": "Xanh hỏa biến",
+            "swatch": "#315c66"
+          }
+        ],
+        "price": 724000,
+        "available": true,
+        "image": "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+        "images": [
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-3.jpg",
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-4.jpg"
+        ]
+      },
+      {
+        "id": "trang-xanh",
+        "label": "Trắng xanh",
+        "attributes": [
+          {
+            "name": "Mẫu men",
+            "value": "Trắng xanh",
+            "swatch": "#eef1e8"
+          }
+        ],
+        "price": 754000,
+        "available": true,
+        "image": "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp",
+        "images": [
+          "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Ấm tử sa Bát Tràng",
+    "description": "Ấm tử sa Bát Tràng là lựa chọn dành cho người muốn chăm chút hơn cho góc thưởng trà của mình. Dáng ấm tạo điểm nhấn trên bàn trà, dễ phối cùng chén, khay và các phụ kiện có đường nét giản dị.\n\nKhi sử dụng, chọn lượng trà và nước phù hợp với dung tích thực tế của ấm. Rửa sạch trước lần dùng đầu tiên, làm ấm từ từ rồi pha theo hướng dẫn của loại trà bạn chọn. Cầm ấm chắc tay, tránh va vào cạnh bàn và không rót quá đầy để thao tác thuận tiện hơn. Có thể dành riêng ấm cho một nhóm trà để giữ thói quen thưởng thức nhất quán.\n\nSau khi pha, bỏ bã trà, rửa nhẹ và để cả lòng ấm lẫn nắp khô hoàn toàn trước khi cất. Không để nước trà lưu lại lâu ngày, tránh chất tẩy có mùi mạnh và thay đổi nhiệt độ đột ngột. Sản phẩm phù hợp với người thích uống trà tại nhà hoặc tìm một món quà gốm có tính sử dụng.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Gốm",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Bát Tràng",
+    "price": 546000,
+    "rate": 4.5,
+    "reviews": 30,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà Tết",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🫖",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://gomsubattranghaotho.vn/uploads/2024/10/ts16-400x400.jpg",
+      "https://cdn.hstatic.net/products/200000426635/song__m__n_li_n_f34c607c10da4673ab13058013380bac_master.png",
+      "https://gomsubattrang.vn/uploads/data/20/files/files/c%C3%BAc%20nh%E1%BB%8F/IMG_3546.JPG"
+    ],
+    "variants": [
+      {
+        "id": "250ml",
+        "label": "250ml",
+        "attributes": [
+          {
+            "name": "Dung tích",
+            "value": "250ml"
+          }
+        ],
+        "price": 546000,
+        "available": true
+      },
+      {
+        "id": "400ml",
+        "label": "400ml",
+        "attributes": [
+          {
+            "name": "Dung tích",
+            "value": "400ml"
+          }
+        ],
+        "price": 646000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Bình gốm Chu Đậu men rạn",
+    "description": "Bình gốm Chu Đậu men rạn tạo điểm nhấn bằng bề mặt men và dáng bình gốm. Sản phẩm gắn với Chu Đậu, Hải Dương, phù hợp để trưng bày tại phòng khách, bàn làm việc, kệ sách hoặc một góc đón khách trong nhà.\n\nBạn có thể đặt bình đứng riêng để tôn dáng gốm hoặc kết hợp cùng một vài cành khô, hoa trang trí có chiều cao vừa phải. Khi phối trong không gian nhỏ, nên để khoảng trống xung quanh thay vì đặt quá nhiều vật dụng sát bình. Với hoa tươi, kiểm tra hướng dẫn và khả năng giữ nước của mẫu bình trước khi sử dụng.\n\nLau bụi bằng khăn mềm, giữ miệng và đáy bình sạch, khô. Khi di chuyển, đỡ cả thân và đáy, tránh cầm nhấc chỉ ở miệng bình. Đặt trên bề mặt vững và tránh va đập với đồ vật cứng. Bình cũng phù hợp làm quà trang trí cho người yêu gốm hoặc một món quà tân gia trang nhã.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Gốm",
+    "region": "Miền Bắc",
+    "province": "Hải Dương",
+    "village": "Chu Đậu",
+    "price": 780000,
+    "rate": 4.9,
+    "reviews": 119,
+    "ocop": 0,
+    "heritage": "Bạc",
+    "seasons": [],
+    "occasion": "Quà Tết",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🏺",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYKy3V9mP-N5NNQaikOW_GayiGYRte3X436ZCGSMOySBxkBOZP7ikGtgU&s=10",
+      "https://bizweb.dktcdn.net/thumb/grande/100/376/052/products/36-b721b1eb-e02e-4143-97d7-a30414eb48e8.jpg?v=1712198046063",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/422/864/products/2x.jpg?v=1699950097963"
+    ],
+    "variants": []
+  },
+  {
+    "id": 11,
+    "name": "Gốm Bàu Trúc chậu hoa",
+    "description": "Gốm Bàu Trúc chậu hoa đem nét mộc của gốm vào góc cây xanh trong nhà hoặc khu vực hiên, ban công có mái che. Tên gọi Bàu Trúc gắn sản phẩm với Ninh Thuận, phù hợp với người thích những vật dụng trang trí có bề mặt và dáng gốm làm điểm nhấn.\n\nCó thể dùng chậu như một lớp chậu trang trí bên ngoài, kết hợp cùng cây nhỏ hoặc hoa phù hợp với kích thước thực tế. Trước khi trồng trực tiếp, kiểm tra lỗ thoát nước và đặc điểm của chậu để chọn cách bố trí đất, nước phù hợp. Đặt thêm đĩa lót khi cần để giữ bề mặt bàn, kệ sạch và khô.\n\nLàm sạch đất bám bằng chổi hoặc khăn mềm, để chậu ráo trước khi cất. Khi di chuyển nên đỡ đáy, tránh kéo lê trên mặt bàn và hạn chế va chạm ở thành chậu. Sản phẩm có thể dùng để tạo một góc trang trí riêng hoặc làm quà cho người yêu cây và đồ gốm.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Gốm",
+    "region": "Miền Trung",
+    "province": "Ninh Thuận",
+    "village": "Bàu Trúc",
+    "price": 210000,
+    "rate": 4.1,
+    "reviews": 101,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": null,
+    "inStock": true,
+    "preorder": false,
+    "icon": "🏺",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://img.lazcdn.com/g/p/5b06354a3bfbf40555aa86584d2e81ee.jpg_720x720q80.jpg",
+      "https://down-vn.img.susercontent.com/file/6d602a7ca6ca9ef9eb47c299d8abe121"
+    ],
+    "variants": []
+  },
+  {
+    "id": 12,
+    "name": "Bát sơn mài truyền thống",
+    "description": "Bát sơn mài truyền thống từ Hạ Thái phù hợp với những góc nhà cần một điểm nhấn có bề mặt và màu sắc riêng. Dáng bát giúp sản phẩm dễ xuất hiện trên kệ trang trí, bàn phụ hoặc trong một bộ quà mang chủ đề thủ công Việt.\n\nBạn có thể dùng bát để trưng bày, đặt các vật dụng nhỏ và khô hoặc kết hợp cùng khay, bình với bố cục đơn giản. Để bề mặt sơn mài được nổi bật, nên chọn nền bàn trung tính và giữ khoảng trống xung quanh. Tránh đặt vật sắc, nóng hoặc có thể làm xước trực tiếp vào lòng bát.\n\nVệ sinh bằng khăn mềm, hơi ẩm rồi lau khô; không ngâm nước hoặc dùng miếng chà nhám, hóa chất tẩy mạnh. Cất ở nơi thoáng, tránh nắng gắt và nguồn nhiệt. Khi xếp cùng đồ khác, thêm một lớp vải mềm để hạn chế trầy xước. Đây là lựa chọn dành cho người thích đồ trang trí nhỏ, gọn và có dấu ấn làng nghề.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Sơn mài",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Hạ Thái",
+    "price": 336000,
+    "rate": 4.3,
+    "reviews": 28,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà Tết",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🥣",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://tanmydesign.com/uploaded/san-pham/Son%20mai/Khac/b%C3%A1t%20s%C6%A1n%20m%C3%A0i/PAS001133.1.1370.jpg",
+      "https://dongphuongart.com/uploads/images/BatP11Ca3.png",
+      "https://dongphuongart.com/uploads/images/BatP11CaLS.jpg"
+    ],
+    "variants": [
+      {
+        "id": "mot-bat",
+        "label": "1 bát",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "1 bát"
+          }
+        ],
+        "price": 336000,
+        "available": true
+      },
+      {
+        "id": "cap-hai-bat",
+        "label": "Cặp 2 bát",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "Cặp 2 bát"
+          }
+        ],
+        "price": 640000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Khay sơn mài khảm trai",
+    "description": "Khay sơn mài khảm trai tạo điểm nhấn bằng chi tiết khảm trên nền sơn mài. Sản phẩm gắn với làng nghề Hạ Thái, Hà Nội, phù hợp để trang trí bàn trà, bàn làm việc hoặc làm quà cho người yêu những món đồ có chi tiết thủ công.\n\nCó thể dùng khay để sắp xếp các vật dụng nhẹ, làm nền trưng bày một bộ quà hoặc phối cùng bình, hộp và phụ kiện có màu sắc tiết chế. Nên dùng lớp lót khi đặt đồ lên khay để giảm trầy xước; tránh kéo lê vật dụng trên bề mặt và không đặt trực tiếp vật quá nóng.\n\nLau bằng khăn mềm sau khi sử dụng, xử lý ngay nếu có nước đọng và không ngâm rửa lâu. Bảo quản khay ở nơi khô, tránh ánh nắng và chất tẩy mạnh. Khi cất hoặc vận chuyển, bọc riêng bằng vật liệu mềm để bảo vệ phần viền và mặt khảm. Một chiếc khay có thể vừa tạo bố cục ngăn nắp, vừa làm điểm nhấn cho góc nhà.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Sơn mài",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Hạ Thái",
+    "price": 1312000,
+    "rate": 4.0,
+    "reviews": 110,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tân gia",
+    "inStock": false,
+    "preorder": true,
+    "icon": "🪞",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqok5t7yjrxzb0",
+      "https://bizweb.dktcdn.net/thumb/grande/100/347/978/products/15bec8d7-ee3a-4467-9447-54068d3de697.jpg?v=1724042021413",
+      "https://nhn.1cdn.vn/2023/08/11/img_8182.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 14,
+    "name": "Khăn thổ cẩm dệt tay",
+    "description": "Khăn thổ cẩm dệt tay là một phụ kiện dành cho người thích dùng họa tiết làm điểm nhấn cho trang phục. Sản phẩm gắn với Mường Chanh, Sơn La, có thể xuất hiện trong trang phục đi làm, đi dạo hoặc những dịp bạn muốn mang theo một nét thủ công Việt.\n\nMột bộ đồ trơn màu sẽ giúp họa tiết trên khăn được thể hiện rõ hơn. Bạn có thể quàng nhẹ, khoác vai hoặc phối cùng túi và phụ kiện theo phong cách riêng, tùy kích thước thực tế của khăn. Khi sử dụng, tránh móc vào trang sức, khóa kéo và những bề mặt thô có thể kéo sợi.\n\nƯu tiên vệ sinh nhẹ bằng tay với nước mát và chất giặt phù hợp theo nhãn chăm sóc. Không vắt xoắn mạnh; phơi ở nơi thoáng, tránh nắng gắt và cất khi khăn đã khô hoàn toàn. Khi làm quà, có thể gấp khăn gọn, đặt trong hộp hoặc túi vải để giữ họa tiết và nếp khăn đẹp mắt.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Thổ cẩm",
+    "region": "Miền Bắc",
+    "province": "Sơn La",
+    "village": "Mường Chanh",
+    "price": 294000,
+    "rate": 4.3,
+    "reviews": 67,
+    "ocop": 5,
+    "heritage": "Vàng",
+    "seasons": [],
+    "occasion": "Quà tân gia",
+    "inStock": false,
+    "preorder": true,
+    "icon": "🧣",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTasirAYt_ogiPCeSg5Zy8HFWcBwqFqEejOiD3YR8yHrCTQi-O5sucjkWc&s=10",
+      "https://khankm0.com/media/uploads/2024/TH%E1%BB%94%20C%E1%BA%A8M%20TH%C3%81I/khan-tho-cam-dan-toc-thai%20%286%29.jpg",
+      "https://www.tirakita.com/rng_brdr/Photos/thai_scarf_750.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 15,
+    "name": "Túi thổ cẩm Lục Yên",
+    "description": "Túi thổ cẩm Lục Yên là lựa chọn dành cho người thích phụ kiện mang họa tiết dệt. Những mảng màu trên thân túi tạo điểm nhấn cho bộ trang phục, giúp bạn dễ phối cùng áo, váy hoặc quần có màu sắc đơn giản.\n\nTúi phù hợp cho những lần đi dạo, gặp bạn bè hoặc mang theo vật dụng cá nhân gọn nhẹ. Khi sắp xếp đồ, nên phân bổ đều, tránh nhồi quá đầy và tách riêng các vật có cạnh sắc. Một túi nhỏ bên trong sẽ thuận tiện hơn để giữ chìa khóa, phụ kiện và những món đồ dễ thất lạc.\n\nDùng khăn hoặc chổi mềm làm sạch bụi, xử lý vết bẩn cục bộ trước khi cân nhắc giặt toàn bộ. Thực hiện theo hướng dẫn chăm sóc của sản phẩm, tránh ngâm lâu, vò mạnh và phơi dưới nắng gắt. Cất túi ở nơi khô thoáng, có thể lót giấy hoặc vải sạch bên trong để giữ dáng khi không dùng.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Thổ cẩm",
+    "region": "Tây Nguyên",
+    "province": "Gia Lai",
+    "village": "",
+    "price": 340000,
+    "rate": 3.8,
+    "reviews": 114,
+    "ocop": 4,
+    "heritage": "Vàng",
+    "seasons": [],
+    "occasion": null,
+    "inStock": true,
+    "preorder": false,
+    "icon": "👜",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://admin.vov.gov.vn/UploadFolder/KhoTin/Images/UploadFolder/VOVVN/Images/sites/default/files/styles/large_watermark/public/2024-04/chiec_tui_tho_cam_ket_hop_nhieu_mau_cua_nguoi_kho_mu.jpg",
+      "https://admin.vov.gov.vn/UploadFolder/KhoTin/Images/UploadFolder/VOVVN/Images/sites/default/files/styles/large_watermark/public/2024-04/chiec_tui_tho_cam_do_truyen_thong_cua_nguoi_kho_mu.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 16,
+    "name": "Nón lá làng Chuồng",
+    "description": "Nón lá làng Chuồng mang hình ảnh chiếc nón Việt vào những buổi dạo chơi, chuyến đi hoặc bộ ảnh mang phong cách truyền thống. Sản phẩm phù hợp để phối cùng áo dài, trang phục đơn sắc hay dùng làm một chi tiết trưng bày có chủ đề văn hóa Việt.\n\nKhi đội, điều chỉnh quai theo độ vừa vặn để nón được giữ ổn định mà vẫn thoải mái. Nếu dùng làm đạo cụ chụp ảnh, có thể kết hợp cùng áo dài, giỏ đan hoặc một bó hoa nhỏ. Nên cầm ở phần vành có điểm đỡ chắc, tránh bóp mạnh hoặc đặt vật nặng lên chóp nón.\n\nSau khi sử dụng, lau nhẹ nếu nón có bụi hoặc dính nước rồi để khô ở nơi thông thoáng. Tránh ngâm rửa, để nón trong cốp nóng hoặc nơi ẩm lâu ngày. Khi cất, giữ khoảng trống để vành không bị ép cong. Đây cũng là một món quà lưu niệm gần gũi dành cho người yêu trang phục và hình ảnh Việt Nam.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Khác",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Làng Chuồng",
+    "price": 50000,
+    "rate": 4.6,
+    "reviews": 103,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà biếu đối tác",
+    "inStock": true,
+    "preorder": false,
+    "icon": "👒",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.eriY8agRzC9vT5jCRmTP4AHaE2?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://gezimanya.com/sites/default/files/styles/800x600_/public/lokasyon-detay/2019-11/image-hue-in-vietnam-the-traditional-hand-made-vietnamese-conic-hats-1600x1241.jpg",
+      "https://suckhoedoisong.qltns.mediacdn.vn/2015/1-1438524903848.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 17,
+    "name": "Nón bài thơ Huế",
+    "description": "Nón bài thơ Huế là món phụ kiện gợi nét duyên của trang phục truyền thống và những khung hình mang cảm hứng Huế. Sản phẩm gắn với Tây Hồ, Thừa Thiên Huế, phù hợp để sử dụng trong hoạt động văn hóa, chụp ảnh hoặc làm quà lưu niệm.\n\nBạn có thể phối nón cùng áo dài hoặc trang phục có gam màu nhẹ để tổng thể thanh thoát. Khi đội, chỉnh quai phù hợp và giữ nón tránh va chạm vào vật cứng. Để trưng bày, chọn giá hoặc điểm tựa vững, không tì mạnh vào chóp và tránh dùng móc có cạnh sắc làm hằn bề mặt.\n\nLàm sạch bằng khăn mềm, khô hoặc hơi ẩm tùy vết bẩn, sau đó để nón thoáng trước khi cất. Hạn chế tiếp xúc với nước kéo dài, nguồn nhiệt và ánh nắng gắt. Bảo quản ở vị trí không bị đè ép để giữ dáng vành; khi mang đi xa, nên có lớp bảo vệ phù hợp quanh nón.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Khác",
+    "region": "Miền Trung",
+    "province": "Thừa Thiên Huế",
+    "village": "Tây Hồ",
+    "price": 120000,
+    "rate": 4.5,
+    "reviews": 15,
+    "ocop": 0,
+    "heritage": "Bạc",
+    "seasons": [],
+    "occasion": "Quà biếu đối tác",
+    "inStock": true,
+    "preorder": false,
+    "icon": "👒",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://statics.vinpearl.com/non-bai-tho-hue-3_1630895844.jpg",
+      "https://gezimanya.com/sites/default/files/styles/800x600_/public/lokasyon-detay/2019-11/image-hue-in-vietnam-the-traditional-hand-made-vietnamese-conic-hats-1600x1241.jpg",
+      "https://suckhoedoisong.qltns.mediacdn.vn/2015/1-1438524903848.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 18,
+    "name": "Giỏ tre đan làng nghề Phú Vinh",
+    "description": "Giỏ tre đan làng nghề Phú Vinh phù hợp với những góc nhà cần một vật dụng vừa gọn gàng vừa có nét mộc. Bề mặt đan tạo nhịp tự nhiên, có thể kết hợp với nội thất gỗ, vải thô và các phụ kiện trang trí đơn giản.\n\nBạn có thể dùng giỏ để sắp xếp đồ nhẹ, làm giỏ quà hoặc tạo một góc trưng bày theo mùa. Khi chuẩn bị quà, thêm lớp lót phù hợp để các món bên trong được giữ ngay ngắn. Tránh mang vật quá nặng so với kích thước thực tế và không để cạnh sắc tì trực tiếp lên phần đan.\n\nLàm sạch bụi ở các khe bằng chổi mềm, lau bằng khăn hơi ẩm khi cần rồi để khô hoàn toàn. Không ngâm nước hoặc cất giỏ ở khu vực ẩm bí. Khi chưa sử dụng, đặt giỏ ở nơi thông thoáng và tránh chất vật nặng lên trên. Sản phẩm là lựa chọn quà tặng cho người thích sắp xếp nhà cửa và đồ đan làng nghề.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Mây tre đan",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Phú Vinh",
+    "price": 185000,
+    "rate": 4.5,
+    "reviews": 63,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🧺",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://dunghangviet.vn/wp-content/uploads/2024/12/may-tre-dan-Phu-Vinh-1.jpg",
+      "https://laodongthudo.vn/stores/news_dataimages/luonghang/102018/29/21/4022_may_tre_dan.jpg",
+      "https://nhandan.vn/special/may-tre-dan-Phu-Vinh-hon-xua-voc-moi/assets/eV36qMqp2M/hanam-348-1920x1280.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 19,
+    "name": "Khay tre đan thủ công Phú Vinh",
+    "description": "Khay tre đan thủ công Phú Vinh giúp tạo một khoảng trưng bày gọn gàng trên bàn, kệ hoặc góc tiếp khách. Chất liệu tre và các đường đan phù hợp với không gian yêu thích những vật dụng gần gũi, có kết cấu bề mặt rõ ràng.\n\nKhay có thể làm nền cho bộ quà, vật dụng trang trí nhỏ hoặc các món đồ khô, nhẹ. Khi phối nhiều món, nên chừa khoảng trống và phân bố đều để bố cục không bị chật. Dùng lớp lót phù hợp khi đặt vật dụng lên khay, tránh kéo lê, để nước đọng hoặc đặt trực tiếp đồ còn nóng.\n\nVệ sinh bằng chổi hoặc khăn mềm, lau khô kỹ sau khi làm sạch. Cất ở nơi thoáng, tránh nền ẩm và không ngâm rửa trong nước. Khi di chuyển, đỡ khay bằng hai tay để giữ đồ ổn định. Một chiếc khay nhỏ cũng có thể trở thành điểm nhấn cho góc làm việc hoặc bộ quà tặng mang chủ đề thủ công Việt.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Mây tre đan",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Phú Vinh",
+    "price": 145000,
+    "rate": 4.5,
+    "reviews": 112,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🧺",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlsYEg8DHiFA8YKFqc_nzqPjDFfcQ11O2KOG7XVpsQzt4G2cphtU0asyg&s=10",
+      "https://product.hstatic.net/200000490263/product/photoroom-20230725_142937_2c82c5dbaf4b4efa8682080e9d71258f_grande.png",
+      "https://salt.tikicdn.com/cache/550x550/ts/product/1a/6e/eb/6b9870bb66f6562a03f7b6922dedd85a.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 20,
+    "name": "Xoài sấy dẻo Mộc Châu",
+    "description": "Xoài sấy dẻo Mộc Châu là lựa chọn cho những buổi ăn nhẹ, cuộc gặp cuối tuần hoặc một phần quà đặc sản. Dạng xoài sấy dẻo phù hợp với người thích thưởng thức trái cây theo cách gọn gàng, có thể chia thành từng phần nhỏ khi dùng.\n\nBạn có thể bày xoài ra đĩa sạch trong giờ nghỉ, dùng cùng một tách trà hoặc kết hợp với những món ăn nhẹ khác tùy khẩu vị. Chỉ lấy lượng vừa đủ và dùng dụng cụ khô, sạch để phần sản phẩm còn lại được giữ tốt hơn. Kiểm tra thành phần, hạn sử dụng và hướng dẫn trên bao bì trước khi thưởng thức.\n\nĐóng kín sau khi mở và bảo quản theo hướng dẫn của nhà sản xuất, tránh ánh nắng, hơi ẩm và nguồn nhiệt. Không để sản phẩm gần thực phẩm có mùi mạnh. Khi chọn làm quà, có thể phối cùng trà hoặc các đặc sản khác trong một hộp nhỏ, tạo thành phần quà dễ chia sẻ với gia đình, đồng nghiệp.",
+    "cat": "Đặc sản",
+    "type": "Đặc sản khô",
+    "region": "Miền Bắc",
+    "province": "Sơn La",
+    "village": "",
+    "price": 100000,
+    "rate": 3.7,
+    "reviews": 65,
+    "ocop": 0,
+    "heritage": "Bạc",
+    "seasons": [
+      1,
+      2,
+      3
+    ],
+    "occasion": "Quà tân gia",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🥭",
+    "badges": [
+      "Đặc sản"
+    ],
+    "images": [
+      "https://th.bing.com/th/id/OIP.8k8FKDGL4Vd9AQhjHT4zHAHaHa?w=211&h=211&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+      "https://product.hstatic.net/200000939551/product/xoai_deo_-_hop_350g_61e3fd5791ce4c89b3dab12d6664fa5e_small.png"
+    ],
+    "variants": [
+      {
+        "id": "500g",
+        "label": "500g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "500g"
+          }
+        ],
+        "price": 100000,
+        "available": true,
+        "image": "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+        "images": [
+          "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+          "https://product.hstatic.net/200000939551/product/xoai_deo_-_hop_350g_61e3fd5791ce4c89b3dab12d6664fa5e_small.png"
+        ]
+      },
+      {
+        "id": "1kg",
+        "label": "1kg",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "1kg"
+          }
+        ],
+        "price": 190000,
+        "available": true,
+        "image": "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+        "images": [
+          "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+          "https://product.hstatic.net/200000939551/product/xoai_deo_-_hop_350g_61e3fd5791ce4c89b3dab12d6664fa5e_small.png"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Chuối sấy dẻo",
+    "description": "Chuối sấy dẻo mang đến một món ăn nhẹ quen thuộc để dùng tại nhà, văn phòng hoặc trong các buổi gặp gỡ. Sản phẩm thuộc nhóm trái cây sấy của Đắk Lắk, phù hợp để chia phần nhỏ và kết hợp trong một bộ quà đặc sản.\n\nCó thể thưởng thức trực tiếp theo hướng dẫn trên bao bì, bày cùng trà hoặc thêm vào phần ăn nhẹ theo sở thích. Dùng đĩa, kẹp hoặc thìa sạch và khô khi lấy sản phẩm; tránh để phần chưa dùng tiếp xúc lâu với không khí ẩm. Tham khảo thành phần và hạn sử dụng để chọn cách thưởng thức phù hợp.\n\nSau khi mở gói, đóng kín và đặt ở nơi khô mát theo chỉ dẫn của nhà sản xuất. Tránh để gần bếp, cửa sổ có nắng hoặc thực phẩm có mùi mạnh. Nếu muốn làm một món quà đơn giản, bạn có thể kết hợp chuối sấy cùng xoài sấy hoặc trà, sắp xếp trong hộp gọn để người nhận dễ sử dụng và chia sẻ.",
+    "cat": "Đặc sản",
+    "type": "Trái cây sấy",
+    "region": "Tây Nguyên",
+    "province": "Đắk Lắk",
+    "village": "",
+    "price": 75000,
+    "rate": 4.5,
+    "reviews": 67,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà Tết",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🍌",
+    "badges": [
+      "Đặc sản"
+    ],
+    "images": [
+      "https://th.bing.com/th/id/OIP.BWcGaDg6PmiyukEBX3gaHwHaHa?w=185&h=184&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://down-th.img.susercontent.com/file/th-11134207-7rask-m9r65ajdcc3zfd",
+      "https://cdn-img-v2.mybota.vn/media/4678/Trai%20cay%20say/chuoi-say-deo-200g.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 23,
+    "name": "Bình gốm Bát Tràng men lam",
+    "description": "Bình gốm Bát Tràng men lam tạo điểm nhấn cho không gian bằng sắc men lam và dáng bình gốm. Sản phẩm phù hợp với phòng khách, kệ sách hoặc góc làm việc cần một vật trang trí có màu sắc rõ nét nhưng vẫn dễ phối cùng nội thất.\n\nCó thể trưng bình riêng trên mặt bàn đơn giản hoặc kết hợp cùng cành khô, hoa trang trí để tạo chiều cao cho bố cục. Đặt ở vị trí có khoảng thoáng sẽ giúp dáng bình nổi bật hơn. Nếu cắm hoa tươi, kiểm tra hướng dẫn và khả năng giữ nước của bình; luôn giữ mặt bàn bên dưới sạch, khô.\n\nLau bụi thường xuyên bằng khăn mềm, tránh dùng vật nhám làm xước bề mặt men. Khi di chuyển, đỡ thân và đáy bình thay vì chỉ nhấc ở cổ. Tránh đặt sát mép kệ, nơi rung lắc hoặc dễ va chạm. Đây là một lựa chọn dành cho người yêu gốm Bát Tràng và quà tặng trang trí nhà cửa.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Gốm",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Bát Tràng",
+    "price": 390000,
+    "rate": 4.5,
+    "reviews": 68,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🏺",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYKy3V9mP-N5NNQaikOW_GayiGYRte3X436ZCGSMOySBxkBOZP7ikGtgU&s=10",
+      "https://bizweb.dktcdn.net/thumb/grande/100/376/052/products/36-b721b1eb-e02e-4143-97d7-a30414eb48e8.jpg?v=1712198046063",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/422/864/products/2x.jpg?v=1699950097963"
+    ],
+    "variants": []
+  },
+  {
+    "id": 24,
+    "name": "Hạt điều rang muối Bình Phước",
+    "description": "Hạt điều rang muối Bình Phước phù hợp cho những buổi trò chuyện, giờ nghỉ hoặc bàn tiếp khách gia đình. Sự kết hợp giữa hạt điều và cách rang muối tạo nên một món ăn nhẹ quen thuộc, dễ góp mặt trong những phần quà đặc sản.\n\nBày lượng vừa đủ ra đĩa hoặc hộp nhỏ, dùng trực tiếp theo hướng dẫn trên bao bì. Có thể thưởng thức cùng trà và các món ăn nhẹ khác tùy sở thích. Khi chọn mua hoặc làm quà, nên xem thành phần và cách sử dụng của sản phẩm để phù hợp với khẩu vị người nhận.\n\nĐóng kín ngay sau khi lấy hạt, giữ bao bì ở nơi khô mát, tránh ánh nắng và hơi ẩm. Dụng cụ đựng cần sạch, khô để hạt không bị ảnh hưởng trong quá trình sử dụng. Kiểm tra hạn sử dụng trên bao bì và thực hiện theo chỉ dẫn bảo quản của nhà sản xuất, đặc biệt sau khi mở gói.",
+    "cat": "Đặc sản",
+    "type": "Đặc sản khô",
+    "region": "Miền Nam",
+    "province": "Bình Phước",
+    "village": "",
+    "price": 157000,
+    "rate": 3.9,
+    "reviews": 104,
+    "ocop": 0,
+    "heritage": "Vàng",
+    "seasons": [
+      1,
+      2,
+      3
+    ],
+    "occasion": null,
+    "inStock": true,
+    "preorder": false,
+    "icon": "🥜",
+    "badges": [
+      "Đặc sản"
+    ],
+    "images": [
+      "https://media.tripmap.vn/marketplace/2026/02/hat-dieu-rang-muoi-binh-phuoc-500g-gia-re-tang-ngay-ngon-gion-chat-luong-1769958593-uhmydc-600x600.webp",
+      "https://admin.vov.gov.vn/UploadFolder/KhoTin/Images/UploadFolder/VOVVN/Images/sites/default/files/styles/large_watermark/public/2020-09/dieu_1.jpg",
+      "https://quaqueviet.vn/upload/imgproduct/hat-dieu-rang-muoi-1234-min.jpg"
+    ],
+    "variants": [
+      {
+        "id": "500g",
+        "label": "500g",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "500g"
+          }
+        ],
+        "price": 157000,
+        "available": true
+      },
+      {
+        "id": "1kg",
+        "label": "1kg",
+        "attributes": [
+          {
+            "name": "Quy cách",
+            "value": "1kg"
+          }
+        ],
+        "price": 299000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Đĩa gốm trang trí Bát Tràng",
+    "description": "Đĩa gốm trang trí Bát Tràng là một chi tiết dễ đặt vào kệ trưng bày, tủ kính hoặc góc đón khách. Mặt đĩa tạo khoảng nhìn rõ cho họa tiết và màu men, phù hợp với người thích dùng đồ gốm để bổ sung điểm nhấn cho không gian.\n\nCó thể trưng đĩa đứng bằng giá đỡ phù hợp hoặc đặt trên mặt bàn với bố cục đơn giản. Khi kết hợp cùng bình, hộp và sách, nên chọn số lượng vừa phải để mặt đĩa không bị che khuất. Nếu muốn treo tường, dùng bộ gá đúng kích thước và kiểm tra điểm treo chắc chắn trước khi đặt sản phẩm.\n\nLau nhẹ bằng khăn mềm, không chà bằng vật nhám hoặc đặt đồ sắc lên mặt đĩa. Tránh va chạm ở vành và lót vải khi xếp cùng các món gốm khác. Bảo quản nơi khô, vững; sản phẩm phù hợp làm quà tân gia hoặc quà cho người yêu các chi tiết trang trí từ Bát Tràng.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Gốm",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Bát Tràng",
+    "price": 220000,
+    "rate": 4.5,
+    "reviews": 54,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🏺",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://th.bing.com/th/id/OIP.6uVR25PCilsBt-tDCVMjKQHaE7?w=236&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://uongtrathoi.com/upload/Pages/098-101-tpt-special_laithieu1-9-1728960214.jpg",
+      "https://baseec-img-mng.akamaized.net/images/item/origin/c448c8e49e9cd5c9b882019c6a2141cc.jpg?im=Resize%2Cwidth%3D1280%2Ctype%3Dnormal&imformat=generic&q=90"
+    ],
+    "variants": []
+  },
+  {
+    "id": 26,
+    "name": "Bình gốm Chu Đậu vẽ tay",
+    "description": "Bình gốm Chu Đậu vẽ tay dành cho những ai thích tìm một điểm nhấn có họa tiết trên bề mặt gốm. Sản phẩm gắn với Chu Đậu, Hải Dương, có thể đặt tại phòng khách, bàn làm việc hoặc không gian trưng bày những món đồ yêu thích.\n\nKhi sắp xếp, xoay phần họa tiết bạn yêu thích về hướng nhìn chính và chừa khoảng trống xung quanh bình. Có thể phối cùng cành trang trí hoặc đặt riêng để đường nét vẽ được chú ý hơn. Chọn vị trí có mặt đỡ bằng phẳng, tránh góc đi lại dễ chạm vào thân và miệng bình.\n\nVệ sinh bụi bằng khăn mềm, không dùng hóa chất mạnh hay miếng cọ cứng. Đỡ cả thân và đáy trong quá trình di chuyển; nếu cắm hoa tươi, kiểm tra hướng dẫn sử dụng với nước của mẫu bình. Bình gốm phù hợp làm quà trang trí cho người thân, bạn bè hoặc người có sở thích sưu tầm đồ gốm.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Gốm",
+    "region": "Miền Bắc",
+    "province": "Hải Dương",
+    "village": "Chu Đậu",
+    "price": 465000,
+    "rate": 4.5,
+    "reviews": 61,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🏺",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYKy3V9mP-N5NNQaikOW_GayiGYRte3X436ZCGSMOySBxkBOZP7ikGtgU&s=10",
+      "https://bizweb.dktcdn.net/thumb/grande/100/376/052/products/36-b721b1eb-e02e-4143-97d7-a30414eb48e8.jpg?v=1712198046063",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/422/864/products/2x.jpg?v=1699950097963"
+    ],
+    "variants": []
+  },
+  {
+    "id": 27,
+    "name": "Khay sơn mài Hạ Thái",
+    "description": "Khay sơn mài Hạ Thái giúp gom những món đồ nhỏ thành một bố cục chỉn chu trên bàn hoặc kệ. Bề mặt sơn mài là điểm nhấn của sản phẩm, dễ kết hợp trong góc tiếp khách, bàn làm việc hoặc một bộ quà có chủ đề thủ công Hà Nội.\n\nBạn có thể dùng khay để sắp xếp hộp, phụ kiện và đồ trang trí nhẹ, khô. Nên chọn cách bày vừa đủ để mặt khay vẫn có khoảng trống và tránh đặt vật sắc, vật quá nóng trực tiếp lên bề mặt. Khi cần di chuyển, nhấc khay bằng hai tay thay vì kéo trên mặt bàn.\n\nLàm sạch bằng khăn mềm, hơi ẩm và lau khô ngay sau đó. Không ngâm nước, chà xát mạnh hoặc dùng chất tẩy có tính ăn mòn. Cất ở nơi thoáng, tránh nắng gắt và lót lớp vải mềm nếu xếp cùng đồ khác. Khay phù hợp cho người thích những vật dụng trang trí có hình thức gọn gàng, dễ phối trong nhà.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Sơn mài",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Hạ Thái",
+    "price": 420000,
+    "rate": 4.5,
+    "reviews": 19,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🪞",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqok5t7yjrxzb0",
+      "https://bizweb.dktcdn.net/thumb/grande/100/347/978/products/15bec8d7-ee3a-4467-9447-54068d3de697.jpg?v=1724042021413",
+      "https://nhn.1cdn.vn/2023/08/11/img_8182.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 28,
+    "name": "Tranh sơn mài thủ công Hạ Thái",
+    "description": "Tranh sơn mài thủ công Hạ Thái là lựa chọn để tạo điểm nhìn cho phòng khách, góc làm việc hoặc khu vực tiếp đón. Chất liệu sơn mài đem đến một bề mặt khác với tranh giấy, phù hợp với người thích tìm hiểu và sử dụng các sản phẩm mỹ nghệ trong không gian sống.\n\nTrước khi bố trí, đối chiếu kích thước thực tế của tranh với khoảng tường và chọn hướng nhìn thuận tiện. Nên để nền xung quanh tương đối thoáng, hạn chế đặt quá nhiều vật trang trí cạnh tranh. Với vị trí treo, sử dụng phụ kiện chịu lực phù hợp và kiểm tra điểm móc chắc chắn.\n\nLau bụi nhẹ bằng khăn mềm, không xịt nước hoặc chất tẩy trực tiếp lên mặt tranh. Tránh ánh nắng kéo dài, tường ẩm và khu vực có nhiệt độ thay đổi mạnh. Khi di chuyển, bọc riêng các góc và bề mặt để giảm trầy xước. Sản phẩm phù hợp làm quà tân gia hoặc quà dành cho người yêu đồ sơn mài Hạ Thái.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Sơn mài",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Hạ Thái",
+    "price": 680000,
+    "rate": 4.5,
+    "reviews": 101,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🖼️",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://asianovotours.com/frontend/media/2025/05/vietnam-laque-asianovo-800x533.jpg.webp",
+      "https://www.mrlinhadventure.com/UserFiles/image/Travel-blog/Image-content/Vietnamese-art7.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 29,
+    "name": "Khăn lụa tơ tằm Vạn Phúc",
+    "description": "Khăn lụa tơ tằm Vạn Phúc là phụ kiện có thể tạo điểm nhấn cho một bộ trang phục bằng cách quàng, khoác hoặc thắt nhẹ. Sản phẩm gắn với Vạn Phúc, Hà Nội, phù hợp với người thích chất liệu lụa và những phụ kiện dễ phối theo nhiều dịp.\n\nBạn có thể chọn cách quàng gọn với áo sơ mi khi đi làm hoặc khoác nhẹ cùng váy trong các buổi gặp gỡ. Tùy kích thước khăn, thử phối cùng túi và trang sức tiết chế để tổng thể hài hòa. Khi dùng, tránh để khăn cọ vào khóa kéo, cạnh nhám hoặc trang sức dễ móc sợi.\n\nChăm sóc theo nhãn sản phẩm; ưu tiên thao tác nhẹ, không vò hoặc vắt xoắn mạnh. Tránh ngâm lâu, phơi dưới nắng gắt và để khăn còn ẩm trong hộp kín. Nếu cần là, chọn mức nhiệt phù hợp với hướng dẫn chăm sóc lụa. Khăn cũng là món quà phù hợp cho người thân, đồng nghiệp hoặc người yêu phụ kiện dệt Việt.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Lụa tơ tằm",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Vạn Phúc",
+    "price": 320000,
+    "rate": 4.5,
+    "reviews": 64,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🧣",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.ol8q9CJwo6I7GAutgiu-MwHaJC?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xiutgp761su0oscu7asygkf7plonuku2s9-1793671060.jpg.webp",
+      "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xivsqrilgsx9zedr6c2ahsyzf8xpz0s8e11-1793670806.jpg.webp"
+    ],
+    "variants": [
+      {
+        "id": "xanh-ngoc",
+        "label": "Xanh ngọc",
+        "attributes": [
+          {
+            "name": "Màu sắc",
+            "value": "Xanh ngọc",
+            "swatch": "#68aaa5"
+          }
+        ],
+        "price": 320000,
+        "available": true,
+        "image": "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xiutgp761su0oscu7asygkf7plonuku2s9-1793671060.jpg.webp",
+        "images": [
+          "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xiutgp761su0oscu7asygkf7plonuku2s9-1793671060.jpg.webp"
+        ]
+      },
+      {
+        "id": "hong-sen",
+        "label": "Hồng sen",
+        "attributes": [
+          {
+            "name": "Màu sắc",
+            "value": "Hồng sen",
+            "swatch": "#cf949b"
+          }
+        ],
+        "price": 320000,
+        "available": true,
+        "image": "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xivsqrilgsx9zedr6c2ahsyzf8xpz0s8e11-1793670806.jpg.webp",
+        "images": [
+          "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xivsqrilgsx9zedr6c2ahsyzf8xpz0s8e11-1793670806.jpg.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Măng khô Tây Bắc",
+    "description": "Măng khô Tây Bắc là nguyên liệu dành cho những bữa cơm gia đình và các món nấu có măng. Sản phẩm gắn với Điện Biên, phù hợp với người thích chuẩn bị món ăn mang hương vị vùng miền hoặc chọn quà đặc sản có thể sử dụng trong gian bếp.\n\nBạn có thể kết hợp măng trong món hầm, canh hoặc món xào tùy cách chế biến và khẩu vị. Trước khi nấu, sơ chế theo hướng dẫn trên bao bì và nấu chín kỹ; không dùng trực tiếp như một món ăn sẵn. Chỉ chuẩn bị lượng phù hợp cho từng bữa, dùng dụng cụ và khu vực chế biến sạch.\n\nGiữ phần măng khô chưa sơ chế trong bao bì kín, đặt ở nơi khô ráo, tránh hơi nước và nguồn nhiệt. Kiểm tra tình trạng sản phẩm, hạn sử dụng và chỉ dẫn bảo quản trước khi dùng. Khi làm quà, có thể kết hợp với những đặc sản khô khác để tạo một phần quà dành cho người thích nấu ăn.",
+    "cat": "Đặc sản",
+    "type": "Đặc sản khô",
+    "region": "Miền Bắc",
+    "province": "Điện Biên",
+    "village": "",
+    "price": 200000,
+    "rate": 4.9,
+    "reviews": 63,
+    "ocop": 0,
+    "heritage": "Vàng",
+    "seasons": [
+      4,
+      5,
+      6
+    ],
+    "occasion": "Quà biếu đối tác",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🎋",
+    "badges": [
+      "Đặc sản"
+    ],
+    "images": [
+      "https://hoabanfood.com/wp-content/uploads/Mang-La-Kho-2020-4.jpg",
+      "https://media.tripmap.vn/marketplace/2025/10/mang-mam-kho-tay-bac-2025-gion-ngon-dac-san-mang-non-tuoi-ham-500g-1kg-1761863097-600x600.webp",
+      "https://media.tabfarm.vn/2024/11/Mang-roi-kho-tay-bac-tabfarm-3-1024x1024.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 31,
+    "name": "Đèn lồng thủ công Hội An",
+    "description": "Đèn lồng thủ công Hội An đem hình ảnh quen thuộc của phố Hội vào góc trang trí trong nhà. Sản phẩm phù hợp với không gian tiếp khách, cửa hàng, góc chụp ảnh hoặc những dịp bạn muốn thay đổi cách bày trí bằng một chi tiết treo có màu sắc và hình dáng riêng.\n\nCó thể treo một chiếc làm điểm nhấn hoặc phối nhiều đèn với khoảng cách vừa phải để tạo chiều sâu. Chọn vị trí khô, thông thoáng và điểm treo chắc chắn, tránh nơi dễ va chạm. Nếu kết hợp nguồn sáng, chỉ sử dụng phụ kiện phù hợp với thiết kế và hướng dẫn của sản phẩm; không đặt gần lửa hoặc nguồn nhiệt cao.\n\nLàm sạch bụi nhẹ bằng chổi mềm, tránh ngâm rửa hay để đèn dưới mưa. Khi cất, giữ theo đúng cách gấp hoặc bảo quản của mẫu đèn, không ép mạnh khung. Đây là lựa chọn quà lưu niệm dành cho người yêu Hội An hoặc thích trang trí không gian mang cảm hứng Việt.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Đèn lồng",
+    "region": "Miền Trung",
+    "province": "Quảng Nam",
+    "village": "Thanh Hà - Hội An",
+    "price": 180000,
+    "rate": 4.5,
+    "reviews": 43,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🏮",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://th.bing.com/th/id/OIP.Wntz4s1r7_GvY2Z1sxfrggHaE8?w=279&h=186&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://thegioidenlonghoian.com/wp-content/uploads/2024/11/022abb61-541c-45a0-81d5-638540297a5b-min.jpg",
+      "https://thegioidenlonghoian.com/wp-content/uploads/2024/11/4728d5e6-5b54-425e-b8c5-b05026bd03d3-min.jpg",
+      "https://thegioidenlonghoian.com/wp-content/uploads/2022/10/309629646_1250164515769076_4161562827531281874_n.jpg",
+      "https://thegioidenlonghoian.com/wp-content/uploads/2022/10/279063256_1295491681194683_1224869289133332599_n.jpg"
+    ],
+    "variants": [
+      {
+        "id": "tron",
+        "label": "Tròn",
+        "attributes": [
+          {
+            "name": "Kiểu dáng",
+            "value": "Tròn"
+          }
+        ],
+        "price": 180000,
+        "available": true,
+        "image": "https://thegioidenlonghoian.com/wp-content/uploads/2024/11/022abb61-541c-45a0-81d5-638540297a5b-min.jpg",
+        "images": [
+          "https://thegioidenlonghoian.com/wp-content/uploads/2024/11/022abb61-541c-45a0-81d5-638540297a5b-min.jpg",
+          "https://thegioidenlonghoian.com/wp-content/uploads/2024/11/4728d5e6-5b54-425e-b8c5-b05026bd03d3-min.jpg"
+        ]
+      },
+      {
+        "id": "luc-giac",
+        "label": "Lục giác",
+        "attributes": [
+          {
+            "name": "Kiểu dáng",
+            "value": "Lục giác"
+          }
+        ],
+        "price": 220000,
+        "available": true,
+        "image": "https://thegioidenlonghoian.com/wp-content/uploads/2022/10/309629646_1250164515769076_4161562827531281874_n.jpg",
+        "images": [
+          "https://thegioidenlonghoian.com/wp-content/uploads/2022/10/309629646_1250164515769076_4161562827531281874_n.jpg",
+          "https://thegioidenlonghoian.com/wp-content/uploads/2022/10/279063256_1295491681194683_1224869289133332599_n.jpg"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Tranh dân gian Đông Hồ",
+    "description": "Tranh dân gian Đông Hồ phù hợp với những góc nhà muốn có một chi tiết gắn với dòng tranh Việt. Sản phẩm mang tên làng tranh Đông Hồ, Bắc Ninh, có thể dùng để trưng bày trong phòng khách, góc đọc sách hoặc không gian tìm hiểu văn hóa.\n\nChọn vị trí có nền tường tương đối đơn giản để hình ảnh trên tranh được nhìn rõ. Tùy quy cách thực tế, có thể dùng khung hoặc giá đỡ phù hợp; nên đối chiếu kích thước trước khi sắp xếp cùng các tranh khác. Một bố cục ít vật dụng sẽ giúp góc trưng bày gọn và dễ quan sát hơn.\n\nGiữ tranh tránh nước, tường ẩm và ánh nắng trực tiếp kéo dài. Không chạm tay ướt lên bề mặt; vệ sinh nhẹ phần khung hoặc lớp bảo vệ nếu có. Khi cất hoặc vận chuyển, dùng lớp bọc sạch, phẳng để hạn chế gập và trầy xước. Tranh cũng là món quà dành cho người quan tâm đến nghệ thuật dân gian.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Tranh dân gian",
+    "region": "Miền Bắc",
+    "province": "Bắc Ninh",
+    "village": "Đông Hồ",
+    "price": 250000,
+    "rate": 4.5,
+    "reviews": 56,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🖼️",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSsZzs2xpcu9iFZfYr8fulE9SrldUVTFiKL2Ql-HjaHE8xDhAGxj2DXzNd&s=10",
+      "https://bizweb.dktcdn.net/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-kinh-45cmx60cm.jpg?v=1751118192410",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-30x40.jpg?v=1690691739367"
+    ],
+    "variants": []
+  },
+  {
+    "id": 33,
+    "name": "Bánh đậu xanh Hải Dương",
+    "description": "Bánh đậu xanh Hải Dương là món bánh quen thuộc để dùng cùng trà và chia sẻ trong những buổi gặp mặt. Sản phẩm phù hợp cho bàn tiếp khách, phần quà mang đi thăm người thân hoặc một hộp quà đặc sản dành cho đồng nghiệp, bạn bè.\n\nBày lượng bánh vừa đủ ra đĩa sạch, thưởng thức theo hướng dẫn trên bao bì và kết hợp với trà tùy khẩu vị. Khi chuẩn bị làm quà, giữ bánh trong bao gói nguyên vẹn và sắp xếp để hạn chế va chạm làm vỡ bánh. Nên xem thành phần, ngày sản xuất và hạn sử dụng trước khi lựa chọn.\n\nBảo quản theo hướng dẫn của nhà sản xuất, tránh ánh nắng, nhiệt và môi trường ẩm. Sau khi mở, đóng kín phần còn lại hoặc giữ trong hộp sạch, khô nếu bao bì cho phép. Không để bánh cạnh thực phẩm có mùi mạnh. Một phần bánh nhỏ đi cùng trà là cách chuẩn bị quà gọn gàng, gần gũi cho nhiều dịp gặp gỡ.",
+    "cat": "Đặc sản",
+    "type": "Bánh kẹo",
+    "region": "Miền Bắc",
+    "province": "Hải Dương",
+    "village": "",
+    "price": 65000,
+    "rate": 4.1,
+    "reviews": 69,
+    "ocop": 3,
+    "heritage": null,
+    "seasons": [
+      4,
+      5,
+      6
+    ],
+    "occasion": "Quà Tết",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🍬",
+    "badges": [],
+    "images": [
+      "https://th.bing.com/th/id/OIP.Jv4oj3VzRCnd_9f-3PmirwHaGs?w=181&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://cdn2.tuoitre.vn/zoom/700_700/471584752817336320/2023/12/8/26102020092906525-04b-1702017052893734662867-0-0-617-1180-crop-1702017203764753610866.jpg",
+      "https://kenh14cdn.com/203336854389633024/2024/3/20/photo-1-17109442380221242875296.jpeg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 34,
+    "name": "Tượng gỗ mỹ nghệ Đồng Kỵ",
+    "description": "Tượng gỗ mỹ nghệ Đồng Kỵ tạo điểm nhấn bằng hình khối và các chi tiết trên bề mặt gỗ. Sản phẩm gắn với Đồng Kỵ, Bắc Ninh, phù hợp để đặt trên bàn, kệ hoặc trong một bộ sưu tập đồ trang trí có chất liệu gỗ.\n\nBạn có thể chọn vị trí ngang tầm nhìn, có ánh sáng vừa phải và chừa khoảng trống quanh tượng để quan sát các mặt. Khi phối cùng đồ trang trí khác, nên tiết chế số lượng để hình khối chính không bị lấn át. Chọn mặt đỡ bằng phẳng và đối chiếu kích thước thực tế trước khi đặt vào hộc tủ hoặc kệ nhỏ.\n\nLau bụi bằng khăn hoặc chổi lông mềm, tránh làm ướt các khe và chi tiết chạm. Không đặt sát nguồn nhiệt, nơi có nắng gắt hoặc độ ẩm cao. Khi di chuyển, đỡ chắc phần thân và đáy, tránh nhấc ở chi tiết nhỏ. Sản phẩm phù hợp làm quà cho người thích đồ gỗ mỹ nghệ và trang trí nhà cửa.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Chạm khắc gỗ",
+    "region": "Miền Bắc",
+    "province": "Bắc Ninh",
+    "village": "Đồng Kỵ",
+    "price": 750000,
+    "rate": 4.5,
+    "reviews": 58,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🪵",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://imagevietnam.vnanet.vn/MediaUpload/Thumb/2026/03/20/vna-potal-village-in-hoi-an-recycles-firewood-into-art-works-103114082-864625520-15-32-21.jpg",
+      "https://cdn.tienphong.vn/images/bdfc554ea35983ad68a96e0050b6e2cb46c52704ed73e29298714a74cdf2e4e719604388033488d9101294fde6c94e9d1561e11963e6dfffe0b52c26e7dd2dea/image001-5780.png.webp"
+    ],
+    "variants": []
+  },
+  {
+    "id": 35,
+    "name": "Xoài sấy dẻo",
+    "description": "Xoài sấy dẻo là món ăn nhẹ dễ chia sẻ trong giờ nghỉ, buổi xem phim tại nhà hoặc cuộc gặp cùng bạn bè. Sản phẩm thuộc nhóm trái cây sấy của An Giang, phù hợp để dùng riêng hoặc kết hợp trong phần quà đặc sản có nhiều món nhỏ.\n\nLấy lượng vừa đủ ra đĩa sạch và thưởng thức trực tiếp theo hướng dẫn trên bao bì. Có thể dùng cùng trà hoặc kết hợp vào bữa ăn nhẹ tùy khẩu vị, tránh để phần chưa dùng tiếp xúc với hơi nước. Kiểm tra thành phần và hạn sử dụng để chọn sản phẩm phù hợp với người dùng hoặc người nhận quà.\n\nĐóng kín gói sau mỗi lần mở, giữ ở nơi khô mát theo hướng dẫn của nhà sản xuất. Không để dưới ánh nắng hoặc cạnh nguồn nhiệt trong thời gian dài. Nếu chuyển sang hộp, chọn hộp sạch, khô có nắp đậy và giữ lại thông tin hạn sử dụng trên bao bì để tiện theo dõi.",
+    "cat": "Đặc sản",
+    "type": "Trái cây sấy",
+    "region": "Đồng bằng sông Cửu Long",
+    "province": "An Giang",
+    "village": "",
+    "price": 85000,
+    "rate": 4.5,
+    "reviews": 80,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà Tết",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🥭",
+    "badges": [
+      "Đặc sản"
+    ],
+    "images": [
+      "https://cdn.hstatic.net/products/200000939551/xoaisaydeo500g-m_1697535b631146f88899a9147049565f_master.png",
+      "https://product.hstatic.net/200000939551/product/xoai_deo_-_hop_350g_61e3fd5791ce4c89b3dab12d6664fa5e_small.png"
+    ],
+    "variants": []
+  },
+  {
+    "id": 36,
+    "name": "Lụa tơ tằm Vạn Phúc",
+    "description": "Lụa tơ tằm Vạn Phúc dành cho người yêu sản phẩm dệt và muốn tìm một món quà gắn với làng lụa Vạn Phúc, Hà Nội. Màu sắc và họa tiết của mẫu lụa có thể trở thành điểm nhấn khi lựa chọn chất liệu cho trang phục hoặc phụ kiện phù hợp.\n\nKhi lựa chọn, nên đối chiếu quy cách, kích thước và màu thực tế với nhu cầu sử dụng. Nếu dùng để may hoặc hoàn thiện phụ kiện, trao đổi trước với người thực hiện để bố trí họa tiết và chọn phần vải phù hợp. Tránh để bề mặt lụa mắc vào vật nhọn, móc hoặc cạnh nhám trong quá trình sử dụng.\n\nChăm sóc theo hướng dẫn kèm sản phẩm, hạn chế vò mạnh, vắt xoắn và tiếp xúc với chất tẩy không phù hợp. Cất lụa khi đã khô, tránh nơi ẩm bí và ánh nắng gắt. Gấp hoặc treo nhẹ tùy quy cách; nếu là, chọn mức nhiệt dành cho lụa theo nhãn chăm sóc. Khi làm quà, cách gói đơn giản sẽ giúp màu và họa tiết được nổi bật.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Dệt may",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Vạn Phúc",
+    "price": 450000,
+    "rate": 4.2,
+    "reviews": 108,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà biếu đối tác",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🧵",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.ol8q9CJwo6I7GAutgiu-MwHaJC?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://www.luavanvanphuc.com/watermarks/600x825x1/upload/product/2aobor9xiutgp761su0oscu7asygkf7plonuku2s9-1793671060.jpg.webp"
+    ],
+    "variants": []
+  },
+  {
+    "id": 37,
+    "name": "Tranh Đông Hồ",
+    "description": "Tranh Đông Hồ mang một chủ đề trang trí gắn với dòng tranh dân gian Việt vào không gian sống. Sản phẩm phù hợp để đặt ở góc đọc sách, nơi tiếp khách hoặc làm một món quà nhỏ dành cho người quan tâm đến văn hóa và hình ảnh truyền thống.\n\nCó thể bố trí một tranh làm điểm nhấn hoặc phối thành nhóm với khoảng cách đều, dựa trên kích thước thực tế của từng mẫu. Nên chọn nền tường thoáng và tránh các vị trí có quá nhiều đồ vật che khuất. Nếu sản phẩm cần đóng khung, lựa chọn khung và lớp bảo vệ phù hợp trước khi treo hoặc trưng bày.\n\nGiữ tranh phẳng, khô, tránh ánh nắng trực tiếp và hơi nước từ cửa sổ, bếp hoặc phòng tắm. Không vệ sinh bề mặt tranh bằng khăn ướt hoặc hóa chất. Khi di chuyển, bọc cẩn thận để hạn chế gập, cấn góc và trầy xước. Một góc tranh được sắp xếp gọn sẽ tạo cảm giác gần gũi cho căn phòng.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Tranh dân gian",
+    "region": "Miền Bắc",
+    "province": "Bắc Ninh",
+    "village": "Đông Hồ",
+    "price": 260000,
+    "rate": 4.9,
+    "reviews": 121,
+    "ocop": 3,
+    "heritage": "Bạc",
+    "seasons": [],
+    "occasion": "Quà tân gia",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🖼️",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSsZzs2xpcu9iFZfYr8fulE9SrldUVTFiKL2Ql-HjaHE8xDhAGxj2DXzNd&s=10",
+      "https://bizweb.dktcdn.net/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-kinh-45cmx60cm.jpg?v=1751118192410",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-30x40.jpg?v=1690691739367"
+    ],
+    "variants": []
+  },
+  {
+    "id": 38,
+    "name": "Tranh thêu tay Quất Động",
+    "description": "Tranh thêu tay Quất Động đem đường kim, mũi chỉ trở thành điểm nhấn trong trang trí. Sản phẩm gắn với Quất Động, Hà Nội, phù hợp cho người thích tranh thêu hoặc đang tìm một món quà có chủ đề làng nghề.\n\nNên đặt tranh tại vị trí có khoảng nhìn rõ để các chi tiết thêu không bị che khuất. Tùy quy cách sản phẩm, chọn khung, giá hoặc vị trí treo phù hợp và đối chiếu kích thước với diện tích tường. Có thể phối tranh trong phòng khách, góc làm việc hay một không gian riêng dành cho các món đồ yêu thích.\n\nTránh chạm tay bẩn hoặc tay ướt vào phần thêu, không kéo chỉ và không tự chà rửa bề mặt. Giữ tranh tránh tường ẩm, ánh nắng gắt và bụi kéo dài; vệ sinh nhẹ phần khung hoặc lớp bảo vệ nếu có. Khi cần di chuyển, bọc mặt tranh và các góc cẩn thận để giữ bề mặt thêu không bị cấn, móc.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Tranh thêu",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Quất Động",
+    "price": 480000,
+    "rate": 4.5,
+    "reviews": 134,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🪡",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://langngheviet.com.vn/stores/news_dataimages/langnghevietcomvn/082020/12/21/lang-theu-quat-dong-ban-sac-mot-vung-que-25-.2235.jpg",
+      "https://resource.kinhtedothi.vn/2021/12/26/tranh-theu-quat-dong.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 39,
+    "name": "Guốc mộc Bình Nhâm",
+    "description": "Guốc mộc Bình Nhâm là phụ kiện gợi nét quen thuộc của trang phục Việt, phù hợp với người thích những món đồ có chất liệu gỗ làm điểm nhấn. Sản phẩm có thể kết hợp cùng áo dài, váy hoặc dùng trong bộ ảnh và hoạt động mang chủ đề văn hóa.\n\nKhi chọn sử dụng, đối chiếu kích thước thực tế và độ vừa của quai với bàn chân. Nên thử trên bề mặt phẳng, khô và đi những bước ngắn để làm quen. Nếu dùng làm quà, xác nhận kích cỡ người nhận trước khi chọn để món quà có thể sử dụng thuận tiện.\n\nLau sạch bụi bằng khăn mềm, giữ bề mặt và phần quai khô sau khi sử dụng. Tránh ngâm nước, để ngoài nắng gắt hoặc cất tại nơi ẩm trong thời gian dài. Không để vật nặng đè lên quai và hạn chế va đập vào cạnh guốc. Khi chưa dùng, đặt đôi guốc cạnh nhau ở nơi thông thoáng để giữ hình dáng gọn gàng.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Đồ gỗ thủ công",
+    "region": "Miền Nam",
+    "province": "Bình Dương",
+    "village": "Bình Nhâm",
+    "price": 160000,
+    "rate": 4.5,
+    "reviews": 22,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🪵",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://th.bing.com/th/id/OIP.5RbFmrtkGyIFWVU7XhQO1AHaHs?w=133&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://i.ebayimg.com/images/g/bPkAAeSwMt5oFuWG/s-l1200.jpg",
+      "https://i.ebayimg.com/images/g/zpYAAOSwiEdnDNKd/s-l1200.png"
+    ],
+    "variants": [
+      {
+        "id": "36",
+        "label": "36",
+        "attributes": [
+          {
+            "name": "Cỡ giày",
+            "value": "36"
+          }
+        ],
+        "price": 160000,
+        "available": true
+      },
+      {
+        "id": "37",
+        "label": "37",
+        "attributes": [
+          {
+            "name": "Cỡ giày",
+            "value": "37"
+          }
+        ],
+        "price": 160000,
+        "available": true
+      },
+      {
+        "id": "38",
+        "label": "38",
+        "attributes": [
+          {
+            "name": "Cỡ giày",
+            "value": "38"
+          }
+        ],
+        "price": 160000,
+        "available": true
+      },
+      {
+        "id": "39",
+        "label": "39",
+        "attributes": [
+          {
+            "name": "Cỡ giày",
+            "value": "39"
+          }
+        ],
+        "price": 160000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Trống da thủ công Đọi Tam",
+    "description": "Trống da thủ công Đọi Tam là sản phẩm dành cho người quan tâm đến nhạc cụ và đồ thủ công truyền thống. Tên gọi Đọi Tam gắn với Hà Nam; trống có thể được lựa chọn cho hoạt động biểu diễn, sinh hoạt văn hóa hoặc trưng bày, tùy kích thước và quy cách thực tế.\n\nTrước khi dùng, chọn vị trí đặt hoặc giá đỡ vững và dụng cụ gõ phù hợp với mẫu trống. Thao tác vừa phải, tránh gõ bằng vật nhọn hoặc tác động quá mạnh vào một điểm. Khi dùng trong hoạt động nhóm, nên bố trí khoảng trống xung quanh để người chơi và dụng cụ không va vào đồ vật khác.\n\nLau bụi bằng khăn mềm, không làm ướt hoặc dùng hóa chất trực tiếp lên mặt trống. Giữ trống ở nơi thoáng, tránh nguồn nhiệt, ánh nắng kéo dài và môi trường ẩm bí. Khi vận chuyển, bảo vệ cả thân và mặt trống, không đặt vật nặng đè lên trên. Nên trao đổi quy cách với cửa hàng nếu chọn trống cho một mục đích biểu diễn cụ thể.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Nhạc cụ truyền thống",
+    "region": "Miền Bắc",
+    "province": "Hà Nam",
+    "village": "Đọi Tam",
+    "price": 950000,
+    "rate": 4.5,
+    "reviews": 35,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🥁",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://th.bing.com/th/id/OIP.8_zUnGvTeg0DUiosXTfwzwHaJ4?w=132&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://cdn.24h.com.vn/upload/1-2021/images/2021-02-02/Can-canh-qua-trinh-ho-bien-manh-da-trau-kho-thanh-san-pham-giup-dan-lang-doi-Tam-doi-doi-8-1612247572-501-width750height490.jpg",
+      "https://resource.kinhtedothi.vn/2023/09/12/ba68eb32b3fe66a03fef12.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 41,
+    "name": "Tò he Xuân La",
+    "description": "Tò he Xuân La mang đến một chi tiết nhỏ, nhiều nét tạo hình cho góc trưng bày và những món quà lưu niệm. Sản phẩm gắn với Xuân La, Hà Nội, phù hợp với người yêu đồ thủ công nhỏ hoặc muốn có một món đồ gợi nhắc các hoạt động văn hóa dân gian.\n\nCó thể đặt tò he trong góc chụp ảnh, trên kệ hoặc trong bố cục quà tặng có điểm tựa chắc. Khi cầm, đỡ ở phần phù hợp và tránh tác động vào các chi tiết mảnh. Nếu lựa chọn cho trẻ nhỏ, cần có người lớn hướng dẫn và lưu ý đến các phần nhỏ của mẫu sản phẩm.\n\nGiữ tò he ở nơi khô thoáng, tránh nước, nhiệt cao và ánh nắng trực tiếp. Không bóp, uốn hoặc chà xát mạnh lên phần tạo hình. Khi cất hay mang đi xa, dành khoảng trống và có lớp đỡ để sản phẩm không bị va chạm. Nên chọn cách trưng bày phù hợp với hướng dẫn bảo quản của mẫu tò he bạn nhận.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Nặn tò he",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Xuân La",
+    "price": 85000,
+    "rate": 4.5,
+    "reviews": 48,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🎨",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://mediabls.mediatech.vn/upload/image/202301/medium/70139_img-1463-1673414198151825465541-1673426851024-16734268514611990460810.jpg",
+      "https://cly.1cdn.vn/2024/02/10/anh-4.4.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 42,
+    "name": "Nón lá làng Chuông",
+    "description": "Nón lá làng Chuông là phụ kiện gắn với hình ảnh trang phục Việt, phù hợp cho những buổi dạo chơi, chuyến đi và hoạt động văn hóa. Bạn có thể sử dụng nón cùng áo dài, trang phục đơn giản hoặc chọn làm một món quà lưu niệm dễ gợi nhớ đến Việt Nam.\n\nKhi đội, chỉnh quai theo độ vừa và giữ nón ổn định trong lúc di chuyển. Trong chụp ảnh, dáng nón có thể làm điểm nhấn mà không cần phối quá nhiều phụ kiện. Nếu dùng để trang trí, chọn giá đỡ hoặc điểm treo không tạo lực ép mạnh lên vành và chóp.\n\nLau bụi bằng khăn mềm, để nón khô thoáng nếu có dính nước trước khi cất. Tránh ngâm rửa, nguồn nhiệt và nơi ẩm bí; không đặt vật nặng lên trên hoặc ép nón vào khoảng chứa quá chật. Khi mang đi xa, bảo vệ phần vành để hạn chế cong, cấn và giữ dáng nón gọn gàng.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Nón lá",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Làng Chuông",
+    "price": 95000,
+    "rate": 4.5,
+    "reviews": 61,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "👒",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.eriY8agRzC9vT5jCRmTP4AHaE2?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://gezimanya.com/sites/default/files/styles/800x600_/public/lokasyon-detay/2019-11/image-hue-in-vietnam-the-traditional-hand-made-vietnamese-conic-hats-1600x1241.jpg",
+      "https://suckhoedoisong.qltns.mediacdn.vn/2015/1-1438524903848.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 43,
+    "name": "Đĩa gốm Lái Thiêu",
+    "description": "Đĩa gốm Lái Thiêu tạo một điểm nhấn gốm cho kệ trưng bày, tủ kính hoặc góc tiếp khách. Sản phẩm gắn với Lái Thiêu, Bình Dương, phù hợp với người thích các món đồ có mặt trang trí rõ ràng và dễ sắp xếp cùng những vật dụng yêu thích.\n\nCó thể đặt đĩa trên giá đỡ phù hợp để quan sát mặt đĩa hoặc phối cùng một bình gốm tạo thành bộ trang trí nhỏ. Nên chọn nền và vật dụng xung quanh có màu sắc tiết chế để bố cục không bị rối. Với những mục đích sử dụng khác, làm theo hướng dẫn của sản phẩm và đối chiếu kích thước thực tế trước khi chọn.\n\nVệ sinh bằng khăn mềm hoặc rửa nhẹ theo hướng dẫn, lau khô trước khi cất. Tránh va đập ở phần vành, không chà bằng vật nhám và thêm lớp lót nếu xếp chồng cùng đồ gốm. Khi trưng bày, kiểm tra giá đỡ chắc và không đặt sát mép bàn, kệ.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Gốm",
+    "region": "Miền Nam",
+    "province": "Bình Dương",
+    "village": "Lái Thiêu",
+    "price": 220000,
+    "rate": 4.1,
+    "reviews": 74,
+    "ocop": 5,
+    "heritage": "Bạc",
+    "seasons": [],
+    "occasion": "Quà tân gia",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🍽️",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://th.bing.com/th/id/OIP.6uVR25PCilsBt-tDCVMjKQHaE7?w=236&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://uongtrathoi.com/upload/Pages/098-101-tpt-special_laithieu1-9-1728960214.jpg",
+      "https://baseec-img-mng.akamaized.net/images/item/origin/c448c8e49e9cd5c9b882019c6a2141cc.jpg?im=Resize%2Cwidth%3D1280%2Ctype%3Dnormal&imformat=generic&q=90"
+    ],
+    "variants": []
+  },
+  {
+    "id": 44,
+    "name": "Túi thổ cẩm dệt tay Mường Chanh",
+    "description": "Túi thổ cẩm dệt tay Mường Chanh mang họa tiết dệt vào một món phụ kiện có thể dùng trong nhiều dịp. Sản phẩm gắn với Mường Chanh, Sơn La, phù hợp với người thích phối trang phục đơn giản cùng một chi tiết mang màu sắc riêng.\n\nBạn có thể mang túi khi đi dạo, gặp bạn bè hoặc sử dụng trong những chuyến đi có hành lý gọn nhẹ. Sắp xếp đồ đều trong lòng túi, tránh vật nhọn làm mắc sợi và không để chất lỏng dễ rò rỉ trực tiếp bên trong. Có thể thêm túi nhỏ để giữ chìa khóa, phụ kiện và đồ cá nhân ngăn nắp hơn.\n\nDùng khăn hoặc chổi mềm làm sạch bụi, xử lý vết bẩn nhẹ tại chỗ theo hướng dẫn chăm sóc. Tránh ngâm lâu, vò mạnh và phơi dưới nắng gắt. Cất túi khi đã khô ở nơi thông thoáng, không ép dưới vật nặng. Đây cũng là món quà dành cho người yêu phụ kiện dệt và đồ thủ công vùng miền.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Thổ cẩm",
+    "region": "Miền Bắc",
+    "province": "Sơn La",
+    "village": "Mường Chanh",
+    "price": 280000,
+    "rate": 4.5,
+    "reviews": 87,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "👜",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://admin.vov.gov.vn/UploadFolder/KhoTin/Images/UploadFolder/VOVVN/Images/sites/default/files/styles/large_watermark/public/2024-04/chiec_tui_tho_cam_ket_hop_nhieu_mau_cua_nguoi_kho_mu.jpg",
+      "https://admin.vov.gov.vn/UploadFolder/KhoTin/Images/UploadFolder/VOVVN/Images/sites/default/files/styles/large_watermark/public/2024-04/chiec_tui_tho_cam_do_truyen_thong_cua_nguoi_kho_mu.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 45,
+    "name": "Móc khóa len thủ công",
+    "description": "Móc khóa len thủ công là một phụ kiện nhỏ để làm dấu chùm chìa khóa, trang trí túi hoặc thêm điểm nhấn cho balô. Dáng móc len tạo cảm giác gần gũi, phù hợp làm quà nhỏ cho bạn bè, đồng nghiệp hoặc một món kèm theo trong hộp quà.\n\nBạn có thể gắn móc vào vị trí dễ nhìn để thuận tiện nhận ra đồ dùng của mình. Nên kiểm tra vòng và phần nối trước khi sử dụng, tránh kéo mạnh hoặc treo vật nặng vào phần tạo hình bằng len. Khi gắn lên túi, chọn vị trí ít ma sát với khóa kéo và các cạnh sắc.\n\nLàm sạch bụi nhẹ bằng chổi hoặc khăn mềm; nếu cần giặt, thực hiện theo hướng dẫn của sản phẩm và làm khô hoàn toàn trước khi dùng lại. Tránh ngâm lâu, vắt xoắn hoặc sấy nóng làm ảnh hưởng đến hình dáng. Khi chọn làm quà, có thể phối cùng thiệp nhỏ hoặc túi đựng đơn giản để món phụ kiện được nổi bật.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Đồ thủ công nhỏ",
+    "region": "Miền Nam",
+    "province": "TP. Hồ Chí Minh",
+    "village": "",
+    "price": 45000,
+    "rate": 4.5,
+    "reviews": 100,
+    "ocop": 3,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà cưới",
+    "inStock": false,
+    "preorder": true,
+    "icon": "🧶",
+    "badges": [
+      "Thủ công"
+    ],
+    "images": [
+      "https://th.bing.com/th/id/OIP.D9Q6ZuB5pWwSjQUTnll5BAHaHa?w=160&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://floreal.in/cdn/shop/files/IMG_7257_13_11zon_2_11zon_grande.webp?v=1722525163",
+      "https://c.p02.c4a.im/images/item/20039067/ee75a96718bcaa60565690d838ac5574a10e77e3807723c7aca117f1bfabb951?d=583x585"
+    ],
+    "variants": [
+      {
+        "id": "moc-khoa",
+        "label": "Móc khóa",
+        "attributes": [
+          {
+            "name": "Kiểu móc",
+            "value": "Móc khóa"
+          }
+        ],
+        "price": 45000,
+        "available": true
+      },
+      {
+        "id": "moc-tui",
+        "label": "Móc treo túi",
+        "attributes": [
+          {
+            "name": "Kiểu móc",
+            "value": "Móc treo túi"
+          }
+        ],
+        "price": 55000,
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Bộ ấm chén gốm Bát Tràng",
+    "description": "Bộ ấm chén gốm Bát Tràng dành cho những buổi thưởng trà tại nhà và bàn tiếp khách gia đình. Các món trong bộ giúp góc trà có bố cục đồng bộ, phù hợp để dùng hằng ngày hoặc chọn làm quà tân gia, quà dành cho người thân.\n\nTrước lần dùng đầu tiên, rửa nhẹ, tráng sạch và để ráo các món gốm. Khi pha, làm ấm dụng cụ từ từ, chọn lượng trà phù hợp và đặt ấm chén trên mặt bàn hoặc khay ổn định. Có thể phối thêm khay đan, khay gỗ hoặc khăn lót đơn sắc để tổng thể bàn trà gọn gàng hơn.\n\nSau khi sử dụng, bỏ bã trà, vệ sinh bằng vật liệu mềm và lau khô trước khi cất. Hạn chế va chạm ở vòi, quai, nắp và miệng chén; tránh thay đổi nhiệt độ đột ngột hoặc dùng vật cứng cạo vết bám. Khi sắp xếp vào tủ, đặt các món chắc chắn và lót mềm nếu cần để giảm va chạm giữa các bề mặt gốm.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Gốm",
+    "region": "Miền Bắc",
+    "province": "Hà Nội",
+    "village": "Bát Tràng",
+    "price": 520000,
+    "rate": 4.5,
+    "reviews": 89,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🫖",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9f6TGHUEvwGlGlsfnuD8rn5RuHNZoAFQ004-AoqiUiX-KGJYt7I-s_AE&s=10",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-3.jpg",
+      "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-4.jpg",
+      "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp"
+    ],
+    "variants": [
+      {
+        "id": "xanh-hoa-bien",
+        "label": "Xanh hỏa biến",
+        "attributes": [
+          {
+            "name": "Mẫu men",
+            "value": "Xanh hỏa biến",
+            "swatch": "#315c66"
+          }
+        ],
+        "price": 520000,
+        "available": true,
+        "image": "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+        "images": [
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-2.jpg",
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-3.jpg",
+          "https://battrangvietnam.vn/wp-content/uploads/2023/12/bo-am-chen-tra-men-hoa-bien-mau-xanh-duong-4.jpg"
+        ]
+      },
+      {
+        "id": "trang-xanh",
+        "label": "Trắng xanh",
+        "attributes": [
+          {
+            "name": "Mẫu men",
+            "value": "Trắng xanh",
+            "swatch": "#eef1e8"
+          }
+        ],
+        "price": 560000,
+        "available": true,
+        "image": "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp",
+        "images": [
+          "https://raw.githubusercontent.com/hueptkk24411e-dotcom/MocMac/1d6fbd604e16aabc0774b9e4cd5a155d6f4c410e/my-app/public/data/images/%E1%BA%A5m%20t%C3%A1ch%20xanh%20tr%E1%BA%AFng.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Móc khóa len thủ công",
+    "description": "Móc khóa len thủ công đem chi tiết đan móc vào một món phụ kiện dễ mang theo. Sản phẩm có thể dùng để đánh dấu chìa khóa hoặc trang trí túi, phù hợp với người thích những món đồ nhỏ có hình thức gần gũi.\n\nGắn móc vào vòng chìa khóa hoặc vị trí chắc trên túi, balô để tạo điểm nhấn riêng. Kiểm tra phần nối trước khi dùng và tránh để móc bị kẹt ở khóa kéo, cửa hoặc các vật có cạnh sắc. Phần len nên dùng như chi tiết trang trí, không dùng làm quai xách hoặc điểm treo vật nặng.\n\nVệ sinh nhẹ theo hướng dẫn của sản phẩm, ưu tiên xử lý vết bẩn cục bộ và để khô hoàn toàn trước khi cất. Hạn chế vò, kéo sợi, ngâm lâu và làm khô bằng nhiệt cao. Một chiếc móc khóa có thể đi cùng thiệp chúc hoặc được thêm vào hộp quà nhỏ, thích hợp cho các dịp sinh nhật và gặp gỡ bạn bè.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Đan móc thủ công",
+    "region": "Miền Nam",
+    "province": "TP. Hồ Chí Minh",
+    "village": "",
+    "price": 65000,
+    "rate": 4.5,
+    "reviews": 126,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🧶",
+    "badges": [
+      "Thủ công"
+    ],
+    "images": [
+      "https://th.bing.com/th/id/OIP.D9Q6ZuB5pWwSjQUTnll5BAHaHa?w=160&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://floreal.in/cdn/shop/files/IMG_7257_13_11zon_2_11zon_grande.webp?v=1722525163",
+      "https://c.p02.c4a.im/images/item/20039067/ee75a96718bcaa60565690d838ac5574a10e77e3807723c7aca117f1bfabb951?d=583x585"
+    ],
+    "variants": []
+  },
+  {
+    "id": 48,
+    "name": "Bánh tráng phơi sương Trảng Bàng",
+    "description": "Bánh tráng phơi sương Trảng Bàng là lựa chọn cho những bữa cuốn tại nhà và cuộc gặp có món ăn cùng chia sẻ. Sản phẩm gắn với Trảng Bàng, Tây Ninh, phù hợp để kết hợp với rau, nguyên liệu đã chế biến chín và nước chấm theo sở thích.\n\nChuẩn bị các món ăn kèm trước, lấy lượng bánh vừa đủ cho từng lượt cuốn và sử dụng theo hướng dẫn trên bao bì. Đặt bánh trên mặt đĩa hoặc khay sạch, tránh để gần hơi nóng hay nơi quá ẩm trong lúc dùng. Với phần chưa dùng, hạn chế mở bao gói quá lâu để việc bảo quản thuận tiện hơn.\n\nĐóng kín sau mỗi lần lấy bánh và bảo quản theo chỉ dẫn của nhà sản xuất. Tránh ánh nắng, nguồn nhiệt, hơi nước và thực phẩm có mùi mạnh. Kiểm tra tình trạng bánh cùng hạn sử dụng trước khi dùng. Sản phẩm có thể kết hợp trong phần quà đặc sản dành cho người thích chuẩn bị những bữa ăn sum họp.",
+    "cat": "Đặc sản",
+    "type": "Đặc sản khô",
+    "region": "Miền Nam",
+    "province": "Tây Ninh",
+    "village": "Trảng Bàng",
+    "price": 78000,
+    "rate": 4.6,
+    "reviews": 139,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [
+      1,
+      2,
+      3
+    ],
+    "occasion": "Quà Tết",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🫓",
+    "badges": [],
+    "images": [
+      "https://dacsantayninh.info/wp-content/uploads/2015/06/banh-trang-phoi-suong-ngoc-han-1-768x480.jpg",
+      "https://cdn2.fptshop.com.vn/unsafe/800x0/banh_trang_trang_bang_7_05d338df69.png",
+      "https://media.mia.vn/uploads/blog-du-lich/lang-nghe-banh-trang-trang-bang-net-dep-truyen-thong-cua-nguoi-dan-nam-bo-01-1661881528.jpg"
+    ],
+    "variants": []
+  },
+  {
+    "id": 49,
+    "name": "Đĩa gốm Lái Thiêu",
+    "description": "Đĩa gốm Lái Thiêu là một lựa chọn để bổ sung chi tiết gốm vào không gian sống. Mặt đĩa và đường viền có thể trở thành điểm nhìn trên kệ, bàn phụ hoặc góc trưng bày những món đồ lưu niệm yêu thích.\n\nBạn có thể bày riêng một chiếc trên giá đỡ hoặc kết hợp với bình, sách và hộp nhỏ để tạo bố cục có chiều cao khác nhau. Chừa khoảng thoáng quanh đĩa sẽ giúp tổng thể gọn gàng và dễ quan sát. Lựa chọn vị trí theo kích thước thực tế, dùng giá đỡ phù hợp và tránh để sản phẩm ở nơi nhiều người qua lại dễ va chạm.\n\nLau sạch nhẹ bằng vật liệu mềm, giữ đĩa khô trước khi cất. Không dùng miếng cọ nhám, tránh va vào vành và lót giữa các món gốm nếu cần xếp chung. Sản phẩm phù hợp làm quà cho người yêu gốm Lái Thiêu, Bình Dương hoặc người thích trang trí nhà bằng những chi tiết nhỏ có dấu ấn vùng miền.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Gốm",
+    "region": "Miền Nam",
+    "province": "Bình Dương",
+    "village": "Lái Thiêu",
+    "price": 195000,
+    "rate": 4.5,
+    "reviews": 27,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🏺",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://th.bing.com/th/id/OIP.6uVR25PCilsBt-tDCVMjKQHaE7?w=236&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
+      "https://uongtrathoi.com/upload/Pages/098-101-tpt-special_laithieu1-9-1728960214.jpg",
+      "https://baseec-img-mng.akamaized.net/images/item/origin/c448c8e49e9cd5c9b882019c6a2141cc.jpg?im=Resize%2Cwidth%3D1280%2Ctype%3Dnormal&imformat=generic&q=90"
+    ],
+    "variants": []
+  },
+  {
+    "id": 50,
+    "name": "Tranh dân gian Đông Hồ đóng khung",
+    "description": "Tranh dân gian Đông Hồ đóng khung là lựa chọn dành cho người muốn có một điểm nhấn tranh dân gian với phần viền trưng bày gọn gàng. Sản phẩm gắn với Đông Hồ, Bắc Ninh, phù hợp cho phòng khách, góc đọc sách hoặc món quà mang chủ đề văn hóa Việt.\n\nTrước khi treo, đối chiếu kích thước cả khung với khoảng tường và kiểm tra phụ kiện treo phù hợp. Có thể bày một tranh làm điểm nhấn hoặc phối cùng các món đồ gốm, sách trong bố cục tiết chế. Chọn hướng nhìn thuận tiện, tránh đặt quá cao hoặc để các vật dụng khác che khuất phần tranh.\n\nGiữ khung và tranh tránh nước, tường ẩm, ánh nắng trực tiếp và nguồn nhiệt. Lau bụi nhẹ ở phần khung, không xịt chất tẩy hoặc nước lên bề mặt tranh. Khi di chuyển, đỡ chắc các cạnh, bọc riêng các góc và mặt trước để hạn chế trầy xước. Kiểm tra điểm treo định kỳ để góc trưng bày luôn gọn và ổn định.",
+    "cat": "Thủ công mỹ nghệ",
+    "type": "Tranh dân gian",
+    "region": "Miền Bắc",
+    "province": "Bắc Ninh",
+    "village": "Đông Hồ",
+    "price": 360000,
+    "rate": 4.5,
+    "reviews": 40,
+    "ocop": 0,
+    "heritage": null,
+    "seasons": [],
+    "occasion": "Quà tặng",
+    "inStock": true,
+    "preorder": false,
+    "icon": "🖼️",
+    "badges": [
+      "Thủ công",
+      "Làng nghề"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSsZzs2xpcu9iFZfYr8fulE9SrldUVTFiKL2Ql-HjaHE8xDhAGxj2DXzNd&s=10",
+      "https://bizweb.dktcdn.net/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-kinh-45cmx60cm.jpg?v=1751118192410",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/438/304/products/tranh-dong-ho-ga-dai-cat-khung-30x40.jpg?v=1690691739367"
+    ],
+    "variants": []
+  }
+]

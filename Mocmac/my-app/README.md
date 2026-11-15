@@ -20,7 +20,8 @@ The backend is in `../mocmac-api` and requires Node.js and a running MongoDB ins
 2. Copy `.env.example` to `.env` and set a private `JWT_SECRET` and `ADMIN_PASSWORD`.
 3. Run `npm install`.
 4. Run `npm run seed` to load products from `my-app/public/data/product.json` and create the initial admin account if needed.
-5. Run `npm run dev` to start the API at `http://localhost:3000`.
+5. Run `npm run seed:gifts` to import missing gifts from `mocmac-api/data/gift.json` into MongoDB. Existing gift records are preserved.
+6. Run `npm run dev` to start the API at `http://localhost:3000`.
 
 **Warning:** `npm run seed` deletes all existing product records before loading the JSON file. Start the Angular app separately from `my-app`; `npm start` configures its development proxy for `/api`.
 

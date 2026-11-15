@@ -1,0 +1,163 @@
+<div class="product-page">
+  <nav class="detail-container breadcrumb" aria-label="Điều hướng">
+    <a href="/">Trang chủ</a><span>/</span><a href="/qua-tang">Quà tặng</a><span>/</span>
+    <span aria-current="page">{{ gift()?.name || 'Chi tiết quà tặng' }}</span>
+  </nav>
+
+  <main class="detail-container">
+    @if (loading()) {
+      <div class="page-status" role="status">Đang tải thông tin quà tặng…</div>
+    } @else if (gift(); as item) {
+      <section class="product-main">
+        <div class="gallery">
+          <div
+            class="image-stage"
+            tabindex="0"
+            aria-label="Thư viện ảnh quà tặng"
+            (keydown.arrowleft)="previousImage(); $event.preventDefault()"
+            (keydown.arrowright)="nextImage(); $event.preventDefault()"
+          >
+            @if (selectedImage() && !imageBroken()) {
+              <img class="main-product-image" [src]="selectedImage()" [alt]="item.name" (error)="imageBroken.set(true)" />
+            } @else {
+              <div class="image-placeholder">Hình ảnh quà tặng đang được cập nhật</div>
+            }
+            @if (giftImages().length > 1) {
+              <button type="button" class="gallery-arrow previous" (click)="previousImage()" aria-label="Ảnh trước">‹</button>
+              <button type="button" class="gallery-arrow next" (click)="nextImage()" aria-label="Ảnh tiếp theo">›</button>
+              <span class="gallery-counter" aria-live="polite">{{ selectedImageIndex() + 1 }} / {{ giftImages().length }}</span>
+            }
+          </div>
+          @if (giftImages().length > 1) {
+            <div class="thumbnails" aria-label="Chọn hình ảnh">
+              @for (image of giftImages(); track image; let index = $index) {
+                <button
+                  type="button"
+                  [class.selected]="selectedImageIndex() === index"
+                  [attr.aria-label]="'Xem ảnh ' + (index + 1)"
+                  [attr.aria-pressed]="selectedImageIndex() === index"
+                  (click)="selectImage(index)"
+                >
+                  <img [src]="image" [alt]="item.name + ' - ảnh ' + (index + 1)" />
+                </button>
+              }
+            </div>
+          }
+          @if (item.source) {
+            <p class="share-row">Nguồn sản phẩm: <strong>{{ item.source }}</strong></p>
+          }
+        </div>
+
+        <div class="product-info">
+          <p class="product-category">{{ item.type || item.cat || 'Quà tặng' }}</p>
+          <h1>{{ item.name }}</h1>
+          <div class="rating-row">
+            @if ((item.rate || 0) > 0) {
+              <span class="stars">{{ stars(item.rate || 0) }}</span>
+              <strong>{{ (item.rate || 0).toFixed(1) }}</strong>
+            }
+            <span class="review-link">{{ item.reviews ? item.reviews + ' đánh giá' : 'Chưa có đánh giá' }}</span>
+            <span class="stock" [class.unavailable]="item.inStock === false">{{ item.inStock === false ? 'Tạm hết hàng' : 'Còn hàng' }}</span>
+          </div>
+          <div class="price-block"><strong>{{ fmt(item.price) }}</strong></div>
+          <dl class="product-specs">
+            <div><dt>Mã quà tặng</dt><dd>MM-QT-{{ item.id.toString().padStart(3, '0') }}</dd></div>
+            <div><dt>Dòng quà</dt><dd>{{ item.type || 'Quà tặng' }}</dd></div>
+            <div><dt>Xuất xứ</dt><dd>{{ item.province || 'Đang cập nhật' }}{{ item.region ? ' · ' + item.region : '' }}</dd></div>
+          </dl>
+
+          <section class="purchase-panel">
+            <h2>Chọn số lượng và đặt hàng</h2>
+            <div class="quantity-row">
+              <div class="quantity-box">
+                <span>Số lượng</span>
+                <div class="quantity-control">
+                  <button type="button" (click)="decreaseQuantity()" [disabled]="quantity() <= 1" aria-label="Giảm số lượng">−</button>
+                  <span aria-live="polite">{{ quantity() }}</span>
+                  <button type="button" (click)="increaseQuantity()" [disabled]="quantity() >= 99" aria-label="Tăng số lượng">+</button>
+                </div>
+              </div>
+              <div class="subtotal"><small>Tạm tính</small><strong>{{ fmt(item.price * quantity()) }}</strong></div>
+            </div>
+            <div class="action-buttons">
+              <button type="button" class="btn-cart" [disabled]="!canPurchase()" (click)="addToCart()">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h2l2.5 12h11l2-8H6M9 20h.01M18 20h.01"/></svg>
+                Thêm vào giỏ
+              </button>
+              <button type="button" class="btn-buy" [disabled]="!canPurchase()" (click)="buyNow()">Mua ngay</button>
+            </div>
+            @if (item.inStock === false) { <p class="purchase-note">Quà tặng tạm hết hàng. Vui lòng liên hệ cửa hàng để được hỗ trợ.</p> }
+            @if (cartMessage()) { <p class="purchase-note" role="status">{{ cartMessage() }}</p> }
+          </section>
+          <p class="contact-note">Bạn cần tư vấn thêm? <button type="button" class="text-button" (click)="contact()">Liên hệ Mộc Mạc</button></p>
+        </div>
+      </section>
+
+      <section class="details-section" id="gift-details-tabs">
+        <nav class="detail-tabs" aria-label="Thông tin quà tặng">
+          <button type="button" [class.active]="activeTab() === 'description'" [attr.aria-pressed]="activeTab() === 'description'" (click)="setTab('description')">Mô tả quà tặng</button>
+          <button type="button" [class.active]="activeTab() === 'information'" [attr.aria-pressed]="activeTab() === 'information'" (click)="setTab('information')">Thông tin chi tiết</button>
+          <button type="button" [class.active]="activeTab() === 'reviews'" [attr.aria-pressed]="activeTab() === 'reviews'" (click)="setTab('reviews')">Đánh giá ({{ item.reviews || 0 }})</button>
+        </nav>
+        @if (activeTab() === 'description') {
+          <div class="description-layout">
+            <div class="description-copy">
+              <h2>Mô tả quà tặng</h2>
+              <p>{{ item.description || 'Thông tin mô tả đang được cập nhật. Vui lòng liên hệ Mộc Mạc để được tư vấn.' }}</p>
+            </div>
+            @if (selectedImage()) {
+              <figure class="description-visual">
+                <img [src]="selectedImage()" [alt]="item.name" loading="lazy" />
+                <figcaption><strong>{{ item.name }}</strong><small>{{ item.province }}{{ item.region ? ' · ' + item.region : '' }}</small></figcaption>
+              </figure>
+            }
+          </div>
+        }
+        @if (activeTab() === 'information') {
+          <div class="information-content">
+            <h2>Thông tin chi tiết</h2>
+            <dl class="information-table">
+              <div><dt>Tên quà tặng</dt><dd>{{ item.name }}</dd></div>
+              <div><dt>Mã quà tặng</dt><dd>MM-QT-{{ item.id.toString().padStart(3, '0') }}</dd></div>
+              <div><dt>Danh mục</dt><dd>{{ item.cat || 'Quà tặng' }}</dd></div>
+              <div><dt>Dòng quà</dt><dd>{{ item.type || 'Đang cập nhật' }}</dd></div>
+              <div><dt>Tỉnh thành</dt><dd>{{ item.province || 'Đang cập nhật' }}</dd></div>
+              <div><dt>Vùng miền</dt><dd>{{ item.region || 'Đang cập nhật' }}</dd></div>
+              <div><dt>Tình trạng</dt><dd>{{ item.inStock === false ? 'Tạm hết hàng' : 'Còn hàng' }}</dd></div>
+            </dl>
+          </div>
+        }
+        @if (activeTab() === 'reviews') {
+          <div class="reviews-content">
+            <h2>Đánh giá quà tặng</h2>
+            <p class="review-empty">
+              {{ item.reviews ? stars(item.rate || 0) + ' · ' + (item.rate || 0).toFixed(1) + ' / 5 · ' + item.reviews + ' đánh giá' : 'Chưa có đánh giá cho quà tặng này.' }}
+            </p>
+          </div>
+        }
+      </section>
+
+      @if (relatedGifts().length) {
+        <section class="related-section">
+          <header class="section-heading"><h2>Quà tặng bạn có thể quan tâm</h2><a href="/qua-tang">Xem tất cả <span aria-hidden="true">→</span></a></header>
+          <div class="related-grid">
+            @for (related of relatedGifts(); track related.id) {
+              <a class="related-card" [href]="'/qua-tang/' + related.id">
+                <div class="related-image">
+                  @if (related.images?.length) { <img [src]="related.images![0]" [alt]="related.name" loading="lazy" /> }
+                  @else { <span>Mộc Mạc</span> }
+                </div>
+                <div class="related-info"><small>{{ related.type || related.cat }}</small><h3>{{ related.name }}</h3><div><strong>{{ fmt(related.price) }}</strong></div></div>
+              </a>
+            }
+          </div>
+        </section>
+      }
+    } @else {
+      <div class="page-status" role="alert">
+        <h1>{{ error() || 'Không tìm thấy quà tặng' }}</h1>
+        <button type="button" class="text-button" (click)="goBack()">Về trang quà tặng</button>
+      </div>
+    }
+  </main>
+</div>

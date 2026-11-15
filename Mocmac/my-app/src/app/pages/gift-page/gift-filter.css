@@ -1,0 +1,311 @@
+/* ============================================================
+   BỘ LỌC GIFT PAGE - cùng kiểu với trang Sản phẩm
+   (file này nạp SAU gift-page.css nên ghi đè được layout cũ)
+============================================================ */
+
+/* Bố cục: cột lọc hẹp bên trái, sản phẩm bên phải */
+@media (min-width: 1101px) {
+  .gift-catalog-layout {
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 28px;
+  }
+}
+
+.catalog-filter-sidebar {
+  position: static;
+  align-self: start;
+}
+
+/* ---------- KHUNG BỘ LỌC ---------- */
+.gf-panel {
+  background: #FFFFFF;
+  border: 1px solid #EADFC9;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.gf-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--moss-d, #304430);
+}
+
+.gf-title-filter {
+  margin: 0;
+  padding: 10px 2px 8px;
+}
+
+/* ---------- Ô TÌM KIẾM ---------- */
+.gf-search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #D9D2BF;
+  border-radius: 8px;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+
+.gf-search:focus-within {
+  border-color: var(--moss-d, #304430);
+}
+
+.gf-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-family: inherit;
+  background: transparent;
+  color: var(--ink, #1f2a37);
+}
+
+.gf-search button {
+  border: 0;
+  margin: 3px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: var(--moss-d, #304430);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.gf-search button:hover {
+  background: #1E2D25;
+}
+
+/* ---------- SẢN PHẨM ĐÃ LƯU ---------- */
+.gf-saved {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid #CFDCC4;
+  border-radius: 8px;
+  background: #EEF3E8;
+  color: #2F4538;
+  font-size: 13px;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.gf-saved:hover,
+.gf-saved.active {
+  border-color: var(--moss-d, #304430);
+  background: #E5EEDD;
+}
+
+.gf-saved-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.gf-saved.active .gf-saved-icon {
+  color: #C0392B;
+}
+
+.gf-saved-badge {
+  margin-left: auto;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 6px;
+  border-radius: 14px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gf-divider {
+  border: 0;
+  border-top: 1px solid #EEE6D4;
+  margin: 16px 0 0;
+}
+
+/* ---------- NHÓM LỌC XỔ XUỐNG ---------- */
+.gf-group {
+  border-bottom: 1px solid #EEE6D4;
+}
+
+.gf-group-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 2px;
+  border: 0;
+  background: none;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--ink, #1f2a37);
+  text-align: left;
+  cursor: pointer;
+}
+
+.gf-chevron {
+  width: 7px;
+  height: 7px;
+  margin-right: 4px;
+  border-right: 1.5px solid #8A8A8A;
+  border-bottom: 1.5px solid #8A8A8A;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.gf-chevron.open {
+  transform: rotate(-135deg);
+}
+
+.gf-group-body {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 0 2px 14px;
+}
+
+.gf-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #3B3B3B;
+  cursor: pointer;
+  user-select: none;
+}
+
+.gf-check input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--moss-d, #304430);
+  cursor: pointer;
+}
+
+.gf-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: #8E8E8E;
+}
+
+/* ---------- NÚT ĐẶT LẠI / ÁP DỤNG ---------- */
+.gf-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.gf-btn {
+  padding: 11px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.gf-btn-ghost {
+  background: #FFFFFF;
+  border: 1px solid #D9D2BF;
+  color: #333333;
+}
+
+.gf-btn-ghost:hover {
+  border-color: #999999;
+}
+
+.gf-btn-primary {
+  background: var(--moss-d, #304430);
+  border: 1px solid var(--moss-d, #304430);
+  color: #FFFFFF;
+}
+
+.gf-btn-primary:hover {
+  background: #1E2D25;
+}
+
+/* ---------- NÚT LỌC NHANH + THANH CÔNG CỤ ---------- */
+.gf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.gf-chip {
+  padding: 9px 18px;
+  border: 1px solid #E0D8C4;
+  border-radius: 999px;
+  background: #FFFFFF;
+  font-size: 13px;
+  font-family: inherit;
+  color: #333333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gf-chip:hover {
+  border-color: var(--moss-d, #304430);
+}
+
+.gf-chip.active {
+  background: var(--moss-d, #304430);
+  border-color: var(--moss-d, #304430);
+  color: #FFFFFF;
+}
+
+.gf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.gf-result-count {
+  font-size: 13px;
+  color: #6B6B6B;
+}
+
+.gf-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #555555;
+}
+
+.gf-sort select {
+  padding: 8px 28px 8px 12px;
+  border: 1px solid #D9D2BF;
+  border-radius: 8px;
+  background: #FFFFFF;
+  font-size: 13px;
+  font-family: inherit;
+  color: #333333;
+  cursor: pointer;
+}
+
+/* ---------- TIM TRÊN THẺ SẢN PHẨM ---------- */
+.wishlist-btn {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.wishlist-btn.active {
+  color: #C0392B;
+}

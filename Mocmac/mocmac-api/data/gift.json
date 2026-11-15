@@ -1,0 +1,230 @@
+[
+  {
+    "id": 1,
+    "name": "Set Quà Lộc 3",
+    "description": "Set Quà Lộc 3",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 899000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/set-qua-loc-3-1732081051677.jpg?v=1792912830310"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-loc-3"
+  },
+  {
+    "id": 2,
+    "name": "Set Quà Lộc 2",
+    "description": "Set Quà Lộc 2",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 399000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/set-qua-loc-2-1732080929441.jpg?v=1732084287203"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-loc-2"
+  },
+  {
+    "id": 3,
+    "name": "Set Quà Lộc 1",
+    "description": "Set Quà Lộc 1",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 599000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/set-loc-1-1732080480359.jpg?v=1732083219070"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-loc-1"
+  },
+  {
+    "id": 4,
+    "name": "Set Quà Phúc 2",
+    "description": "Set Quà Phúc 2",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 599000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/phuc-2-1731902974653.jpg?v=1792912834580"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-phuc-2"
+  },
+  {
+    "id": 5,
+    "name": "Set Quà An 8 - Bộ quà tặng Đối Tác/ Khách Hàng nữ/ Quà Tặng mẹ sang ý nghĩa",
+    "description": "Set Quà An 8 - Bộ quà tặng Đối Tác/ Khách Hàng nữ/ Quà Tặng mẹ sang ý nghĩa",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 769000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/set-qua-an-8-1731749807090.jpg?v=1731749811277"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-an-8"
+  },
+  {
+    "id": 6,
+    "name": "Set Quà Phúc 1",
+    "description": "Set Quà Phúc 1",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 599000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/set-phuc-2.jpg?v=1792912838480"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-phuc-1"
+  },
+  {
+    "id": 7,
+    "name": "Set Quà An 6",
+    "description": "Set Quà An 6",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 699000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/an-6-1731577226971.jpg?v=1792913142043"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-an-6"
+  },
+  {
+    "id": 8,
+    "name": "Set quà An 5",
+    "description": "Set quà An 5",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 619000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/an-5-1731577126912-409b367c-b1b8-4725-9faf-72fea9ddb485.jpg?v=1792912842693"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-an-5"
+  },
+  {
+    "id": 9,
+    "name": "Set Quà Yên 4",
+    "description": "Set Quà Yên 4",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 899000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/yen-4-1731576971396-984864ff-7c8f-4831-ba5c-be0bf4172fa0.jpg?v=1792912851440"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-yen-4"
+  },
+  {
+    "id": 10,
+    "name": "Set Quà Yên 3 - Quà tặng hàng Thủ Công Mỹ Nghệ cho đối tác nước ngoài",
+    "description": "Set Quà Yên 3 - Quà tặng hàng Thủ Công Mỹ Nghệ cho đối tác nước ngoài",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 999000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/yen-3-1731576845584.jpg?v=1792912855077"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-yen-3"
+  },
+  {
+    "id": 11,
+    "name": "Set Quà Yên 2",
+    "description": "Set Quà Yên 2",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 299000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/yen-2-1731576404305.jpg?v=1792912859757"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-yen-2"
+  },
+  {
+    "id": 12,
+    "name": "Set Quà Yên 1",
+    "description": "Set Quà Yên 1",
+    "cat": "Quà tặng",
+    "type": "Set quà",
+    "region": "",
+    "province": "",
+    "price": 299000,
+    "rate": 0,
+    "reviews": 0,
+    "inStock": true,
+    "icon": "🎁",
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/large/100/424/988/products/yen-1-1731576214636.jpg?v=1792912863193"
+    ],
+    "source": "tre-viet.com",
+    "link": "https://tre-viet.com/set-qua-yen-1"
+  }
+]

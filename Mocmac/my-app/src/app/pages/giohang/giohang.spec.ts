@@ -1,8 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { signal } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { afterEach } from 'vitest';
+import { of } from 'rxjs';
 import { CartService } from '../../cart.service';
 import { ProductItem, ProductsService } from '../../products.service';
+import { GiftJson, GiftService } from '../gift-page/gift.service';
 import { GiohangComponent } from './giohang';
 
 describe('GiohangComponent', () => {
@@ -10,6 +13,7 @@ describe('GiohangComponent', () => {
   let fixture: ComponentFixture<GiohangComponent>;
   const product: ProductItem = {
     id: 42,
+    slug: 'tra-lang-nghe',
     name: 'Trà làng nghề',
     cat: 'Đặc sản',
     type: 'Trà',
@@ -29,6 +33,15 @@ describe('GiohangComponent', () => {
     badges: [],
     images: [],
   };
+  const gift: GiftJson = {
+    id: 42,
+    name: 'Set quà',
+    price: 150000,
+    inStock: true,
+    images: ['https://example.com/gift.jpg'],
+  };
+
+  afterEach(() => TestBed.inject(CartService).clear());
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -38,6 +51,10 @@ describe('GiohangComponent', () => {
         {
           provide: ProductsService,
           useValue: { products: signal([product]) },
+        },
+        {
+          provide: GiftService,
+          useValue: { getGifts: () => of([gift]) },
         },
       ],
     }).compileComponents();
@@ -74,5 +91,17 @@ describe('GiohangComponent', () => {
 
     expect(component.items()).toEqual([]);
     expect(component.isEmpty()).toBe(true);
+  });
+
+  it('shows and updates a gift separately from a product with the same id', () => {
+    const cart = TestBed.inject(CartService);
+    cart.clear();
+    cart.add(product.id, product.name);
+    cart.add(gift.id, gift.name, undefined, 2, 'gift');
+
+    expect(component.items().map(item => item.name)).toEqual([product.name, gift.name]);
+    expect(component.subtotal()).toBe(400000);
+    component.increase(gift.id, undefined, 'gift');
+    expect(component.subtotal()).toBe(550000);
   });
 });
